@@ -25,7 +25,20 @@ class CourseApp {
      * @throws IllegalArgumentException If the password does not match the username, or the user is already logged in.
      * @return An authentication token to be used in other calls.
      */
-      fun login(username: String, password: String): String {     // TODO: naive implementation
+    fun login(username: String, password: String): String {     // TODO: naive implementation
+        //notes before implementation:
+        //check if username is in the system and if he is logged in(I guess it means that he have a token attached to him).
+        // if no: insert username and password
+        // if yes: check if the password given is the "true" password. "false" password leads to EXCEPTION.
+        // get a token integer from token generator.
+        // change array[token] to true.
+        // connect username to token integer.
+
+
+
+
+
+        /*
         val NotInSystemBA = "null".toByteArray()
         val usernameBA = username.toByteArray()
         val passwordBA = password.toByteArray()
@@ -38,6 +51,7 @@ class CourseApp {
         assert(read(usernameBA) != null)        //TODO: Check action if the username exits
         write(usernameBA, passwordBA)
         return username
+        */
     }
 
     /**
