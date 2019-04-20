@@ -1,5 +1,8 @@
 package il.ac.technion.cs.softwaredesign
 
+import il.ac.technion.cs.softwaredesign.storage.read
+import il.ac.technion.cs.softwaredesign.storage.write
+
 /**
  * This is the class implementing CourseApp, a course discussion group system.
  *
@@ -22,7 +25,20 @@ class CourseApp {
      * @throws IllegalArgumentException If the password does not match the username, or the user is already logged in.
      * @return An authentication token to be used in other calls.
      */
-    fun login(username: String, password: String): String = TODO("Implement me!")
+      fun login(username: String, password: String): String {     // TODO: naive implementation
+        val NotInSystemBA = "null".toByteArray()
+        val usernameBA = username.toByteArray()
+        val passwordBA = password.toByteArray()
+        if (read(usernameBA) == passwordBA)
+            return username
+        else if ( 1 == 1)
+        // TODO: check already looged in
+        else
+            throw java.lang.IllegalArgumentException()
+        assert(read(usernameBA) != null)        //TODO: Check action if the username exits
+        write(usernameBA, passwordBA)
+        return username
+    }
 
     /**
      * Log out the user with this authentication [token]. The [token] will be invalidated and can not be used for future
@@ -32,7 +48,12 @@ class CourseApp {
      *
      * @throws IllegalArgumentException If the auth [token] is invalid.
      */
-    fun logout(token: String): Unit = TODO("Implement me!")
+    fun logout(token: String): Unit {
+        val NotInSystem = "null".toByteArray()
+        val tokenBA = token.toByteArray()
+        if (read(tokenBA) == null)
+            throw IllegalArgumentException()
+    }
 
     /**
      * Indicate the status of [username] in the application.
