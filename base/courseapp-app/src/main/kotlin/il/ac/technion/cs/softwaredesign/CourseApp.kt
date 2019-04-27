@@ -2,6 +2,11 @@ package il.ac.technion.cs.softwaredesign
 
 import il.ac.technion.cs.softwaredesign.storage.read
 import il.ac.technion.cs.softwaredesign.storage.write
+import java.io.ByteArrayInputStream
+import java.io.ByteArrayOutputStream
+import java.io.ObjectInputStream
+import java.io.ObjectOutputStream
+import java.util.*
 
 /**
  * This is the class implementing CourseApp, a course discussion group system.
@@ -13,28 +18,28 @@ import il.ac.technion.cs.softwaredesign.storage.write
  */
 class CourseApp {
     init {
-        val UserToPasswordMapBA = read(1.toByteArray())
-        val UserToTokenMapBA = read(2.toByteArray())
-        val FreeTokensBA = read(3.toByteArray())
-        val ArrayTokenBA = read(4.toByteArray())
+        val UserToPasswordMapBA = read(1.toString().toByteArray())
+        val UserToTokenMapBA = read(2.toString().toByteArray())
+        val FreeTokensBA = read(3.toString().toByteArray())
+        val ArrayTokenBA = read(4.toString().toByteArray())
         if (UserToPasswordMapBA != null)
             CourseAppInitializer.UserToPasswordMap = deSerialization(UserToPasswordMapBA ,HashMap<String, String>)
         if (UserToPasswordMapBA != null)
             CourseAppInitializer.UserToTokenMap = deSerialization(UserToTokenMapBA , HashMap<String, Int>)
         if (UserToPasswordMapBA != null)
-            CourseAppInitializer.FreeTokens = deSerialization(FreeTokensBA ,LinkedList<Int>)
+            CourseAppInitializer.FreeTokens = deSerialization(FreeTokensBA , LinkedList<Int>)
         if (UserToPasswordMapBA != null)
             CourseAppInitializer.ArrayToken = deSerialization(ArrayTokenBA ,Array<String?>)
     }
 
-    fun deSerialization(ByteArray data, Class c) : Serializable {
+    fun deSerialization(data : ByteArray, c : Class) : Serializable {
         val byteIn = ByteArrayInputStream(data)
         val `in` = ObjectInputStream(byteIn)
         val data2 = `in`.readObject() as c
-        return byteOut.toByteArray()
+        return byteIn.toByteArray()
     }
 
-    fun Serialization(Serializable data) : ByteArray {
+    fun Serialization(data : Serializable) : ByteArray {
         val byteOut = ByteArrayOutputStream()
         val out = ObjectOutputStream(byteOut)
         out.writeObject(data)
@@ -42,10 +47,10 @@ class CourseApp {
     }
 
     fun UpdateAllDataStructsInServer() : Unit{
-        write(1.toByteArray(), Serialization(CourseAppInitializer.UserToPasswordMap))
-        write(2.toByteArray(), Serialization(CourseAppInitializer.UserToTokenMap))
-        write(3.toByteArray(), Serialization(CourseAppInitializer.FreeTokens))
-        write(4.toByteArray(), Serialization(CourseAppInitializer.ArrayToken))
+        write(1.toString().toByteArray(), Serialization(CourseAppInitializer.UserToPasswordMap))
+        write(2.toString().toByteArray(), Serialization(CourseAppInitializer.UserToTokenMap))
+        write(3.toString().toByteArray(), Serialization(CourseAppInitializer.FreeTokens))
+        write(4.toString().toByteArray(), Serialization(CourseAppInitializer.ArrayToken))
     }
 
     /**
