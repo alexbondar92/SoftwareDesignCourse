@@ -19,34 +19,32 @@ import java.util.*
 class CourseApp {
     init {
         val UserToPasswordMapBA = read(1.toString().toByteArray())
-        val UserToTokenMapBA = read(2.toString().toByteArray())
-        val FreeTokensBA = read(3.toString().toByteArray())
-        val ArrayTokenBA = read(4.toString().toByteArray())
-        if (UserToPasswordMapBA != null)
-            CourseAppInitializer.UserToPasswordMap = deSerialization(UserToPasswordMapBA ,HashMap<String, String>)
-        if (UserToPasswordMapBA != null)
-            CourseAppInitializer.UserToTokenMap = deSerialization(UserToTokenMapBA , HashMap<String, Int>)
-        if (UserToPasswordMapBA != null)
-            CourseAppInitializer.FreeTokens = deSerialization(FreeTokensBA , LinkedList<Int>)
-        if (UserToPasswordMapBA != null)
-            CourseAppInitializer.ArrayToken = deSerialization(ArrayTokenBA ,Array<String?>)
+        if (UserToPasswordMapBA != null) {
+            val UserToTokenMapBA = read(2.toString().toByteArray())
+            val FreeTokensBA = read(3.toString().toByteArray())
+            val ArrayTokenBA = read(4.toString().toByteArray())
+            CourseAppInitializer.UserToPasswordMap = deSerialization(UserToPasswordMapBA, HashMap<String, String>)
+            CourseAppInitializer.UserToTokenMap = deSerialization(UserToTokenMapBA, HashMap<String, Int>)
+            CourseAppInitializer.FreeTokens = deSerialization(FreeTokensBA, LinkedList<Int>)
+            CourseAppInitializer.ArrayToken = deSerialization(ArrayTokenBA, Array<String?>)
+        }
     }
 
-    fun deSerialization(data : ByteArray, c : Class) : Serializable {
+    private fun deSerialization(data : ByteArray, c : Class) : Serializable {
         val byteIn = ByteArrayInputStream(data)
         val `in` = ObjectInputStream(byteIn)
         val data2 = `in`.readObject() as c
         return byteIn.toByteArray()
     }
 
-    fun Serialization(data : Serializable) : ByteArray {
+    private fun Serialization(data : Serializable) : ByteArray {
         val byteOut = ByteArrayOutputStream()
         val out = ObjectOutputStream(byteOut)
         out.writeObject(data)
         return byteOut.toByteArray()
     }
 
-    fun UpdateAllDataStructsInServer() : Unit{
+    private fun UpdateAllDataStructsInServer() : Unit{
         write(1.toString().toByteArray(), Serialization(CourseAppInitializer.UserToPasswordMap))
         write(2.toString().toByteArray(), Serialization(CourseAppInitializer.UserToTokenMap))
         write(3.toString().toByteArray(), Serialization(CourseAppInitializer.FreeTokens))
@@ -66,9 +64,7 @@ class CourseApp {
      * @throws IllegalArgumentException If the password does not match the username, or the user is already logged in.
      * @return An authentication token to be used in other calls.
      */
-    fun login(username: String, password: String): String {     // TODO: naive implementation
-        //is user was logged in previously?
-        //is the user is logged in right now?
+    fun login(username: String, password: String): String {
 
         if (!CourseAppInitializer.UserToPasswordMap.containsKey(username)) {
             //new user
