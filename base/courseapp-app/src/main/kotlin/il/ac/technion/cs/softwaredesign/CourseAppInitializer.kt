@@ -9,12 +9,12 @@ import kotlin.collections.ArrayList
  * When testing, it will be instantiated once per test.
  */
 class CourseAppInitializer {
-    private val million = 1000000
-    companion object {
+    private val million = 1000005
+    public companion object {
         private var UserToPasswordMap = HashMap<String, String>()
         private var UserToTokenMap = HashMap<String, Int>()
         private var FreeTokens = LinkedList<Int>()
-        private var ArrayToken = ArrayList<Boolean>() // if null -> not used; false -> invalid token(used in the past); true -> in use
+        private var ArrayToken = Array<String?>(million, null) // the index correspons with a token, null -> not exists, string -> username : String
     }
     /**
      * Initialize the data-store to some starting state.
@@ -25,9 +25,9 @@ class CourseAppInitializer {
         UserToPasswordMap.clear()
         UserToTokenMap.clear()
         FreeTokens.clear()
-        ArrayToken.clear()
+        ArrayToken = Array<String?>(million, null)
 
-        for (i in 1..million)
+        for (i in 5..million)
         FreeTokens.add(i)
     }
 }
