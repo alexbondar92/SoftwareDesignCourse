@@ -21,6 +21,7 @@ class CourseAppStaffTest {
 //    }
 
     init {
+        // Kuku
         val storageMock= mutableMapOf<ByteArray,ByteArray>()
         courseAppInitializer.setup()
         mockkStatic("il.ac.techinion.cs.softwaredesing.storage.secureStorageKt")
