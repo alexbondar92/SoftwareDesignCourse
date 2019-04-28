@@ -2,11 +2,9 @@ package il.ac.technion.cs.softwaredesign
 
 import il.ac.technion.cs.softwaredesign.storage.read
 import il.ac.technion.cs.softwaredesign.storage.write
-import java.io.ByteArrayInputStream
-import java.io.ByteArrayOutputStream
-import java.io.ObjectInputStream
-import java.io.ObjectOutputStream
+import java.io.*
 import java.util.*
+import java.io.Serializable
 
 /**
  * This is the class implementing CourseApp, a course discussion group system.
@@ -19,34 +17,41 @@ import java.util.*
 class CourseApp {
     init {
         val UserToPasswordMapBA = read(1.toString().toByteArray())
-        val UserToTokenMapBA = read(2.toString().toByteArray())
-        val FreeTokensBA = read(3.toString().toByteArray())
-        val ArrayTokenBA = read(4.toString().toByteArray())
-        if (UserToPasswordMapBA != null)
-            CourseAppInitializer.UserToPasswordMap = deSerialization(UserToPasswordMapBA ,HashMap<String, String>)
-        if (UserToPasswordMapBA != null)
-            CourseAppInitializer.UserToTokenMap = deSerialization(UserToTokenMapBA , HashMap<String, Int>)
-        if (UserToPasswordMapBA != null)
-            CourseAppInitializer.FreeTokens = deSerialization(FreeTokensBA , LinkedList<Int>)
-        if (UserToPasswordMapBA != null)
-            CourseAppInitializer.ArrayToken = deSerialization(ArrayTokenBA ,Array<String?>)
+        if (UserToPasswordMapBA != null) {
+            val UserToTokenMapBA = read(2.toString().toByteArray())
+            val FreeTokensBA = read(3.toString().toByteArray())
+            val ArrayTokenBA = read(4.toString().toByteArray())
+
+            CourseAppInitializer.UserToPasswordMap = deSerialization(UserToPasswordMapBA,1) as HashMap<String, String>
+            CourseAppInitializer.UserToTokenMap = deSerialization(UserToTokenMapBA, 2) as HashMap<String, Int>
+            CourseAppInitializer.FreeTokens = deSerialization(FreeTokensBA, 3) as LinkedList<Int>
+            CourseAppInitializer.ArrayToken = deSerialization(ArrayTokenBA, 4) as Array<String?>
+        }
     }
 
-    fun deSerialization(data : ByteArray, c : Class) : Serializable {
+    private fun deSerialization(data : ByteArray?, type : Int ) : Serializable {
         val byteIn = ByteArrayInputStream(data)
         val `in` = ObjectInputStream(byteIn)
-        val data2 = `in`.readObject() as c
-        return byteIn.toByteArray()
+
+        when (type) {
+            1 ->  return `in`.readObject() as HashMap<String, String>
+            2 ->  return `in`.readObject() as HashMap<String, Int>
+            3 ->  return `in`.readObject() as LinkedList<Int>
+            4 ->  return `in`.readObject() as Array<String?>
+            else -> return LinkedList<Int>()
+        }
+
+
     }
 
-    fun Serialization(data : Serializable) : ByteArray {
+    private fun Serialization(data : Serializable) : ByteArray {
         val byteOut = ByteArrayOutputStream()
         val out = ObjectOutputStream(byteOut)
         out.writeObject(data)
         return byteOut.toByteArray()
     }
 
-    fun UpdateAllDataStructsInServer() : Unit{
+    private fun UpdateAllDataStructsInServer() : Unit{
         write(1.toString().toByteArray(), Serialization(CourseAppInitializer.UserToPasswordMap))
         write(2.toString().toByteArray(), Serialization(CourseAppInitializer.UserToTokenMap))
         write(3.toString().toByteArray(), Serialization(CourseAppInitializer.FreeTokens))
@@ -66,9 +71,7 @@ class CourseApp {
      * @throws IllegalArgumentException If the password does not match the username, or the user is already logged in.
      * @return An authentication token to be used in other calls.
      */
-    fun login(username: String, password: String): String {     // TODO: naive implementation
-        //is user was logged in previously?
-        //is the user is logged in right now?
+    fun login(username: String, password: String): String {
 
         if (!CourseAppInitializer.UserToPasswordMap.containsKey(username)) {
             //new user
@@ -78,23 +81,23 @@ class CourseApp {
         else{
             //user already registered.
             if( CourseAppInitializer.UserToPasswordMap[username] != password) {
-                throws IllegalArgumentException()
+                throw IllegalArgumentException()
             }
         }
         if(CourseAppInitializer.UserToTokenMap.containsKey(username)) //already in a session.
-            throws IllegalArgumentException()
+            throw IllegalArgumentException()
 
         //give him a token
-        val given_token = CourseAppInitializer.FreeTokens.first()
+        val givenToken = CourseAppInitializer.FreeTokens.first()
         CourseAppInitializer.FreeTokens.removeFirst()
-        CourseAppInitializer.UserToTokenMap[username] = given_token
-        CourseAppInitializer.ArrayToken[given_token] = username
+        CourseAppInitializer.UserToTokenMap[username] = givenToken
+        CourseAppInitializer.ArrayToken[givenToken] = username
 
         //update token in server
 
         UpdateAllDataStructsInServer()
 
-        return given_token
+        return givenToken.toString()
     }
 
     /**
@@ -107,14 +110,14 @@ class CourseApp {
      */
     fun logout(token: String): Unit {
 
-        if(CourseAppInitializer.ArrayToken[token] == null)
-            throws IllegalArgumentException()
+        if(CourseAppInitializer.ArrayToken[token.toInt()] == null)
+            throw IllegalArgumentException()
 
-        username = CourseAppInitializer.ArrayToken[token]
+        val username = CourseAppInitializer.ArrayToken[token.toInt()]
         CourseAppInitializer.UserToTokenMap.remove(username)
 
-        CourseAppInitializer.ArrayToken[token] = null
-        CourseAppInitializer.FreeTokens.add(token)  //adds to the end of the list
+        CourseAppInitializer.ArrayToken[token.toInt()] = null
+        CourseAppInitializer.FreeTokens.add(token.toInt())  //adds to the end of the list
 
         //update token in server
 
@@ -133,8 +136,8 @@ class CourseApp {
      * not exist.
      */
     fun isUserLoggedIn(token: String, username: String): Boolean? {
-        if(CourseAppInitializer.ArrayToken[token] == null)
-            throws IllegalArgumentException()
+        if(CourseAppInitializer.ArrayToken[token.toInt()] == null)
+            throw IllegalArgumentException()
 
         if(CourseAppInitializer.UserToTokenMap[username] == null) {
             if (!CourseAppInitializer.UserToPasswordMap.containsKey(username)) {
