@@ -1,7 +1,7 @@
 package il.ac.technion.cs.softwaredesign
 
 import java.util.*
-import kotlin.collections.ArrayList
+
 
 /**
  * This class will be instantiated once, during system start, on an empty data-store.
@@ -28,6 +28,6 @@ class CourseAppInitializer {
         ArrayToken = Array<String?>(million, {null})
 
         for (i in 5..million)
-        FreeTokens.add(i)
+            FreeTokens.add(i)
     }
 }
