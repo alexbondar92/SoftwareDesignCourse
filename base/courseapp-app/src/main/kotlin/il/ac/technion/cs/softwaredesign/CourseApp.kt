@@ -80,9 +80,9 @@ class CourseApp {
         }
         else{
             //user already registered.
-            if( CourseAppInitializer.UserToPasswordMap[username] != password) {
+            if( CourseAppInitializer.UserToPasswordMap[username] != password)
                 throw IllegalArgumentException()
-            }
+
         }
         if(CourseAppInitializer.UserToTokenMap.containsKey(username)) //already in a session.
             throw IllegalArgumentException()
@@ -141,9 +141,9 @@ class CourseApp {
 
         if(CourseAppInitializer.UserToTokenMap[username] == null) {
             if (!CourseAppInitializer.UserToPasswordMap.containsKey(username)) {
-                return false
+                return null
             }
-            return true
+            return false
         }
         else
             return true

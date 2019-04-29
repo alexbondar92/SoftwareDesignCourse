@@ -15,6 +15,8 @@ subprojects {
     apply(plugin = "kotlin")
     dependencies {
         implementation(kotlin("stdlib-jdk8"))
+        compile("io.mockk:mockk:1.9.3")
+        testImplementation ("io.mockk:mockk:1.9.3")
     }
     tasks.withType<KotlinCompile> {
         kotlinOptions.jvmTarget = "1.8"

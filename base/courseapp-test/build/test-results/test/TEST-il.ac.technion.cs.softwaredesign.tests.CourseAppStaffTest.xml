@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-04-28T05:59:21" hostname="alexs-MacBook-Pro-2.local" time="2.93">
+<testsuite name="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2019-04-29T03:24:46" hostname="DESKTOP-C0DN9PE" time="11.82">
   <properties/>
-  <testcase name="an authentication token is invalidated after logout()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="1.199"/>
-  <testcase name="after login, a user is logged in()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="1.55"/>
+  <testcase name="an authentication token is invalidated after logout()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="1.33"/>
+  <testcase name="log in user twice should throw exception()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="0.635"/>
+  <testcase name="user never been in the system isUserLoggedIn returns null()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="0.561"/>
+  <testcase name="an authentication token is invalidated after logout, stays that way after reboot()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="0.755"/>
+  <testcase name="registered user log in with another logged in user s password should throw exception()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="1.148"/>
+  <testcase name="log out a none exist user ()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="0.504"/>
+  <testcase name="registered user log in with another registered not logged in user s password should throw exception()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="1.352"/>
+  <testcase name="registered user log in with wrong password should throw exception()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="0.71"/>
+  <testcase name="user log in then log out isUserLoggedIn returns False()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="1.067"/>
+  <testcase name="log in user twice and other users log in between should throw exception()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="1.12"/>
+  <testcase name="user stays logged in after reboot, assumes his token stays active()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="0.424"/>
+  <testcase name="after login, a user is logged in()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="1.15"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
