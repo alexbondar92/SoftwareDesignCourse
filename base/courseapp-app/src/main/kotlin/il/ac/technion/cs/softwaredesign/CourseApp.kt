@@ -2,9 +2,6 @@ package il.ac.technion.cs.softwaredesign
 
 import il.ac.technion.cs.softwaredesign.storage.read
 import il.ac.technion.cs.softwaredesign.storage.write
-import java.io.*
-import java.util.*
-import java.io.Serializable
 
 /**
  * This is the class implementing CourseApp, a course discussion group system.
@@ -15,48 +12,12 @@ import java.io.Serializable
  * + User authentication.
  */
 class CourseApp {
-    init {
-        val UserToPasswordMapBA = read(1.toString().toByteArray())
-        if (UserToPasswordMapBA != null) {
-            val UserToTokenMapBA = read(2.toString().toByteArray())
-            val FreeTokensBA = read(3.toString().toByteArray())
-            val ArrayTokenBA = read(4.toString().toByteArray())
 
-            CourseAppInitializer.UserToPasswordMap = deSerialization(UserToPasswordMapBA,1) as HashMap<String, String>
-            CourseAppInitializer.UserToTokenMap = deSerialization(UserToTokenMapBA, 2) as HashMap<String, Int>
-            CourseAppInitializer.FreeTokens = deSerialization(FreeTokensBA, 3) as LinkedList<Int>
-            CourseAppInitializer.ArrayToken = deSerialization(ArrayTokenBA, 4) as Array<String?>
-        }
-    }
+    private val userLoggedIn = "1"
+    private val passwordSignedIn = "1"
+    private val registeredNotLoggedIn = "0"
+    private val notRegistered = null
 
-    private fun deSerialization(data : ByteArray?, type : Int ) : Serializable {
-        val byteIn = ByteArrayInputStream(data)
-        val `in` = ObjectInputStream(byteIn)
-
-        when (type) {
-            1 ->  return `in`.readObject() as HashMap<String, String>
-            2 ->  return `in`.readObject() as HashMap<String, Int>
-            3 ->  return `in`.readObject() as LinkedList<Int>
-            4 ->  return `in`.readObject() as Array<String?>
-            else -> return LinkedList<Int>()
-        }
-
-
-    }
-
-    private fun Serialization(data : Serializable) : ByteArray {
-        val byteOut = ByteArrayOutputStream()
-        val out = ObjectOutputStream(byteOut)
-        out.writeObject(data)
-        return byteOut.toByteArray()
-    }
-
-    private fun UpdateAllDataStructsInServer() : Unit{
-        write(1.toString().toByteArray(), Serialization(CourseAppInitializer.UserToPasswordMap))
-        write(2.toString().toByteArray(), Serialization(CourseAppInitializer.UserToTokenMap))
-        write(3.toString().toByteArray(), Serialization(CourseAppInitializer.FreeTokens))
-        write(4.toString().toByteArray(), Serialization(CourseAppInitializer.ArrayToken))
-    }
 
     /**
      * Log in a user identified by [username] and [password], returning an authentication token that can be used in
@@ -73,31 +34,25 @@ class CourseApp {
      */
     fun login(username: String, password: String): String {
 
-        if (!CourseAppInitializer.UserToPasswordMap.containsKey(username)) {
-            //new user
-            //enter into mapping of user -> password.
-            CourseAppInitializer.UserToPasswordMap[username] = password
+        when (readDataForUsername(username)) {
+            notRegistered -> {
+                writeDataForUser(username, userLoggedIn)
+                writePasswordForUser(username, password)
+                return usernameToToken(username)
+            }
+
+            registeredNotLoggedIn -> {
+                if (!passwordValid(username, password))
+                    throw IllegalArgumentException()
+
+                writeDataForUser(username, userLoggedIn)
+                return usernameToToken(username)
+            }
+
+            userLoggedIn -> throw IllegalArgumentException()
         }
-        else{
-            //user already registered.
-            if( CourseAppInitializer.UserToPasswordMap[username] != password)
-                throw IllegalArgumentException()
 
-        }
-        if(CourseAppInitializer.UserToTokenMap.containsKey(username)) //already in a session.
-            throw IllegalArgumentException()
-
-        //give him a token
-        val givenToken = CourseAppInitializer.FreeTokens.first()
-        CourseAppInitializer.FreeTokens.removeFirst()
-        CourseAppInitializer.UserToTokenMap[username] = givenToken
-        CourseAppInitializer.ArrayToken[givenToken] = username
-
-        //update token in server
-
-        UpdateAllDataStructsInServer()
-
-        return givenToken.toString()
+        throw IllegalArgumentException()    //shouldn't get here, data-store might be corrupted.
     }
 
     /**
@@ -108,20 +63,12 @@ class CourseApp {
      *
      * @throws IllegalArgumentException If the auth [token] is invalid.
      */
-    fun logout(token: String): Unit {
-
-        if(CourseAppInitializer.ArrayToken[token.toInt()] == null)
-            throw IllegalArgumentException()
-
-        val username = CourseAppInitializer.ArrayToken[token.toInt()]
-        CourseAppInitializer.UserToTokenMap.remove(username)
-
-        CourseAppInitializer.ArrayToken[token.toInt()] = null
-        CourseAppInitializer.FreeTokens.add(token.toInt())  //adds to the end of the list
-
-        //update token in server
-
-        UpdateAllDataStructsInServer()
+    fun logout(token: String) {
+        val username = tokenToUsername(token)
+        when (readDataForUsername(username)) {
+            notRegistered, registeredNotLoggedIn -> throw IllegalArgumentException()
+            userLoggedIn -> writeDataForUser(username, registeredNotLoggedIn)
+        }
     }
 
     /**
@@ -136,16 +83,47 @@ class CourseApp {
      * not exist.
      */
     fun isUserLoggedIn(token: String, username: String): Boolean? {
-        if(CourseAppInitializer.ArrayToken[token.toInt()] == null)
-            throw IllegalArgumentException()
 
-        if(CourseAppInitializer.UserToTokenMap[username] == null) {
-            if (!CourseAppInitializer.UserToPasswordMap.containsKey(username)) {
-                return null
-            }
-            return false
+        if (!validToken(token)) throw IllegalArgumentException()
+        when (readDataForUsername(username)) {
+            notRegistered -> return null
+            registeredNotLoggedIn -> return false
+            userLoggedIn -> return true
         }
-        else
-            return true
+        throw IllegalArgumentException()    //shouldn't get here, data-store might be corrupted.
+    }
+
+    private fun usernameToToken(username: String): String {
+        return username
+    }
+
+    private fun tokenToUsername(token: String): String {
+        return token
+    }
+
+    private fun readDataForUsername(username: String): String? {
+        val temp = read("U$username".toByteArray())
+        if (temp == null) return null else return String(temp)
+    }
+
+    private fun writeDataForUser(username: String, data: String) {
+        write(("U$username").toByteArray(), data.toByteArray())
+    }
+
+    private fun writePasswordForUser(username: String, password: String) {
+        write(("P$username$password").toByteArray(), passwordSignedIn.toByteArray())
+    }
+
+    private fun passwordValid(username: String, password: String): Boolean {
+        return read(("P$username$password").toByteArray()) != null
+    }
+
+    private fun validToken(token: String): Boolean {
+        when (readDataForUsername(tokenToUsername(token))) {
+            notRegistered, registeredNotLoggedIn -> return false
+            userLoggedIn -> return true
+        }
+        throw IllegalArgumentException()    //shouldn't get here, data-store might be corrupted.
     }
 }
+

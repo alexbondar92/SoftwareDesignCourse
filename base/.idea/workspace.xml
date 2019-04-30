@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fc04b694-b9d6-4f67-8332-f564de6d23bc" name="Default Changelist" comment="2st stage, Tests">
+    <list default="true" id="fc04b694-b9d6-4f67-8332-f564de6d23bc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.3.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.3.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.3.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.3.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.3.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.3.1/fileContent/fileContent.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.3.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.3.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.3.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.3.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.3.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.3.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.3.1/vcsMetadata-1/vcsMetadata-1.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.3.1/vcsMetadata-1/vcsMetadata-1.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/vcs-1/vcs-1.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/vcs-1/vcs-1.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/META-INF/courseapp-app.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/META-INF/courseapp-app.kotlin_module" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseApp.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppInitializer.class" afterDir="false" />
@@ -82,13 +86,8 @@
       <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/last-build.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/courseappappjar-classes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/courseappappjar-classes.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/build/libs/courseapp-app.jar" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/libs/courseapp-app.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/tmp/jar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/tmp/jar/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppInitializer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppInitializer.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/myTests/CourseAppTests.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/myTests/utils.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-test/build/classes/kotlin/test/META-INF/courseapp-test.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/classes/kotlin/test/META-INF/courseapp-test.kotlin_module" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-test/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$after login, a user is logged in$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$after login, a user is logged in$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-test/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$an authentication token is invalidated after logout$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$an authentication token is invalidated after logout$1$1.class" afterDir="false" />
@@ -164,25 +163,14 @@
       <change beforePath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab_i.len" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab_i.len" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/last-build.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-test/build/reports/tests/test/classes/il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/reports/tests/test/classes/il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/build/reports/tests/test/css/base-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/reports/tests/test/css/base-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/build/reports/tests/test/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/reports/tests/test/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-test/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/build/reports/tests/test/js/report.js" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/reports/tests/test/js/report.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-test/build/reports/tests/test/packages/il.ac.technion.cs.softwaredesign.tests.html" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/reports/tests/test/packages/il.ac.technion.cs.softwaredesign.tests.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-test/build/test-results/test/TEST-il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/test-results/test/TEST-il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-test/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/test-results/test/binary/output.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/test-results/test/binary/output.bin.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/build/test-results/test/binary/results.bin" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/utils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/utils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/library/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/libraryjar-classes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/libraryjar-classes.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/library/build/libs/library.jar" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/libs/library.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/tmp/jar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/tmp/jar/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -223,30 +211,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="265">
-              <caret line="169" column="2" selection-start-line="169" selection-start-column="2" selection-end-line="169" selection-end-column="2" />
+              <caret line="225" column="25" selection-start-line="225" selection-start-column="25" selection-end-line="225" selection-end-column="25" />
               <folding>
-                <element signature="e#48#586#0" expanded="true" />
+                <element signature="e#48#673#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppInitializer.kt">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2250">
-              <caret line="150" column="1" selection-start-line="150" selection-start-column="1" selection-end-line="150" selection-end-column="1" />
+            <state relative-caret-position="750">
+              <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
               <folding>
-                <element signature="e#42#212#0" expanded="true" />
+                <element signature="e#42#148#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -278,6 +261,9 @@
     <replaceStrings>
       <replace />
     </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
@@ -287,18 +273,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest.kt" />
         <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppInitializer.kt" />
         <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/myTests/utils.kt" />
         <option value="$PROJECT_DIR$/courseapp-app/build.gradle.kts" />
         <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/myTests/CourseAppTests.kt" />
+        <option value="$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest.kt" />
         <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="156" />
-    <option name="y" value="46" />
+    <option name="x" value="12" />
+    <option name="y" value="23" />
     <option name="width" value="1406" />
     <option name="height" value="852" />
   </component>
@@ -315,6 +301,41 @@
             <path>
               <item name="base" type="b2602c69:ProjectViewProjectNode" />
               <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="base" type="b2602c69:ProjectViewProjectNode" />
+              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="courseapp-test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="base" type="b2602c69:ProjectViewProjectNode" />
+              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="courseapp-test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="base" type="b2602c69:ProjectViewProjectNode" />
+              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="courseapp-test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="base" type="b2602c69:ProjectViewProjectNode" />
+              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="courseapp-test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="base" type="b2602c69:ProjectViewProjectNode" />
+              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="courseapp-test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -334,7 +355,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.language.Kotlin" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Kotlin" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -343,9 +364,10 @@
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
+      <command value="gradle testImplementation &quot;io.mockk:mockk:{version}&quot;" />
+      <command value="gradle clean" />
       <command value="gradle run" />
       <command value="gradle test" />
-      <command value="gradle testImplementation &quot;io.mockk:mockk:{version}&quot;" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -361,7 +383,7 @@
     </option>
   </component>
   <component name="RunManager" selected="JUnit.CourseAppStaffTest">
-    <configuration name="base [testImplementation &quot;io.mockk:mockk:{version}&quot;]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="base [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -372,8 +394,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="testImplementation" />
-            <option value="&quot;io.mockk:mockk:{version}&quot;" />
+            <option value="run" />
           </list>
         </option>
         <option name="vmOptions" value="" />
@@ -400,21 +421,6 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CourseAppStaffTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="base.courseapp-app.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.myTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign.myTests" />
-      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.myTests.CourseAppStaffTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CourseAppStaffTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="base.courseapp-test.test" />
       <extension name="coverage">
@@ -430,17 +436,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CourseAppStaffTest.after login, a user is logged in" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="base.courseapp-app.test" />
+    <configuration name="CourseAppStaffTest.one million users are logged in at once" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="base.courseapp-test.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.myTests.*" />
+          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign.myTests" />
-      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.myTests.CourseAppStaffTest" />
-      <option name="METHOD_NAME" value="after login, a user is logged in" />
+      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign.tests" />
+      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" />
+      <option name="METHOD_NAME" value="one million users are logged in at once" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CourseAppStaffTest.token is invalid after logout" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="base.courseapp-test.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign.tests" />
+      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" />
+      <option name="METHOD_NAME" value="token is invalid after logout" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -449,10 +471,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.CourseAppStaffTest" />
-        <item itemvalue="JUnit.CourseAppStaffTest (1)" />
-        <item itemvalue="JUnit.CourseAppStaffTest.after login, a user is logged in" />
-        <item itemvalue="Gradle.base [testImplementation &quot;io.mockk:mockk:{version}&quot;]" />
+        <item itemvalue="JUnit.CourseAppStaffTest.one million users are logged in at once" />
         <item itemvalue="Gradle.base [test]" />
+        <item itemvalue="Gradle.base [run]" />
+        <item itemvalue="JUnit.CourseAppStaffTest.token is invalid after logout" />
       </list>
     </recent_temporary>
   </component>
@@ -470,7 +492,7 @@
       <workItem from="1555766808450" duration="252000" />
       <workItem from="1555767148713" duration="5911000" />
       <workItem from="1556380647202" duration="7688000" />
-      <workItem from="1556441843982" duration="3001000" />
+      <workItem from="1556441843982" duration="8020000" />
     </task>
     <task id="LOCAL-00001" summary="basic work on init">
       <created>1555773874940</created>
@@ -507,48 +529,56 @@
       <option name="project" value="LOCAL" />
       <updated>1556444560764</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="2st stage, Tests">
+      <created>1556512505033</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1556512505033</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CourseAppStaffTest_(1) - 2019.04.28 at 11h 53m 48s.xml">
-      <configuration name="CourseAppStaffTest (1)" configurationId="JUnit" />
+    <history-entry file="CourseAppStaffTest - 2019.04.29 at 17h 32m 31s.xml">
+      <configuration name="CourseAppStaffTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseAppStaffTest_(1) - 2019.04.28 at 11h 54m 08s.xml">
-      <configuration name="CourseAppStaffTest (1)" configurationId="JUnit" />
+    <history-entry file="CourseAppStaffTest_password_is_invalid - 2019.04.29 at 17h 34m 25s.xml">
+      <configuration name="CourseAppStaffTest.password is invalid" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseAppStaffTest_(1) - 2019.04.28 at 11h 54m 13s.xml">
-      <configuration name="CourseAppStaffTest (1)" configurationId="JUnit" />
+    <history-entry file="CourseAppStaffTest_password_is_invalid - 2019.04.29 at 17h 35m 08s.xml">
+      <configuration name="CourseAppStaffTest.password is invalid" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseAppStaffTest_(1) - 2019.04.28 at 11h 54m 30s.xml">
-      <configuration name="CourseAppStaffTest (1)" configurationId="JUnit" />
+    <history-entry file="CourseAppStaffTest_token_is_invalid_after_logout - 2019.04.29 at 17h 38m 32s.xml">
+      <configuration name="CourseAppStaffTest.token is invalid after logout" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseAppStaffTest_(1) - 2019.04.28 at 11h 54m 34s.xml">
-      <configuration name="CourseAppStaffTest (1)" configurationId="JUnit" />
+    <history-entry file="CourseAppStaffTest_one_million_users_are_logged_in_at_once - 2019.04.29 at 18h 10m 39s.xml">
+      <configuration name="CourseAppStaffTest.one million users are logged in at once" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseAppStaffTest_(1) - 2019.04.28 at 11h 55m 02s.xml">
-      <configuration name="CourseAppStaffTest (1)" configurationId="JUnit" />
+    <history-entry file="base_[test] - 2019.04.30 at 11h 28m 58s.xml">
+      <configuration name="base [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="CourseAppStaffTest_(1) - 2019.04.28 at 11h 55m 09s.xml">
-      <configuration name="CourseAppStaffTest (1)" configurationId="JUnit" />
+    <history-entry file="base_[test] - 2019.04.30 at 11h 31m 33s.xml">
+      <configuration name="base [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="CourseAppStaffTest_(1) - 2019.04.28 at 11h 56m 48s.xml">
-      <configuration name="CourseAppStaffTest (1)" configurationId="JUnit" />
+    <history-entry file="CourseAppStaffTest_one_million_users_are_logged_in_at_once - 2019.04.30 at 11h 32m 02s.xml">
+      <configuration name="CourseAppStaffTest.one million users are logged in at once" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseAppStaffTest_(1) - 2019.04.28 at 12h 36m 07s.xml">
-      <configuration name="CourseAppStaffTest (1)" configurationId="JUnit" />
+    <history-entry file="CourseAppStaffTest_one_million_users_are_logged_in_at_once - 2019.04.30 at 11h 46m 32s.xml">
+      <configuration name="CourseAppStaffTest.one million users are logged in at once" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseAppStaffTest - 2019.04.29 at 07h 33m 19s.xml">
+    <history-entry file="CourseAppStaffTest - 2019.04.30 at 11h 48m 09s.xml">
       <configuration name="CourseAppStaffTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17439000" />
+    <option name="totallyTimeSpent" value="22458000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="156" y="46" width="1406" height="852" extended-state="0" />
+    <frame x="12" y="23" width="1406" height="852" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26466274" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2639296" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -557,7 +587,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49853373" weight="0.32894737" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49853373" visible="true" weight="0.32894737" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49926686" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -568,7 +598,7 @@
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50073314" side_tool="true" weight="0.4" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.49926686" weight="0.32894737" />
-      <window_info active="true" anchor="bottom" id="Messages" order="13" sideWeight="0.49926686" visible="true" weight="0.32894737" />
+      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49926686" weight="0.32894737" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -795,20 +825,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppInitializer.kt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.mockk/mockk/1.9/ca79b88919204e3733c14730308511ed1f06445a/mockk-1.9-sources.jar!/io/mockk/MockK.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/.gradle/vcs-1/sd-primiti_5wwgi61sebqskhfmquxyj6u56/sd-primitive-storage-layer/build/libs/primitive-storage-layer-1.0.jar!/il/ac/technion/cs/softwaredesign/storage/SecureStorageKt.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
@@ -822,22 +842,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt">
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppInitializer.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2250">
-          <caret line="150" column="1" selection-start-line="150" selection-start-column="1" selection-end-line="150" selection-end-column="1" />
-          <folding>
-            <element signature="e#42#212#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="225">
+          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/.gradle/vcs-1/sd-primiti_5wwgi61sebqskhfmquxyj6u56/sd-primitive-storage-layer/build/libs/primitive-storage-layer-1.0.jar!/il/ac/technion/cs/softwaredesign/storage/SecureStorageKt.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="265">
-          <caret line="169" column="2" selection-start-line="169" selection-start-column="2" selection-end-line="169" selection-end-column="2" />
+          <caret line="225" column="25" selection-start-line="225" selection-start-column="25" selection-end-line="225" selection-end-column="25" />
           <folding>
-            <element signature="e#48#586#0" expanded="true" />
+            <element signature="e#48#673#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
+          <folding>
+            <element signature="e#42#148#0" expanded="true" />
           </folding>
         </state>
       </provider>

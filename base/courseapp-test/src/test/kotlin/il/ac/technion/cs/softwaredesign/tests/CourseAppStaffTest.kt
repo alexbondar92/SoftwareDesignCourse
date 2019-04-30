@@ -12,12 +12,14 @@ import org.junit.jupiter.api.assertThrows
 import java.time.Duration.ofSeconds
 import il.ac.technion.cs.softwaredesign.storage.read
 import il.ac.technion.cs.softwaredesign.storage.write
+import org.junit.jupiter.api.Assertions.assertDoesNotThrow
 import org.junit.jupiter.api.Assertions.assertNull
+import kotlin.random.Random
 
 
 class CourseAppStaffTest {
     private val courseAppInitializer = CourseAppInitializer()
-    private val storageMock= mutableMapOf<ByteArray,ByteArray>()
+    private val storageMock= mutableMapOf<String,String>()
     init {
         courseAppInitializer.setup()
         mockkStatic("il.ac.technion.cs.softwaredesign.storage.SecureStorageKt")
@@ -26,17 +28,17 @@ class CourseAppStaffTest {
         every{
             write(capture(keySlot),capture(valueSlot))
         } answers {
-            val value = valueSlot.captured
-            val key = keySlot.captured
+            val value = String(valueSlot.captured)
+            val key = String(keySlot.captured)
             storageMock[key] = value
         }
         every{
             read(capture(keySlot))
         } answers {
-            val key = keySlot.captured
+            val key = String(keySlot.captured)
             val value = storageMock[key]
-            Thread.sleep(value?.size?.toLong() ?: 0)
-            storageMock[key]
+            Thread.sleep(value?.toByteArray()?.size?.toLong() ?: 0)
+            storageMock[key]?.toByteArray()
         }
     }
 
@@ -50,7 +52,7 @@ class CourseAppStaffTest {
         val token = courseApp.login("matan", "s3kr1t")
 
         assertThat(runWithTimeout(ofSeconds(10)) { courseApp.isUserLoggedIn(token, "gal") },
-                present(isTrue))
+            present(isTrue))
     }
 
     @Test
@@ -88,7 +90,7 @@ class CourseAppStaffTest {
         val token2 = courseApp.login("imaman", "31337")
         courseApp.logout(token2)
         assertThat(runWithTimeout(ofSeconds(10)) { courseApp.isUserLoggedIn(token, "imaman") },
-                present(isFalse))
+            present(isFalse))
 
     }
 
@@ -108,9 +110,9 @@ class CourseAppStaffTest {
         var differentToken : String = token
         while (differentToken == token) {   //creating a random token for consistency and validity
             differentToken = (1..STRING_LENGTH)
-                    .map { i -> kotlin.random.Random.nextInt(0, charPool.size) }
-                    .map(charPool::get)
-                    .joinToString("");
+                .map { i -> kotlin.random.Random.nextInt(0, charPool.size) }
+                .map(charPool::get)
+                .joinToString("");
         }
 
         assertThrows<IllegalArgumentException> {runWithTimeout(ofSeconds(10)) { courseApp.logout(differentToken) }}
@@ -158,7 +160,7 @@ class CourseAppStaffTest {
         courseAppReboot = CourseApp()   //the "REBOOT"
 
         assertThat(runWithTimeout(ofSeconds(10)) { courseAppReboot.isUserLoggedIn(token, "matan") },
-                present(isTrue))
+            present(isTrue))
     }
 
     @Test
@@ -174,4 +176,58 @@ class CourseAppStaffTest {
         }
     }
 
+    @Test
+    fun `password is valid`(){
+        var innerCourseApp = CourseApp()
+
+        val token1 = innerCourseApp.login("matan", "StrongPass")
+        innerCourseApp.logout(token1)
+
+        assertDoesNotThrow { innerCourseApp.login("matan", "StrongPass") }
+    }
+
+    @Test
+    fun `password is invalid`(){
+        var innerCourseApp = CourseApp()
+
+        val token1 = innerCourseApp.login("matan", "StrongPass")
+        innerCourseApp.logout(token1)
+
+        assertThrows<IllegalArgumentException> { innerCourseApp.login("matan", "OtherStrongPass") }
+    }
+
+    @Test
+    fun `token is invalid after logout`(){
+        var innerCourseApp = CourseApp()
+
+        val token1 = innerCourseApp.login("matan2", "StrongPass")
+        val token2 = innerCourseApp.login("matan", "StrongPass")
+        innerCourseApp.logout(token2)
+
+        assertThrows<IllegalArgumentException> { innerCourseApp.isUserLoggedIn(token2, "matan2") }
+    }
+
+//    @Test
+//    fun `one million users are logged in at once`(){
+//        val million = 10000000
+//        var innerCourseApp = CourseApp()
+//
+////        var tokenToUserMap = HashMap<String,Pair<String,String>>()
+//        for (i in 1..million){
+//            val username = "user" + i
+//            val password = "StrongPass" + i
+//            innerCourseApp.login(username, password)
+////            val token = innerCourseApp.login(username, password)
+////            tokenToUserMap.put(token, Pair(username, password))
+//        }
+//
+//        val randomToken = "user" + Random.nextInt(1, million)
+//        for (i in 1..million){
+//            assertDoesNotThrow { innerCourseApp.isUserLoggedIn(randomToken, "user" + i) }
+//        }
+//
+//        for (i in 1..million){
+//            assertDoesNotThrow { innerCourseApp.logout("user" + i) }
+//        }
+//    }
 }
