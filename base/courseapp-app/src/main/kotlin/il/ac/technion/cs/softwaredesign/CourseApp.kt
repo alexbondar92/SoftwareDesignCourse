@@ -83,7 +83,6 @@ class CourseApp {
      * not exist.
      */
     fun isUserLoggedIn(token: String, username: String): Boolean? {
-
         if (!validToken(token)) throw IllegalArgumentException()
         when (readDataForUsername(username)) {
             notRegistered -> return null

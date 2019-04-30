@@ -1,22 +1,27 @@
 # CourseApp: Assignment 0
 
 ## Authors
-* Firstname McLastname, ID number
-* Firstnamey Lastnameson, ID number
+* Alex Bondar, 311822258
+* Ron Efimov, 308284371
 
 ## Notes
 
 ### Implementation Summary
-Short summary of your implementation, including data structures used, design choices made, and
-a short tour of the class hierarchy you created.
-
+We decided to create a system that querying the DB for every operation.
+This is made by have a Key to Value kind of a map, like we learn at Data Structure course.
+Key: "U$Username", Value: 1 -> logged in; 0 -> logged out; null -> unused.
+Key: "P$username$Password", Value: 1 -> password is valid; null -> not valid.
+In addition, since the user can have only one session at once, we make the token in "T$username" format.
+So we achieved performance of O(1)(1 milisec for the read Op to the server) for every operation of the API.
+    
 ### Testing Summary
-Short summary describing the ways you chose to test your code.
+We have decided to test our code by mocking the Storage with a mock of it locally with a fake.
+Like we learn at the course, we have used the MockK framework for mocking, with a avery/answers concept.
+In addition we have tested a randomize of inputs, scaling number of users and more.
 
 ### Difficulties
-Please list any technological difficulties you had while working on this assignment, especially
-with the tools used: Kotlin, JUnit, MockK, and Gradle.
+Basicly getting familiar with kotlin and the new technologies like mockK and Gradle.
 
 ### Feedback
-Put any feedback you may have for this assignment here. This **will** be read by the course staff,
-and may influence future assignments!
+We will be glad to have a tutorial or workshop or gradle, because it is really important.
+  

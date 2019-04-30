@@ -14,6 +14,8 @@ import il.ac.technion.cs.softwaredesign.storage.read
 import il.ac.technion.cs.softwaredesign.storage.write
 import org.junit.jupiter.api.Assertions.assertDoesNotThrow
 import org.junit.jupiter.api.Assertions.assertNull
+import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.random.Random
 
 
@@ -110,7 +112,7 @@ class CourseAppStaffTest {
         var differentToken : String = token
         while (differentToken == token) {   //creating a random token for consistency and validity
             differentToken = (1..STRING_LENGTH)
-                .map { i -> kotlin.random.Random.nextInt(0, charPool.size) }
+                .map { kotlin.random.Random.nextInt(0, charPool.size) }
                 .map(charPool::get)
                 .joinToString("");
         }
@@ -197,6 +199,33 @@ class CourseAppStaffTest {
     }
 
     @Test
+    fun `token is illegal at logout`(){
+        var innerCourseApp = CourseApp()
+
+        val token = innerCourseApp.login("matan", "StrongPass")
+
+        assertThrows<IllegalArgumentException> { innerCourseApp.logout("WrongToken"+ token) }
+    }
+
+    @Test
+    fun `token is illegal at is isUserLoggedin`(){
+        var innerCourseApp = CourseApp()
+
+        val token = innerCourseApp.login("matan", "StrongPass")
+
+        assertThrows<IllegalArgumentException> { innerCourseApp.isUserLoggedIn("WrongToken"+ token, "matan") }
+    }
+
+    @Test
+    fun `name is illegal at isUserLoggedin`(){
+        var innerCourseApp = CourseApp()
+
+        val token = innerCourseApp.login("matan", "StrongPass")
+
+        assert(innerCourseApp.isUserLoggedIn(token, "natam") == null)
+    }
+
+    @Test
     fun `token is invalid after logout`(){
         var innerCourseApp = CourseApp()
 
@@ -204,30 +233,98 @@ class CourseAppStaffTest {
         val token2 = innerCourseApp.login("matan", "StrongPass")
         innerCourseApp.logout(token2)
 
+        assert(token1 != token2)
         assertThrows<IllegalArgumentException> { innerCourseApp.isUserLoggedIn(token2, "matan2") }
     }
 
-//    @Test
-//    fun `one million users are logged in at once`(){
-//        val million = 10000000
-//        var innerCourseApp = CourseApp()
-//
-////        var tokenToUserMap = HashMap<String,Pair<String,String>>()
-//        for (i in 1..million){
-//            val username = "user" + i
-//            val password = "StrongPass" + i
-//            innerCourseApp.login(username, password)
-////            val token = innerCourseApp.login(username, password)
-////            tokenToUserMap.put(token, Pair(username, password))
-//        }
-//
-//        val randomToken = "user" + Random.nextInt(1, million)
-//        for (i in 1..million){
-//            assertDoesNotThrow { innerCourseApp.isUserLoggedIn(randomToken, "user" + i) }
-//        }
-//
-//        for (i in 1..million){
-//            assertDoesNotThrow { innerCourseApp.logout("user" + i) }
-//        }
-//    }
+    @Test
+    fun `enable to login same user after reboot`(){
+        var innerCourseApp1 = CourseApp()
+        innerCourseApp1.login("matan", "StrongPass")
+        var innerCourseApp2 = CourseApp()
+
+        assertThrows<IllegalArgumentException> { innerCourseApp2.login("matan", "StrongPass") }
+    }
+
+    @Test
+    fun `system is persistent after reboot`(){
+        var innerCourseApp1 = CourseApp()
+        var tokens = ArrayList<String>(11)
+        for (i in 0..10){
+            tokens.add(innerCourseApp1.login("user$i", "pass$i"))
+        }
+        for (i in 0..5){
+            innerCourseApp1.logout(tokens[i])
+        }
+        var innerCourseApp2 = CourseApp()
+
+        for (i in 0..5){
+            assertThrows<IllegalArgumentException> { innerCourseApp2.isUserLoggedIn(tokens[i], "matan$i") }
+            assertDoesNotThrow { innerCourseApp2.login("matan$i", "StrongPass$i") }
+        }
+        for (i in 6..10){
+            assertDoesNotThrow { innerCourseApp2.isUserLoggedIn(tokens[i], "matan$i") }
+        }
+    }
+
+    @Test
+    fun `corrupted(prefix & suffix) token pass over`(){
+        var innerCourseApp = CourseApp()
+
+        val token = innerCourseApp.login("matan", "StrongPass")
+
+        for (i in 1..20) {      // for testing couple of random suffix & prefix of the token
+            val prefixToken = token.substring(0, (0..(token.length - 1)).shuffled().first())
+            val suffixToken = token.substring((1..token.length).shuffled().first(), token.length)
+            assertThrows<IllegalArgumentException> { innerCourseApp.isUserLoggedIn(prefixToken, "matan") }
+            assertThrows<IllegalArgumentException> { innerCourseApp.isUserLoggedIn(suffixToken, "matan") }
+        }
+    }
+
+    @Test
+    fun `login very long username and password`(){
+        var innerCourseApp = CourseApp()
+        val allowedChars = "ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz"
+
+        for (i in 1..50) {
+            val username = (1..(500..1000).random()).map { allowedChars.random() }.joinToString("")
+            val password = (1..(500..1000).random()).map { allowedChars.random() }.joinToString("")
+            assertDoesNotThrow { innerCourseApp.login(username, password) }
+        }
+    }
+
+    @Test
+    fun `trying to login with wrong pass`(){
+        var innerCourseApp = CourseApp()
+
+        val token = innerCourseApp.login("matan", "StrongPass")
+        innerCourseApp.logout(token)
+
+        assertThrows<IllegalArgumentException> { innerCourseApp.login("matan", "WrongPass") }
+    }
+
+    @Test
+    fun `one million users are logged in at once`(){
+        val million = 10000000
+        var innerCourseApp = CourseApp()
+
+//        var tokenToUserMap = HashMap<String,Pair<String,String>>()
+        for (i in 1..million){
+            val username = "user" + i
+            val password = "StrongPass" + i
+            innerCourseApp.login(username, password)
+//            val token = innerCourseApp.login(username, password)
+//            tokenToUserMap.put(token, Pair(username, password))
+        }
+
+
+        val randomToken = "user" + Random.nextInt(1, million)
+        for (i in 1..million){
+            assertDoesNotThrow { innerCourseApp.isUserLoggedIn(randomToken, "user" + i) }
+        }
+
+        for (i in 1..million){
+            assertDoesNotThrow { innerCourseApp.logout("user" + i) }
+        }
+    }
 }
