@@ -1,3 +1,3 @@
 dependencies {
-    compile("il.ac.technion.cs.softwaredesign:primitive-storage-layer:1.0")
+    compile("il.ac.technion.cs.softwaredesign", "primitive-storage-layer", "1.1")
 }

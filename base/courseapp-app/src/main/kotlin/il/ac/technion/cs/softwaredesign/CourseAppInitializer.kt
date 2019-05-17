@@ -5,11 +5,11 @@ package il.ac.technion.cs.softwaredesign
  *
  * When testing, it will be instantiated once per test.
  */
-class CourseAppInitializer {
+interface CourseAppInitializer {
     /**
      * Initialize the data-store to some starting state.
      *
      * You may assume that when this method is called the data-store is completely empty.
      */
-    fun setup(): Unit = TODO("Implement me!")
+    fun setup()
 }

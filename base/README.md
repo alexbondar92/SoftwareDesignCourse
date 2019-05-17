@@ -1,8 +1,13 @@
-# CourseApp: Assignment 0
+# CourseApp: Assignment 1
 
 ## Authors
 * Firstname McLastname, ID number
 * Firstnamey Lastnameson, ID number
+
+### Previous assignment
+This assignment uses the code from the submission by: <ID1\>-<ID2\>
+
+(This is important for people who switched partners, but everyone needs to fill it out)
 
 ## Notes
 
@@ -15,7 +20,7 @@ Short summary describing the ways you chose to test your code.
 
 ### Difficulties
 Please list any technological difficulties you had while working on this assignment, especially
-with the tools used: Kotlin, JUnit, MockK, and Gradle.
+with the tools used: Kotlin, JUnit, MockK, Gradle, and Guice.
 
 ### Feedback
 Put any feedback you may have for this assignment here. This **will** be read by the course staff,

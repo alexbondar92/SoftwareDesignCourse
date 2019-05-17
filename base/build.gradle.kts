@@ -1,20 +1,33 @@
-import java.time.Duration
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import java.time.Duration
 
 plugins {
-    kotlin("jvm") version "1.3.21"
+    kotlin("jvm") version "1.3.30"
 }
 
 allprojects {
     repositories {
         jcenter()
     }
+
+    extra.apply {
+        set("junitVersion", "5.5.0-M1")
+        set("hamkrestVersion", "1.7.0.0")
+        set("guiceVersion", "4.2.2")
+        set("kotlinGuiceVersion", "1.3.0")
+    }
+}
+
+dependencies {
+    val junitVersion: String? by extra
+    testRuntime("org.junit.jupiter", "junit-jupiter-engine", junitVersion)
 }
 
 subprojects {
     apply(plugin = "kotlin")
     dependencies {
         implementation(kotlin("stdlib-jdk8"))
+        compile(kotlin("reflect"))
     }
     tasks.withType<KotlinCompile> {
         kotlinOptions.jvmTarget = "1.8"
