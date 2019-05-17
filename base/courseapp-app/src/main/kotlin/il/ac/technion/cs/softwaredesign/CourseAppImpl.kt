@@ -8,7 +8,7 @@ class CourseAppImpl : CourseApp{
     private val registeredNotLoggedIn = "0"
     private val notRegistered = null
 
-    private var usersTree = MyAvlTree()
+    private var usersTree = MyAvlTree(1,DataStoreIo())      // TODO("Remake")
 
     /**
      * Log in a user identified by [username] and [password], returning an authentication token that can be used in
@@ -35,6 +35,8 @@ class CourseAppImpl : CourseApp{
                 if (numOfUsers() == 1)    // first user in the system
                     setAdministrator(username)
 
+                TODO("Inc number of total users by one")
+                TODO("Inc number of total active users by one")
                 return usernameToToken(username)
             }
 
@@ -70,6 +72,7 @@ class CourseAppImpl : CourseApp{
             userLoggedIn -> {
                 writeDataForUser(username, registeredNotLoggedIn)        // TODO ("refactor")
                 updateAssocChannels(username, "loggedOut")
+                TODO("Dec number of total active users by one")
             }
         }
     }

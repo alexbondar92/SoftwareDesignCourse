@@ -74,7 +74,7 @@ class MyNode(var StorageKey: String) : Node<String,String>{
     }
 }
 
-class MyAvlTree(var root: String? = null) : AvlTree<String, String>{
+class MyAvlTree(var treeIndex: Int, var Storage: DataStoreIo) : AvlTree<String, String>{
 
     override fun insert(key: String, data: String): Boolean {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
