@@ -13,7 +13,7 @@ class CourseAppImpl : CourseApp{
     private var channelByMembersTree = MyAvlTree(2,DataStoreIo())      // TODO("Remake")
     private var channelByActiveTree = MyAvlTree(3,DataStoreIo())      // TODO("Remake")
 
-    enum class updateLoggedStatus{
+    enum class UpdateLoggedStatus{
         IN,
         OUT
     }
@@ -21,6 +21,7 @@ class CourseAppImpl : CourseApp{
     enum class KeyType{
         USER, PASSWORD, ADMIN, CHANNEL, PARTICIPANT, CHANNELS, TOTALUSERSAMOUNT, ACTIVEUSERSAMOUNT, CHANNELLOGGED
     }
+
 
 
     /**
@@ -42,9 +43,11 @@ class CourseAppImpl : CourseApp{
     override fun login(username: String, password: String): String {
         when (readFromStorage(mutableListOf(username),  KeyType.USER)) {
             notRegistered -> {
-                writeDataForUser(username, userLoggedIn)        // TODO ("refactor")
-                writePasswordForUser(username, password)        // TODO ("refactor")
-                usersTree.insert(createKey(username), createData(username))     // TODO ("move this out of the logic")
+                writeDataForUser(username, userLoggedIn)
+                writePasswordForUser(username, password)
+
+                val numberOfChannelsForUser = getChannelsOf(username).size.toString()
+                usersTree.insert(createKey(username, numberOfChannelsForUser, TreeType.USERS))
 
                 incTotalUsers()
                 incTotalLoggedInUsers()
@@ -59,8 +62,8 @@ class CourseAppImpl : CourseApp{
                 if (!passwordValid(username, password))
                     throw NoSuchEntityException()
 
-                writeDataForUser(username, userLoggedIn)        // TODO ("refactor")
-                updateAssocChannels(username, updateLoggedStatus.IN)
+                writeDataForUser(username, userLoggedIn)
+                updateAssocChannels(username, UpdateLoggedStatus.IN)
                 incTotalLoggedInUsers()
                 return usernameToToken(username)
             }
@@ -86,8 +89,8 @@ class CourseAppImpl : CourseApp{
             notRegistered, registeredNotLoggedIn -> throw InvalidTokenException()
 
             userLoggedIn -> {
-                writeDataForUser(username, registeredNotLoggedIn)        // TODO ("refactor")
-                updateAssocChannels(username, updateLoggedStatus.OUT)
+                writeDataForUser(username, registeredNotLoggedIn)
+                updateAssocChannels(username, UpdateLoggedStatus.OUT)
                 DecTotalLoggedInUsers()
             }
         }
@@ -108,7 +111,7 @@ class CourseAppImpl : CourseApp{
         if (!validToken(token))
             throw InvalidTokenException()
 
-        when (readFromStorage(mutableListOf(username),  KeyType.USER)) {                      // TODO ("refactor")
+        when (readFromStorage(mutableListOf(username),  KeyType.USER)) {
             notRegistered -> return null
             registeredNotLoggedIn -> return false
             userLoggedIn -> return true
@@ -135,7 +138,7 @@ class CourseAppImpl : CourseApp{
         if (!isAdministrator(token))
             throw UserNotAuthorizedException()
 
-        when (readFromStorage(mutableListOf(username),  KeyType.USER)) {      // TODO(refactor)
+        when (readFromStorage(mutableListOf(username),  KeyType.USER)) {
             notRegistered -> throw NoSuchEntityException()
 
             registeredNotLoggedIn, userLoggedIn -> {
@@ -378,56 +381,56 @@ class CourseAppImpl : CourseApp{
         return str
     }
 
-    private fun writeToStorage(args : MutableList<String>, type :KeyType ) : String? {
-        var str : String?
+    private fun writeToStorage(args : MutableList<String>, data: String, type :KeyType )  {
+
         when (type) {
             KeyType.USER -> {
                 val username = args[0]
-                str = DataStoreIo.read("UV$username")
+                DataStoreIo.write("UV$username", data)
             }
             KeyType.PASSWORD -> {
                 val username = args[0]
                 val password = args[1]
-                str = DataStoreIo.read(("UP$username$password"))
+                DataStoreIo.write(("UP$username$password"), data)
 
             }
             KeyType.ADMIN ->{
                 val username = args[0]
-                str = DataStoreIo.read(("UA$username"))
+                DataStoreIo.write(("UA$username"),data)
             }
             KeyType.CHANNEL -> {
                 val channel = args[0]
-                str = DataStoreIo.read(("CV$channel"))
+                DataStoreIo.write(("CV$channel"), data)
             }
             KeyType.PARTICIPANT -> {
                 val channel = args[0]
                 val username = args[1]
-                str = DataStoreIo.read(("CU$channel%$username")) //delimiter "%" between channel and username
+                DataStoreIo.write(("CU$channel%$username"), data) //delimiter "%" between channel and username
             }
             KeyType.CHANNELS -> {
                 val username = args[0]
-                str = DataStoreIo.read(("UCL$username"))
+                DataStoreIo.write(("UCL$username"), data)
             }
             KeyType.TOTALUSERSAMOUNT -> {
-                str = DataStoreIo.read(("totalUsers"))
+                DataStoreIo.write(("totalUsers"), data)
             }
             KeyType.ACTIVEUSERSAMOUNT -> {
-                str = DataStoreIo.read(("activeUsers"))
+                DataStoreIo.write(("activeUsers"), data)
             }
             KeyType.CHANNELLOGGED -> {
                 val channel = args[0]
-                str = DataStoreIo.read(("CL$channel"))
+                DataStoreIo.write(("CL$channel"), data)
             }
         }
-        return str
+
     }
 
     private fun writeDataForUser(username: String, data: String) {
-        DataStoreIo.write(("U$username"), data)
+        writeToStorage(mutableListOf(username), data, KeyType.USER)
     }
 
-    private fun writePasswordForUser(username: String, password: String) {
-        DataStoreIo.write(("P$username$password"), passwordSignedIn)
+    private fun writePasswordForUser(username: String, password: String) {passwordSignedIn
+        writeToStorage(mutableListOf(username, password), data = passwordSignedIn, type = KeyType.USER)
     }
 
     private fun passwordValid(username: String, password: String): Boolean {
@@ -449,7 +452,7 @@ class CourseAppImpl : CourseApp{
             totalUsers = str.toInt()
 
         totalUsers++
-        DataStoreIo.write(("totalUsers"), totalUsers.toString())
+        writeToStorage(mutableListOf(), data = totalUsers.toString(), type = KeyType.TOTALUSERSAMOUNT)
     }
 
     private fun incTotalLoggedInUsers(){
@@ -459,7 +462,7 @@ class CourseAppImpl : CourseApp{
             totalLoggedUsers = str.toInt()
 
         totalLoggedUsers++
-        DataStoreIo.write(("totalLoggedInUsers"), totalLoggedUsers.toString())
+        writeToStorage(mutableListOf(), data = totalLoggedUsers.toString(), type = KeyType.ACTIVEUSERSAMOUNT)
     }
 
     private fun DecTotalLoggedInUsers(){
@@ -468,7 +471,7 @@ class CourseAppImpl : CourseApp{
         totalLoggedUsers = str.toInt()
 
         totalLoggedUsers--
-        DataStoreIo.write(("totalLoggedInUsers"), totalLoggedUsers.toString())
+        writeToStorage(mutableListOf(), data = totalLoggedUsers.toString(), type = KeyType.ACTIVEUSERSAMOUNT)
     }
 
     private fun numOfUsers(): Int{
@@ -478,7 +481,7 @@ class CourseAppImpl : CourseApp{
 
     private fun setAdministrator(username: String){
         // Assumption: username is valid, and is in the system.
-        DataStoreIo.write(("UA$username"),1.toString())
+        writeToStorage(mutableListOf(username), data = "1" , type = KeyType.ADMIN)
     }
 
     private fun isAdministrator(token: String): Boolean{
@@ -488,7 +491,18 @@ class CourseAppImpl : CourseApp{
         return str.toInt() == 1
     }
 
-    private fun createKey(username: String): String{
+    enum class TreeType{
+        USERS, CHANNELTOTAL, CHANNELACTIVE
+    }
+    private fun createKey(key_in : String, number : String, type: TreeType): String{
+        var key : String
+        when (type) {
+            TreeType.USERS -> key ="AvlUsers$key_in%$number"
+            TreeType.CHANNELTOTAL -> key = "AvlChannel1$key_in%$number"
+            TreeType.CHANNELACTIVE -> key ="AvlChannel2$key_in%$number"
+        }
+        return key
+
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
 
         TODO("Create key for the username, this fun is for the Storage implementation" +
@@ -497,16 +511,7 @@ class CourseAppImpl : CourseApp{
         TODO("Write the assumption above, as documentation")
     }
 
-    private fun createData(username: String): String{
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-
-        TODO("Create data for the username, this fun is for the Storage implementation" +
-                "Rethink about this....")
-
-        TODO("Write the assumption above, as documentation")
-    }
-
-    private fun updateAssocChannels(username: String, kind: updateLoggedStatus){
+    private fun updateAssocChannels(username: String, kind: UpdateLoggedStatus){
         // Assumption:: username is valid
         val channels = getChannelsOf(username)
         for (channel in channels){ // TODO ("refactor this to updateChannel fun")
@@ -515,16 +520,16 @@ class CourseAppImpl : CourseApp{
                 numOfLoggedInUsers = str.toInt()
 
             if (numOfLoggedInUsers == 0)                         // Sanity check
-                assert(kind == updateLoggedStatus.IN)
+                assert(kind == UpdateLoggedStatus.IN)
 
             channelByActiveTree.delete(("AvlChannel2$channel%$numOfLoggedInUsers"))
             when(kind){
-                updateLoggedStatus.IN -> numOfLoggedInUsers++
-                updateLoggedStatus.OUT -> numOfLoggedInUsers--
+                UpdateLoggedStatus.IN -> numOfLoggedInUsers++
+                UpdateLoggedStatus.OUT -> numOfLoggedInUsers--
             }
             channelByActiveTree.insert(("AvlChannel2$channel%$numOfLoggedInUsers"))
 
-            DataStoreIo.write(("CL$channel"), numOfLoggedInUsers.toString())
+            writeToStorage(mutableListOf(channel), data = numOfLoggedInUsers.toString(), type = KeyType.CHANNELLOGGED)
         }
     }
 
@@ -548,21 +553,22 @@ class CourseAppImpl : CourseApp{
 
     private fun createChannel(channel: String, token: String) { //TODO("Refactor: change token to username....")
         // Assumption: token is valid and is associated & the token is associated to admin
-        DataStoreIo.write(("CV$channel"),1.toString())
+        writeToStorage(mutableListOf(channel), data = "1", type = KeyType.CHANNEL)
 
         assert(isAdministrator(token))
         val username = tokenToUsername(token)
-        DataStoreIo.write(("CU$channel$username"), 2.toString())        // make the admin as operator of this channel
+        // make the admin as operator of this channel:
+        writeToStorage(mutableListOf(channel, username), data = "2", type = KeyType.PARTICIPANT)
 
-        // update number of logged in members in the channel
-        DataStoreIo.write(("CL$channel"), 1.toString())
+        // update number of logged in members in the channel: the creator is the only logged in user after creation
+        writeToStorage(mutableListOf(channel), data = "1", type = KeyType.CHANNELLOGGED)
 
-        val numOfUsers = 1
-        channelByMembersTree.insert(("AvlChannel1$channel%$numOfUsers"))
-        channelByActiveTree.insert(("AvlChannel2$channel%$numOfUsers"))
+
+        channelByMembersTree.insert(createKey(channel, "1", TreeType.CHANNELTOTAL))
+        channelByActiveTree.insert(createKey(channel, "1", TreeType.CHANNELACTIVE))
 
         val str = readFromStorage(mutableListOf(username), KeyType.CHANNELS)
-        DataStoreIo.write(("UCL$username"), "$str%$channel")
+        writeToStorage(mutableListOf(username), data = "$str%$channel", type = KeyType.CHANNELS)
     }
 
     private fun isUserInChannelAux(username: String, channel: String): Boolean{     // TODO("Refactor: change to better name...")
@@ -580,41 +586,31 @@ class CourseAppImpl : CourseApp{
         val list = getChannelsOf(username)
         var numOfAssocChannels = list.size
         list.remove(channel)
-        DataStoreIo.write(("UCL$username"), list.joinToString("%"))
+        writeToStorage(mutableListOf(username), data = list.joinToString("%"), type = KeyType.CHANNELS)
 
         // update users tree
-        usersTree.delete(("AvlUsers$username%$numOfAssocChannels"))
+        usersTree.delete(createKey(username, numOfAssocChannels.toString(), TreeType.USERS))
         numOfAssocChannels--
-        usersTree.insert(("AvlUsers$username%$numOfAssocChannels"))
+        usersTree.insert(createKey(username, numOfAssocChannels.toString(), TreeType.USERS))
 
         //update two trees:
         var numOfUsersInChannel = readFromStorage(mutableListOf(channel), KeyType.CHANNEL)!!.toInt()
         var numOfLoggedUsersInChannel = readFromStorage(mutableListOf(channel), KeyType.CHANNELLOGGED)!!.toInt()
-        channelByMembersTree.delete(("AvlChannel1$channel%$numOfUsersInChannel"))
+        channelByMembersTree.delete(createKey(channel, numOfUsersInChannel.toString(), TreeType.CHANNELTOTAL))
         numOfUsersInChannel--
-        channelByMembersTree.insert(("AvlChannel1$channel%$numOfUsersInChannel"))
-        DataStoreIo.write(("CV$channel"), numOfUsersInChannel.toString())
+        channelByMembersTree.insert(createKey(channel, numOfUsersInChannel.toString(), TreeType.CHANNELTOTAL))
+        writeToStorage(mutableListOf(channel), data =  numOfUsersInChannel.toString(), type = KeyType.CHANNEL)
 
         if (readFromStorage(mutableListOf(username),  KeyType.USER) ==  userLoggedIn) {
-            channelByActiveTree.delete(("AvlChannel2$channel%$numOfLoggedUsersInChannel"))
+            channelByActiveTree.delete(createKey(channel, numOfLoggedUsersInChannel.toString(), TreeType.CHANNELACTIVE))
             numOfLoggedUsersInChannel--
-            channelByActiveTree.insert("AvlChannel2$channel%$numOfLoggedUsersInChannel")
+            channelByActiveTree.insert(createKey(channel, numOfLoggedUsersInChannel.toString(), TreeType.CHANNELACTIVE))
 
-            DataStoreIo.write(("CL$channel"), numOfLoggedUsersInChannel.toString())
+            writeToStorage(mutableListOf(channel), data =  numOfLoggedUsersInChannel.toString(), type = KeyType.CHANNELLOGGED)
         }
 
-        //update
-        DataStoreIo.write(("CU$channel%$username"), 0.toString()) //TODO("delimer %, refactoring")
+        writeToStorage(mutableListOf(channel,username), data =  "0", type = KeyType.PARTICIPANT)
 
-        
-
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-
-        TODO("Removing the user from the channel, updating the user's channel list" +
-                "where to check about the last user??...." +
-                "update the channel trees")
-
-        TODO("Write the assumption above, as documentation")
     }
 
     private fun isOperator(token: String, channel: String): Boolean {       // TODO("change token to username")
@@ -626,7 +622,7 @@ class CourseAppImpl : CourseApp{
 
     private fun numberOfActiveUsersInChannel(channel: String): Long {
         // Assumption: channel is valid
-        return DataStoreIo.read(("CL$channel"))!!.toLong()
+        return readFromStorage(mutableListOf(channel), KeyType.CHANNELLOGGED)!!.toLong()
     }
 
     private fun numberOfUsersInChannel(channel: String): Long{
