@@ -168,7 +168,7 @@ class CourseAppImpl : CourseApp{
         if (isChannelExist(channel) && !isAdministrator(token))
             throw UserNotAuthorizedException()
 
-        if (DataStoreIo.read("CV$channel")!!.toInt() > 0){
+        if (readFromStorage(mutableListOf(channel), KeyType.CHANNEL)!!.toInt() > 0){
             TODO("the channel already exist" +
                     "add the user as member to this channel" +
                     "update the channel trees and the user tree")
@@ -378,6 +378,50 @@ class CourseAppImpl : CourseApp{
         return str
     }
 
+    private fun writeToStorage(args : MutableList<String>, type :KeyType ) : String? {
+        var str : String?
+        when (type) {
+            KeyType.USER -> {
+                val username = args[0]
+                str = DataStoreIo.read("UV$username")
+            }
+            KeyType.PASSWORD -> {
+                val username = args[0]
+                val password = args[1]
+                str = DataStoreIo.read(("UP$username$password"))
+
+            }
+            KeyType.ADMIN ->{
+                val username = args[0]
+                str = DataStoreIo.read(("UA$username"))
+            }
+            KeyType.CHANNEL -> {
+                val channel = args[0]
+                str = DataStoreIo.read(("CV$channel"))
+            }
+            KeyType.PARTICIPANT -> {
+                val channel = args[0]
+                val username = args[1]
+                str = DataStoreIo.read(("CU$channel%$username")) //delimiter "%" between channel and username
+            }
+            KeyType.CHANNELS -> {
+                val username = args[0]
+                str = DataStoreIo.read(("UCL$username"))
+            }
+            KeyType.TOTALUSERSAMOUNT -> {
+                str = DataStoreIo.read(("totalUsers"))
+            }
+            KeyType.ACTIVEUSERSAMOUNT -> {
+                str = DataStoreIo.read(("activeUsers"))
+            }
+            KeyType.CHANNELLOGGED -> {
+                val channel = args[0]
+                str = DataStoreIo.read(("CL$channel"))
+            }
+        }
+        return str
+    }
+
     private fun writeDataForUser(username: String, data: String) {
         DataStoreIo.write(("U$username"), data)
     }
@@ -524,7 +568,7 @@ class CourseAppImpl : CourseApp{
     private fun isUserInChannelAux(username: String, channel: String): Boolean{     // TODO("Refactor: change to better name...")
         // Assumption: username and channel is valid
 
-        val str = DataStoreIo.read(("CU$channel$username")) ?: return false
+        val str = readFromStorage(mutableListOf(channel, username), KeyType.PARTICIPANT) ?: return false
         return str.toInt() == 1 || str.toInt() == 2
     }
 
@@ -544,8 +588,8 @@ class CourseAppImpl : CourseApp{
         usersTree.insert(("AvlUsers$username%$numOfAssocChannels"))
 
         //update two trees:
-        var numOfUsersInChannel = DataStoreIo.read(("CV$channel"))!!.toInt()
-        var numOfLoggedUsersInChannel = DataStoreIo.read(("CL$channel"))!!.toInt()
+        var numOfUsersInChannel = readFromStorage(mutableListOf(channel), KeyType.CHANNEL)!!.toInt()
+        var numOfLoggedUsersInChannel = readFromStorage(mutableListOf(channel), KeyType.CHANNELLOGGED)!!.toInt()
         channelByMembersTree.delete(("AvlChannel1$channel%$numOfUsersInChannel"))
         numOfUsersInChannel--
         channelByMembersTree.insert(("AvlChannel1$channel%$numOfUsersInChannel"))
@@ -574,7 +618,7 @@ class CourseAppImpl : CourseApp{
     private fun isOperator(token: String, channel: String): Boolean {       // TODO("change token to username")
         // Assumption: token and channel is valid
         val username = tokenToUsername(token)
-        val str = DataStoreIo.read(("CU$channel$username")) ?: return false
+        val str = readFromStorage(mutableListOf(channel, username), KeyType.PARTICIPANT) ?: return false
         return str.toInt() == 2     // TODO("2 is sign for operator")
     }
 
@@ -589,6 +633,6 @@ class CourseAppImpl : CourseApp{
 
     private fun numberOfUsersInChannel(channel: String): Long{
         // Assumption: channel is valid
-        return DataStoreIo.read(("CV$channel"))!!.toLong()
+        return readFromStorage(mutableListOf(channel), KeyType.CHANNEL)!!.toLong()
     }
 }
