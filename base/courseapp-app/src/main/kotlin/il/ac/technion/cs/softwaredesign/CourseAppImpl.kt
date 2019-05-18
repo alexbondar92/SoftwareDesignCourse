@@ -1,6 +1,7 @@
 package il.ac.technion.cs.softwaredesign
 
 import il.ac.technion.cs.softwaredesign.exceptions.*
+import java.lang.NullPointerException
 
 class CourseAppImpl : CourseApp{
     private val userLoggedIn = "1"
@@ -9,6 +10,8 @@ class CourseAppImpl : CourseApp{
     private val notRegistered = null
 
     private var usersTree = MyAvlTree(1,DataStoreIo())      // TODO("Remake")
+    private var channelByMembersTree = MyAvlTree(2,DataStoreIo())      // TODO("Remake")
+    private var channelByActiveTree = MyAvlTree(3,DataStoreIo())      // TODO("Remake")
 
     /**
      * Log in a user identified by [username] and [password], returning an authentication token that can be used in
@@ -32,11 +35,13 @@ class CourseAppImpl : CourseApp{
                 writeDataForUser(username, userLoggedIn)        // TODO ("refactor")
                 writePasswordForUser(username, password)        // TODO ("refactor")
                 usersTree.insert(createKey(username), createData(username))     // TODO ("move this out of the logic")
-                if (numOfUsers() == 1)    // first user in the system
+
+                incTotalUsers()
+                incTotalLoggedInUsers()
+
+                if (numOfUsers() == 1)    // first user in the system       TODO(maybe change to total users from stats)
                     setAdministrator(username)
 
-                TODO("Inc number of total users by one")
-                TODO("Inc number of total active users by one")
                 return usernameToToken(username)
             }
 
@@ -46,6 +51,7 @@ class CourseAppImpl : CourseApp{
 
                 writeDataForUser(username, userLoggedIn)        // TODO ("refactor")
                 updateAssocChannels(username, "loggedIn")
+                incTotalLoggedInUsers()
                 return usernameToToken(username)
             }
 
@@ -72,7 +78,7 @@ class CourseAppImpl : CourseApp{
             userLoggedIn -> {
                 writeDataForUser(username, registeredNotLoggedIn)        // TODO ("refactor")
                 updateAssocChannels(username, "loggedOut")
-                TODO("Dec number of total active users by one")
+                DecTotalLoggedInUsers()
             }
         }
     }
@@ -152,7 +158,13 @@ class CourseAppImpl : CourseApp{
         if (isChannelExist(channel) && !isAdministrator(token))
             throw UserNotAuthorizedException()
 
-        createChannel(channel, token)       // this fun create new channel and adding the admin(token) as first user and makes him/her operator
+        if (DataStoreIo.read("CV$channel")!!.toInt() > 0){
+            TODO("the channel already exist" +
+                    "add the user as member to this channel" +
+                    "update the channel trees and the user tree")
+        } else {
+            createChannel(channel, token)       // this fun create new channel and adding the admin(token) as first user and makes him/her operator
+        }
     }
 
     /**
@@ -336,29 +348,51 @@ class CourseAppImpl : CourseApp{
         throw IllegalArgumentException()    //shouldn't get here, data-store might be corrupted.
     }
 
-    private fun numOfUsers(): Int{
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    private fun incTotalUsers(){
+        var totalUsers = 0
+        val str = DataStoreIo.read(("totalUsers"))
+        if (str != null)
+            totalUsers = str.toInt()
 
-        TODO("Returning number of users in the system, this number can only be increased." +
-                    "In addition, this function is called only once... think again about it")
+        totalUsers++
+        DataStoreIo.write(("totalUsers"), totalUsers.toString())
+    }
+
+    private fun incTotalLoggedInUsers(){
+        var totalLoggedUsers = 0
+        val str = DataStoreIo.read(("totalLoggedInUsers"))
+        if (str != null)
+            totalLoggedUsers = str.toInt()
+
+        totalLoggedUsers++
+        DataStoreIo.write(("totalLoggedInUsers"), totalLoggedUsers.toString())
+    }
+
+    private fun DecTotalLoggedInUsers(){
+        var totalLoggedUsers = 0
+        val str = DataStoreIo.read(("totalLoggedInUsers"))
+        assert(str != null)
+        totalLoggedUsers = str!!.toInt()
+
+        totalLoggedUsers--
+        DataStoreIo.write(("totalLoggedInUsers"), totalLoggedUsers.toString())
+    }
+
+    private fun numOfUsers(): Int{
+        val str = DataStoreIo.read(("totalLoggedInUsers")) ?: throw NullPointerException()
+        return str.toInt()
     }
 
     private fun setAdministrator(username: String){
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-
-        TODO("Setting user as administrator," +
-                "this is a private function so we have assumption about the user")
-
-        TODO("Write the assumption above, as documentation")
+        // Assumption: username is valid, and is in the system.
+        DataStoreIo.write(("UA$username"),1.toString())
     }
 
     private fun isAdministrator(token: String): Boolean{
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-
-        TODO("Boolean checking for if the user is administrator," +
-                "this is a private function so we have assumption about the user")
-
-        TODO("Write the assumption above, as documentation")
+        // Assumption: token is valid, and is in the system.
+        val username = tokenToUsername(token)
+        val str = DataStoreIo.read(("UA$username")) ?: return false
+        return str.toInt() == 1
     }
 
     private fun createKey(username: String): String{
@@ -380,6 +414,14 @@ class CourseAppImpl : CourseApp{
     }
 
     private fun updateAssocChannels(username: String, kind: String){
+        // Assumption:: username is valid
+        // Assumption:: kind is "loggedIn" or "loggedOut"
+        val channels = getChannelsOf(username)
+        for (channel in channels){
+            //channelByActiveTree.getData()
+            TODO ("To be continue...")
+        }
+
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
 
         TODO("Updating all the channels that the user is member at," +
@@ -389,23 +431,37 @@ class CourseAppImpl : CourseApp{
         TODO("Write the assumption above, as documentation")
     }
 
+    private fun getChannelsOf(username: String): List<String>{
+        // Assumption:: username is valid
+        val str = DataStoreIo.read(("UCL$username"))!!
+        val delimiter = "%"
+        return str.split(delimiter)
+
+    }
+
     private fun validNameChannel(channel: String): Boolean{
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-
-        TODO("Checking if the channel name is valid")
-
-        TODO("Write the assumption above, as documentation")
+        val regex = Regex("((#)([a-z]|[A-Z]|(#)|(_))*)")      // Regex pattern of valid channel
+        return regex.matchEntire(channel)?.value != null
     }
 
     private fun isChannelExist(channel: String): Boolean{
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-
-        TODO("checking if the channel is exist in the system, the checking is byb his name...")
-
-        TODO("Write the assumption above, as documentation")
+        val str = DataStoreIo.read(("CV$channel")) ?: return false
+        return str.toInt() > 0
     }
 
-    private fun createChannel(channel: String, token: String) { TODO("Refactor: change token to username....")
+    private fun createChannel(channel: String, token: String) { //TODO("Refactor: change token to username....")
+        // Assumption: token is valid and is associated
+        DataStoreIo.write(("CV$channel"),1.toString())
+
+        val username = tokenToUsername(token)
+        if (isAdministrator(token))
+            DataStoreIo.write(("CU$channel$username"), 2.toString())
+        else
+            DataStoreIo.write(("CU$channel$username"), 1.toString())
+
+        TODO("To be continue...")
+
+
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
 
         TODO("Creating new channel in the system, inserting it to the trees" +
@@ -414,12 +470,11 @@ class CourseAppImpl : CourseApp{
         TODO("Write the assumption above, as documentation")
     }
 
-    private fun isUserInChannelAux(username: String, channel: String): Boolean{     TODO("Refactor: change to better name...")
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    private fun isUserInChannelAux(username: String, channel: String): Boolean{     // TODO("Refactor: change to better name...")
+        // Assumption: username and channel is valid
 
-        TODO("Checking if the user is member of this channel")
-
-        TODO("Write the assumption above, as documentation")
+        val str = DataStoreIo.read(("CU$channel$username")) ?: return false
+        return str.toInt() == 1 || str.toInt() == 2
     }
 
     private fun removeUserFromChannel(channel: String, token: String){
@@ -432,15 +487,15 @@ class CourseAppImpl : CourseApp{
         TODO("Write the assumption above, as documentation")
     }
 
-    private fun isOperator(token: String, channel: String): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-
-        TODO("Checking if the user is operator at the channel")
-
-        TODO("Write the assumption above, as documentation")
+    private fun isOperator(token: String, channel: String): Boolean {       // TODO("change token to username")
+        // Assumption: token and channel is valid
+        val username = tokenToUsername(token)
+        val str = DataStoreIo.read(("CU$channel$username")) ?: return false
+        return str.toInt() == 2     // TODO("2 is sign for operator")
     }
 
-    private fun numberOfActiveUsersInChannel(channel: String): Long{
+    private fun numberOfActiveUsersInChannel(channel: String): Long {
+
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
 
         TODO("Returning number of active users in the channel")
@@ -449,10 +504,7 @@ class CourseAppImpl : CourseApp{
     }
 
     private fun numberOfUsersInChannel(channel: String): Long{
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-
-        TODO("Returning number of users in the channel(members)")
-
-        TODO("Write the assumption above, as documentation")
+        // Assumption: channel is valid
+        return DataStoreIo.read(("CV$channel"))!!.toLong()
     }
 }
