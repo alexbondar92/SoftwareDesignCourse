@@ -8,66 +8,118 @@ interface AvlTree<K> {
     fun delete(delKey: K)
 
     fun printTree()
-
-//    fun getData(key: K): V
 }
 
 interface Node<K>{
-//    fun getData(): V?
-
-//    fun setData(data: V)
-
     fun getKey(): K
 
     fun setKey(key: K)
 
-    fun getLeft(): Node<K>
+    fun getLeft(): Node<K>?
 
     fun setLeft(node: Node<K>)
 
-    fun getRight(): Node<K>
+    fun getRight(): Node<K>?
 
     fun setRight(node: Node<K>)
 }
 
-class MyNode(var StorageKey: String) : Node<String>{
-    override fun getKey(): String {
-        return StorageKey
+class MyKey(val mainKey: Int, val secondaryKey: Int)
+
+class StorageNode(private var nodeStorageKey: String){
+    private var mainKey: Int
+    private var secondaryKey: Int
+    private var leftNode: String?
+    private var rightNode: String?
+
+    init {
+        val str = DataStoreIo.read(nodeStorageKey)
+        if (str == null)
+            TODO("what to do if null(the node is null) ??")
+        val node = parseValue(str)
+        this.mainKey = node.first.mainKey
+        this.secondaryKey = node.first.secondaryKey
+        this.leftNode = node.second
+        this.rightNode = node.third
     }
 
-    override fun setKey(key: String) {
-        StorageKey = key
+    fun getKey(): MyKey {
+        TODO("Add here some shtut....")
     }
 
-    override fun getLeft(): Node<String> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    fun setKey(key: String) {
+        nodeStorageKey = key
     }
 
-    override fun setLeft(node: Node<String>) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    fun getLeft(): StorageNode? {
+        if (leftNode != null)
+            return StorageNode(leftNode!!)
+        return null
     }
 
-    override fun getRight(): Node<String> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    fun setLeft(node: StorageNode) {
+        leftNode = node.getStorageKey()
     }
 
-    override fun setRight(node: Node<String>) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    fun getRight(): StorageNode? {
+        if (rightNode != null)
+            return StorageNode(rightNode!!)
+        return null
     }
 
-    private fun parseValue(str: String): Triple<String, String, String>{
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    fun setRight(node: StorageNode) {
+        rightNode = node.getStorageKey()
+    }
+
+    fun getStorageKey(): String {
+        TODO("not implemented")
+    }
+
+    private fun parseValue(str: String): Triple<MyKey, String, String>{
+        TODO("not implemented")
     }
 
     private fun composeValue(data: String, leftNode: String, rightNode: String){
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        TODO("not implemented")
     }
 }
 
 class MyAvlTree(var treeIndex: Int, var Storage: DataStoreIo) : AvlTree<String>{
+    private var root: StorageNode
 
-    override fun insert(key: String): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    init {
+        root = StorageNode(getRootKey())
+    }
+
+    private fun getRootKey(): String{
+        TODO("not implemented")
+    }
+    override fun insert(storageKey: String): Boolean {
+        if (root == null) {
+            root = StorageNode(storageKey)
+        } else {
+            var currentNode: StorageNode? = root
+            var parentNode: StorageNode
+            while (true) {
+                if (currentNode!!.getKey() == getKey(storageKey)) return false
+                parentNode = currentNode
+                val goLeft = currentNode.getKey() > getKey(storageKey) // TODO("add compareTo function to MyKey")
+                n = if (goLeft) n.left else n.right
+                if (n == null) {
+                    if (goLeft)
+                        parent.left  = Node(key, parent)
+                    else
+                        parent.right = Node(key, parent)
+                    rebalance(parent)
+                    break
+                }
+            }
+        }
+        return true
+    }
+
+    private fun getKey(storageKey: String): MyKey{
+        TODO("Not umplemented")
     }
 
     override fun delete(delKey: String) {
