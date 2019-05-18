@@ -407,12 +407,12 @@ class CourseAppImpl : CourseApp{
     }
 
 
-    private fun createKey(key_in : String, type: TreeType): String{
+    private fun createKey(key_in : String, type: TreeType, number : String): String{
         var key : String
         when (type) {
-            TreeType.USERS -> key ="AvlUsers%$key_in"
-            TreeType.CHANNELTOTAL -> key = "AvlChannel1%$key_in"
-            TreeType.CHANNELACTIVE -> key ="AvlChannel2%$key_in"
+            TreeType.USERS -> key ="AvlUsers%$key_in%$number"
+            TreeType.CHANNELTOTAL -> key = "AvlChannel1%$key_in%$number"
+            TreeType.CHANNELACTIVE -> key ="AvlChannel2%$key_in%$number"
         }
         return key
     }
@@ -669,8 +669,8 @@ class CourseAppImpl : CourseApp{
 
     //tree wrappers:
 
-    private fun insertUsersTree(username : String) {
-        usersTree.insert(createKey(username,  TreeType.USERS))
+    private fun insertUsersTree(username : String, number : String) {
+        usersTree.insert(createKey(username,  TreeType.USERS, number))
     }
 
     //end tree wrappers

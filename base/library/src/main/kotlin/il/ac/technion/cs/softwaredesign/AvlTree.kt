@@ -36,13 +36,16 @@ class StorageNode(private var nodeStorageKey: String){
         var tempList = nodeStorageKey.split("%")
         val treeName = tempList[0]
         mainKey = tempList[1].toInt()
-
+        secondaryKey = tempList[2].toInt()
 
         val str = DataStoreIo.read(("$treeName%$mainKey"))
         if (str != null) {
+            //garbage
+
             tempList = str.split("%")
-            leftNode = tempList[1]
-            rightNode = tempList[2]
+            // the tempList[1](secondary key) is irrelevant
+            leftNode = tempList[2]
+            rightNode = tempList[3]
         }
 
         val node = parseValue(str)
