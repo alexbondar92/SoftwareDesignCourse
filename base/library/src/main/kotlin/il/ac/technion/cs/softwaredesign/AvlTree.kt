@@ -2,45 +2,35 @@ package il.ac.technion.cs.softwaredesign
 
 import il.ac.technion.cs.softwaredesign.DataStoreIo
 
-interface AvlTree<K,V> {
-    fun insert(key: K, data: V): Boolean
+interface AvlTree<K> {
+    fun insert(key: K): Boolean
 
     fun delete(delKey: K)
 
     fun printTree()
 
-    fun getData(key: K): V
+//    fun getData(key: K): V
 }
 
-interface Node<K, V>{
-    fun getData(): V?
+interface Node<K>{
+//    fun getData(): V?
 
-    fun setData(data: V)
+//    fun setData(data: V)
 
     fun getKey(): K
 
     fun setKey(key: K)
 
-    fun getLeft(): Node<K, V>
+    fun getLeft(): Node<K>
 
-    fun setLeft(node: Node<K, V>)
+    fun setLeft(node: Node<K>)
 
-    fun getRight(): Node<K, V>
+    fun getRight(): Node<K>
 
-    fun setRight(node: Node<K, V>)
+    fun setRight(node: Node<K>)
 }
 
-class MyNode(var StorageKey: String) : Node<String,String>{
-    override fun getData(): String? {
-        return DataStoreIo.read(StorageKey)
-        // TODO (need to parser before returning to caller)
-    }
-
-    override fun setData(data: String) {
-        // TODO (need to compose a value for before sending to storage)
-        DataStoreIo.write(StorageKey, data)
-    }
-
+class MyNode(var StorageKey: String) : Node<String>{
     override fun getKey(): String {
         return StorageKey
     }
@@ -49,19 +39,19 @@ class MyNode(var StorageKey: String) : Node<String,String>{
         StorageKey = key
     }
 
-    override fun getLeft(): Node<String, String> {
+    override fun getLeft(): Node<String> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun setLeft(node: Node<String, String>) {
+    override fun setLeft(node: Node<String>) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getRight(): Node<String, String> {
+    override fun getRight(): Node<String> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun setRight(node: Node<String, String>) {
+    override fun setRight(node: Node<String>) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
@@ -74,9 +64,9 @@ class MyNode(var StorageKey: String) : Node<String,String>{
     }
 }
 
-class MyAvlTree(var treeIndex: Int, var Storage: DataStoreIo) : AvlTree<String, String>{
+class MyAvlTree(var treeIndex: Int, var Storage: DataStoreIo) : AvlTree<String>{
 
-    override fun insert(key: String, data: String): Boolean {
+    override fun insert(key: String): Boolean {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
