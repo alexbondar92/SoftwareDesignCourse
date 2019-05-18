@@ -27,15 +27,24 @@ interface Node<K>{
 class MyKey(val mainKey: Int, val secondaryKey: Int)
 
 class StorageNode(private var nodeStorageKey: String){
-    private var mainKey: Int
-    private var secondaryKey: Int
-    private var leftNode: String?
-    private var rightNode: String?
+    private var mainKey: Int = 0
+    private var secondaryKey: Int = 0
+    private var leftNode: String? = null
+    private var rightNode: String? = null
 
     init {
-        val str = DataStoreIo.read(nodeStorageKey)
-        if (str == null)
-            TODO("what to do if null(the node is null) ??")
+        var tempList = nodeStorageKey.split("%")
+        val treeName = tempList[0]
+        mainKey = tempList[1].toInt()
+
+
+        val str = DataStoreIo.read(("$treeName%$mainKey"))
+        if (str != null) {
+            tempList = str.split("%")
+            leftNode = tempList[1]
+            rightNode = tempList[2]
+        }
+
         val node = parseValue(str)
         this.mainKey = node.first.mainKey
         this.secondaryKey = node.first.secondaryKey
@@ -84,8 +93,8 @@ class StorageNode(private var nodeStorageKey: String){
     }
 }
 
-class MyAvlTree(var treeIndex: Int, var Storage: DataStoreIo) : AvlTree<String>{
-    private var root: StorageNode
+class StorageAvlTree(var treeIndex: Int, var Storage: DataStoreIo){
+    private var root: StorageNode?
 
     init {
         root = StorageNode(getRootKey())
@@ -94,23 +103,24 @@ class MyAvlTree(var treeIndex: Int, var Storage: DataStoreIo) : AvlTree<String>{
     private fun getRootKey(): String{
         TODO("not implemented")
     }
-    override fun insert(storageKey: String): Boolean {
+    fun insert(storageKey: String): Boolean {
+        val newKey = getKey(storageKey)
         if (root == null) {
             root = StorageNode(storageKey)
         } else {
             var currentNode: StorageNode? = root
             var parentNode: StorageNode
             while (true) {
-                if (currentNode!!.getKey() == getKey(storageKey)) return false
+                if (currentNode!!.getKey() == newKey) return false
                 parentNode = currentNode
-                val goLeft = currentNode.getKey() > getKey(storageKey) // TODO("add compareTo function to MyKey")
-                n = if (goLeft) n.left else n.right
-                if (n == null) {
+                val goLeft = currentNode.getKey() > newKey      // TODO("add compareTo function to MyKey")
+                currentNode = if (goLeft) currentNode.getLeft() else currentNode.getRight()
+                if (currentNode == null) {
                     if (goLeft)
-                        parent.left  = Node(key, parent)
+                        parentNode.setLeft(StorageNode(storageKey))     // TODO("think again about the setter")
                     else
-                        parent.right = Node(key, parent)
-                    rebalance(parent)
+                        parentNode.setRight(StorageNode(storageKey))     // TODO("think again about the setter")
+                    rebalance(parentNode)
                     break
                 }
             }
@@ -122,43 +132,43 @@ class MyAvlTree(var treeIndex: Int, var Storage: DataStoreIo) : AvlTree<String>{
         TODO("Not umplemented")
     }
 
-    override fun delete(delKey: String) {
+    fun delete(delKey: String) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun printTree() {
+    fun printTree() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getData(key: String): String {
+    fun getData(key: String): String {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    private fun getRoot(): MyNode?{
+    private fun getRoot(): StorageNode?{
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    private fun rebalance(n: MyNode) {
+    private fun rebalance(n: StorageNode) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    private fun rotateLeft(a: MyNode): MyNode {
+    private fun rotateLeft(a: StorageNode): StorageNode {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    private fun rotateRight(a: MyNode): MyNode {
+    private fun rotateRight(a: StorageNode): StorageNode {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    private fun rotateLeftThenRight(n: MyNode): MyNode {
+    private fun rotateLeftThenRight(n: StorageNode): StorageNode {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    private fun rotateRightThenLeft(n: MyNode): MyNode {
+    private fun rotateRightThenLeft(n: StorageNode): StorageNode {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    private fun height(n: MyNode?): Int {
+    private fun height(n: StorageNode?): Int {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
