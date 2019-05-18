@@ -562,6 +562,8 @@ class CourseAppImpl : CourseApp{
         //update
         DataStoreIo.write(("CU$channel%$username"), 0.toString()) //TODO("delimer %, refactoring")
 
+        
+
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
 
         TODO("Removing the user from the channel, updating the user's channel list" +
@@ -579,12 +581,8 @@ class CourseAppImpl : CourseApp{
     }
 
     private fun numberOfActiveUsersInChannel(channel: String): Long {
-
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-
-        TODO("Returning number of active users in the channel")
-
-        TODO("Write the assumption above, as documentation")
+        // Assumption: channel is valid
+        return DataStoreIo.read(("CL$channel"))!!.toLong()
     }
 
     private fun numberOfUsersInChannel(channel: String): Long{
