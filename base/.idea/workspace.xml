@@ -42,7 +42,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatistics.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
@@ -51,37 +51,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1731">
-              <caret line="55" selection-start-line="55" selection-end-line="55" />
+            <state relative-caret-position="668">
+              <caret line="629" column="5" lean-forward="true" selection-start-line="629" selection-start-column="5" selection-end-line="629" selection-end-column="5" />
               <folding>
-                <element signature="n#!!doc;n#login#0;n#!!block;n#CourseAppImpl#0" />
-                <element signature="n#!!doc;n#logout#0;n#!!block;n#CourseAppImpl#0" />
-                <element signature="n#!!doc;n#isUserLoggedIn#0;n#!!block;n#CourseAppImpl#0" />
-                <element signature="n#!!doc;n#makeAdministrator#0;n#!!block;n#CourseAppImpl#0" />
-                <element signature="n#!!doc;n#channelJoin#0;n#!!block;n#CourseAppImpl#0" />
-                <element signature="n#!!doc;n#channelPart#0;n#!!block;n#CourseAppImpl#0" />
-                <element signature="n#!!doc;n#channelKick#0;n#!!block;n#CourseAppImpl#0" />
-                <element signature="n#!!doc;n#isUserInChannel#0;n#!!block;n#CourseAppImpl#0" />
-                <element signature="n#!!doc;n#numberOfActiveUsersInChannel#0;n#!!block;n#CourseAppImpl#0" />
-                <element signature="n#!!doc;n#numberOfTotalUsersInChannel#0;n#!!block;n#CourseAppImpl#0" />
-                <element signature="n#!!block;n#createKey#0;n#!!block;n#CourseAppImpl#0" />
-                <element signature="n#!!block;n#createKey#1;n#!!block;n#CourseAppImpl#0" />
-                <element signature="n#!!block;n#updateAssocChannels#0;n#!!block;n#CourseAppImpl#0" />
-                <element signature="n#!!block;n#createChannel#0;n#!!block;n#CourseAppImpl#0" />
-                <element signature="n#!!block;n#removeUserFromChannel#0;n#!!block;n#CourseAppImpl#0" />
+                <element signature="e#42#132#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.30/9c981bc2a33066176e605b58a84170b8116e9d8c/kotlin-stdlib-common-1.3.30-sources.jar!/kotlin/util/Standard.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -89,26 +66,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2430">
-              <caret line="162" column="73" selection-start-line="162" selection-start-column="73" selection-end-line="162" selection-end-column="73" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIo.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/AvlTree.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+            <state relative-caret-position="1905">
+              <caret line="164" selection-start-line="164" selection-end-line="164" />
             </state>
           </provider>
         </entry>
@@ -158,7 +117,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -169,54 +127,14 @@
             <path>
               <item name="base" type="b2602c69:ProjectViewProjectNode" />
               <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="courseapp-test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="library" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="library" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="library" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="library" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="library" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="library" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="softwaredesign" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -271,13 +189,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23487000" />
+    <option name="totallyTimeSpent" value="23492000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="199" y="98" width="1389" height="987" extended-state="0" />
+    <frame x="227" y="26" width="1389" height="987" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21380846" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21677803" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -364,8 +282,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2430">
-          <caret line="162" column="73" selection-start-line="162" selection-start-column="73" selection-end-line="162" selection-end-column="73" />
+        <state relative-caret-position="1905">
+          <caret line="164" selection-start-line="164" selection-end-line="164" />
         </state>
       </provider>
     </entry>
@@ -385,24 +303,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1731">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
+        <state relative-caret-position="668">
+          <caret line="629" column="5" lean-forward="true" selection-start-line="629" selection-start-column="5" selection-end-line="629" selection-end-column="5" />
           <folding>
-            <element signature="n#!!doc;n#login#0;n#!!block;n#CourseAppImpl#0" />
-            <element signature="n#!!doc;n#logout#0;n#!!block;n#CourseAppImpl#0" />
-            <element signature="n#!!doc;n#isUserLoggedIn#0;n#!!block;n#CourseAppImpl#0" />
-            <element signature="n#!!doc;n#makeAdministrator#0;n#!!block;n#CourseAppImpl#0" />
-            <element signature="n#!!doc;n#channelJoin#0;n#!!block;n#CourseAppImpl#0" />
-            <element signature="n#!!doc;n#channelPart#0;n#!!block;n#CourseAppImpl#0" />
-            <element signature="n#!!doc;n#channelKick#0;n#!!block;n#CourseAppImpl#0" />
-            <element signature="n#!!doc;n#isUserInChannel#0;n#!!block;n#CourseAppImpl#0" />
-            <element signature="n#!!doc;n#numberOfActiveUsersInChannel#0;n#!!block;n#CourseAppImpl#0" />
-            <element signature="n#!!doc;n#numberOfTotalUsersInChannel#0;n#!!block;n#CourseAppImpl#0" />
-            <element signature="n#!!block;n#createKey#0;n#!!block;n#CourseAppImpl#0" />
-            <element signature="n#!!block;n#createKey#1;n#!!block;n#CourseAppImpl#0" />
-            <element signature="n#!!block;n#updateAssocChannels#0;n#!!block;n#CourseAppImpl#0" />
-            <element signature="n#!!block;n#createChannel#0;n#!!block;n#CourseAppImpl#0" />
-            <element signature="n#!!block;n#removeUserFromChannel#0;n#!!block;n#CourseAppImpl#0" />
+            <element signature="e#42#132#0" expanded="true" />
           </folding>
         </state>
       </provider>
