@@ -1,5 +1,7 @@
 package il.ac.technion.cs.softwaredesign
 
+import java.util.concurrent.locks.Condition
+
 class RemoteAvlTree {
     private var treeName: String
     private var storage: DataStoreIo? = null
@@ -18,7 +20,7 @@ class RemoteAvlTree {
         }
     }
 
-    private fun getRootKey(): String?{
+    private fun getRootKey(): String? {
         val str = DataStoreIo.read(("T$this.treeName"))
         if (str == null || str == "null")
             return null
@@ -88,7 +90,7 @@ class RemoteAvlTree {
     private fun height(node: RemoteNode?): Int {
         if (node == null)
             return -1
-        return 1+ Math.max(height(node.getLeft()), height(node.getRight()))
+        return 1 + Math.max(height(node.getLeft()), height(node.getRight()))
     }
 
     private fun rotateRight(a: RemoteNode): RemoteNode {
@@ -140,10 +142,10 @@ class RemoteAvlTree {
     //     fun delete(delKey: Int) {
     fun delete(mainKey: String, secondaryKey: String) {
         if (root == null) return
-        var n:       RemoteNode? = root
-        var parent:  RemoteNode? = root
+        var n: RemoteNode? = root
+        var parent: RemoteNode? = root
         var delNode: RemoteNode? = null
-        var child:   RemoteNode? = root
+        var child: RemoteNode? = root
         while (child != null) {
             parent = n
             n = child
@@ -160,7 +162,7 @@ class RemoteAvlTree {
                     if (leftSon != null)
                         leftSon.setParent(parent)
 
-                    if (parent!!.getRight() == delNode){
+                    if (parent!!.getRight() == delNode) {
                         parent!!.setRight(leftSon)
                     } else {
                         parent!!.setLeft(leftSon)
@@ -173,7 +175,7 @@ class RemoteAvlTree {
                     setRoot(n)
                 } else {        // there is a parent for delNode
                     n.setParent(delNode.getParent())
-                    if (delNode.getParent()!!.getRight() == delNode){
+                    if (delNode.getParent()!!.getRight() == delNode) {
                         delNode.getParent()!!.setRight(n)
                     } else {
                         delNode.getParent()!!.setLeft(n)
@@ -208,5 +210,23 @@ class RemoteAvlTree {
             }
             delNode.reset()
         }
+    }
+
+    private fun top10aux(node: RemoteNode?, adder: (RemoteNode) -> Unit, condition: () -> Boolean) {
+        if (node == null || !condition())
+            return
+        top10aux(node.getLeft(), adder, condition)
+        adder(node)
+        top10aux(node.getRight(), adder, condition)
+
+    }
+
+    fun top10(): List<Int> {
+        var list = mutableListOf<Int>()
+        val adder: (RemoteNode) -> Unit = { x: RemoteNode -> list.add(x.getMainKey().toInt()) }
+        val cond: () -> Boolean = { list.size < 10 }
+        val strRoot = getRootKey() ?: return mutableListOf()
+        top10aux(RemoteNode(treeName, strRoot), adder, cond)
+        return list
     }
 }
