@@ -3,16 +3,16 @@ package il.ac.technion.cs.softwaredesign
 import il.ac.technion.cs.softwaredesign.exceptions.*
 import java.lang.NullPointerException
 
-class CourseAppImpl : CourseApp , CourseAppStatistics{
+class CourseAppImpl : CourseApp{
 
     private val userLoggedIn = "1"
     private val passwordSignedIn = "1"
     private val registeredNotLoggedIn = "0"
     private val notRegistered = null
 
-    private var usersTree = RemoteAvlTree(1,DataStoreIo())      // TODO("Remake")
-    private var channelByMembersTree = RemoteAvlTree(2,DataStoreIo())      // TODO("Remake")
-    private var channelByActiveTree = RemoteAvlTree(3,DataStoreIo())      // TODO("Remake")
+    private var usersTree = RemoteAvlTree("AvlUsers",DataStoreIo())
+    private var channelByMembersTree = RemoteAvlTree("AvlChannel1",DataStoreIo())
+    private var channelByActiveTree = RemoteAvlTree("AvlChannel2",DataStoreIo())
 
     enum class UpdateLoggedStatus{
         IN,
@@ -32,73 +32,6 @@ class CourseAppImpl : CourseApp , CourseAppStatistics{
         USERCHANNELS
     }
 
-    enum class TreeType{
-        USERS, CHANNELTOTAL, CHANNELACTIVE
-    }
-
-
-    /**
-     * Count the total number of users, both logged-in and logged-out, in the system.
-     *
-     * @return The total number of users.
-     */
-    override fun totalUsers(): Long {
-        return numOfUsers()
-    }
-
-    /**
-     * Count the number of logged-in users in the system.
-     *
-     * @return The number of logged-in users.
-     */
-    override fun loggedInUsers(): Long{
-        return getNumberOfLoggedInUsers()
-    }
-
-    /**
-     * Return a sorted list of the top 10 channels in the system by user count. The list will be sorted in descending
-     * order, so the channel with the highest membership will be first, followed by the second, and so on.
-     *
-     * If two channels have the same number of users, they will be sorted in ascending lexicographical order.
-     *
-     * If there are less than 10 channels in the system, a shorter list will be returned.
-     *
-     * @return A sorted list of channels by user count.
-     */
-    override fun top10ChannelsByUsers(): List<String> {
-        return mutableListOf("TODO") //TODO("call tree function)
-    }
-
-    /**
-     * Return a sorted list of the top 10 channels in the system by logged-in user count. The list will be sorted in
-     * descending order, so the channel with the highest active membership will be first, followed by the second, and so
-     * on.
-     *
-     * If two channels have the same number of logged-in users, they will be sorted in ascending lexicographical order.
-     *
-     * If there are less than 10 channels in the system, a shorter list will be returned.
-     *
-     * @return A sorted list of channels by logged-in user count.
-     */
-    override fun top10ActiveChannelsByUsers(): List<String> {
-        return mutableListOf("TODO")//TODO("call tree function)
-    }
-
-    /**
-     * Return a sorted list of the top 10 users in the system by channel membership count. The list will be sorted in
-     * descending order, so the user who is a member of the most channels will be first, followed by the second, and so
-     * on.
-     *
-     * If two users are members of the same number of channels, they will be sorted in ascending lexicographical order.
-     *
-     * If there are less than 10 users in the system, a shorter list will be returned.
-     *
-     * @return A sorted list of users by channel count.
-     *
-     */
-    override fun top10UsersByChannels(): List<String> {
-        return mutableListOf("TODO")//TODO("call tree function)
-    }
     /**
      * Log in a user identified by [username] and [password], returning an authentication token that can be used in
      * future calls. If this username did not previously log in to the system, it will be automatically registered with
@@ -385,8 +318,6 @@ class CourseAppImpl : CourseApp , CourseAppStatistics{
         removeUserFromChannel(channel, token)   // this fun remove user from channel and update the trees
     }
 
-
-
     private fun removeUserFromChannel(channel: String, token: String){ //TODO("check logic again")
         // Assumption: token and channel is valid
         val username = tokenToUsername(token)
@@ -413,7 +344,6 @@ class CourseAppImpl : CourseApp , CourseAppStatistics{
 
         disConnectUserFromChannel(channel, username)
     }
-
 
     /**
      * Indicate [username]'s membership in [channel]. A user is still a member of a channel when logged off.
@@ -515,40 +445,27 @@ class CourseAppImpl : CourseApp , CourseAppStatistics{
         return str.toInt() == 1
     }
 
-
-    private fun createKey(key_in : String, type: TreeType, number : Long): String{
-        var key : String
-        when (type) {
-            TreeType.USERS -> key ="AvlUsers%$key_in%$number"
-            TreeType.CHANNELTOTAL -> key = "AvlChannel1%$key_in%$number"
-            TreeType.CHANNELACTIVE -> key ="AvlChannel2%$key_in%$number"
-        }
-        return key
-    }
-
     private fun updateAssocChannels(username: String, kind: UpdateLoggedStatus){
         // Assumption:: username is valid
         val channels = getChannelsOf(username)
         for (channel in channels){ // TODO ("refactor this to updateChannel fun")
-            var numOfLoggedInUsers = 0
+            var numOfLoggedInUsers: Long = 0
             val str: String  = readFromStorage(mutableListOf(channel), KeyType.CHANNELLOGGED)!!
-            numOfLoggedInUsers = str.toInt()
+            numOfLoggedInUsers = str.toLong()
 
-            if (numOfLoggedInUsers == 0)                         // Sanity check
+            if (numOfLoggedInUsers == 0.toLong())                         // Sanity check
                 assert(kind == UpdateLoggedStatus.IN)
 
-            channelByActiveTree.delete(("AvlChannel2$channel%$numOfLoggedInUsers"))
+            channelByActiveTree.delete(channel, numOfLoggedInUsers.toString())
             when(kind){
                 UpdateLoggedStatus.IN -> numOfLoggedInUsers++
                 UpdateLoggedStatus.OUT -> numOfLoggedInUsers--
             }
-            channelByActiveTree.insert(("AvlChannel2$channel%$numOfLoggedInUsers"))
+            channelByActiveTree.insert(channel, numOfLoggedInUsers.toString())
 
             writeToStorage(mutableListOf(channel), data = numOfLoggedInUsers.toString(), type = KeyType.CHANNELLOGGED)
         }
     }
-
-
 
     private fun validNameChannel(channel: String): Boolean{
         val regex = Regex("((#)([a-z]|[A-Z]|(#)|(_))*)")      // Regex pattern of valid channel
@@ -560,7 +477,6 @@ class CourseAppImpl : CourseApp , CourseAppStatistics{
         return str.toInt() > 0
     }
 
-
     private fun areUserAndChannelConnected(username: String, channel: String): Boolean{
         // Assumption: username and channel is valid
 
@@ -568,15 +484,12 @@ class CourseAppImpl : CourseApp , CourseAppStatistics{
         return str.toInt() == 1 || str.toInt() == 2
     }
 
-
     private fun isOperator(token: String, channel: String): Boolean {       // TODO("change token to username")
         // Assumption: token and channel is valid
         val username = tokenToUsername(token)
         val str = readFromStorage(mutableListOf(channel, username), KeyType.PARTICIPANT) ?: return false
         return str.toInt() == 2     // TODO("2 is sign for operator")
     }
-
-
 
     //writers:////////////////////////////////////////////////////
 
@@ -842,32 +755,32 @@ class CourseAppImpl : CourseApp , CourseAppStatistics{
 
     //inserts:
     private fun insertUsersTree(username : String, number : Long) {
-        usersTree.insert(createKey(username,  TreeType.USERS, number))
+        usersTree.insert(username, number.toString())
     }
 
     private fun insertToTotalChannelsTree(channel : String, number : Long) {
-        channelByMembersTree.insert(createKey(channel,  TreeType.CHANNELTOTAL, number))
+        channelByMembersTree.insert(channel, number.toString())
     }
 
     private fun insertToActiveChannelsTree(channel : String, number : Long) {
-        channelByActiveTree.insert(createKey(channel,  TreeType.CHANNELACTIVE, number))
+        channelByActiveTree.insert(channel, number.toString())
     }
 
 
     //deletes:
     private fun  deleteFromTotalChannelsTree(channel: String){
         val number = numberOfUsersInChannel(channel)
-        channelByMembersTree.delete(createKey(channel,  TreeType.CHANNELTOTAL, number))
+        channelByMembersTree.delete(channel, number.toString())
     }
 
     private fun  deleteFromActiveChannelsTree(channel: String){
         val number = numberOfActiveUsersInChannel(channel)
-        channelByActiveTree.delete(createKey(channel,  TreeType.CHANNELACTIVE, number))
+        channelByActiveTree.delete(channel, number.toString())
     }
 
     private fun  deleteFromUsersTree(username: String) {
         val number = readAmountOfChannelsForUser(username)
-        usersTree.delete(createKey(username,TreeType.USERS, number ))
+        usersTree.delete(username, number.toString())
     }
 
     //end tree wrappers*********************************

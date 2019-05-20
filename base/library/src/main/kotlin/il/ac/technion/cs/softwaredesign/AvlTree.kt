@@ -161,8 +161,8 @@ class AvlTree {
 
 fun main(args: Array<String>) {
     val tree = AvlTree()
-    println("Inserting values 1 to 10")
-    for (i in 1..10) tree.insert(i)
+    println("Inserting values 1 to 100")
+    for (i in 1..100) tree.insert(i)
     print("Printing key     : ")
     tree.printKey()
     print("Printing balance : ")

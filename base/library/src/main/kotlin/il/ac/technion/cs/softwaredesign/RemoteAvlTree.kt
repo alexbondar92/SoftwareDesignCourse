@@ -19,11 +19,20 @@ class RemoteAvlTree {
     }
 
     private fun getRootKey(): String?{
-        return DataStoreIo.read(("T$this.treeName"))
+        val str = DataStoreIo.read(("T$this.treeName"))
+        if (str == null || str == "null")
+            return null
+        return str
     }
 
-    private fun setRoot(root: RemoteNode) {
-        DataStoreIo.write(("T${this.treeName}"), root.getMainKey())
+    private fun setRoot(newRoot: RemoteNode?) {
+        this.root = newRoot
+        if (newRoot == null)
+            DataStoreIo.write(("T${this.treeName}"), "null")
+        else {
+            newRoot.setParent(null)
+            DataStoreIo.write(("T${this.treeName}"), newRoot.getMainKey())
+        }
     }
 
     fun insert(mainKey: String, secondaryKey: String): Boolean {
@@ -128,30 +137,76 @@ class RemoteAvlTree {
         return rotateLeft(node)
     }
 
-//    fun delete(mainKey: String, SecondaryKey: String) {
-//        if (root == null) return
-//        var n:       RemoteNode? = root
-//        var parent:  RemoteNode? = root
-//        var delNode: RemoteNode? = null
-//        var child:   RemoteNode? = root
-//        while (child != null) {
-//            parent = n
-//            n = child
-//            child = if (delKey >= n.key) n.right else n.left
-//            if (delKey == n.key) delNode = n
-//        }
-//        if (delNode != null) {
-//            delNode.key = n!!.key
-//            child = if (n.left != null) n.left else n.right
-//            if (root!!.key == delKey)
-//                root = child
-//            else {
-//                if (parent!!.left == n)
-//                    parent.left = child
-//                else
-//                    parent.right = child
-//                rebalance(parent)
-//            }
-//        }
-//    }
+    //     fun delete(delKey: Int) {
+    fun delete(mainKey: String, secondaryKey: String) {
+        if (root == null) return
+        var n:       RemoteNode? = root
+        var parent:  RemoteNode? = root
+        var delNode: RemoteNode? = null
+        var child:   RemoteNode? = root
+        while (child != null) {
+            parent = n
+            n = child
+            child = if (n.compareUgly(mainKey, secondaryKey) < 0) n.getRight() else n.getLeft()
+            if (n.compareUgly(mainKey, secondaryKey) == 0)
+                delNode = n
+        }
+        if (delNode != null) {
+            if (delNode.getRight() == null) {   // the right son of delNode is null
+                if (delNode == this.root) {
+                    setRoot(delNode.getLeft())
+                } else {        // there is a parent for delNode
+                    val leftSon = delNode.getLeft()
+                    if (leftSon != null)
+                        leftSon.setParent(parent)
+
+                    if (parent!!.getRight() == delNode){
+                        parent!!.setRight(leftSon)
+                    } else {
+                        parent!!.setLeft(leftSon)
+                    }
+                    rebalance(parent)
+                }
+            } else if (delNode.getRight() == n) {      // there is a successor for delNode at the sub tree & n is son of delNode
+                n!!.setLeft(delNode.getLeft())
+                if (delNode == this.root) {
+                    setRoot(n)
+                } else {        // there is a parent for delNode
+                    n.setParent(delNode.getParent())
+                    if (delNode.getParent()!!.getRight() == delNode){
+                        delNode.getParent()!!.setRight(n)
+                    } else {
+                        delNode.getParent()!!.setLeft(n)
+                    }
+                    rebalance(parent!!)
+                }
+            } else {        // the general case, hold assumptions: n have right son; n is the left son of his parent
+                val nRightSon = n!!.getRight()
+                val delNodeLeftSon = delNode.getLeft()
+                val delNodeRightSon = delNode.getRight()
+
+                if (nRightSon != null)
+                    nRightSon.setParent(parent)
+                parent!!.setLeft(nRightSon)
+
+                n.setLeft(delNodeLeftSon)
+                if (delNodeLeftSon != null)
+                    delNodeLeftSon.setParent(n)
+                n.setRight(delNodeRightSon)
+                if (delNodeRightSon != null)
+                    delNodeRightSon.setParent(n)
+                if (delNode == this.root) {
+                    setRoot(n)
+                } else {
+                    if (delNode.getParent()!!.getRight() == delNode) {
+                        delNode.getParent()!!.setRight(n)
+                    } else {
+                        delNode.getParent()!!.setLeft(n)
+                    }
+                    rebalance(parent)
+                }
+            }
+            delNode.reset()
+        }
+    }
 }

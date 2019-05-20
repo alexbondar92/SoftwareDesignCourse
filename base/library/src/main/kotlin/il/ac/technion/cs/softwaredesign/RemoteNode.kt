@@ -3,7 +3,7 @@ package il.ac.technion.cs.softwaredesign
 class RemoteNode {
     private var nodeStorageKey: String
     private var mainKey: String
-    private var secondaryKey: String
+    private var secondaryKey: String?
     private var balance: Int = 0
     private var leftNodeKey:  String? = null
     private var rightNodeKey: String? = null
@@ -102,15 +102,15 @@ class RemoteNode {
     }
 
     operator fun compareTo(node: RemoteNode): Int {
-        assert(this.secondaryKey != "null")
-        if (this.secondaryKey.toInt() > node.secondaryKey.toInt())
+        assert(this.secondaryKey != "null" )
+        if (this.secondaryKey!!.toInt() > node.secondaryKey!!.toInt())
             return 1
-        else if (this.secondaryKey.toInt() < node.secondaryKey.toInt())
+        else if (this.secondaryKey!!.toInt() < node.secondaryKey!!.toInt())
             return -1
         else {
             if (this.mainKey.toInt() < node.mainKey.toInt())
                 return 1
-            else if (this.mainKey.toInt() > this.mainKey.toInt())
+            else if (this.mainKey.toInt() > node.mainKey.toInt())
                 return -1
             else
                 assert(false)                       // mainKey is uniq per node
@@ -120,5 +120,28 @@ class RemoteNode {
 
     private fun flushNode() {                       // <secondaryKey>%<balance>%<parent>%<leftNodeKey>%<rightNodeKey>
         DataStoreIo.write(this.nodeStorageKey, ("$secondaryKey%$balance%$parentKey%$leftNodeKey%$rightNodeKey"))
+    }
+
+    fun compareUgly(mainKey: String, secondaryKey: String): Int {
+        assert(this.secondaryKey != "null")
+        if (this.secondaryKey!!.toInt() > secondaryKey.toInt())
+            return 1
+        else if (this.secondaryKey!!.toInt() < secondaryKey.toInt())
+            return -1
+        else {
+            if (this.mainKey.toInt() < mainKey.toInt())
+                return 1
+            else if (this.mainKey.toInt() > mainKey.toInt())
+                return -1
+        }
+        return 0
+    }
+
+    fun reset() {
+        this.secondaryKey = "null"
+        this.balance = 0
+        this.parentKey = null
+        this.leftNodeKey = null
+        this.rightNodeKey = null
     }
 }
