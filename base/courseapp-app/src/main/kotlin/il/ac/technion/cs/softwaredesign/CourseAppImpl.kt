@@ -1,20 +1,27 @@
 package il.ac.technion.cs.softwaredesign
 
 import il.ac.technion.cs.softwaredesign.exceptions.*
+import il.ac.technion.cs.softwaredesign.storage.SecureStorage
 import java.lang.NullPointerException
-import java.util.concurrent.BlockingDeque
 
-class CourseAppImpl : CourseApp{
+class CourseAppImpl(storage: SecureStorage) : CourseApp{
 
     private val userLoggedIn = "1"
     private val passwordSignedIn = "1"
     private val registeredNotLoggedIn = "0"
     private val notRegistered = null
+    private val isAdmin = 1
 
-    private val storage = DataStoreIo()
-    private var usersTree = RemoteAvlTree("AvlUsers",storage)
-    private var channelByMembersTree = RemoteAvlTree("AvlChannel1",storage)
-    private var channelByActiveTree = RemoteAvlTree("AvlChannel2",storage)
+    private val storageIo = DataStoreIo(storage)
+    private var usersTree = RemoteAvlTree("AvlUsers",storageIo)
+    private var channelByMembersTree = RemoteAvlTree("AvlChannel1",storageIo)
+    private var channelByActiveTree = RemoteAvlTree("AvlChannel2",storageIo)
+
+    enum class UserStatusInChannel(val type:Int){
+        Unrelated(0),
+        Regular(1),
+        Operator(2)
+    }
 
     enum class UpdateLoggedStatus{
         IN,
@@ -408,68 +415,68 @@ class CourseAppImpl : CourseApp{
         when (type) {
             KeyType.USER -> {
                 val token = args[0]
-                storage.write("UV$token", data)
+                storageIo.write("UV$token", data)
             }
             KeyType.PASSWORD -> {
                 val username = args[0]
                 val password = args[1]
-                storage.write(("UP$username$password"), data)
+                storageIo.write(("UP$username$password"), data)
             }
             KeyType.ADMIN ->{
                 val userIndex = args[0]
-                storage.write(("UA$userIndex"),data)
+                storageIo.write(("UA$userIndex"),data)
             }
             KeyType.CHANNEL -> {
                 val channel = args[0]
                 val index = channelToIndex(channel)
-                storage.write(("CV$index"), data)
+                storageIo.write(("CV$index"), data)
             }
             KeyType.PARTICIPANT -> {
                 val channel = args[0]
                 val index = channelToIndex(channel)
                 val token = args[1]
-                storage.write(("CU$index%$token"), data) //delimiter "%" between channel and token
+                storageIo.write(("CU$index%$token"), data) //delimiter "%" between channel and token
             }
             KeyType.CHANNELS -> {
                 val token = args[0]
-                storage.write(("UCL$token"), data)
+                storageIo.write(("UCL$token"), data)
             }
             KeyType.TOTALUSERSAMOUNT -> {
-                storage.write(("totalUsers"), data)
+                storageIo.write(("totalUsers"), data)
             }
             KeyType.ACTIVEUSERSAMOUNT -> {
-                storage.write(("activeUsers"), data)
+                storageIo.write(("activeUsers"), data)
             }
             KeyType.CHANNELLOGGED -> {
                 val channel = args[0]
                 val index = channelToIndex(channel)
-                storage.write(("CL$index"), data)
+                storageIo.write(("CL$index"), data)
             }
             KeyType.USERCHANNELS -> {
                 val token = args[0]
-                storage.write(("UL$token"), data)
+                storageIo.write(("UL$token"), data)
             }
             KeyType.INDEXCHANNELSYS -> {
-                storage.write(("IndexChannelSys"), data)
+                storageIo.write(("IndexChannelSys"), data)
             }
             KeyType.INDEXUSERSYS -> {
-                storage.write(("IndexUserSys"), data)
+                storageIo.write(("IndexUserSys"), data)
             }
             KeyType.CHANNELTOINDEX -> {
                 val channel = args[0]
-                storage.write(("CI$channel"), data)
+                storageIo.write(("CI$channel"), data)
             }
             KeyType.INDEXTOCHANNEL -> {
                 val index = args[0]
-                storage.write(("IC$index"), data)
+                storageIo.write(("IC$index"), data)
             }
             KeyType.USERTOINDEX -> {
                 val username = args[0]
-                storage.write(("UI$username"), data)
+                storageIo.write(("UI$username"), data)
             }
             KeyType.INDEXTOUSER -> {
                 val index = args[0]
-                storage.write(("IU$index"), data)
+                storageIo.write(("IU$index"), data)
             }
         }
     }
@@ -501,7 +508,7 @@ class CourseAppImpl : CourseApp{
 
     private fun setAdministrator(token: String){
         // Assumption: userIndex is valid, and is in the system.
-        writeToStorage(mutableListOf(token), data = "1" , type = KeyType.ADMIN)
+        writeToStorage(mutableListOf(token), data = isAdmin.toString() , type = KeyType.ADMIN)
     }
 
     private fun insertToChannelsListOfUser(channel : String, token : String) {
@@ -544,15 +551,15 @@ class CourseAppImpl : CourseApp{
     }
 
     private fun makeUserOperator(channel : String, token: String){
-        writeToStorage(mutableListOf(channel, token), data = "2", type = KeyType.PARTICIPANT)
+        writeToStorage(mutableListOf(channel, token), data = UserStatusInChannel.Operator.type.toString(), type = KeyType.PARTICIPANT)
     }
 
     private fun makeUserConnectedToChannel(channel : String, token: String){
-        writeToStorage(mutableListOf(channel, token), data = "1", type = KeyType.PARTICIPANT)
+        writeToStorage(mutableListOf(channel, token), data = UserStatusInChannel.Regular.type.toString(), type = KeyType.PARTICIPANT)
     }
 
     private fun disConnectUserFromChannel(channel : String, token: String){
-        writeToStorage(mutableListOf(channel, token), data = "0", type = KeyType.PARTICIPANT)
+        writeToStorage(mutableListOf(channel, token), data = UserStatusInChannel.Unrelated.type.toString(), type = KeyType.PARTICIPANT)
     }
 
     private fun incTotalUsers(){
@@ -605,69 +612,69 @@ class CourseAppImpl : CourseApp{
         when (type) {
             KeyType.USER -> {
                 val token = args[0]
-                str = storage.read("UV$token")
+                str = storageIo.read("UV$token")
             }
             KeyType.PASSWORD -> {
                 val username = args[0]
                 val password = args[1]
-                str = storage.read(("UP$username$password"))
+                str = storageIo.read(("UP$username$password"))
 
             }
             KeyType.ADMIN ->{
                 val token = args[0]
-                str = storage.read(("UA$token"))
+                str = storageIo.read(("UA$token"))
             }
             KeyType.CHANNEL -> {
                 val channel = args[0]
                 val index = channelToIndex(channel)
-                str = storage.read(("CV$index"))
+                str = storageIo.read(("CV$index"))
             }
             KeyType.PARTICIPANT -> {
                 val channel = args[0]
                 val index = channelToIndex(channel)
                 val token = args[1]
-                str = storage.read(("CU$index%$token")) //delimiter "%" between channel and token
+                str = storageIo.read(("CU$index%$token")) //delimiter "%" between channel and token
             }
             KeyType.CHANNELS -> {
                 val token = args[0]
-                str = storage.read(("UCL$token"))
+                str = storageIo.read(("UCL$token"))
             }
             KeyType.TOTALUSERSAMOUNT -> {
-                str = storage.read(("totalUsers"))
+                str = storageIo.read(("totalUsers"))
             }
             KeyType.ACTIVEUSERSAMOUNT -> {
-                str = storage.read(("activeUsers"))
+                str = storageIo.read(("activeUsers"))
             }
             KeyType.CHANNELLOGGED -> {
                 val channel = args[0]
                 val index = channelToIndex(channel)
-                str = storage.read(("CL$index"))
+                str = storageIo.read(("CL$index"))
             }
             KeyType.USERCHANNELS -> {
                 val token = args[0]
-                str = storage.read(("UL$token"))
+                str = storageIo.read(("UL$token"))
             }
             KeyType.INDEXCHANNELSYS -> {
-                str = storage.read(("IndexChannelSys"))
+                str = storageIo.read(("IndexChannelSys"))
             }
             KeyType.INDEXUSERSYS -> {
-                str = storage.read(("IndexUserSys"))
+                str = storageIo.read(("IndexUserSys"))
             }
             KeyType.CHANNELTOINDEX -> {
                 val channel = args[0]
-                str = storage.read(("CI$channel"))
+                str = storageIo.read(("CI$channel"))
             }
             KeyType.INDEXTOCHANNEL -> {
                 val index = args[0]
-                str = storage.read(("IC$index"))
+                str = storageIo.read(("IC$index"))
             }
             KeyType.USERTOINDEX -> {
                 val username = args[0]
-                str = storage.read(("UI$username"))
+                str = storageIo.read(("UI$username"))
             }
             KeyType.INDEXTOUSER -> {
                 val index = args[0]
-                str = storage.read(("IU$index"))
+                str = storageIo.read(("IU$index"))
             }
         }
         return str
@@ -857,7 +864,7 @@ class CourseAppImpl : CourseApp{
     private fun isAdministrator(token: String): Boolean{
         // Assumption: token is valid, and is in the system.
         val str = readFromStorage(mutableListOf(token), KeyType.ADMIN) ?: return false
-        return str.toInt() == 1
+        return str.toInt() == isAdmin
     }
 
     private fun updateAssocChannels(token: String, kind: UpdateLoggedStatus){
@@ -896,12 +903,12 @@ class CourseAppImpl : CourseApp{
         // Assumption: topken and channel is valid
 
         val str = readFromStorage(mutableListOf(channel, token), KeyType.PARTICIPANT) ?: return false
-        return str.toInt() == 1 || str.toInt() == 2
+        return str.toInt() == UserStatusInChannel.Regular.type || str.toInt() == UserStatusInChannel.Operator.type
     }
 
     private fun isOperator(token: String, channel: String): Boolean {
         // Assumption: token and channel is valid
         val str = readFromStorage(mutableListOf(channel, token), KeyType.PARTICIPANT) ?: return false
-        return str.toInt() == 2     // TODO("2 is sign for operator")
+        return str.toInt() == UserStatusInChannel.Operator.type
     }
 }
