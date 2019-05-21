@@ -209,4 +209,21 @@ class RemoteAvlTree {
             delNode.reset()
         }
     }
+
+    private fun top10Aux(node: RemoteNode?, adder: (RemoteNode) -> Unit, cond : () -> Boolean) {
+        if (node == null || !cond())
+            return
+
+        top10Aux(node.getLeft(), adder, cond)
+        adder(node)
+        top10Aux(node.getRight(), adder, cond)
+    }
+
+    fun top10(): List<Int>{
+        var list = mutableListOf<Int>()
+        var adder: (RemoteNode) -> Unit = {x: RemoteNode -> list.add(x.getMainKey().toInt())}
+        val cond: () -> Boolean = {list.size < 10 }
+        top10Aux(this.root, adder, cond)
+        return list
+    }
 }

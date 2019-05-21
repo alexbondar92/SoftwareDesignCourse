@@ -1,14 +1,19 @@
 package il.ac.technion.cs.softwaredesign
 
 class CourseAppStatisticsImpl : CourseAppStatistics {
+    private val cApp: CourseAppImpl
+
+    init {
+        cApp = CourseAppImpl()
+    }
+
     /**
      * Count the total number of users, both logged-in and logged-out, in the system.
      *
      * @return The total number of users.
      */
     override fun totalUsers(): Long {
-        val str = DataStoreIo.read(("totalUsers"))
-        return if(str == null) 0 else str.toLong()
+        return cApp.getTotalUsers()
     }
 
     /**
@@ -17,8 +22,7 @@ class CourseAppStatisticsImpl : CourseAppStatistics {
      * @return The number of logged-in users.
      */
     override fun loggedInUsers(): Long {
-        val str = DataStoreIo.read(("activeUsers"))
-        return if(str == null) 0 else str.toLong()
+        return cApp.getTotalActiveUsers()
     }
 
     /**
@@ -32,7 +36,7 @@ class CourseAppStatisticsImpl : CourseAppStatistics {
      * @return A sorted list of channels by user count.
      */
     override fun top10ChannelsByUsers(): List<String> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return cApp.getTop10User()
     }
 
     /**
@@ -47,7 +51,7 @@ class CourseAppStatisticsImpl : CourseAppStatistics {
      * @return A sorted list of channels by logged-in user count.
      */
     override fun top10ActiveChannelsByUsers(): List<String> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return cApp.getTop10ChannelsByActiveUsers()
     }
 
     /**
@@ -63,6 +67,6 @@ class CourseAppStatisticsImpl : CourseAppStatistics {
      *
      */
     override fun top10UsersByChannels(): List<String> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return cApp.getTop10ChannelsByTotalUsers()
     }
 }

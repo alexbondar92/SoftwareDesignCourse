@@ -2,6 +2,7 @@ package il.ac.technion.cs.softwaredesign
 
 import il.ac.technion.cs.softwaredesign.exceptions.*
 import java.lang.NullPointerException
+import java.util.concurrent.BlockingDeque
 
 class CourseAppImpl : CourseApp{
 
@@ -29,7 +30,17 @@ class CourseAppImpl : CourseApp{
         TOTALUSERSAMOUNT,
         ACTIVEUSERSAMOUNT,
         CHANNELLOGGED,
-        USERCHANNELS
+        USERCHANNELS,
+        INDEXUSERSYS,
+        INDEXCHANNELSYS,
+        USERTOINDEX,
+        INDEXTOUSER,
+        CHANNELTOINDEX,
+        INDEXTOCHANNEL
+    }
+
+    init {
+        // resetIndexSystem() TODO ("Move to CourseAppInitializer")
     }
 
     /**
@@ -49,31 +60,34 @@ class CourseAppImpl : CourseApp{
      * @return An authentication token to be used in other calls.
      */
     override fun login(username: String, password: String): String {
-        when (readUserStatus(username)) {
+        when (readUserStatus(usernameToToken(username))) {
             notRegistered -> {
-                writeUserStatus(username, userLoggedIn)
+                val genToken = getNewUserIndex(username)
+
+                writeUserStatus(genToken, userLoggedIn)
                 writePasswordForUser(username, password)
 
-                writeChannelsAmountOfUser(username, 0)
-                insertUsersTree(username, 0)
+                writeChannelsAmountOfUser(genToken, 0)
+                insertUsersTree(genToken, 0)
 
                 incTotalUsers()
                 incTotalLoggedInUsers()
 
                 if (numOfUsers() == 1.toLong())    // first user in the system       TODO(maybe change to total users from stats)
-                    setAdministrator(username)
+                    setAdministrator(genToken)
 
-                return usernameToToken(username)
+                return genToken
             }
 
             registeredNotLoggedIn -> {
                 if (!passwordValid(username, password))
                     throw NoSuchEntityException()
 
-                writeUserStatus(username, userLoggedIn)
-                updateAssocChannels(username, UpdateLoggedStatus.IN)
+                val token = usernameToToken(username)
+                writeUserStatus(token, userLoggedIn)
+                updateAssocChannels(token, UpdateLoggedStatus.IN)
                 incTotalLoggedInUsers()
-                return usernameToToken(username)
+                return token
             }
 
             userLoggedIn -> throw UserAlreadyLoggedInException()
@@ -92,19 +106,16 @@ class CourseAppImpl : CourseApp{
      * @throws InvalidTokenException If the auth [token] is invalid.
      */
     override fun logout(token: String) {
-        val username = tokenToUsername(token)
-        when (readUserStatus(username)) {
+        when (readUserStatus(token)) {
             notRegistered, registeredNotLoggedIn -> throw InvalidTokenException()
 
             userLoggedIn -> {
-                writeUserStatus(username, registeredNotLoggedIn)
-                updateAssocChannels(username, UpdateLoggedStatus.OUT)
+                writeUserStatus(token, registeredNotLoggedIn)
+                updateAssocChannels(token, UpdateLoggedStatus.OUT)
                 DecTotalLoggedInUsers()
             }
         }
     }
-
-
 
     /**
      * Indicate the status of [username] in the application.
@@ -121,7 +132,7 @@ class CourseAppImpl : CourseApp{
         if (!validToken(token))
             throw InvalidTokenException()
 
-        when (readUserStatus(username)) {
+        when (readUserStatus(usernameToToken(username))) {
             notRegistered -> return null
             registeredNotLoggedIn -> return false
             userLoggedIn -> return true
@@ -148,11 +159,12 @@ class CourseAppImpl : CourseApp{
         if (!isAdministrator(token))
             throw UserNotAuthorizedException()
 
-        when (readUserStatus(username)) {
+        val token = usernameToToken(username)
+        when (readUserStatus(token)) {
             notRegistered -> throw NoSuchEntityException()
 
             registeredNotLoggedIn, userLoggedIn -> {
-                setAdministrator(username)
+                setAdministrator(token)
             }
         }
     }
@@ -181,59 +193,31 @@ class CourseAppImpl : CourseApp{
         if (!isChannelExist(channel) && !isAdministrator(token))
             throw UserNotAuthorizedException()
 
+        val newIndex = getNewChannelIndex(channel)
+
         val size = amountOfUsersInChannel(channel)
         if ( size != null && size > 0){ //channel empty but was not empty in the past, or not empty now
 
-            val username = tokenToUsername(token)
-
-            makeUserConnectedToChannel(channel, username)
+            makeUserConnectedToChannel(channel, token)
 
             deleteFromTotalChannelsTree(channel)
             deleteFromActiveChannelsTree(channel)
-            deleteFromUsersTree(username)
+            deleteFromUsersTree(token)
 
             val updatedUsersAmount = incUsersInChannel(channel)
             val updatedActiveAmount = incLoggedInChannel(channel)
-            val updatedChannelsAmountOfUser = incChannelAmountofUser(username)
+            val updatedChannelsAmountOfUser = incChannelAmountofUser(token)
 
             insertToTotalChannelsTree(channel, updatedUsersAmount)
             insertToActiveChannelsTree(channel, updatedActiveAmount)
-            insertUsersTree(username, updatedChannelsAmountOfUser)
+            insertUsersTree(token, updatedChannelsAmountOfUser)
 
-            insertToChannelsListOfUser(channel, username)
+            insertToChannelsListOfUser(channel, token)
 
         } else {
             createChannel(channel, token)       // this fun create new channel and adding the admin(token) as first user and makes him/her operator
         }
     }
-
-
-
-
-    private fun createChannel(channel: String, token: String) {//TODO("check logic again")
-        // Assumption: token is valid and is associated & the token is associated to admin
-
-        updateAmountOfUsersInChannel(channel, 1)
-        updateAmountOfLoggedInChannel(channel, 1)
-
-        assert(isAdministrator(token))
-
-        val username = tokenToUsername(token)
-
-        // make the admin as operator of this channel:
-        makeUserOperator(channel, username)
-
-        deleteFromUsersTree(username)
-        val updatedChannelsAmountOfUser = incChannelAmountofUser(username)
-        insertUsersTree(username, updatedChannelsAmountOfUser)
-
-        insertToTotalChannelsTree(channel, 1)
-        insertToActiveChannelsTree(channel, 1)
-
-
-        insertToChannelsListOfUser(channel, username)
-    }
-
 
     /**
      * The user identified by [token] will exit [channel].
@@ -250,7 +234,7 @@ class CourseAppImpl : CourseApp{
         if (!validToken(token))
             throw InvalidTokenException()
 
-        if (!isChannelExist(channel) && !areUserAndChannelConnected(tokenToUsername(token), channel))
+        if (!isChannelExist(channel) && !areUserAndChannelConnected(token, channel))
             throw UserNotAuthorizedException()
 
         removeUserFromChannel(channel, token)   // this fun remove user from channel and update the trees + if the chanel is empty the channel will be deleted
@@ -283,13 +267,14 @@ class CourseAppImpl : CourseApp{
         if(isAdministrator(token) && !isOperator(token, channel))
             throw UserNotAuthorizedException()
 
-        if(!areUserAndChannelConnected(tokenToUsername(token), channel))
+        if(!areUserAndChannelConnected(token, channel))
             throw UserNotAuthorizedException()
 
-        if(readUserStatus(username) == notRegistered || !areUserAndChannelConnected(username, channel))
+        val userToken = usernameToToken(username)
+        if(readUserStatus(userToken) == notRegistered || !areUserAndChannelConnected(userToken, channel))
             throw NoSuchEntityException()
 
-        makeUserOperator(channel, username)
+        makeUserOperator(channel, userToken)
     }
 
     /**
@@ -312,37 +297,11 @@ class CourseAppImpl : CourseApp{
         if (!isOperator(token, channel))
             throw UserNotAuthorizedException()
 
-        if (readFromStorage(mutableListOf(username),  KeyType.USER) == notRegistered || !areUserAndChannelConnected(username, channel))
+        val userToken = usernameToToken(username)
+        if (readFromStorage(mutableListOf(userToken),  KeyType.USER) == notRegistered || !areUserAndChannelConnected(userToken, channel))
             throw NoSuchEntityException()
 
         removeUserFromChannel(channel, token)   // this fun remove user from channel and update the trees
-    }
-
-    private fun removeUserFromChannel(channel: String, token: String){ //TODO("check logic again")
-        // Assumption: token and channel is valid
-        val username = tokenToUsername(token)
-
-        // update user channel list
-        removeFromChannelListOfUser(username, channel)
-
-        // update trees:
-        deleteFromTotalChannelsTree(channel)
-        deleteFromUsersTree(username)
-
-        val updatedChannelsAmountOfUser = decChannelAmountofUser(username)
-        val updatedUsersAmount = decUsersInChannel(channel)
-
-        insertToTotalChannelsTree(channel, updatedUsersAmount)
-        insertUsersTree(username, updatedChannelsAmountOfUser)
-
-        if (readFromStorage(mutableListOf(username),  KeyType.USER) ==  userLoggedIn) {
-
-            deleteFromActiveChannelsTree(channel)
-            val updatedActiveAmount = decLoggedInChannel(channel)
-            insertToActiveChannelsTree(channel, updatedActiveAmount)
-        }
-
-        disConnectUserFromChannel(channel, username)
     }
 
     /**
@@ -363,10 +322,10 @@ class CourseAppImpl : CourseApp{
         if (!isChannelExist(channel))
             throw NoSuchEntityException()
 
-        if (!isAdministrator(token) && !areUserAndChannelConnected(tokenToUsername(token), channel))
+        if (!isAdministrator(token) && !areUserAndChannelConnected(token, channel))
             throw UserNotAuthorizedException()
 
-        return areUserAndChannelConnected(username, channel)
+        return areUserAndChannelConnected(usernameToToken(username), channel)
     }
 
     /**
@@ -387,7 +346,7 @@ class CourseAppImpl : CourseApp{
         if (!isChannelExist(channel))
             throw NoSuchEntityException()
 
-        if (!isAdministrator(token) && !areUserAndChannelConnected(tokenToUsername(token), channel))
+        if (!isAdministrator(token) && !areUserAndChannelConnected(token, channel))
             throw UserNotAuthorizedException()
 
         return numberOfActiveUsersInChannel(channel)
@@ -411,84 +370,34 @@ class CourseAppImpl : CourseApp{
         if (!isChannelExist(channel))
             throw NoSuchEntityException()
 
-        if (!isAdministrator(token) && !areUserAndChannelConnected(tokenToUsername(token), channel))
+        if (!isAdministrator(token) && !areUserAndChannelConnected(token, channel))
             throw UserNotAuthorizedException()
 
         return numberOfUsersInChannel(channel)
     }
 
-    private fun usernameToToken(username: String): String {
-        return username
+    // =========================================== API for statistics ==================================================
+
+    fun getTotalUsers(): Long {
+        val str = readFromStorage(mutableListOf(), KeyType.TOTALUSERSAMOUNT)
+        return if(str == null) 0 else str.toLong()
     }
 
-    private fun tokenToUsername(token: String): String {
-        return token
+    fun getTotalActiveUsers(): Long {
+        val str = readFromStorage(mutableListOf(), KeyType.ACTIVEUSERSAMOUNT)
+        return if(str == null) 0 else str.toLong()
     }
 
-    private fun passwordValid(username: String, password: String): Boolean {
-        return readFromStorage(mutableListOf(username, password), KeyType.PASSWORD) != null
+    fun getTop10User(): List<String>{
+        return this.usersTree.top10().asSequence().map { tokenToUsername(it.toString()) }.toList()
     }
 
-    private fun validToken(token: String): Boolean {
-        when (readFromStorage(mutableListOf(tokenToUsername(token)), KeyType.USER)) {
-            notRegistered, registeredNotLoggedIn -> return false
-            userLoggedIn -> return true
-        }
-        throw IllegalArgumentException()    //shouldn't get here, data-store might be corrupted.
+    fun getTop10ChannelsByTotalUsers(): List<String>{
+        return this.channelByMembersTree.top10().asSequence().map { indexToChannel(it.toString()) }.toList()
     }
 
-
-    private fun isAdministrator(token: String): Boolean{
-        // Assumption: token is valid, and is in the system.
-        val username = tokenToUsername(token)
-        val str = readFromStorage(mutableListOf(username), KeyType.ADMIN) ?: return false
-        return str.toInt() == 1
-    }
-
-    private fun updateAssocChannels(username: String, kind: UpdateLoggedStatus){
-        // Assumption:: username is valid
-        val channels = getChannelsOf(username)
-        for (channel in channels){ // TODO ("refactor this to updateChannel fun")
-            var numOfLoggedInUsers: Long = 0
-            val str: String  = readFromStorage(mutableListOf(channel), KeyType.CHANNELLOGGED)!!
-            numOfLoggedInUsers = str.toLong()
-
-            if (numOfLoggedInUsers == 0.toLong())                         // Sanity check
-                assert(kind == UpdateLoggedStatus.IN)
-
-            channelByActiveTree.delete(channel, numOfLoggedInUsers.toString())
-            when(kind){
-                UpdateLoggedStatus.IN -> numOfLoggedInUsers++
-                UpdateLoggedStatus.OUT -> numOfLoggedInUsers--
-            }
-            channelByActiveTree.insert(channel, numOfLoggedInUsers.toString())
-
-            writeToStorage(mutableListOf(channel), data = numOfLoggedInUsers.toString(), type = KeyType.CHANNELLOGGED)
-        }
-    }
-
-    private fun validNameChannel(channel: String): Boolean{
-        val regex = Regex("((#)([a-z]|[A-Z]|(#)|(_))*)")      // Regex pattern of valid channel
-        return regex.matchEntire(channel)?.value != null
-    }
-
-    private fun isChannelExist(channel: String): Boolean{
-        val str = readFromStorage(mutableListOf(channel), KeyType.CHANNEL) ?: return false
-        return str.toInt() > 0
-    }
-
-    private fun areUserAndChannelConnected(username: String, channel: String): Boolean{
-        // Assumption: username and channel is valid
-
-        val str = readFromStorage(mutableListOf(channel, username), KeyType.PARTICIPANT) ?: return false
-        return str.toInt() == 1 || str.toInt() == 2
-    }
-
-    private fun isOperator(token: String, channel: String): Boolean {       // TODO("change token to username")
-        // Assumption: token and channel is valid
-        val username = tokenToUsername(token)
-        val str = readFromStorage(mutableListOf(channel, username), KeyType.PARTICIPANT) ?: return false
-        return str.toInt() == 2     // TODO("2 is sign for operator")
+    fun getTop10ChannelsByActiveUsers(): List<String>{
+        return this.channelByActiveTree.top10().asSequence().map { indexToChannel(it.toString()) }.toList()
     }
 
     //writers:////////////////////////////////////////////////////
@@ -497,31 +406,32 @@ class CourseAppImpl : CourseApp{
 
         when (type) {
             KeyType.USER -> {
-                val username = args[0]
-                DataStoreIo.write("UV$username", data)
+                val token = args[0]
+                DataStoreIo.write("UV$token", data)
             }
             KeyType.PASSWORD -> {
                 val username = args[0]
                 val password = args[1]
                 DataStoreIo.write(("UP$username$password"), data)
-
             }
             KeyType.ADMIN ->{
-                val username = args[0]
-                DataStoreIo.write(("UA$username"),data)
+                val userIndex = args[0]
+                DataStoreIo.write(("UA$userIndex"),data)
             }
             KeyType.CHANNEL -> {
                 val channel = args[0]
-                DataStoreIo.write(("CV$channel"), data)
+                val index = channelToIndex(channel)
+                DataStoreIo.write(("CV$index"), data)
             }
             KeyType.PARTICIPANT -> {
                 val channel = args[0]
-                val username = args[1]
-                DataStoreIo.write(("CU$channel%$username"), data) //delimiter "%" between channel and username
+                val index = channelToIndex(channel)
+                val token = args[1]
+                DataStoreIo.write(("CU$index%$token"), data) //delimiter "%" between channel and token
             }
             KeyType.CHANNELS -> {
-                val username = args[0]
-                DataStoreIo.write(("UCL$username"), data)
+                val token = args[0]
+                DataStoreIo.write(("UCL$token"), data)
             }
             KeyType.TOTALUSERSAMOUNT -> {
                 DataStoreIo.write(("totalUsers"), data)
@@ -531,49 +441,73 @@ class CourseAppImpl : CourseApp{
             }
             KeyType.CHANNELLOGGED -> {
                 val channel = args[0]
-                DataStoreIo.write(("CL$channel"), data)
+                val index = channelToIndex(channel)
+                DataStoreIo.write(("CL$index"), data)
             }
             KeyType.USERCHANNELS -> {
+                val token = args[0]
+                DataStoreIo.write(("UL$token"), data)
+            }
+            KeyType.INDEXCHANNELSYS -> {
+                DataStoreIo.write(("IndexChannelSys"), data)
+            }
+            KeyType.INDEXUSERSYS -> {
+                DataStoreIo.write(("IndexUserSys"), data)
+            }
+            KeyType.CHANNELTOINDEX -> {
+                val channel = args[0]
+                DataStoreIo.write(("CI$channel"), data)
+            }
+            KeyType.INDEXTOCHANNEL -> {
+                val index = args[0]
+                DataStoreIo.write(("IC$index"), data)
+            }
+            KeyType.USERTOINDEX -> {
                 val username = args[0]
-                DataStoreIo.write(("UL$username"), data)
+                DataStoreIo.write(("UI$username"), data)
+            }
+            KeyType.INDEXTOUSER -> {
+                val index = args[0]
+                DataStoreIo.write(("IU$index"), data)
             }
         }
 
     }
 
-    private fun writeUserStatus(username: String, data: String) {
-        writeToStorage(mutableListOf(username), data, KeyType.USER)
+    private fun writeUserStatus(token: String, data: String) {
+        writeToStorage(mutableListOf(token), data, KeyType.USER)
     }
 
     private fun writePasswordForUser(username: String, password: String) {
         writeToStorage(mutableListOf(username, password), data = passwordSignedIn, type = KeyType.USER)
     }
 
-    private fun writeChannelsAmountOfUser(username: String, number : Long) {
-        writeToStorage(mutableListOf(username), number.toString(), KeyType.USERCHANNELS)
+    private fun writeChannelsAmountOfUser(token: String, number : Long) {
+        writeToStorage(mutableListOf(token), number.toString(), KeyType.USERCHANNELS)
     }
 
-    private fun incChannelAmountofUser(username: String) : Long {
-        val number = readAmountOfChannelsForUser(username)
-        writeChannelsAmountOfUser(username, number+1)
+    private fun incChannelAmountofUser(token: String) : Long {
+        val number = readAmountOfChannelsForUser(token)
+        writeChannelsAmountOfUser(token, number+1)
         return number+1
     }
 
-    private fun decChannelAmountofUser(username: String) : Long {
-        val number = readAmountOfChannelsForUser(username)
+    private fun decChannelAmountofUser(token: String) : Long {
+        val number = readAmountOfChannelsForUser(token)
         assert(number > 0)
-        writeChannelsAmountOfUser(username, number-1)
+        writeChannelsAmountOfUser(token, number-1)
         return number-1
     }
 
-    private fun setAdministrator(username: String){
-        // Assumption: username is valid, and is in the system.
-        writeToStorage(mutableListOf(username), data = "1" , type = KeyType.ADMIN)
+    private fun setAdministrator(token: String){
+        // Assumption: userIndex is valid, and is in the system.
+        writeToStorage(mutableListOf(token), data = "1" , type = KeyType.ADMIN)
     }
 
-    private fun insertToChannelsListOfUser(channel : String, username : String) {
-        val str = readFromStorage(mutableListOf(username), KeyType.CHANNELS)
-        writeToStorage(mutableListOf(username), data = "$str%$channel", type = KeyType.CHANNELS)
+    private fun insertToChannelsListOfUser(channel : String, token : String) {
+        val str = readFromStorage(mutableListOf(token), KeyType.CHANNELS)
+        val index = channelToIndex(channel)
+        writeToStorage(mutableListOf(token), data = "$str%$index", type = KeyType.CHANNELS)
     }
 
     private fun updateAmountOfLoggedInChannel(channel : String, number: Long){
@@ -609,16 +543,16 @@ class CourseAppImpl : CourseApp{
         return size - 1
     }
 
-    private fun makeUserOperator(channel : String, username: String){
-        writeToStorage(mutableListOf(channel, username), data = "2", type = KeyType.PARTICIPANT)
+    private fun makeUserOperator(channel : String, token: String){
+        writeToStorage(mutableListOf(channel, token), data = "2", type = KeyType.PARTICIPANT)
     }
 
-    private fun makeUserConnectedToChannel(channel : String, username: String){
-        writeToStorage(mutableListOf(channel, username), data = "1", type = KeyType.PARTICIPANT)
+    private fun makeUserConnectedToChannel(channel : String, token: String){
+        writeToStorage(mutableListOf(channel, token), data = "1", type = KeyType.PARTICIPANT)
     }
 
-    private fun disConnectUserFromChannel(channel : String, username: String){
-        writeToStorage(mutableListOf(channel, username), data = "0", type = KeyType.PARTICIPANT)
+    private fun disConnectUserFromChannel(channel : String, token: String){
+        writeToStorage(mutableListOf(channel, token), data = "0", type = KeyType.PARTICIPANT)
     }
 
     private fun incTotalUsers(){
@@ -655,10 +589,10 @@ class CourseAppImpl : CourseApp{
         writeToStorage(mutableListOf(), data = totalLoggedUsers.toString(), type = KeyType.ACTIVEUSERSAMOUNT)
     }
 
-    private fun removeFromChannelListOfUser(username: String, channel: String) : Int{
-        val list = getChannelsOf(username)
-        list.remove(channel)
-        writeToStorage(mutableListOf(username), data = list.joinToString("%"), type = KeyType.CHANNELS)
+    private fun removeFromChannelListOfUser(token: String, channel: String) : Int{
+        val list = getChannelsOf(token)
+        list.remove(channelToIndex(channel))
+        writeToStorage(mutableListOf(token), data = list.joinToString("%"), type = KeyType.CHANNELS)
         return list.size
     }
 
@@ -667,11 +601,11 @@ class CourseAppImpl : CourseApp{
     //reader:////////////////////////////////////////////////////
 
     private fun readFromStorage(args : MutableList<String>, type :KeyType ) : String? {
-        var str : String?
+        var str : String? = null
         when (type) {
             KeyType.USER -> {
-                val username = args[0]
-                str = DataStoreIo.read("UV$username")
+                val token = args[0]
+                str = DataStoreIo.read("UV$token")
             }
             KeyType.PASSWORD -> {
                 val username = args[0]
@@ -680,21 +614,23 @@ class CourseAppImpl : CourseApp{
 
             }
             KeyType.ADMIN ->{
-                val username = args[0]
-                str = DataStoreIo.read(("UA$username"))
+                val token = args[0]
+                str = DataStoreIo.read(("UA$token"))
             }
             KeyType.CHANNEL -> {
                 val channel = args[0]
-                str = DataStoreIo.read(("CV$channel"))
+                val index = channelToIndex(channel)
+                str = DataStoreIo.read(("CV$index"))
             }
             KeyType.PARTICIPANT -> {
                 val channel = args[0]
-                val username = args[1]
-                str = DataStoreIo.read(("CU$channel%$username")) //delimiter "%" between channel and username
+                val index = channelToIndex(channel)
+                val token = args[1]
+                str = DataStoreIo.read(("CU$index%$token")) //delimiter "%" between channel and token
             }
             KeyType.CHANNELS -> {
-                val username = args[0]
-                str = DataStoreIo.read(("UCL$username"))
+                val token = args[0]
+                str = DataStoreIo.read(("UCL$token"))
             }
             KeyType.TOTALUSERSAMOUNT -> {
                 str = DataStoreIo.read(("totalUsers"))
@@ -704,18 +640,41 @@ class CourseAppImpl : CourseApp{
             }
             KeyType.CHANNELLOGGED -> {
                 val channel = args[0]
-                str = DataStoreIo.read(("CL$channel"))
+                val index = channelToIndex(channel)
+                str = DataStoreIo.read(("CL$index"))
             }
             KeyType.USERCHANNELS -> {
+                val token = args[0]
+                str = DataStoreIo.read(("UL$token"))
+            }
+            KeyType.INDEXCHANNELSYS -> {
+                str = DataStoreIo.read(("IndexChannelSys"))
+            }
+            KeyType.INDEXUSERSYS -> {
+                str = DataStoreIo.read(("IndexUserSys"))
+            }
+            KeyType.CHANNELTOINDEX -> {
+                val channel = args[0]
+                str = DataStoreIo.read(("CI$channel"))
+            }
+            KeyType.INDEXTOCHANNEL -> {
+                val index = args[0]
+                str = DataStoreIo.read(("IC$index"))
+            }
+            KeyType.USERTOINDEX -> {
                 val username = args[0]
-                str = DataStoreIo.read(("UL$username"))
+                str = DataStoreIo.read(("UI$username"))
+            }
+            KeyType.INDEXTOUSER -> {
+                val index = args[0]
+                str = DataStoreIo.read(("IU$index"))
             }
         }
         return str
     }
 
-    private fun readUserStatus(username : String) :String?{
-        return readFromStorage(mutableListOf(username),  KeyType.USER)
+    private fun readUserStatus(token : String) :String?{
+        return readFromStorage(mutableListOf(token),  KeyType.USER)
     }
 
     private fun amountOfUsersInChannel(channel: String) : Long? {
@@ -727,14 +686,13 @@ class CourseAppImpl : CourseApp{
         return readFromStorage(mutableListOf(channel), KeyType.CHANNEL)!!.toLong()
     }
 
-
-    private fun readAmountOfChannelsForUser(username: String) : Long{
-        return readFromStorage(mutableListOf(username), KeyType.USERCHANNELS)!!.toLong()
+    private fun readAmountOfChannelsForUser(token: String) : Long{
+        return readFromStorage(mutableListOf(token), KeyType.USERCHANNELS)!!.toLong()
     }
 
-    private fun getChannelsOf(username: String): MutableList<String>{
-        // Assumption:: username is valid
-        val str = readFromStorage(mutableListOf(username), KeyType.CHANNELS)!!
+    private fun getChannelsOf(token: String): MutableList<String>{
+        // Assumption:: token is valid
+        val str = readFromStorage(mutableListOf(token), KeyType.CHANNELS)!!
         val delimiter = "%"
         return str.split(delimiter).toMutableList()
     }
@@ -754,8 +712,8 @@ class CourseAppImpl : CourseApp{
     //tree wrappers:*********************************
 
     //inserts:
-    private fun insertUsersTree(username : String, number : Long) {
-        usersTree.insert(username, number.toString())
+    private fun insertUsersTree(token: String, number : Long) {
+        usersTree.insert(token, number.toString())
     }
 
     private fun insertToTotalChannelsTree(channel : String, number : Long) {
@@ -778,12 +736,172 @@ class CourseAppImpl : CourseApp{
         channelByActiveTree.delete(channel, number.toString())
     }
 
-    private fun  deleteFromUsersTree(username: String) {
-        val number = readAmountOfChannelsForUser(username)
-        usersTree.delete(username, number.toString())
+    private fun  deleteFromUsersTree(token: String) {
+        val number = readAmountOfChannelsForUser(token)
+        usersTree.delete(token, number.toString())
     }
 
     //end tree wrappers*********************************
 
+    // ========================================= Private Functions ============================================
 
+    private fun resetIndexSystem() {
+        writeToStorage(mutableListOf(), 0.toString(), KeyType.INDEXUSERSYS)
+        writeToStorage(mutableListOf(), 0.toString(), KeyType.INDEXCHANNELSYS)
+    }
+
+    private fun getNewUserIndex(username: String): String {
+        val str = readFromStorage(mutableListOf(),  KeyType.INDEXUSERSYS)!!
+
+        val newIndex = str!!.toInt() + 1
+        writeToStorage(mutableListOf(newIndex.toString()), newIndex.toString(), KeyType.INDEXUSERSYS)
+        attachUsernameToIndex(username, newIndex.toString())
+        return newIndex.toString()
+    }
+
+    private fun getNewChannelIndex(channel: String): String{
+        val str = readFromStorage(mutableListOf(),  KeyType.INDEXCHANNELSYS)!!
+
+        val newIndex = str!!.toInt() + 1
+        writeToStorage(mutableListOf(newIndex.toString()), newIndex.toString(), KeyType.INDEXCHANNELSYS)
+        attachChannelToIndex(channel, newIndex.toString())
+        return newIndex.toString()
+    }
+
+    private fun attachUsernameToIndex(username: String, index: String) {
+        writeToStorage(mutableListOf(username), index, KeyType.USERTOINDEX)
+        writeToStorage(mutableListOf(index), username, KeyType.INDEXTOUSER)
+    }
+
+    private fun attachChannelToIndex(channel: String, index: String) {
+        writeToStorage(mutableListOf(channel), index, KeyType.CHANNELTOINDEX)
+        writeToStorage(mutableListOf(index), channel, KeyType.INDEXTOCHANNEL)
+    }
+
+    private fun createChannel(channel: String, token: String) {//TODO("check logic again")
+        // Assumption: token is valid and is associated & the token is associated to admin
+
+        updateAmountOfUsersInChannel(channel, 1)
+        updateAmountOfLoggedInChannel(channel, 1)
+
+        assert(isAdministrator(token))
+
+        // make the admin as operator of this channel:
+        makeUserOperator(channel, token)
+
+        deleteFromUsersTree(token)
+        val updatedChannelsAmountOfUser = incChannelAmountofUser(token)
+        insertUsersTree(token, updatedChannelsAmountOfUser)
+
+        insertToTotalChannelsTree(channel, 1)
+        insertToActiveChannelsTree(channel, 1)
+
+
+        insertToChannelsListOfUser(channel, token)
+    }
+
+    private fun removeUserFromChannel(channel: String, token: String){ //TODO("check logic again")
+        // Assumption: token and channel is valid
+
+        // update user channel list
+        removeFromChannelListOfUser(token, channel)
+
+        // update trees:
+        deleteFromTotalChannelsTree(channel)
+        deleteFromUsersTree(token)
+
+        val updatedChannelsAmountOfUser = decChannelAmountofUser(token)
+        val updatedUsersAmount = decUsersInChannel(channel)
+
+        insertToTotalChannelsTree(channel, updatedUsersAmount)
+        insertUsersTree(token, updatedChannelsAmountOfUser)
+
+        if (readFromStorage(mutableListOf(token),  KeyType.USER) ==  userLoggedIn) {
+
+            deleteFromActiveChannelsTree(channel)
+            val updatedActiveAmount = decLoggedInChannel(channel)
+            insertToActiveChannelsTree(channel, updatedActiveAmount)
+        }
+
+        disConnectUserFromChannel(channel, token)
+    }
+
+    private fun usernameToToken(username: String): String {
+        return readFromStorage(mutableListOf(username), KeyType.USERTOINDEX)!!
+    }
+
+    private fun tokenToUsername(token: String): String {
+        return readFromStorage(mutableListOf(token), KeyType.INDEXTOUSER)!!
+    }
+
+    private fun channelToIndex(channel: String): String {
+        return readFromStorage(mutableListOf(channel), KeyType.CHANNELTOINDEX)!!
+    }
+
+    private fun indexToChannel(index: String): String {
+        return readFromStorage(mutableListOf(index), KeyType.INDEXTOCHANNEL)!!
+    }
+
+    private fun passwordValid(username: String, password: String): Boolean {
+        return readFromStorage(mutableListOf(username, password), KeyType.PASSWORD) != null
+    }
+
+    private fun validToken(token: String): Boolean {
+        when (readFromStorage(mutableListOf(token), KeyType.USER)) {
+            notRegistered, registeredNotLoggedIn -> return false
+            userLoggedIn -> return true
+        }
+        throw IllegalArgumentException()    //shouldn't get here, data-store might be corrupted.
+    }
+
+    private fun isAdministrator(token: String): Boolean{
+        // Assumption: token is valid, and is in the system.
+        val str = readFromStorage(mutableListOf(token), KeyType.ADMIN) ?: return false
+        return str.toInt() == 1
+    }
+
+    private fun updateAssocChannels(token: String, kind: UpdateLoggedStatus){
+        // Assumption:: token is valid
+        val channels = getChannelsOf(token)
+        for (channel in channels){ // TODO ("refactor this to updateChannel fun")
+            var numOfLoggedInUsers: Long = 0
+            val str: String  = readFromStorage(mutableListOf(channel), KeyType.CHANNELLOGGED)!!
+            numOfLoggedInUsers = str.toLong()
+
+            if (numOfLoggedInUsers == 0.toLong())                         // Sanity check
+                assert(kind == UpdateLoggedStatus.IN)
+
+            channelByActiveTree.delete(channel, numOfLoggedInUsers.toString())
+            when(kind){
+                UpdateLoggedStatus.IN -> numOfLoggedInUsers++
+                UpdateLoggedStatus.OUT -> numOfLoggedInUsers--
+            }
+            channelByActiveTree.insert(channel, numOfLoggedInUsers.toString())
+
+            writeToStorage(mutableListOf(channel), data = numOfLoggedInUsers.toString(), type = KeyType.CHANNELLOGGED)
+        }
+    }
+
+    private fun validNameChannel(channel: String): Boolean{
+        val regex = Regex("((#)([a-z]|[A-Z]|(#)|(_))*)")      // Regex pattern of valid channel
+        return regex.matchEntire(channel)?.value != null
+    }
+
+    private fun isChannelExist(channel: String): Boolean{
+        val str = readFromStorage(mutableListOf(channel), KeyType.CHANNEL) ?: return false
+        return str.toInt() > 0
+    }
+
+    private fun areUserAndChannelConnected(token: String, channel: String): Boolean{
+        // Assumption: topken and channel is valid
+
+        val str = readFromStorage(mutableListOf(channel, token), KeyType.PARTICIPANT) ?: return false
+        return str.toInt() == 1 || str.toInt() == 2
+    }
+
+    private fun isOperator(token: String, channel: String): Boolean {       // TODO("change token to username")
+        // Assumption: token and channel is valid
+        val str = readFromStorage(mutableListOf(channel, token), KeyType.PARTICIPANT) ?: return false
+        return str.toInt() == 2     // TODO("2 is sign for operator")
+    }
 }
