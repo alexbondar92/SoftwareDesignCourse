@@ -91,7 +91,4 @@ class CourseAppStatisticsTest {
 
         assert(CAstatistics.top10UsersByChannels() == listOf("user1", "user20", "user21", "user22", "user23", "user24", "user25", "user26", "user27", "user28"))
     }
-
-    @Test
-    fun `get top 10 channels - basic 1`
 }
