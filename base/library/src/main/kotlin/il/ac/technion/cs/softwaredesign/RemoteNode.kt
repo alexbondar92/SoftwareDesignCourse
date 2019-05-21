@@ -1,6 +1,8 @@
 package il.ac.technion.cs.softwaredesign
 
-class RemoteNode {
+import il.ac.technion.cs.softwaredesign.storage.SecureStorage
+
+class RemoteNode : Comparable<RemoteNode>{
     private var nodeStorageKey: String
     private var mainKey: String
     private var secondaryKey: String?
@@ -9,13 +11,14 @@ class RemoteNode {
     private var rightNodeKey: String? = null
     private var treeName: String
     private var parentKey: String? = null
-    private val storage: DataStoreIo = DataStoreIo()
+    private var storage: DataStoreIo
 
     init {
         secondaryKey = "null"
     }
 
-    constructor(treeName: String, mainKey: String) {
+    constructor(storage: DataStoreIo, treeName: String, mainKey: String) {
+        this.storage = storage
         this.treeName = treeName
         this.mainKey = mainKey
         this.nodeStorageKey = "$treeName%$mainKey"                      // the StorageKey for the node
@@ -33,7 +36,8 @@ class RemoteNode {
         }
     }
 
-    constructor(treeName: String, mainKey: String, secondaryKey: String) {
+    constructor(storage: DataStoreIo, treeName: String, mainKey: String, secondaryKey: String) {
+        this.storage = storage
         this.treeName = treeName
         this.mainKey = mainKey
         this.secondaryKey = secondaryKey
@@ -50,7 +54,7 @@ class RemoteNode {
         if (this.parentKey == "null" || this.parentKey == null)
             return null
         else
-            return RemoteNode(this.treeName, this.parentKey!!)
+            return RemoteNode(storage, this.treeName, this.parentKey!!)
     }
 
     fun setParent(newParent: RemoteNode?) {
@@ -63,7 +67,7 @@ class RemoteNode {
 
     fun getMainKey(): String = this.mainKey
 
-    fun getStorageKey(): String? = this.nodeStorageKey
+//    fun getStorageKey(): String? = this.nodeStorageKey
 
     fun getBalance(): Int = this.balance
 
@@ -76,14 +80,14 @@ class RemoteNode {
         if (this.leftNodeKey == null || this.leftNodeKey == "null")
             return null
         else
-            return RemoteNode(this.treeName, this.leftNodeKey!!)
+            return RemoteNode(this.storage, this.treeName, this.leftNodeKey!!)
     }
 
     fun setLeft(node: RemoteNode?) {
         if (node == null)
             this.leftNodeKey = "null"
         else
-            this.leftNodeKey = node.getStorageKey()
+            this.leftNodeKey = node.mainKey
         flushNode()
     }
 
@@ -91,18 +95,18 @@ class RemoteNode {
         if (this.rightNodeKey == null || this.rightNodeKey == "null")
             return null
         else
-            return RemoteNode(this.treeName, this.rightNodeKey!!)
+            return RemoteNode(this.storage, this.treeName, this.rightNodeKey!!)
     }
 
     fun setRight(node: RemoteNode?) {
         if (node == null)
             this.rightNodeKey = null
         else
-            this.rightNodeKey = node.getStorageKey()
+            this.rightNodeKey = node.mainKey
         flushNode()
     }
 
-    operator fun compareTo(node: RemoteNode): Int {
+    override fun compareTo(node: RemoteNode): Int {
         assert(this.secondaryKey != "null" )
         if (this.secondaryKey!!.toInt() > node.secondaryKey!!.toInt())
             return 1
@@ -113,8 +117,6 @@ class RemoteNode {
                 return 1
             else if (this.mainKey.toInt() > node.mainKey.toInt())
                 return -1
-            else
-                assert(false)                       // mainKey is uniq per node
         }
         return 0
     }
@@ -124,7 +126,10 @@ class RemoteNode {
     }
 
     fun compareUgly(mainKey: String, secondaryKey: String): Int {
-        assert(this.secondaryKey != "null")
+        if (this.secondaryKey == "null") {
+            print("KUKU")
+        }
+//        assert(this.secondaryKey != "null")
         if (this.secondaryKey!!.toInt() > secondaryKey.toInt())
             return 1
         else if (this.secondaryKey!!.toInt() < secondaryKey.toInt())
@@ -144,5 +149,16 @@ class RemoteNode {
         this.parentKey = null
         this.leftNodeKey = null
         this.rightNodeKey = null
+
+        flushNode()
+    }
+
+    fun refresh() {
+        val tmpNode = RemoteNode(this.storage, this.treeName, this.mainKey)
+        this.secondaryKey = tmpNode.secondaryKey
+        this.balance = tmpNode.balance
+        this.parentKey = tmpNode.parentKey
+        this.leftNodeKey = tmpNode.leftNodeKey
+        this.rightNodeKey = tmpNode.rightNodeKey
     }
 }

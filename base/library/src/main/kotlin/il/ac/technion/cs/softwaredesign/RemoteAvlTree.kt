@@ -14,7 +14,7 @@ class RemoteAvlTree {
         else {
             val tempList = getRootKey()!!.split("%")
             val rootKey = tempList[0]
-            this.root = RemoteNode(this.treeName, rootKey)
+            this.root = RemoteNode(storage, this.treeName, rootKey)
         }
     }
 
@@ -37,10 +37,10 @@ class RemoteAvlTree {
 
     fun insert(mainKey: String, secondaryKey: String): Boolean {
         if (this.root == null) {
-            this.root = RemoteNode(this.treeName, mainKey, secondaryKey)
+            this.root = RemoteNode(storage, this.treeName, mainKey, secondaryKey)
             setRoot(this.root!!)
         } else {
-            val newNode = RemoteNode(this.treeName, mainKey, secondaryKey)
+            val newNode = RemoteNode(storage, this.treeName, mainKey, secondaryKey)
             var currentNode: RemoteNode? = root
             var parentNode: RemoteNode
             while (true) {
@@ -49,10 +49,13 @@ class RemoteAvlTree {
                 val goLeft = currentNode > newNode
                 currentNode = if (goLeft) currentNode.getLeft() else currentNode.getRight()
                 if (currentNode == null) {
-                    if (goLeft)
+                    if (goLeft) {
                         parentNode.setLeft(newNode)
-                    else
+                        newNode.setParent(parentNode)
+                    } else {
                         parentNode.setRight(newNode)
+                        newNode.setParent(parentNode)
+                    }
                     rebalance(parentNode)
                     break
                 }
@@ -123,10 +126,10 @@ class RemoteAvlTree {
         b.setLeft(a)
         a.setParent(b)
         if (b.getParent() != null) {
-            if (b.getParent()!!.getRight() == a)
-                b.getParent()!!.setRight(b)
-            else
+            if (b.getParent()!!.getLeft() == a)
                 b.getParent()!!.setLeft(b)
+            else
+                b.getParent()!!.setRight(b)
         }
         setBalance(a, b)
         return b
@@ -147,7 +150,7 @@ class RemoteAvlTree {
         while (child != null) {
             parent = n
             n = child
-            child = if (n.compareUgly(mainKey, secondaryKey) < 0) n.getRight() else n.getLeft()
+            child = if (n.compareUgly(mainKey, secondaryKey) <= 0) n.getRight() else n.getLeft()
             if (n.compareUgly(mainKey, secondaryKey) == 0)
                 delNode = n
         }
@@ -167,8 +170,9 @@ class RemoteAvlTree {
                     }
                     rebalance(parent)
                 }
-            } else if (delNode.getRight() == n) {      // there is a successor for delNode at the sub tree & n is son of delNode
+            } else if (n!!.compareTo(delNode.getRight()!!) == 0) {      // there is a successor for delNode at the sub tree & n is son of delNode
                 n!!.setLeft(delNode.getLeft())
+                delNode.getLeft()?.setParent(n)
                 if (delNode == this.root) {
                     setRoot(n)
                 } else {        // there is a parent for delNode
@@ -181,20 +185,20 @@ class RemoteAvlTree {
                     rebalance(parent!!)
                 }
             } else {        // the general case, hold assumptions: n have right son; n is the left son of his parent
-                val nRightSon = n!!.getRight()
-                val delNodeLeftSon = delNode.getLeft()
-                val delNodeRightSon = delNode.getRight()
+//                val nRightSon = n!!.getRight()
+//                val delNodeLeftSon = delNode.getLeft()
+//                val delNodeRightSon = delNode.getRight()
 
-                if (nRightSon != null)
-                    nRightSon.setParent(parent)
-                parent!!.setLeft(nRightSon)
+                if (n!!.getRight() != null)
+                    n!!.getRight()!!.setParent(parent)
+                parent!!.setLeft(n!!.getRight())
 
-                n.setLeft(delNodeLeftSon)
-                if (delNodeLeftSon != null)
-                    delNodeLeftSon.setParent(n)
-                n.setRight(delNodeRightSon)
-                if (delNodeRightSon != null)
-                    delNodeRightSon.setParent(n)
+                n.setLeft(delNode.getLeft())
+                if (delNode.getLeft() != null)
+                    delNode.getLeft()!!.setParent(n)
+                n.setRight(delNode.getRight())
+                if (delNode.getRight() != null)
+                    delNode.getRight()!!.setParent(n)
                 if (delNode == this.root) {
                     setRoot(n)
                 } else {
@@ -203,8 +207,9 @@ class RemoteAvlTree {
                     } else {
                         delNode.getParent()!!.setLeft(n)
                     }
-                    rebalance(parent)
                 }
+                parent.refresh()
+                rebalance(parent)
             }
             delNode.reset()
         }
@@ -214,9 +219,11 @@ class RemoteAvlTree {
         if (node == null || !cond())
             return
 
-        top10Aux(node.getLeft(), adder, cond)
-        adder(node)
         top10Aux(node.getRight(), adder, cond)
+        if (!cond())
+            return
+        adder(node)
+        top10Aux(node.getLeft(), adder, cond)
     }
 
     fun top10(): List<Int>{

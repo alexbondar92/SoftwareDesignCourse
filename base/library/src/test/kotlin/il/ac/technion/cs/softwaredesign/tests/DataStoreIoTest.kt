@@ -11,7 +11,7 @@ class DataStoreIoTest {
 
     @Test
     fun `returns null for unused key`() {
-        val storage = DataStoreIo()
+        val storage = DataStoreIo(FakeSecureStorage())
 
         val ret = storage.read(key = "Unknown Key")
 
@@ -20,7 +20,7 @@ class DataStoreIoTest {
 
     @Test
     fun `write and read is consistent`() {
-        val storage = DataStoreIo()
+        val storage = DataStoreIo(FakeSecureStorage())
 
         val value = "Some Data Sent to Storage"
         storage.write("My Key", value)
@@ -30,7 +30,7 @@ class DataStoreIoTest {
 
     @Test
     fun `read returns data for 1 ms per byte`() {
-        val storage = DataStoreIo()
+        val storage = DataStoreIo(FakeSecureStorage())
 
         val value = "Long Long Long Long Long Long Long Long String"
         val valueLength = value.length.toLong()
