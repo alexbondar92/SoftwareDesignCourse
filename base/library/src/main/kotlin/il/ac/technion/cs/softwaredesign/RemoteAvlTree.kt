@@ -2,7 +2,7 @@ package il.ac.technion.cs.softwaredesign
 
 class RemoteAvlTree {
     private var treeName: String
-    private var storage: DataStoreIo? = null
+    private var storage: DataStoreIo
     private var root: RemoteNode?
 
     constructor(treeName: String, storage: DataStoreIo) {
@@ -19,7 +19,7 @@ class RemoteAvlTree {
     }
 
     private fun getRootKey(): String?{
-        val str = DataStoreIo.read(("T$this.treeName"))
+        val str = storage.read(("T$this.treeName"))
         if (str == null || str == "null")
             return null
         return str
@@ -28,10 +28,10 @@ class RemoteAvlTree {
     private fun setRoot(newRoot: RemoteNode?) {
         this.root = newRoot
         if (newRoot == null)
-            DataStoreIo.write(("T${this.treeName}"), "null")
+            storage.write(("T${this.treeName}"), "null")
         else {
             newRoot.setParent(null)
-            DataStoreIo.write(("T${this.treeName}"), newRoot.getMainKey())
+            storage.write(("T${this.treeName}"), newRoot.getMainKey())
         }
     }
 

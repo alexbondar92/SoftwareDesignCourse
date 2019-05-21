@@ -9,6 +9,7 @@ class RemoteNode {
     private var rightNodeKey: String? = null
     private var treeName: String
     private var parentKey: String? = null
+    private val storage: DataStoreIo = DataStoreIo()
 
     init {
         secondaryKey = "null"
@@ -19,7 +20,7 @@ class RemoteNode {
         this.mainKey = mainKey
         this.nodeStorageKey = "$treeName%$mainKey"                      // the StorageKey for the node
 
-        val str = DataStoreIo.read((this.nodeStorageKey!!))
+        val str = storage.read((this.nodeStorageKey!!))
         if (str != null) {
             val tempList = str!!.split("%")                     // <secondaryKey>%<balance>%<parent>%<leftNodeKey>%<rightNodeKey>
             this.secondaryKey = tempList[0]
@@ -119,7 +120,7 @@ class RemoteNode {
     }
 
     private fun flushNode() {                       // <secondaryKey>%<balance>%<parent>%<leftNodeKey>%<rightNodeKey>
-        DataStoreIo.write(this.nodeStorageKey, ("$secondaryKey%$balance%$parentKey%$leftNodeKey%$rightNodeKey"))
+        storage.write(this.nodeStorageKey, ("$secondaryKey%$balance%$parentKey%$leftNodeKey%$rightNodeKey"))
     }
 
     fun compareUgly(mainKey: String, secondaryKey: String): Int {

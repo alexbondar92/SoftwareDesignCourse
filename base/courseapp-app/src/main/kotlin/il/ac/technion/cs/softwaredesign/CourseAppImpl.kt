@@ -11,9 +11,10 @@ class CourseAppImpl : CourseApp{
     private val registeredNotLoggedIn = "0"
     private val notRegistered = null
 
-    private var usersTree = RemoteAvlTree("AvlUsers",DataStoreIo())
-    private var channelByMembersTree = RemoteAvlTree("AvlChannel1",DataStoreIo())
-    private var channelByActiveTree = RemoteAvlTree("AvlChannel2",DataStoreIo())
+    private val storage = DataStoreIo()
+    private var usersTree = RemoteAvlTree("AvlUsers",storage)
+    private var channelByMembersTree = RemoteAvlTree("AvlChannel1",storage)
+    private var channelByActiveTree = RemoteAvlTree("AvlChannel2",storage)
 
     enum class UpdateLoggedStatus{
         IN,
@@ -40,7 +41,8 @@ class CourseAppImpl : CourseApp{
     }
 
     init {
-        // resetIndexSystem() TODO ("Move to CourseAppInitializer")
+        // resetIndexSystem()
+        TODO ("Move to CourseAppInitializer")
     }
 
     /**
@@ -183,7 +185,7 @@ class CourseAppImpl : CourseApp{
      * @throws UserNotAuthorizedException If [channel] does not exist and [token] belongs to a user who is not an
      * administrator.
      */
-    override fun channelJoin(token: String, channel: String) {  //TODO("check logic again")
+    override fun channelJoin(token: String, channel: String) {              //TODO("check logic again")
         if (!validToken(token))
             throw InvalidTokenException()
 
@@ -403,75 +405,73 @@ class CourseAppImpl : CourseApp{
     //writers:////////////////////////////////////////////////////
 
     private fun writeToStorage(args : MutableList<String>, data: String, type :KeyType )  {
-
         when (type) {
             KeyType.USER -> {
                 val token = args[0]
-                DataStoreIo.write("UV$token", data)
+                storage.write("UV$token", data)
             }
             KeyType.PASSWORD -> {
                 val username = args[0]
                 val password = args[1]
-                DataStoreIo.write(("UP$username$password"), data)
+                storage.write(("UP$username$password"), data)
             }
             KeyType.ADMIN ->{
                 val userIndex = args[0]
-                DataStoreIo.write(("UA$userIndex"),data)
+                storage.write(("UA$userIndex"),data)
             }
             KeyType.CHANNEL -> {
                 val channel = args[0]
                 val index = channelToIndex(channel)
-                DataStoreIo.write(("CV$index"), data)
+                storage.write(("CV$index"), data)
             }
             KeyType.PARTICIPANT -> {
                 val channel = args[0]
                 val index = channelToIndex(channel)
                 val token = args[1]
-                DataStoreIo.write(("CU$index%$token"), data) //delimiter "%" between channel and token
+                storage.write(("CU$index%$token"), data) //delimiter "%" between channel and token
             }
             KeyType.CHANNELS -> {
                 val token = args[0]
-                DataStoreIo.write(("UCL$token"), data)
+                storage.write(("UCL$token"), data)
             }
             KeyType.TOTALUSERSAMOUNT -> {
-                DataStoreIo.write(("totalUsers"), data)
+                storage.write(("totalUsers"), data)
             }
             KeyType.ACTIVEUSERSAMOUNT -> {
-                DataStoreIo.write(("activeUsers"), data)
+                storage.write(("activeUsers"), data)
             }
             KeyType.CHANNELLOGGED -> {
                 val channel = args[0]
                 val index = channelToIndex(channel)
-                DataStoreIo.write(("CL$index"), data)
+                storage.write(("CL$index"), data)
             }
             KeyType.USERCHANNELS -> {
                 val token = args[0]
-                DataStoreIo.write(("UL$token"), data)
+                storage.write(("UL$token"), data)
             }
             KeyType.INDEXCHANNELSYS -> {
-                DataStoreIo.write(("IndexChannelSys"), data)
+                storage.write(("IndexChannelSys"), data)
             }
             KeyType.INDEXUSERSYS -> {
-                DataStoreIo.write(("IndexUserSys"), data)
+                storage.write(("IndexUserSys"), data)
             }
             KeyType.CHANNELTOINDEX -> {
                 val channel = args[0]
-                DataStoreIo.write(("CI$channel"), data)
+                storage.write(("CI$channel"), data)
             }
             KeyType.INDEXTOCHANNEL -> {
                 val index = args[0]
-                DataStoreIo.write(("IC$index"), data)
+                storage.write(("IC$index"), data)
             }
             KeyType.USERTOINDEX -> {
                 val username = args[0]
-                DataStoreIo.write(("UI$username"), data)
+                storage.write(("UI$username"), data)
             }
             KeyType.INDEXTOUSER -> {
                 val index = args[0]
-                DataStoreIo.write(("IU$index"), data)
+                storage.write(("IU$index"), data)
             }
         }
-
     }
 
     private fun writeUserStatus(token: String, data: String) {
@@ -605,69 +605,69 @@ class CourseAppImpl : CourseApp{
         when (type) {
             KeyType.USER -> {
                 val token = args[0]
-                str = DataStoreIo.read("UV$token")
+                str = storage.read("UV$token")
             }
             KeyType.PASSWORD -> {
                 val username = args[0]
                 val password = args[1]
-                str = DataStoreIo.read(("UP$username$password"))
+                str = storage.read(("UP$username$password"))
 
             }
             KeyType.ADMIN ->{
                 val token = args[0]
-                str = DataStoreIo.read(("UA$token"))
+                str = storage.read(("UA$token"))
             }
             KeyType.CHANNEL -> {
                 val channel = args[0]
                 val index = channelToIndex(channel)
-                str = DataStoreIo.read(("CV$index"))
+                str = storage.read(("CV$index"))
             }
             KeyType.PARTICIPANT -> {
                 val channel = args[0]
                 val index = channelToIndex(channel)
                 val token = args[1]
-                str = DataStoreIo.read(("CU$index%$token")) //delimiter "%" between channel and token
+                str = storage.read(("CU$index%$token")) //delimiter "%" between channel and token
             }
             KeyType.CHANNELS -> {
                 val token = args[0]
-                str = DataStoreIo.read(("UCL$token"))
+                str = storage.read(("UCL$token"))
             }
             KeyType.TOTALUSERSAMOUNT -> {
-                str = DataStoreIo.read(("totalUsers"))
+                str = storage.read(("totalUsers"))
             }
             KeyType.ACTIVEUSERSAMOUNT -> {
-                str = DataStoreIo.read(("activeUsers"))
+                str = storage.read(("activeUsers"))
             }
             KeyType.CHANNELLOGGED -> {
                 val channel = args[0]
                 val index = channelToIndex(channel)
-                str = DataStoreIo.read(("CL$index"))
+                str = storage.read(("CL$index"))
             }
             KeyType.USERCHANNELS -> {
                 val token = args[0]
-                str = DataStoreIo.read(("UL$token"))
+                str = storage.read(("UL$token"))
             }
             KeyType.INDEXCHANNELSYS -> {
-                str = DataStoreIo.read(("IndexChannelSys"))
+                str = storage.read(("IndexChannelSys"))
             }
             KeyType.INDEXUSERSYS -> {
-                str = DataStoreIo.read(("IndexUserSys"))
+                str = storage.read(("IndexUserSys"))
             }
             KeyType.CHANNELTOINDEX -> {
                 val channel = args[0]
-                str = DataStoreIo.read(("CI$channel"))
+                str = storage.read(("CI$channel"))
             }
             KeyType.INDEXTOCHANNEL -> {
                 val index = args[0]
-                str = DataStoreIo.read(("IC$index"))
+                str = storage.read(("IC$index"))
             }
             KeyType.USERTOINDEX -> {
                 val username = args[0]
-                str = DataStoreIo.read(("UI$username"))
+                str = storage.read(("UI$username"))
             }
             KeyType.INDEXTOUSER -> {
                 val index = args[0]
-                str = DataStoreIo.read(("IU$index"))
+                str = storage.read(("IU$index"))
             }
         }
         return str
@@ -778,7 +778,7 @@ class CourseAppImpl : CourseApp{
         writeToStorage(mutableListOf(index), channel, KeyType.INDEXTOCHANNEL)
     }
 
-    private fun createChannel(channel: String, token: String) {//TODO("check logic again")
+    private fun createChannel(channel: String, token: String) {             //TODO("check logic again")
         // Assumption: token is valid and is associated & the token is associated to admin
 
         updateAmountOfUsersInChannel(channel, 1)
@@ -800,7 +800,7 @@ class CourseAppImpl : CourseApp{
         insertToChannelsListOfUser(channel, token)
     }
 
-    private fun removeUserFromChannel(channel: String, token: String){ //TODO("check logic again")
+    private fun removeUserFromChannel(channel: String, token: String){      //TODO("check logic again")
         // Assumption: token and channel is valid
 
         // update user channel list
@@ -899,7 +899,7 @@ class CourseAppImpl : CourseApp{
         return str.toInt() == 1 || str.toInt() == 2
     }
 
-    private fun isOperator(token: String, channel: String): Boolean {       // TODO("change token to username")
+    private fun isOperator(token: String, channel: String): Boolean {
         // Assumption: token and channel is valid
         val str = readFromStorage(mutableListOf(channel, token), KeyType.PARTICIPANT) ?: return false
         return str.toInt() == 2     // TODO("2 is sign for operator")
