@@ -1,11 +1,9 @@
 package il.ac.technion.cs.softwaredesign
 
-class CourseAppStatisticsImpl : CourseAppStatistics {
-    private val cApp: CourseAppImpl
+import il.ac.technion.cs.softwaredesign.storage.*
 
-    init {
-        cApp = CourseAppImpl()
-    }
+class CourseAppStatisticsImpl : CourseAppStatistics {
+    private val cApp: CourseAppImpl = CourseAppImpl(FakeSecureStorage())
 
     /**
      * Count the total number of users, both logged-in and logged-out, in the system.

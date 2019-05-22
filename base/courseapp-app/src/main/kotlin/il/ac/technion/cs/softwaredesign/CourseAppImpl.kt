@@ -48,8 +48,7 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
     }
 
     init {
-        // resetIndexSystem()
-        TODO ("Move to CourseAppInitializer")
+        // TODO ("is it needed?!?!")
     }
 
     /**
@@ -92,7 +91,7 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
                 if (!passwordValid(username, password))
                     throw NoSuchEntityException()
 
-                val token = usernameToToken(username)
+                val token = usernameToToken(username)!!
                 writeUserStatus(token, userLoggedIn)
                 updateAssocChannels(token, UpdateLoggedStatus.IN)
                 incTotalLoggedInUsers()
@@ -173,7 +172,7 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
             notRegistered -> throw NoSuchEntityException()
 
             registeredNotLoggedIn, userLoggedIn -> {
-                setAdministrator(token)
+                setAdministrator(token!!)
             }
         }
     }
@@ -280,10 +279,10 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
             throw UserNotAuthorizedException()
 
         val userToken = usernameToToken(username)
-        if(readUserStatus(userToken) == notRegistered || !areUserAndChannelConnected(userToken, channel))
+        if(readUserStatus(userToken) == notRegistered || !areUserAndChannelConnected(userToken!!, channel))
             throw NoSuchEntityException()
 
-        makeUserOperator(channel, userToken)
+        makeUserOperator(channel, userToken!!)
     }
 
     /**
@@ -307,7 +306,7 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
             throw UserNotAuthorizedException()
 
         val userToken = usernameToToken(username)
-        if (readFromStorage(mutableListOf(userToken),  KeyType.USER) == notRegistered || !areUserAndChannelConnected(userToken, channel))
+        if (readFromStorage(mutableListOf(userToken!!),  KeyType.USER) == notRegistered || !areUserAndChannelConnected(userToken, channel))
             throw NoSuchEntityException()
 
         removeUserFromChannel(channel, token)   // this fun remove user from channel and update the trees
@@ -334,7 +333,7 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
         if (!isAdministrator(token) && !areUserAndChannelConnected(token, channel))
             throw UserNotAuthorizedException()
 
-        return areUserAndChannelConnected(usernameToToken(username), channel)
+        return areUserAndChannelConnected(usernameToToken(username)!!, channel)
     }
 
     /**
@@ -486,7 +485,7 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
     }
 
     private fun writePasswordForUser(username: String, password: String) {
-        writeToStorage(mutableListOf(username, password), data = passwordSignedIn, type = KeyType.USER)
+        writeToStorage(mutableListOf(username, password), data = passwordSignedIn, type = KeyType.PASSWORD)
     }
 
     private fun writeChannelsAmountOfUser(token: String, number : Long) {
@@ -607,7 +606,7 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
 
     //reader:////////////////////////////////////////////////////
 
-    private fun readFromStorage(args : MutableList<String>, type :KeyType ) : String? {
+    private fun  readFromStorage(args : MutableList<String>, type :KeyType ) : String? {
         var str : String? = null
         when (type) {
             KeyType.USER -> {
@@ -680,7 +679,9 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
         return str
     }
 
-    private fun readUserStatus(token : String) :String?{
+    private fun readUserStatus(token : String?) :String?{
+        if (token == null)
+            return notRegistered
         return readFromStorage(mutableListOf(token),  KeyType.USER)
     }
 
@@ -699,7 +700,7 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
 
     private fun getChannelsOf(token: String): MutableList<String>{
         // Assumption:: token is valid
-        val str = readFromStorage(mutableListOf(token), KeyType.CHANNELS)!!
+        val str = readFromStorage(mutableListOf(token), KeyType.CHANNELS) ?: return mutableListOf()
         val delimiter = "%"
         return str.split(delimiter).toMutableList()
     }
@@ -752,24 +753,31 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
 
     // ========================================= Private Functions ============================================
 
-    private fun resetIndexSystem() {
-        writeToStorage(mutableListOf(), 0.toString(), KeyType.INDEXUSERSYS)
-        writeToStorage(mutableListOf(), 0.toString(), KeyType.INDEXCHANNELSYS)
-    }
-
     private fun getNewUserIndex(username: String): String {
-        val str = readFromStorage(mutableListOf(),  KeyType.INDEXUSERSYS)!!
+        val str = readFromStorage(mutableListOf(),  KeyType.INDEXUSERSYS)
 
-        val newIndex = str!!.toInt() + 1
+        var newIndex = 0
+        if (str == null) {
+            newIndex = 1
+        } else {
+            newIndex = str!!.toInt() + 1
+        }
+
         writeToStorage(mutableListOf(newIndex.toString()), newIndex.toString(), KeyType.INDEXUSERSYS)
         attachUsernameToIndex(username, newIndex.toString())
         return newIndex.toString()
     }
 
     private fun getNewChannelIndex(channel: String): String{
-        val str = readFromStorage(mutableListOf(),  KeyType.INDEXCHANNELSYS)!!
+        val str = readFromStorage(mutableListOf(),  KeyType.INDEXCHANNELSYS)
 
-        val newIndex = str!!.toInt() + 1
+        var newIndex = 0
+        if (str == null) {
+            newIndex = 1
+        } else {
+            newIndex = str!!.toInt() + 1
+        }
+
         writeToStorage(mutableListOf(newIndex.toString()), newIndex.toString(), KeyType.INDEXCHANNELSYS)
         attachChannelToIndex(channel, newIndex.toString())
         return newIndex.toString()
@@ -833,8 +841,8 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
         disConnectUserFromChannel(channel, token)
     }
 
-    private fun usernameToToken(username: String): String {
-        return readFromStorage(mutableListOf(username), KeyType.USERTOINDEX)!!
+    private fun usernameToToken(username: String): String? {
+        return readFromStorage(mutableListOf(username), KeyType.USERTOINDEX)
     }
 
     private fun tokenToUsername(token: String): String {

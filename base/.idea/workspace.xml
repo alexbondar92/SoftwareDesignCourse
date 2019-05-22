@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" line="325" />
+    <bookmark url="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" line="324" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3078e906-f4ea-42e8-a364-e8ec716816be" name="Default Changelist" comment="" />
+    <list default="true" id="3078e906-f4ea-42e8-a364-e8ec716816be" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/5.3.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.3.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.3.1/vcsMetadata-1/vcsMetadata-1.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.3.1/vcsMetadata-1/vcsMetadata-1.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppInitializerImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppInitializerImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/AvlTree2$Node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/AvlTree2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/DataStoreIoTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/DataStoreIoTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/FakeSecureStorage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/FakeSecureStorage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/RemoteNodeTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/RemoteNodeTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/remoteAvlTreeTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/remoteAvlTreeTest.kt" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -101,15 +119,30 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="202">
+              <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="413" column="68" selection-start-line="413" selection-start-column="68" selection-end-line="413" selection-end-column="68" />
-              <folding>
-                <element signature="e#42#174#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="154">
+              <caret line="403" selection-start-line="403" selection-end-line="403" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteAvlTree.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="392">
+              <caret line="233" selection-start-line="233" selection-end-line="233" />
             </state>
           </provider>
         </entry>
@@ -117,8 +150,50 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+            <state relative-caret-position="9765">
+              <caret line="651" column="5" selection-start-line="651" selection-start-column="5" selection-end-line="651" selection-end-column="5" />
+              <folding>
+                <element signature="e#42#224#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="392">
+              <caret line="78" column="54" selection-start-line="78" selection-start-column="54" selection-end-line="78" selection-end-column="54" />
+              <folding>
+                <element signature="e#42#188#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="392">
+              <caret line="67" selection-start-line="67" selection-end-line="67" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppInitializerImpl.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="56" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="223">
+              <caret line="15" column="41" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -159,13 +234,14 @@
       <find>PARTICIPANT</find>
       <find>2</find>
       <find>1</find>
+      <find>resetIndexSystem</find>
     </findStrings>
     <replaceStrings>
       <replace>storage</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.gradle/vcs-1/sd-primiti_atfpoo4uliz1bro9vwwdmabsn/sd-primitive-storage-layer" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$/.gradle/vcs-1/sd-primiti_atfpoo4uliz1bro9vwwdmabsn/sd-primitive-storage-layer" value="master" />
@@ -178,26 +254,28 @@
         <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt" />
         <option value="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/Node.kt" />
         <option value="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/AvlTree.kt" />
-        <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt" />
         <option value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/RemoteNodeTest.kt" />
-        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" />
         <option value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/FakeSecureStorage.kt" />
         <option value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIoTest.kt" />
         <option value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/utils.kt" />
         <option value="$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/utils.kt" />
         <option value="$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest.kt" />
-        <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppInitializerImpl.kt" />
-        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/utils.kt" />
         <option value="$PROJECT_DIR$/library/build.gradle.kts" />
-        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt" />
-        <option value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/DataStoreIoTest.kt" />
         <option value="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIo.kt" />
         <option value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/FakeSecureStorage.kt" />
         <option value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/RemoteNodeTest.kt" />
         <option value="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteNode.kt" />
         <option value="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteAvlTree.kt" />
         <option value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/remoteAvlTreeTest.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/utils.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatistics.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/build.gradle.kts" />
+        <option value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/DataStoreIoTest.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppInitializerImpl.kt" />
         <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt" />
       </list>
     </option>
   </component>
@@ -212,80 +290,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="base" type="b2602c69:ProjectViewProjectNode" />
               <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name=".gradle" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name=".gradle" type="462c0819:PsiDirectoryNode" />
-              <item name="vcs-1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name=".gradle" type="462c0819:PsiDirectoryNode" />
-              <item name="vcs-1" type="462c0819:PsiDirectoryNode" />
-              <item name="sd-primiti_atfpoo4uliz1bro9vwwdmabsn" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name=".gradle" type="462c0819:PsiDirectoryNode" />
-              <item name="vcs-1" type="462c0819:PsiDirectoryNode" />
-              <item name="sd-primiti_atfpoo4uliz1bro9vwwdmabsn" type="462c0819:PsiDirectoryNode" />
-              <item name="sd-primitive-storage-layer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name=".gradle" type="462c0819:PsiDirectoryNode" />
-              <item name="vcs-1" type="462c0819:PsiDirectoryNode" />
-              <item name="sd-primiti_atfpoo4uliz1bro9vwwdmabsn" type="462c0819:PsiDirectoryNode" />
-              <item name="sd-primitive-storage-layer" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name=".gradle" type="462c0819:PsiDirectoryNode" />
-              <item name="vcs-1" type="462c0819:PsiDirectoryNode" />
-              <item name="sd-primiti_atfpoo4uliz1bro9vwwdmabsn" type="462c0819:PsiDirectoryNode" />
-              <item name="sd-primitive-storage-layer" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="libs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name=".gradle" type="462c0819:PsiDirectoryNode" />
-              <item name="vcs-1" type="462c0819:PsiDirectoryNode" />
-              <item name="sd-primiti_atfpoo4uliz1bro9vwwdmabsn" type="462c0819:PsiDirectoryNode" />
-              <item name="sd-primitive-storage-layer" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="libs" type="462c0819:PsiDirectoryNode" />
-              <item name="primitive-storage-layer-1.0.jar" type="ab9368bb:PsiFileNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name=".gradle" type="462c0819:PsiDirectoryNode" />
-              <item name="vcs-1" type="462c0819:PsiDirectoryNode" />
-              <item name="sd-primiti_atfpoo4uliz1bro9vwwdmabsn" type="462c0819:PsiDirectoryNode" />
-              <item name="sd-primitive-storage-layer" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="libs" type="462c0819:PsiDirectoryNode" />
-              <item name="primitive-storage-layer-1.0.jar" type="ab9368bb:PsiFileNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="base" type="b2602c69:ProjectViewProjectNode" />
@@ -445,7 +456,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -453,6 +463,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign" />
@@ -465,15 +476,16 @@
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign" />
+      <recent name="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests" />
+    </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="il.ac.technion.cs.softwaredesign.tests" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign" />
       <recent name="$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests" />
-      <recent name="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests" />
     </key>
   </component>
@@ -494,81 +506,85 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.RemoteAvlTreeTest">
-    <configuration name="RemoteAvlTreeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="base.library.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign.tests" />
-      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.tests.RemoteAvlTreeTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+  <component name="RunManager" selected="JUnit.CourseAppStatisticsTest.get top 10 users - basic 1">
+    <configuration name="base [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+          </list>
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
     </configuration>
-    <configuration name="RemoteAvlTreeTest.insert 10 elements and remove part of them" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="base.library.test" />
+    <configuration name="CourseAppStatisticsTest.empty CourseApp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="base.courseapp-app.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.tests.*" />
+          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign.tests" />
-      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.tests.RemoteAvlTreeTest" />
-      <option name="METHOD_NAME" value="insert 10 elements and remove part of them" />
+      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign" />
+      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.CourseAppStatisticsTest" />
+      <option name="METHOD_NAME" value="empty CourseApp" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RemoteAvlTreeTest.insert 100 elements" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="base.library.test" />
+    <configuration name="CourseAppStatisticsTest.get top 10 users - basic 1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="base.courseapp-app.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.tests.*" />
+          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign.tests" />
-      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.tests.RemoteAvlTreeTest" />
-      <option name="METHOD_NAME" value="insert 100 elements" />
+      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign" />
+      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.CourseAppStatisticsTest" />
+      <option name="METHOD_NAME" value="get top 10 users - basic 1" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RemoteAvlTreeTest.insert 20 elements" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="base.library.test" />
+    <configuration name="CourseAppStatisticsTest.valid number of loggedUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="base.courseapp-app.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.tests.*" />
+          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign.tests" />
-      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.tests.RemoteAvlTreeTest" />
-      <option name="METHOD_NAME" value="insert 20 elements" />
+      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign" />
+      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.CourseAppStatisticsTest" />
+      <option name="METHOD_NAME" value="valid number of loggedUsers" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RemoteAvlTreeTest.insert 50 elements and remove part of them" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="base.library.test" />
+    <configuration name="CourseAppStatisticsTest.valid number of totalUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="base.courseapp-app.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.tests.*" />
+          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign.tests" />
-      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.tests.RemoteAvlTreeTest" />
-      <option name="METHOD_NAME" value="insert 50 elements and remove part of them" />
+      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign" />
+      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.CourseAppStatisticsTest" />
+      <option name="METHOD_NAME" value="valid number of totalUsers" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -589,11 +605,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RemoteAvlTreeTest" />
-        <item itemvalue="JUnit.RemoteAvlTreeTest.insert 10 elements and remove part of them" />
-        <item itemvalue="JUnit.RemoteAvlTreeTest.insert 50 elements and remove part of them" />
-        <item itemvalue="JUnit.RemoteAvlTreeTest.insert 20 elements" />
-        <item itemvalue="JUnit.RemoteAvlTreeTest.insert 100 elements" />
+        <item itemvalue="JUnit.CourseAppStatisticsTest.get top 10 users - basic 1" />
+        <item itemvalue="JUnit.CourseAppStatisticsTest.valid number of totalUsers" />
+        <item itemvalue="JUnit.CourseAppStatisticsTest.valid number of loggedUsers" />
+        <item itemvalue="JUnit.CourseAppStatisticsTest.empty CourseApp" />
+        <item itemvalue="Gradle.base [run]" />
       </list>
     </recent_temporary>
   </component>
@@ -609,49 +625,50 @@
       <updated>1557841104294</updated>
       <workItem from="1557841105497" duration="1958000" />
       <workItem from="1557844354299" duration="21529000" />
+      <workItem from="1558511376213" duration="8856000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RemoteAvlTreeTest_insert_10_elements_and_remove_part_of_them - 2019.05.21 at 22h 05m 48s.xml">
-      <configuration name="RemoteAvlTreeTest.insert 10 elements and remove part of them" configurationId="JUnit" />
+    <history-entry file="CourseAppTest_trying_to_login_with_wrong_pass - 2019.05.22 at 12h 19m 00s.xml">
+      <configuration name="CourseAppTest.trying to login with wrong pass" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RemoteAvlTreeTest_insert_10_elements_and_remove_part_of_them - 2019.05.21 at 22h 06m 33s.xml">
-      <configuration name="RemoteAvlTreeTest.insert 10 elements and remove part of them" configurationId="JUnit" />
+    <history-entry file="CourseAppTest_selected_amount_of_users_are_logged_in_at_once - 2019.05.22 at 12h 19m 14s.xml">
+      <configuration name="CourseAppTest.selected amount of users are logged in at once" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RemoteAvlTreeTest_insert_10_elements_and_remove_part_of_them - 2019.05.21 at 22h 09m 25s.xml">
-      <configuration name="RemoteAvlTreeTest.insert 10 elements and remove part of them" configurationId="JUnit" />
+    <history-entry file="CourseAppTest_selected_amount_of_users_are_logged_in_at_once - 2019.05.22 at 12h 20m 00s.xml">
+      <configuration name="CourseAppTest.selected amount of users are logged in at once" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RemoteAvlTreeTest_insert_10_elements_and_remove_part_of_them - 2019.05.21 at 22h 27m 59s.xml">
-      <configuration name="RemoteAvlTreeTest.insert 10 elements and remove part of them" configurationId="JUnit" />
+    <history-entry file="CourseAppTest_selected_amount_of_users_are_logged_in_at_once - 2019.05.22 at 12h 20m 29s.xml">
+      <configuration name="CourseAppTest.selected amount of users are logged in at once" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RemoteAvlTreeTest_insert_10_elements_and_remove_part_of_them - 2019.05.21 at 22h 30m 37s.xml">
-      <configuration name="RemoteAvlTreeTest.insert 10 elements and remove part of them" configurationId="JUnit" />
+    <history-entry file="CourseAppStatisticsTest_empty_CourseApp - 2019.05.22 at 14h 07m 00s.xml">
+      <configuration name="CourseAppStatisticsTest.empty CourseApp" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RemoteAvlTreeTest_insert_10_elements_and_remove_part_of_them - 2019.05.21 at 22h 31m 24s.xml">
-      <configuration name="RemoteAvlTreeTest.insert 10 elements and remove part of them" configurationId="JUnit" />
+    <history-entry file="CourseAppStatisticsTest_valid_number_of_totalUsers - 2019.05.22 at 14h 08m 26s.xml">
+      <configuration name="CourseAppStatisticsTest.valid number of totalUsers" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RemoteAvlTreeTest_insert_10_elements_and_remove_part_of_them - 2019.05.21 at 22h 31m 38s.xml">
-      <configuration name="RemoteAvlTreeTest.insert 10 elements and remove part of them" configurationId="JUnit" />
+    <history-entry file="CourseAppStatisticsTest_valid_number_of_totalUsers - 2019.05.22 at 14h 09m 43s.xml">
+      <configuration name="CourseAppStatisticsTest.valid number of totalUsers" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RemoteAvlTreeTest - 2019.05.21 at 22h 32m 05s.xml">
-      <configuration name="RemoteAvlTreeTest" configurationId="JUnit" />
+    <history-entry file="CourseAppStatisticsTest_get_top_10_users_-_basic_1 - 2019.05.22 at 14h 10m 20s.xml">
+      <configuration name="CourseAppStatisticsTest.get top 10 users - basic 1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RemoteAvlTreeTest - 2019.05.21 at 22h 32m 34s.xml">
-      <configuration name="RemoteAvlTreeTest" configurationId="JUnit" />
+    <history-entry file="CourseAppStatisticsTest_get_top_10_users_-_basic_1 - 2019.05.22 at 14h 11m 18s.xml">
+      <configuration name="CourseAppStatisticsTest.get top 10 users - basic 1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RemoteAvlTreeTest - 2019.05.21 at 22h 33m 35s.xml">
-      <configuration name="RemoteAvlTreeTest" configurationId="JUnit" />
+    <history-entry file="CourseAppStatisticsTest_get_top_10_users_-_basic_1 - 2019.05.22 at 14h 12m 22s.xml">
+      <configuration name="CourseAppStatisticsTest.get top 10 users - basic 1" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93201000" />
+    <option name="totallyTimeSpent" value="102261000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1614" height="987" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23536895" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23791349" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -660,8 +677,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.19217877" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.26815644" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.26815644" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -695,6 +712,12 @@
           <line>129</line>
           <properties />
           <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt</url>
+          <line>78</line>
+          <properties />
+          <option name="timeStamp" value="60" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -764,13 +787,7 @@ import java.util.LinkedHashMap</custom-info>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/Node.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="1" selection-start-line="3" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/Node.kt" />
     <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/Main.kt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -781,37 +798,11 @@ import java.util.LinkedHashMap</custom-info>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="51" column="7" lean-forward="true" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="135" column="7" lean-forward="true" selection-start-line="135" selection-start-column="7" selection-end-line="135" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIo.kt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIo.kt" />
     <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/AvlTree.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2250">
           <caret line="150" column="5" selection-start-line="150" selection-start-column="5" selection-end-line="150" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/utils.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="63" lean-forward="true" selection-start-line="14" selection-start-column="63" selection-end-line="14" selection-end-column="63" />
-          <folding>
-            <element signature="e#48#305#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -857,58 +848,7 @@ import java.util.LinkedHashMap</custom-info>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/utils.kt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatistics.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="31" column="44" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-test/build.gradle.kts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/build.gradle.kts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library/build.gradle.kts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="81" selection-start-line="4" selection-start-column="81" selection-end-line="4" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="92" column="5" selection-start-line="92" selection-start-column="5" selection-end-line="92" selection-end-column="5" />
-          <folding>
-            <element signature="e#42#188#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="14" selection-start-line="14" selection-end-line="14" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/.gradle/vcs-1/sd-primiti_atfpoo4uliz1bro9vwwdmabsn/sd-primitive-storage-layer/build/libs/primitive-storage-layer-1.0.jar!/il/ac/technion/cs/softwaredesign/storage/SecureStorageFactory.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/.gradle/vcs-1/sd-primiti_atfpoo4uliz1bro9vwwdmabsn/sd-primitive-storage-layer/build/libs/primitive-storage-layer-1.0.jar!/il/ac/technion/cs/softwaredesign/storage/SecureStorage.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
@@ -919,23 +859,6 @@ import java.util.LinkedHashMap</custom-info>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/Assignment0-3421001554725919/base/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="7" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/DataStoreIoTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="32" column="53" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="53" />
-          <folding>
-            <element signature="e#48#285#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -950,13 +873,6 @@ import java.util.LinkedHashMap</custom-info>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="61" selection-start-line="61" selection-end-line="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppInitializerImpl.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -981,16 +897,6 @@ import java.util.LinkedHashMap</custom-info>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/RemoteNodeTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-393">
-          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-          <folding>
-            <element signature="e#48#299#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteNode.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
@@ -998,53 +904,168 @@ import java.util.LinkedHashMap</custom-info>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIo.kt">
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/utils.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="390">
+          <caret line="29" column="37" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/FakeSecureStorage.kt">
+    <entry file="jar://$PROJECT_DIR$/.gradle/vcs-1/sd-primiti_atfpoo4uliz1bro9vwwdmabsn/sd-primitive-storage-layer/build/libs/primitive-storage-layer-1.0.jar!/il/ac/technion/cs/softwaredesign/storage/SecureStorage.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="75">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteAvlTree.kt">
+    <entry file="file://$PROJECT_DIR$/courseapp-app/build.gradle.kts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
+        <state relative-caret-position="225">
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/build.gradle.kts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="61" selection-start-line="4" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/FakeSecureStorage.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10">
+          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/DataStoreIoTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
           <folding>
-            <marker date="1558466999230" expanded="true" signature="5280:7877" ph="..." />
+            <element signature="e#48#306#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/remoteAvlTreeTest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
+        <state relative-caret-position="1260">
           <caret line="87" column="25" lean-forward="true" selection-start-line="87" selection-start-column="25" selection-end-line="87" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/RemoteNodeTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIo.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="53" selection-start-line="2" selection-start-column="53" selection-end-line="2" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/courseapp-test/build.gradle.kts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="44" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatistics.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.5.0-M1/212dc68b153daa5df01db995ff163f0335ad1398/junit-platform-commons-1.5.0-M1-sources.jar!/org/junit/platform/commons/util/ReflectionUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="677" selection-start-line="677" selection-end-line="677" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/Assignment0-3421001554725919/base/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="321" column="5" lean-forward="true" selection-start-line="44" selection-end-line="321" selection-end-column="5" />
           <folding>
-            <element signature="e#48#184#0" expanded="true" />
+            <element signature="e#42#458#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppInitializerImpl.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="56" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="15" column="41" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-12.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/nio/charset/Charset.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="611" column="53" selection-start-line="611" selection-start-column="48" selection-end-line="611" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+        <state relative-caret-position="9765">
+          <caret line="651" column="5" selection-start-line="651" selection-start-column="5" selection-end-line="651" selection-end-column="5" />
+          <folding>
+            <element signature="e#42#224#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="413" column="68" selection-start-line="413" selection-start-column="68" selection-end-line="413" selection-end-column="68" />
+        <state relative-caret-position="154">
+          <caret line="403" selection-start-line="403" selection-end-line="403" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteAvlTree.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="233" selection-start-line="233" selection-end-line="233" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="78" column="54" selection-start-line="78" selection-start-column="54" selection-end-line="78" selection-end-column="54" />
           <folding>
-            <element signature="e#42#174#0" expanded="true" />
+            <element signature="e#42#188#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -13,6 +13,7 @@ val kotlinGuiceVersion: String? by extra
 
 dependencies {
     compile(project(":library"))
+    
     compile("com.google.inject", "guice", guiceVersion)
     compile("com.authzee.kotlinguice4", "kotlin-guice", kotlinGuiceVersion)
 

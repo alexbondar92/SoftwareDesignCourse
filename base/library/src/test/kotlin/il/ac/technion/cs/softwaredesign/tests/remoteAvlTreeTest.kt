@@ -1,8 +1,8 @@
 package il.ac.technion.cs.softwaredesign.tests
 
 import il.ac.technion.cs.softwaredesign.DataStoreIo
+import il.ac.technion.cs.softwaredesign.FakeSecureStorage
 import il.ac.technion.cs.softwaredesign.RemoteAvlTree
-import il.ac.technion.cs.softwaredesign.main
 import org.junit.jupiter.api.Test
 
 class RemoteAvlTreeTest {

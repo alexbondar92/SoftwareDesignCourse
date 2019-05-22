@@ -7,6 +7,6 @@ class CourseAppInitializerImpl: CourseAppInitializer {
      * You may assume that when this method is called the data-store is completely empty.
      */
     override fun setup() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        // TODO ("does we need to add here some shit?!?!")
     }
 }

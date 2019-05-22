@@ -8,12 +8,12 @@ import java.time.Duration
 class CourseAppStatisticsTest {
 
     private val courseAppInitializer = CourseAppInitializerImpl()
+    private val CAstatistics: CourseAppStatistics
 
     init {
+        CAstatistics = CourseAppStatisticsImpl()
         courseAppInitializer.setup()
     }
-
-    private val CAstatistics: CourseAppStatistics = CourseAppStatisticsImpl()
 
     @Test
     fun `empty CourseApp`() {
@@ -26,9 +26,10 @@ class CourseAppStatisticsTest {
 
     @Test
     fun `valid number of totalUsers`() {
-        val CA = CourseAppImpl()
+        val CA = CourseAppImpl(FakeSecureStorage())
 
         for (i in 1..100) {
+            println("i is: $i")
             CA.login("user$i", "pass$i")
         }
 
@@ -37,9 +38,10 @@ class CourseAppStatisticsTest {
 
     @Test
     fun `valid number of loggedUsers`(){
-        val CA = CourseAppImpl()
+        val CA = CourseAppImpl(FakeSecureStorage())
 
         for (i in 1..100) {
+            println("i is: $i")
             CA.login("user$i", "pass$i")
         }
 
@@ -48,13 +50,15 @@ class CourseAppStatisticsTest {
 
     @Test
     fun `valid number of totalUsers after logout`(){
-        val CA = CourseAppImpl()
+        val CA = CourseAppImpl(FakeSecureStorage())
         val dict = hashMapOf<Int, String>()
 
         for (i in 1..100) {
+            println("logging: $i")
             dict.put(i, CA.login("user$i", "pass$i"))
         }
         for (i in 1..50) {
+            println("logout: $i")
             CA.logout(dict.get(i)!!)
         }
 
@@ -64,19 +68,21 @@ class CourseAppStatisticsTest {
 
     @Test
     fun `get top 10 users - basic 1`(){
-        val CA = CourseAppImpl()
+        val CA = CourseAppImpl(FakeSecureStorage())
         val userDict = hashMapOf<Int, String>()
 
-        for (i in 1..100) {
+        for (i in 1..20) {
+            println("logging: $i")
             userDict.put(i, CA.login("user$i", "pass$i"))
         }
 
-        assert(CAstatistics.top10UsersByChannels() == listOf("user1", "user2", "user3", "user4", "user5", "user6", "user7", "user8", "user9", "user10"))
+        val list = CAstatistics.top10UsersByChannels()
+        assert(list == listOf("user1", "user2", "user3", "user4", "user5", "user6", "user7", "user8", "user9", "user10"))
     }
 
     @Test
     fun `get top 10 users - basic 2`(){
-        val CA = CourseAppImpl()
+        val CA = CourseAppImpl(FakeSecureStorage())
         val userDict = hashMapOf<Int, String>()
 
         for (i in 1..100) {
