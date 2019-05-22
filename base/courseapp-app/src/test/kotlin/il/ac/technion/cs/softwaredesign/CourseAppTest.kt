@@ -2,9 +2,7 @@ package il.ac.technion.cs.softwaredesign
 
 import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.present
-import il.ac.technion.cs.softwaredesign.exceptions.InvalidTokenException
-import il.ac.technion.cs.softwaredesign.exceptions.NoSuchEntityException
-import il.ac.technion.cs.softwaredesign.exceptions.UserAlreadyLoggedInException
+import il.ac.technion.cs.softwaredesign.exceptions.*
 import org.junit.jupiter.api.Assertions.assertDoesNotThrow
 import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Test
@@ -12,6 +10,7 @@ import org.junit.jupiter.api.assertThrows
 import java.nio.charset.Charset
 import java.time.Duration
 import java.time.Duration.ofSeconds
+import kotlin.random.Random
 
 class CourseAppTest {
     private val courseAppInitializer = CourseAppInitializerImpl()
@@ -298,117 +297,228 @@ class CourseAppTest {
 
     @Test
     fun `first user in the system becomes administrator automatically`() {
+        val adminToken = courseApp.login("firstUser", "pass")
+        val userToken = courseApp.login("regUser", "pass2")
 
+        assertDoesNotThrow { courseApp.makeAdministrator(adminToken, "regUser") }
     }
 
     @Test
-    fun `makeAdministrator gets invalid token`() {
+    fun `makeAdministrator gets invalid token throws InvalidTokenException`() {
+        val STRING_LENGTH = 20
+        val charPool : List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
+        val token = courseApp.login("matan", "s3kr1t")
+        var differentToken : String = token
+        while (differentToken == token) {   //creating a random token for consistency and validity
+            differentToken = (1..STRING_LENGTH)
+                    .map { kotlin.random.Random.nextInt(0, charPool.size) }
+                    .map(charPool::get)
+                    .joinToString("");
+        }
 
+        assertThrows<InvalidTokenException> {courseApp.makeAdministrator(differentToken, "matam")}
     }
 
     @Test
     fun `makeAdministrator gets token that is not associated to administrator`() {
+        val adminToken = courseApp.login("firstUser", "pass")
+        val userToken = courseApp.login("regUser", "pass2")
+        val otherUserToken = courseApp.login("otherUser", "pass3")
 
+        assertThrows<UserNotAuthorizedException> { courseApp.makeAdministrator(userToken, "otherUser") }
     }
 
     @Test
     fun `makeAdministrator gets invalid user`() {
+        val adminToken = courseApp.login("firstUser", "pass")
+        val userToken = courseApp.login("regUser", "pass2")
 
+        assertThrows<UserNotAuthorizedException> { courseApp.makeAdministrator(adminToken, "InvalidUser") }
     }
 
-//    @Test
-//    fun `makeAdministrator gets user that is already administrator`() {
-//
-//    }
+    @Test
+    fun `makeAdministrator makes administrator, an admin again`() {
+        val adminToken = courseApp.login("firstUser", "pass")
+        val userToken = courseApp.login("regUser", "pass2")
+
+        courseApp.makeAdministrator(adminToken, "regUser")
+
+        assertThrows<UserNotAuthorizedException> { courseApp.makeAdministrator(userToken, "firstUser") }
+    }
 
     @Test
     fun `administrator retain their status after relogging`() {
-
+        val token = courseApp.login("matan", "s3kr1t")
+        courseApp.makeAdministrator(token, "matan")
+        courseApp.logout(token)
+        val secondToken = courseApp.login("matan", "s3kr1t")
+        courseApp.login("Ron", "s3kwwwr1t")
+        assertDoesNotThrow{ courseApp.makeAdministrator(secondToken,"Ron")}
     }
 
     @Test
     fun `administrator retain their status after system reboot`() {
-
+        val token = courseApp.login("matan", "s3kr1t")
+        courseApp.makeAdministrator(token, "matan")
+        courseApp.login("Ron", "s3kwwwr1t")
+        assertDoesNotThrow{ courseAppReboot.makeAdministrator(token,"Ron")}
     }
 
     @Test
     fun `make random number of administrator in the system`() {
+        val numOfAdmins = Random.nextInt(1, 100)
+        val tokenDict = mutableMapOf<Int, String>()
+        for (i in 1..100) {
+            tokenDict[i] = courseApp.login("user$i", "pass")
+        }
 
+        assertDoesNotThrow {
+            for (i in 1..numOfAdmins) {
+                courseApp.makeAdministrator(tokenDict[1]!!, "user$i")
+            }
+        }
     }
 
     @Test
     fun `make administrator of logged out user`() {
-
+        val token = courseApp.login("matan", "s3kr1t")
+        val ronToken = courseApp.login("Ron", "s3kwwwr1t")
+        courseApp.logout(ronToken)
+        assertDoesNotThrow{
+            courseApp.makeAdministrator(token, "Ron")
+        }
     }
 
     @Test
     fun `create channel`() {
+        val adminToken = courseApp.login("admin", "pass")
 
+        assertDoesNotThrow {courseApp.channelJoin(adminToken, "#greatChannel")}
     }
 
     @Test
     fun `create channel with illegal name`() {
+        val adminToken = courseApp.login("admin", "pass")
 
+        assertThrows<NameFormatException> { courseApp.channelJoin(adminToken, "wrongName") }
+        assertThrows<NameFormatException> { courseApp.channelJoin(adminToken, "wrong#Name") }
+        assertThrows<NameFormatException> { courseApp.channelJoin(adminToken, "###dollarSign$$") }
     }
 
     @Test
-    fun `invalid token(not associated to no one) tries to to join to channel`() {
-
+    fun `invalid token(not associated to no one) tries to join to channel`() {
+        val adminT = courseApp.login("Ron", "IreallyLikeAvlss")
+        courseApp.channelJoin(adminT, "#AvlLovers")
+        assertThrows<InvalidTokenException> {courseApp.channelJoin("different$adminT", "#AvlLovers")}
     }
 
     @Test
-    fun `invalid token(not of admin) tries to to create new channel`() {
-
+    fun `invalid token(not of admin) tries to create new channel`() {
+        val adminT = courseApp.login("Ron", "IreallyLikeAvlss")
+        val notAdminToken = courseApp.login("Person", "passssss")
+        assertThrows<UserNotAuthorizedException> {courseApp.channelJoin(notAdminToken, "#SomeChannel#___")}
     }
 
     @Test
     fun `first user in the channel is a Operator`() {
+        val adminToken = courseApp.login("admin", "pass")
+        val regUserToken = courseApp.login("regUser", "pass")
 
+        courseApp.channelJoin(adminToken, "#greatChannel")
+        courseApp.channelJoin(regUserToken, "#greatChannel")
+
+        assertDoesNotThrow{ courseApp.channelKick(adminToken, "#greatChannel", "regUsaer") }
     }
 
     @Test
     fun `add up to 512 users to the channel`() {
+        val numInChannel = Random.nextInt(1, 512)
+        val tokenDict = mutableMapOf<Int, String>()
+        for (i in 1..512) {
+            tokenDict[i] = courseApp.login("user$i", "pass")
+        }
 
+        assertDoesNotThrow {
+            for (i in 1..numInChannel) {
+                courseApp.channelJoin(tokenDict[1]!!, "user$i")
+            }
+        }
     }
 
     @Test
     fun `leave channel with illegal token(existing channel)`() {
+        val adminToken = courseApp.login("admin", "pass")
+        courseApp.channelJoin(adminToken, "#TestChannel")
+        val regToken = courseApp.login("reg", "pass")
 
+        assertThrows<InvalidTokenException> { courseApp.channelKick("SomeOtherToken", "#TestChannel", "reg") }
     }
 
     @Test
     fun `leave channel with illegal token(not existing channel)`() {
+        val adminToken = courseApp.login("admin", "pass")
+        courseApp.channelJoin(adminToken, "#TestChannel")
+        val regToken = courseApp.login("reg", "pass")
 
+        assertThrows<InvalidTokenException> { courseApp.channelKick("SomeOtherToken", "#NotExistingChannel", "reg") }
     }
 
     @Test
     fun `trying to leave channel with token that is not member of the channel`() {
-
+        val adminT = courseApp.login("Ron", "IreallyLikeAvlss")
+        courseApp.channelJoin(adminT, "#AvlLovers")
+        val t1 = courseApp.login("p1", "Ifffs")
+        assertThrows<NoSuchEntityException> {
+            courseApp.channelPart(t1,"#AvlLovers")
+        }
     }
 
     @Test
     fun `leave chanel with valid token but the channel does not exist`() {
-
+        val adminT = courseApp.login("Ron", "IreallyLikeAvlss")
+        courseApp.channelJoin(adminT, "#AvlLovers")
+        assertThrows<NoSuchEntityException> {
+            courseApp.channelPart(adminT,"#AILovers")
+        }
     }
 
     @Test
-    fun `regural member leaves channel`() {
+    fun `regular member leaves channel`() {
+        val adminToken = courseApp.login("admin", "pass")
+        val regUserToken = courseApp.login("regUser", "pass")
 
+        courseApp.channelJoin(adminToken, "#greatChannel")
+        courseApp.channelJoin(regUserToken, "#greatChannel")
+
+        assertDoesNotThrow { courseApp.channelPart(regUserToken, "#greatChannel") }
     }
 
     @Test
     fun `operator leave the channel`() {
+        val adminToken = courseApp.login("admin", "pass")
+        val regUserToken = courseApp.login("regUser", "pass")
+        val operatorToken = courseApp.login("operator", "pass")
 
+        courseApp.channelJoin(adminToken, "#greatChannel")
+        courseApp.channelJoin(regUserToken, "#greatChannel")
+        courseApp.channelJoin(operatorToken, "#greatChannel")
+        courseApp.channelMakeOperator(adminToken, "#greatChannel", "operator")
+
+        assertDoesNotThrow { courseApp.channelPart(operatorToken, "#greatChannel") }
     }
 
     @Test
     fun `administrator that is not an operator of this channel leaves the channel`() {
+        val adminToken = courseApp.login("admin", "pass")
+        val regUserToken = courseApp.login("regUser", "pass")
+        val otherAdmin = courseApp.login("otherAdmin", "pass")
 
-    }
+        courseApp.channelJoin(adminToken, "#greatChannel")
+        courseApp.channelJoin(regUserToken, "#greatChannel")
+        courseApp.makeAdministrator(adminToken, "otherAdmin")
+        courseApp.channelJoin(otherAdmin, "#greatChannel")
 
-    @Test
-    fun `check join and leave channel`() {
-
+        assertDoesNotThrow { courseApp.channelPart(otherAdmin, "#greatChannel") }
     }
 
     @Test
