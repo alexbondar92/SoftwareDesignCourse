@@ -3,8 +3,7 @@ package il.ac.technion.cs.softwaredesign
 import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.present
 import il.ac.technion.cs.softwaredesign.exceptions.*
-import org.junit.jupiter.api.Assertions.assertDoesNotThrow
-import org.junit.jupiter.api.Assertions.assertNull
+import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import java.nio.charset.Charset
@@ -108,7 +107,7 @@ class CourseAppTest {
         var differentToken : String = token
         while (differentToken == token) {   //creating a random token for consistency and validity
             differentToken = (1..STRING_LENGTH)
-                    .map { kotlin.random.Random.nextInt(0, charPool.size) }
+                    .map { Random.nextInt(0, charPool.size) }
                     .map(charPool::get)
                     .joinToString("");
         }
@@ -522,235 +521,651 @@ class CourseAppTest {
     }
 
     @Test
-    fun `not operators in the channel`() {
+    fun ` channel does not contains operators`() {
+        val adminToken = courseApp.login("admin", "pass")
+        val regUserToken = courseApp.login("regUser", "pass")
+
+        courseApp.channelJoin(adminToken, "#greatChannel")
+        courseApp.channelJoin(regUserToken, "#greatChannel")
+
+        assertDoesNotThrow { courseApp.channelPart(adminToken, "#greatChannel") }
 
     }
 
     @Test
     fun `last user(regular) leaves the channel`() {
+        val adminToken = courseApp.login("admin", "pass")
+        val regUserToken = courseApp.login("regUser", "pass")
+
+        courseApp.channelJoin(adminToken, "#greatChannel")
+        courseApp.channelJoin(regUserToken, "#greatChannel")
+        courseApp.channelPart(adminToken, "#greatChannel")
+        assertDoesNotThrow {courseApp.channelPart(regUserToken, "#greatChannel")}
 
     }
 
     @Test
     fun `last user(operator) leaves the channel`() {
+        val adminToken = courseApp.login("admin", "pass")
+        val regUserToken = courseApp.login("regUser", "pass")
+
+        courseApp.channelJoin(adminToken, "#greatChannel")
+        courseApp.channelJoin(regUserToken, "#greatChannel")
+        courseApp.channelMakeOperator(adminToken,"#greatChannel", "regUser" )
+        courseApp.channelPart(adminToken, "#greatChannel")
+
+        assertDoesNotThrow { courseApp.channelPart(regUserToken, "#greatChannel")}
 
     }
 
     @Test
     fun `last user(administrator) leaves the channel`() {
+        val adminToken = courseApp.login("admin", "pass")
 
+        courseApp.channelJoin(adminToken, "#greatChannel")
+
+        assertDoesNotThrow { courseApp.channelPart(adminToken, "#greatChannel")}
     }
 
     @Test
     fun `trying to join to channel that was deleted`() {
+        val adminToken = courseApp.login("admin", "pass")
 
+        courseApp.channelJoin(adminToken, "#greatChannel")
+        courseApp.channelPart(adminToken, "#greatChannel")
+
+        val regUserToken = courseApp.login("regUser", "pass")
+        assertDoesNotThrow { courseApp.channelJoin(regUserToken, "#greatChannel")}
     }
 
     @Test
     fun `make random number of channels`() {
+        val numOfChannels = Random.nextInt(1, 100)
+        val adminToken = courseApp.login("admin", "pass")
+        val STRING_LENGTH = 20
+        val charPool : List<Char> = ('a'..'z') + ('A'..'Z')
+        val list  = mutableListOf<String>()
 
+        assertDoesNotThrow {
+            for (i in 1..numOfChannels) {
+                var differentToken = "a"
+                while (list.contains(differentToken)) {   //creating a random string as channel name
+                    differentToken = (1..STRING_LENGTH)
+                            .map { Random.nextInt(0, charPool.size) }
+                            .map(charPool::get)
+                            .joinToString("");
+                }
+                list.add(differentToken)
+                courseApp.channelJoin(adminToken, "#$differentToken")
+            }
+        }
     }
 
     @Test
     fun `try to make operator with illegal token(regular)`() {
+        val adminToken = courseApp.login("admin", "pass")
+        courseApp.channelJoin(adminToken, "#HappyLittleChannel")
 
+        assertThrows<InvalidTokenException> {
+            courseApp.channelMakeOperator("diff$adminToken", "#BadChannel", "someone" )
+        }
     }
 
     @Test
     fun `try to make operator with illegal token(not of admin or operator)`() {
+        val adminToken = courseApp.login("admin", "pass")
+        courseApp.channelJoin(adminToken, "#HappyLittleChannel")
+        val regUserToken = courseApp.login("regUser", "pass")
 
+        assertThrows<UserNotAuthorizedException> {
+            courseApp.channelMakeOperator(regUserToken, "#HappyLittleChannel", "admin" )
+        }
     }
 
     @Test
     fun `try to make operator with illegal token(is admin but not operator)`() {
+        val adminToken = courseApp.login("admin", "pass")
+        courseApp.channelJoin(adminToken, "#HappyLittleChannel")
+        val regUserToken = courseApp.login("regUser", "pass")
+        courseApp.makeAdministrator(adminToken, "regUser")
+        courseApp.channelJoin(regUserToken, "#HappyLittleChannel")
 
+        assertThrows<UserNotAuthorizedException> {
+            courseApp.channelMakeOperator(regUserToken, "#HappyLittleChannel", "admin" )
+        }
     }
 
     @Test
     fun `try to make operator with illegal token(operator of other channel)`() {
+        val adminToken = courseApp.login("admin", "pass")
+        val targetToken = courseApp.login("sadPerson", "passss1234s")
+        courseApp.channelJoin(adminToken, "#HappyLittleChannel")
+        courseApp.channelJoin(targetToken, "#HappyLittleChannel")
 
+        val regUserToken = courseApp.login("regUser", "pass")
+        courseApp.makeAdministrator(adminToken, "regUser")
+        courseApp.channelJoin(regUserToken, "#VerySadChannel")
+
+        assertThrows<UserNotAuthorizedException> {
+            courseApp.channelMakeOperator(regUserToken, "#HappyLittleChannel", "sadPerson" )
+        }
     }
 
     @Test
     fun `admin makes himself as operator in the channel`() {
+        val admin1Token = courseApp.login("admin1", "admin1")
+        val admin2Token = courseApp.login("admin2", "admin2")
+        courseApp.channelJoin(admin1Token, "#HappyLittleChannel")
+        courseApp.channelJoin(admin2Token, "#HappyLittleChannel")
+        courseApp.makeAdministrator(admin1Token, "admin2")
 
+        assertDoesNotThrow{
+            courseApp.channelMakeOperator(admin2Token,"#HappyLittleChannel", "admin2")
+            //checks if admin2 can kick admin1 from his channel:
+            courseApp.channelKick(admin2Token,"#HappyLittleChannel", "admin1")
+
+        }
     }
 
     @Test
     fun `operator makes himself as an operator at the same channel`() {
+        val adminToken = courseApp.login("admin", "admin1")
+        courseApp.channelJoin(adminToken, "#HappyLittleChannel")
 
+        assertDoesNotThrow{
+            courseApp.channelMakeOperator(adminToken,"#HappyLittleChannel", "admin")
+        }
     }
 
     @Test
-    fun `try to make operator of user that is not a member to this channel`() {
+    fun `try to make operator of user that is not a member of this channel`() {
+        val admin1Token = courseApp.login("admin1", "admin1")
+        courseApp.login("regUser", "Usserrr")
+        courseApp.channelJoin(admin1Token, "#HappyLittleChannel")
 
+        assertThrows<NoSuchEntityException>{
+            courseApp.channelMakeOperator(admin1Token,"#HappyLittleChannel", "regUser")
+        }
     }
 
     @Test
-    fun `try to make operator of admin that is not a member to this channel`() {
+    fun `try to make operator of admin that is not a member of this channel`() {
+        val admin1Token = courseApp.login("admin1", "admin1")
+        courseApp.channelJoin(admin1Token, "#HappyLittleChannel")
+        courseApp.login("regUser", "Usserrr")
+        courseApp.makeAdministrator(admin1Token, "regUser")
 
+        assertThrows<NoSuchEntityException>{
+            courseApp.channelMakeOperator(admin1Token,"#HappyLittleChannel", "regUser")
+        }
     }
 
     @Test
     fun `try to make operator with with channel that not exits(never been)`() {
+        val adminToken = courseApp.login("admin", "admin")
 
+        assertThrows<NoSuchEntityException>{
+            courseApp.channelMakeOperator(adminToken,"#fakeNewsChannel", "someone")
+        }
     }
 
     @Test
     fun `try to make operator with with channel that not exits(was deleted)`() {
+        val adminToken = courseApp.login("admin", "admin")
+        courseApp.channelJoin(adminToken, "#HappyLittleChannel")
+        courseApp.channelPart(adminToken, "#HappyLittleChannel")
 
-    }
-
-    @Test
-    fun `try to make operator of user that is not a memeber to this channel`() {
-
+        assertThrows<NoSuchEntityException>{
+            courseApp.channelMakeOperator(adminToken,"#HappyLittleChannel", "someone")
+        }
     }
 
     @Test
     fun `try to make operator of user that is not in the system`() {
+        val adminToken = courseApp.login("admin", "admin")
+        courseApp.channelJoin(adminToken, "#HappyLittleChannel")
 
+        assertThrows<NoSuchEntityException>{
+            courseApp.channelMakeOperator(adminToken,"#HappyLittleChannel", "fakeUser")
+        }
     }
 
     @Test
-    fun `make operator of user that in member of the channel, but is logged out`() {
+    fun `make operator of user that is a member of the channel, but is logged out`() {
+        val adminToken = courseApp.login("admin", "pass")
+        val regUserToken = courseApp.login("regUser", "pass")
 
+        courseApp.channelJoin(adminToken, "#greatChannel")
+        courseApp.channelJoin(regUserToken, "#greatChannel")
+        courseApp.logout(regUserToken)
+
+        assertDoesNotThrow{
+            courseApp.channelMakeOperator(adminToken, "#greatChannel", "regUser" )
+        }
     }
 
     @Test
-    fun `try to kink user with illegal token(regular)`() {
-
+    fun `try to kick user with illegal token(regular)`() {
+        val adminToken = courseApp.login("admin", "pass")
+        courseApp.channelJoin(adminToken, "#greatChannel")
+        assertThrows<InvalidTokenException> {
+            courseApp.channelKick("1$adminToken", "#greatChannel", "someUser")
+        }
     }
 
     @Test
     fun `try to kick user with illegal token(not operator)`() {
+        val adminToken = courseApp.login("admin", "pass")
+        courseApp.channelJoin(adminToken, "#greatChannel")
+        val regUserToken = courseApp.login("regUser", "pass")
+        courseApp.channelJoin(regUserToken, "#greatChannel")
 
+        assertThrows<UserNotAuthorizedException> {
+            courseApp.channelKick(regUserToken, "#greatChannel", "someUser")
+        }
     }
 
     @Test
     fun `try to kick user with illegal token(admin)`() {
+        val adminToken = courseApp.login("admin", "pass")
+        courseApp.channelJoin(adminToken, "#greatChannel")
+        val regUserToken = courseApp.login("regUser", "pass")
+        courseApp.channelJoin(regUserToken, "#greatChannel")
+        courseApp.makeAdministrator(adminToken, "regUser")
 
+        assertThrows<UserNotAuthorizedException> {
+            courseApp.channelKick(regUserToken, "#greatChannel", "someUser")
+        }
     }
 
     @Test
     fun `kick user from channel`() {
-
+        val adminToken = courseApp.login("admin", "pass")
+        courseApp.channelJoin(adminToken, "#greatChannel")
+        val regUserToken = courseApp.login("regUser", "pass")
+        courseApp.channelJoin(regUserToken, "#greatChannel")
+        assertDoesNotThrow{
+            courseApp.channelKick(adminToken, "#greatChannel", "regUser")
+        }
     }
 
     @Test
     fun `kick another operator from channel`() {
+        val adminToken = courseApp.login("admin", "pass")
+        courseApp.channelJoin(adminToken, "#greatChannel")
+        val regUserToken = courseApp.login("regUser", "pass")
+        courseApp.channelJoin(regUserToken, "#greatChannel")
+        courseApp.channelMakeOperator(adminToken, "#greatChannel", "regUser")
 
+        assertDoesNotThrow{
+            courseApp.channelKick(adminToken, "#greatChannel", "regUser")
+        }
     }
 
     @Test
     fun `kick administrator from channel`() {
+        val adminToken = courseApp.login("admin", "pass")
+        courseApp.channelJoin(adminToken, "#greatChannel")
+        val regUserToken = courseApp.login("regUser", "pass")
+        courseApp.channelJoin(regUserToken, "#greatChannel")
+        courseApp.makeAdministrator(adminToken,"regUser")
 
+        assertDoesNotThrow{
+            courseApp.channelKick(adminToken, "#greatChannel", "regUser")
+        }
     }
 
     @Test
     fun `kick another operator that is admin(as well) from channel`() {
+        val adminToken = courseApp.login("admin", "pass")
+        courseApp.channelJoin(adminToken, "#greatChannel")
+        val regUserToken = courseApp.login("regUser", "pass")
+        courseApp.channelJoin(regUserToken, "#greatChannel")
+        courseApp.makeAdministrator(adminToken,"regUser")
+        courseApp.channelMakeOperator(regUserToken, "#greatChannel", "regUser")
 
+        assertDoesNotThrow{
+            courseApp.channelKick(adminToken, "#greatChannel", "regUser")
+        }
     }
 
     @Test
     fun `operator kick himself from the channel`() {
+        val adminToken = courseApp.login("admin", "pass")
+        courseApp.channelJoin(adminToken, "#greatChannel")
+        val regUserToken = courseApp.login("regUser", "pass")
+        courseApp.channelJoin(regUserToken, "#greatChannel")
 
+        assertDoesNotThrow{
+            courseApp.channelKick(adminToken, "#greatChannel", "admin")
+        }
     }
 
     @Test
     fun `operator kick himself from the channel, and he was the last one`() {
+        val adminToken = courseApp.login("admin", "pass")
+        courseApp.channelJoin(adminToken, "#greatChannel")
 
+        assertDoesNotThrow{
+            courseApp.channelKick(adminToken, "#greatChannel", "admin")
+        }
     }
 
     @Test
     fun `try to kick from a channel that is not exists`() {
+        val adminToken = courseApp.login("admin", "pass")
 
+        assertThrows<NoSuchEntityException>{
+            courseApp.channelKick(adminToken, "#nope", "admin")
+        }
     }
 
     @Test
     fun `try to kick from a deleted channel that is not exists`() {
+        val adminToken = courseApp.login("admin", "pass")
+        courseApp.channelJoin(adminToken, "#greatChannel")
+        courseApp.channelPart(adminToken, "#greatChannel")
 
+        assertThrows<NoSuchEntityException>{
+            courseApp.channelKick(adminToken, "#greatChannel", "admin")
+        }
     }
 
     @Test
     fun `try to kick illegal user`() {
+        val adminToken = courseApp.login("admin", "pass")
+        courseApp.channelJoin(adminToken, "#greatChannel")
 
+        assertThrows<NoSuchEntityException>{
+            courseApp.channelKick(adminToken, "#greatChannel", "nope")
+        }
     }
 
     @Test
     fun `try to kick non member user`() {
+        val adminToken = courseApp.login("admin", "pass")
+        courseApp.channelJoin(adminToken, "#greatChannel")
+        val regUserToken = courseApp.login("regUser", "pass")
+        courseApp.channelJoin(regUserToken, "#otherChannel")
 
+        assertThrows<NoSuchEntityException>{
+            courseApp.channelKick(adminToken, "#greatChannel", "regUser")
+        }
     }
 
     @Test
-    fun `try to kick user that was in member of the channel`() {
+    fun `try to kick user that was a member of the channel`() {
+        val adminToken = courseApp.login("admin", "pass")
+        courseApp.channelJoin(adminToken, "#greatChannel")
+        val regUserToken = courseApp.login("regUser", "pass")
+        courseApp.channelJoin(regUserToken, "#greatChannel")
+        courseApp.channelKick(adminToken, "#greatChannel", "regUser")
 
+        assertThrows<NoSuchEntityException>{
+            courseApp.channelKick(adminToken, "#greatChannel", "regUser")
+        }
+    }
+
+    @Test
+    fun `isUserInChannel returns true for one user in channel`() {
+        val adminToken = courseApp.login("admin", "pass")
+        courseApp.channelJoin(adminToken, "#greatChannel")
+
+        assertDoesNotThrow {
+            val res = courseApp.isUserInChannel(adminToken, "#greatChannel", "admin"  )
+            assertNotNull(res)
+            assertTrue(res!!)
+        }
+    }
+
+    @Test
+    fun `isUserInChannel throws InvalidTokenException for non-existent token`() {
+
+        assertThrows<InvalidTokenException> {
+            courseApp.isUserInChannel("0", "#greatChannel", "admin"  )
+
+        }
+    }
+
+    @Test
+    fun `isUserInChannel throws NoSuchEntityException for non-existent channel`() {
+        val adminToken = courseApp.login("admin", "pass")
+
+        assertThrows<NoSuchEntityException> {
+            courseApp.isUserInChannel(adminToken, "#greatChannel", "Asat"  )
+        }
+    }
+
+    @Test
+    fun `isUserInChannel throws UserNotAuthorizedException for non-member and non-administrator user`() {
+        val adminToken = courseApp.login("admin", "pass")
+        val regUserToken = courseApp.login("regUser", "pass")
+        courseApp.channelJoin(adminToken, "#greatChannel")
+
+        assertThrows<UserNotAuthorizedException> {
+            courseApp.isUserInChannel(regUserToken, "#greatChannel", "Asat"  )
+        }
+    }
+
+    @Test
+    fun `isUserInChannel return null if user not exist `() {
+        val adminToken = courseApp.login("admin", "pass")
+        val regUserToken = courseApp.login("regUser", "pass")
+        courseApp.channelJoin(adminToken, "#greatChannel")
+
+        assertNull {
+            courseApp.isUserInChannel(adminToken, "#greatChannel", "Asat"  )
+        }
+    }
+
+    @Test
+    fun `isUserInChannel return false if user exists and not in channel `() {
+        val adminToken = courseApp.login("admin", "pass")
+        courseApp.login("regUser", "pass")
+        courseApp.channelJoin(adminToken, "#greatChannel")
+
+        assertDoesNotThrow {
+            val res =   courseApp.isUserInChannel(adminToken, "#greatChannel", "regUser"  )
+            assertNotNull(res)
+            assertFalse(res!!)
+        }
+    }
+
+    @Test
+    fun `isUserInChannel return true  if user exists and  in channel `() {
+        val adminToken = courseApp.login("admin", "pass")
+        courseApp.login("regUser", "pass")
+        courseApp.channelJoin(adminToken, "#greatChannel")
+        val regUserToken = courseApp.login("regUser", "pass")
+        courseApp.channelJoin(regUserToken, "#greatChannel")
+
+        assertDoesNotThrow {
+            val res =   courseApp.isUserInChannel(regUserToken, "#greatChannel", "admin" )
+            assertNotNull(res)
+            assertTrue(res!!)
+        }
+    }
+
+    private fun makeChannel(channelName: String,
+                            godPair: Pair<String, String>,
+                            members: List<Pair<String,String>>,
+                            loggedOutMembersNames: List<String>) : Pair<String,MutableList<String>>{
+
+        var tokenMembers = mutableListOf<String>()
+        val godToken = courseApp.login(godPair.first, godPair.second) //assume all actions go throw him/her.
+
+        for(pair in members) {
+
+            val name = pair.first
+            val password = pair.second
+            val token = courseApp.login(name, password)
+
+            courseApp.channelJoin(token, channelName)
+            if(name in loggedOutMembersNames) {
+                courseApp.channelPart(token, channelName)
+            }
+            else{
+                tokenMembers.add( token)
+            }
+        }
+        return Pair(godToken, tokenMembers)
     }
 
     @Test
     fun `get number of active users in channel with zero active users`() {
+        val listNames = mutableListOf<Pair<String,String>>()
+        for(i in 1..10)
+            listNames.add(Pair("User$i", "Pass$i"))
+        val listLoggedOut = mutableListOf<String>()
+        for(i in 1..10)
+            listLoggedOut.add("User$i")
 
+        val channel = makeChannel("#bestChannel", Pair("admin", "admin"),listNames, listLoggedOut )
+        courseApp.channelPart(channel.first, "#bestChannel")
+
+        assertEquals(courseApp.numberOfActiveUsersInChannel(channel.first, "#bestChannel"), 0)
     }
 
     @Test
     fun `get number of active users in channel by admin that is not part of the channel`() {
+        val listNames = mutableListOf<Pair<String,String>>()
+        for(i in 1..10)
+            listNames.add(Pair("User$i", "Pass$i"))
+        val listLoggedOut = mutableListOf<String>()
+        for(i in 1..5)
+            listLoggedOut.add("User$i")
 
+        val channel = makeChannel("#bestChannel", Pair("admin", "admin"),listNames, listLoggedOut )
+        courseApp.channelPart(channel.first, "#bestChannel")
+
+        assertEquals(courseApp.numberOfActiveUsersInChannel(channel.first, "#bestChannel"), 5)
     }
 
     @Test
     fun `get number of active users in channel by user in the channel`() {
+        val listNames = mutableListOf<Pair<String,String>>()
+        for(i in 1..10)
+            listNames.add(Pair("User$i", "Pass$i"))
+        val listLoggedOut = mutableListOf<String>()
+        for(i in 1..5)
+            listLoggedOut.add("User$i")
 
+        val channel = makeChannel("#bestChannel", Pair("admin", "admin"),listNames, listLoggedOut )
+        val adminT = channel.first
+        courseApp.channelPart(adminT, "#bestChannel")
+
+        assertEquals(courseApp.numberOfActiveUsersInChannel(channel.second[0], "#bestChannel"), 5)
     }
 
     @Test
     fun `try to get number of active users with illegal token`() {
 
+        assertThrows<InvalidTokenException> {
+            courseApp.numberOfActiveUsersInChannel("thereAreNoTokens", "what__123ever#")
+        }
     }
 
     @Test
     fun `try to get number of active users with channel that is not exits`() {
+        val adminToken = courseApp.login("admin", "pass")
 
+        assertThrows<NoSuchEntityException> {
+            courseApp.numberOfActiveUsersInChannel(adminToken, "what__123ever#")
+        }
     }
 
     @Test
     fun `try to get number of active users with channel that was deleted`() {
+        val adminToken = courseApp.login("admin", "pass")
+        courseApp.channelJoin(adminToken, "#greatChannel")
+        courseApp.channelPart(adminToken, "#greatChannel")
 
+        assertThrows<NoSuchEntityException> {
+            courseApp.numberOfActiveUsersInChannel(adminToken, "#greatChannel")
+        }
     }
 
     @Test
     fun `try to get number of active users with token that is not a member of the channel and not admin`() {
+        val adminToken = courseApp.login("admin", "pass")
+        courseApp.channelJoin(adminToken, "#greatChannel")
+        val token = courseApp.login("regUser", "noAccessTOQuery")
 
+        assertThrows<UserNotAuthorizedException> {
+            courseApp.numberOfActiveUsersInChannel(token, "#greatChannel")
+        }
     }
 
     @Test
     fun `get number of total users in channel by admin that is not part of the channel`() {
+        val listNames = mutableListOf<Pair<String,String>>()
+        for(i in 1..10)
+            listNames.add(Pair("User$i", "Pass$i"))
+        val listLoggedOut = mutableListOf<String>()
+        for(i in 1..5)
+            listLoggedOut.add("User$i")
 
+        val channel = makeChannel("#bestChannel", Pair("admin", "admin"),listNames, listLoggedOut )
+        courseApp.channelPart(channel.first, "#bestChannel")
+
+        assertEquals(courseApp.numberOfTotalUsersInChannel(channel.first, "#bestChannel"), 10)
     }
 
     @Test
     fun `get number of total users in channel by user in the channel`() {
+        val listNames = mutableListOf<Pair<String,String>>()
+        for(i in 1..10)
+            listNames.add(Pair("User$i", "Pass$i"))
+        val listLoggedOut = mutableListOf<String>()
+        for(i in 1..5)
+            listLoggedOut.add("User$i")
 
+        val channel = makeChannel("#bestChannel", Pair("admin", "admin"),listNames, listLoggedOut )
+        val adminT = channel.first
+        courseApp.channelPart(adminT, "#bestChannel")
+
+        assertEquals(courseApp.numberOfTotalUsersInChannel(channel.second[0], "#bestChannel"), 10)
     }
 
     @Test
     fun `try to get total of active users with illegal token`() {
-
+        assertThrows<InvalidTokenException> {
+            courseApp.numberOfTotalUsersInChannel("thereAreNoTokens", "what__123ever#")
+        }
     }
 
     @Test
     fun `try to get total of active users with channel that is not exits`() {
+        val adminToken = courseApp.login("admin", "pass")
 
+        assertThrows<NoSuchEntityException> {
+            courseApp.numberOfTotalUsersInChannel(adminToken, "what__123ever#")
+        }
     }
 
     @Test
     fun `try to get total of active users with channel that was deleted`() {
+        val adminToken = courseApp.login("admin", "pass")
+        courseApp.channelJoin(adminToken, "#greatChannel")
+        courseApp.channelPart(adminToken, "#greatChannel")
 
+        assertThrows<NoSuchEntityException> {
+            courseApp.numberOfTotalUsersInChannel(adminToken, "#greatChannel")
+        }
     }
 
     @Test
     fun `try to get total of active users with token that is not a member of the channel and not admin`() {
+        val adminToken = courseApp.login("admin", "pass")
+        courseApp.channelJoin(adminToken, "#greatChannel")
+        val token = courseApp.login("regUser", "noAccessTOQuery")
 
+        assertThrows<UserNotAuthorizedException> {
+            courseApp.numberOfTotalUsersInChannel(token, "#greatChannel")
+        }
     }
 
+/*
     @Test
     fun `joining user to 128 channels`() {
 
@@ -760,4 +1175,5 @@ class CourseAppTest {
     fun `stress test for channels in the system`() {
 
     }
+    */
 }

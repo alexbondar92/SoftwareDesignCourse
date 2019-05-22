@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3078e906-f4ea-42e8-a364-e8ec716816be" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/AvlTree2$Node.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/AvlTree2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/FakeSecureStorage.kt" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -129,10 +125,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="474" lean-forward="true" selection-start-line="474" selection-end-line="474" />
+            <state relative-caret-position="208">
+              <caret line="1159" column="43" selection-start-line="1159" selection-start-column="43" selection-end-line="1159" selection-end-column="43" />
               <folding>
-                <element signature="e#42#740#0" expanded="true" />
+                <element signature="e#42#421#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -250,54 +246,6 @@
               <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="courseapp-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="courseapp-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="courseapp-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="courseapp-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="softwaredesign" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="courseapp-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="courseapp-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="courseapp-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="softwaredesign" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="base" type="b2602c69:ProjectViewProjectNode" />
@@ -567,7 +515,7 @@
       <updated>1557841104294</updated>
       <workItem from="1557841105497" duration="1958000" />
       <workItem from="1557844354299" duration="21529000" />
-      <workItem from="1558511376213" duration="11786000" />
+      <workItem from="1558511376213" duration="13118000" />
     </task>
     <servers />
   </component>
@@ -604,7 +552,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105191000" />
+    <option name="totallyTimeSpent" value="106523000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1614" height="987" extended-state="0" />
@@ -619,7 +567,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.19217877" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26815644" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.26815644" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -628,7 +576,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.2480447" />
+      <window_info active="true" anchor="bottom" id="Messages" order="11" visible="true" weight="0.2480447" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1009,10 +957,10 @@ import java.util.LinkedHashMap</custom-info>
     </entry>
     <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="474" lean-forward="true" selection-start-line="474" selection-end-line="474" />
+        <state relative-caret-position="208">
+          <caret line="1159" column="43" selection-start-line="1159" selection-start-column="43" selection-end-line="1159" selection-end-column="43" />
           <folding>
-            <element signature="e#42#740#0" expanded="true" />
+            <element signature="e#42#421#0" expanded="true" />
           </folding>
         </state>
       </provider>
