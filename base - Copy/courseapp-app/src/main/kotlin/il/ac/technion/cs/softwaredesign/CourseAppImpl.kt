@@ -305,17 +305,18 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
         if (!validToken(token))
             throw InvalidTokenException()
 
-        if (!isChannelExist(index))
+        if ( !validNameChannel(channel) || !isChannelExist(index))
             throw NoSuchEntityException()
 
         if (!isOperator(token, index!!))
             throw UserNotAuthorizedException()
+        val userToken = usernameToToken(username) ?: throw NoSuchEntityException()
 
-        val userToken = usernameToToken(username)
-        if (readFromStorage(mutableListOf(userToken!!),  KeyType.USER) == notRegistered || !areUserAndChannelConnected(userToken, index))
+        if( readUserStatus(userToken) == notRegistered
+                || !areUserAndChannelConnected(userToken, index) )
             throw NoSuchEntityException()
 
-        removeUserFromChannel(index, token)   // this fun remove user from channel and update the trees
+        removeUserFromChannel(index, userToken)   // this fun remove user from channel and update the trees
     }
 
     /**
@@ -330,17 +331,18 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
      * if it does not exist.
      */
     override fun isUserInChannel(token: String, channel: String, username: String): Boolean? {
-        val index = indexToChannel(channel)
+
         if (!validToken(token))
             throw InvalidTokenException()
-
+        val index = channelToIndex(channel) ?: throw NoSuchEntityException()
         if (!isChannelExist(index))
             throw NoSuchEntityException()
 
+
         if (!isAdministrator(token) && !areUserAndChannelConnected(token, index))
             throw UserNotAuthorizedException()
-
-        return areUserAndChannelConnected(usernameToToken(username)!!, index)
+        val userToken = usernameToToken(username)?: return null
+        return areUserAndChannelConnected(userToken, index)
     }
 
     /**
@@ -355,17 +357,17 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
      * @returns Number of logged-in users in [channel].
      */
     override fun numberOfActiveUsersInChannel(token: String, channel: String): Long {
-        val index = channelToIndex(channel)
+
         if (!validToken(token))
             throw InvalidTokenException()
-
+        val index = channelToIndex(channel) ?: throw NoSuchEntityException()
         if (!isChannelExist(index))
             throw NoSuchEntityException()
 
-        if (!isAdministrator(token) && !areUserAndChannelConnected(token, index!!))
+        if (!isAdministrator(token) && !areUserAndChannelConnected(token, index))
             throw UserNotAuthorizedException()
 
-        return numberOfActiveUsersInChannel(index!!)
+        return numberOfActiveUsersInChannel(index)
     }
 
     /**
@@ -380,17 +382,17 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
      * @return Number of users, both logged-in and logged-out, in [channel].
      */
     override fun numberOfTotalUsersInChannel(token: String, channel: String): Long {
-        val index = channelToIndex(channel)
+
         if (!validToken(token))
             throw InvalidTokenException()
-
+        val index = channelToIndex(channel) ?: throw NoSuchEntityException()
         if (!isChannelExist(index))
             throw NoSuchEntityException()
 
-        if (!isAdministrator(token) && !areUserAndChannelConnected(token, index!!))
+        if (!isAdministrator(token) && !areUserAndChannelConnected(token, index))
             throw UserNotAuthorizedException()
 
-        return numberOfUsersInChannel(index!!)
+        return numberOfUsersInChannel(index)
     }
 
     // =========================================== API for statistics ==================================================
@@ -916,7 +918,7 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
     }
 
     private fun areUserAndChannelConnected(token: String, channel: String): Boolean{
-        // Assumption: topken and channel is valid
+        // Assumption: token and channel is valid
 
         val str = readFromStorage(mutableListOf(channel, token), KeyType.PARTICIPANT) ?: return false
         return str.toInt() == UserStatusInChannel.Regular.type || str.toInt() == UserStatusInChannel.Operator.type

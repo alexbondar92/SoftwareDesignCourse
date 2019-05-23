@@ -734,7 +734,7 @@ class CourseAppTest {
             courseApp.channelMakeOperator(adminToken,"#HappyLittleChannel", "fakeUser")
         }
     }
-    //testinghere
+
     @Test
     fun `make operator of user that is a member of the channel, but is logged out`() {
         val adminToken = courseApp.login("admin", "pass")
@@ -891,7 +891,6 @@ class CourseAppTest {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.channelJoin(adminToken, "#greatChannel")
         val regUserToken = courseApp.login("regUser", "pass")
-        courseApp.channelJoin(regUserToken, "#otherChannel")
 
         assertThrows<NoSuchEntityException>{
             courseApp.channelKick(adminToken, "#greatChannel", "regUser")
@@ -958,9 +957,11 @@ class CourseAppTest {
         val regUserToken = courseApp.login("regUser", "pass")
         courseApp.channelJoin(adminToken, "#greatChannel")
 
-        assertNull {
-            courseApp.isUserInChannel(adminToken, "#greatChannel", "Asat"  )
-        }
+        assertEquals(
+            courseApp.isUserInChannel(adminToken, "#greatChannel", "Asat"  ),
+                null
+        )
+
     }
 
     @Test
@@ -979,7 +980,6 @@ class CourseAppTest {
     @Test
     fun `isUserInChannel return true  if user exists and  in channel `() {
         val adminToken = courseApp.login("admin", "pass")
-        courseApp.login("regUser", "pass")
         courseApp.channelJoin(adminToken, "#greatChannel")
         val regUserToken = courseApp.login("regUser", "pass")
         courseApp.channelJoin(regUserToken, "#greatChannel")
@@ -998,6 +998,7 @@ class CourseAppTest {
 
         var tokenMembers = mutableListOf<String>()
         val godToken = courseApp.login(godPair.first, godPair.second) //assume all actions go throw him/her.
+        courseApp.channelJoin(godToken, channelName)
 
         for(pair in members) {
 
@@ -1007,7 +1008,7 @@ class CourseAppTest {
 
             courseApp.channelJoin(token, channelName)
             if(name in loggedOutMembersNames) {
-                courseApp.channelPart(token, channelName)
+                courseApp.logout(token)
             }
             else{
                 tokenMembers.add( token)
@@ -1028,7 +1029,7 @@ class CourseAppTest {
         val channel = makeChannel("#bestChannel", Pair("admin", "admin"),listNames, listLoggedOut )
         courseApp.channelPart(channel.first, "#bestChannel")
 
-        assertEquals(courseApp.numberOfActiveUsersInChannel(channel.first, "#bestChannel"), 0)
+        assertEquals(courseApp.numberOfActiveUsersInChannel(channel.first, "#bestChannel") , 0)
     }
 
     @Test
@@ -1113,7 +1114,25 @@ class CourseAppTest {
         val channel = makeChannel("#bestChannel", Pair("admin", "admin"),listNames, listLoggedOut )
         courseApp.channelPart(channel.first, "#bestChannel")
 
-        assertEquals(courseApp.numberOfTotalUsersInChannel(channel.first, "#bestChannel"), 10)
+        assertEquals(
+                courseApp.numberOfTotalUsersInChannel(channel.first, "#bestChannel"), 10
+        )
+    }
+
+
+    @Test
+    fun `get number of total users in channel by operator in channel`() {
+        val listNames = mutableListOf<Pair<String,String>>()
+        for(i in 1..10)
+            listNames.add(Pair("User$i", "Pass$i"))
+        val listLoggedOut = mutableListOf<String>()
+        for(i in 1..5)
+            listLoggedOut.add("User$i")
+
+        val channel = makeChannel("#bestChannel", Pair("admin", "admin"),listNames, listLoggedOut )
+        assertEquals(
+                courseApp.numberOfTotalUsersInChannel(channel.first, "#bestChannel"), 11
+        )
     }
 
     @Test

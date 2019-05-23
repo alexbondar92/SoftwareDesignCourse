@@ -28,7 +28,7 @@ class CourseAppStatisticsTest {
     fun `valid number of totalUsers`() {
         val CA = CourseAppImpl(FakeSecureStorage())
 
-        for (i in 1..100) {
+        for (i in 1..20) {
             println("i is: $i")
             CA.login("user$i", "pass$i")
         }
