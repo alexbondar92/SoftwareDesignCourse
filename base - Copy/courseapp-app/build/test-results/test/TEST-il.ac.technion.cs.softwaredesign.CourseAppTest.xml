@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="il.ac.technion.cs.softwaredesign.CourseAppTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-05-23T07:16:30" hostname="DESKTOP-C0DN9PE" time="0.086">
+  <properties/>
+  <testcase name="operator makes himself as an operator at the same channel()" classname="il.ac.technion.cs.softwaredesign.CourseAppTest" time="0.086"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
