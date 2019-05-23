@@ -254,6 +254,7 @@ class CourseAppTest {
 
     @Test
     fun `login very long username and password`(){
+        assert(false)
         val allowedChars = "ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz"
 
         for (i in 1..50) {
@@ -670,7 +671,7 @@ class CourseAppTest {
 
         }
     }
-    //testinghere
+
     @Test
     fun `operator makes himself as an operator at the same channel`() {
         val adminToken = courseApp.login("admin", "admin1")
@@ -733,7 +734,7 @@ class CourseAppTest {
             courseApp.channelMakeOperator(adminToken,"#HappyLittleChannel", "fakeUser")
         }
     }
-
+    //testinghere
     @Test
     fun `make operator of user that is a member of the channel, but is logged out`() {
         val adminToken = courseApp.login("admin", "pass")
