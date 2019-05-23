@@ -1,9 +1,7 @@
 package il.ac.technion.cs.softwaredesign
 
-import com.natpryce.hamkrest.assertion.assertThat
-import com.natpryce.hamkrest.present
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import java.time.Duration
 
 class CourseAppStatisticsTest {
 
@@ -27,20 +25,20 @@ class CourseAppStatisticsTest {
     @Test
     fun `valid number of totalUsers`() {
         val CA = CourseAppImpl(FakeSecureStorage())
-
-        for (i in 1..20) {
+        val amount = 3
+        for (i in 1..amount) {
             println("i is: $i")
             CA.login("user$i", "pass$i")
         }
 
-        assert(CAstatistics.totalUsers() == 10.toLong())
+        assertEquals(CAstatistics.totalUsers(), amount)
     }
 
     @Test
     fun `valid number of loggedUsers`(){
         val CA = CourseAppImpl(FakeSecureStorage())
-
-        for (i in 1..100) {
+        val amount = 20
+        for (i in 1..amount) {
             println("i is: $i")
             CA.login("user$i", "pass$i")
         }
