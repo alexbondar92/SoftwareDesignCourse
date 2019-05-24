@@ -4,7 +4,7 @@ import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.present
 import il.ac.technion.cs.softwaredesign.exceptions.*
 import org.junit.jupiter.api.Assertions.*
-import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.*
 import org.junit.jupiter.api.assertThrows
 import java.nio.charset.Charset
 import java.time.Duration
@@ -18,13 +18,15 @@ class CourseAppTest {
 
     init {
         val storageFactory = FakeSecureStorageFactory()
-        val storage = storageFactory.open("main".toByteArray(Charset.defaultCharset()))
+        val session = storageFactory.open("main".toByteArray(Charset.defaultCharset()))
+        val storage = DataStoreIo(session)
         courseAppInitializer.setup()
         courseApp = CourseAppImpl(storage)
         courseAppReboot = CourseAppImpl(storage)
     }
 
     @Test
+    @Order(1)
     fun `check if user is logged in`() {
         val loginToken = courseApp.login("user1", "pass1")
 
@@ -32,6 +34,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(2)
     fun `login and logout user`() {
         val loginToken1 = courseApp.login("user1", "pass1")
         val loginToken2 = courseApp.login("user2", "pass2")
@@ -42,6 +45,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(3)
     fun `after login, a user is logged in`() {
         courseApp.login("gal", "hunter2")
         courseApp.login("imaman", "31337")
@@ -53,6 +57,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(4)
     fun `an authentication token is invalidated after logout`() {
         val token = courseApp.login("matan", "s3kr1t")
 
@@ -64,6 +69,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(5)
     fun `log in user twice should throw exception`(){
         courseApp.login("matan", "s3kr1t")
         assertThrows<UserAlreadyLoggedInException> {
@@ -72,6 +78,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(6)
     fun `log in user twice and other users log in between should throw exception`(){
         courseApp.login("matan", "s3kr1t")
         courseApp.login("imaman", "31337")
@@ -82,6 +89,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(7)
     fun `user log in then log out isUserLoggedIn returns False`(){
         val token = courseApp.login("matan", "s3kr1t")
         val token2 = courseApp.login("imaman", "31337")
@@ -92,6 +100,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(8)
     fun `user never been in the system isUserLoggedIn returns null`(){
         val token = courseApp.login("matan", "s3kr1t")
 
@@ -100,6 +109,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(9)
     fun `log out a none exist user `(){
         val STRING_LENGTH = 100
         val charPool : List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
@@ -117,6 +127,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(10)
     fun `registered user log in with wrong password should throw exception`(){
         val token = courseApp.login("matan", "s3kr1t")
         courseApp.logout(token)
@@ -127,6 +138,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(11)
     fun `registered user log in with another logged in user s password should throw exception`(){
         val token = courseApp.login("matan", "s3kr1t")
         courseApp.login("imaman", "another_user_password")
@@ -138,6 +150,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(12)
     fun `registered user log in with another registered not logged in user s password should throw exception`(){
         val token = courseApp.login("matan", "s3kr1t")
         val token2 = courseApp.login("imaman", "another_user_password")
@@ -150,6 +163,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(13)
     fun `user stays logged in after reboot, assumes his token stays active`(){
         val token = courseApp.login("matan", "s3kr1t")
 
@@ -158,6 +172,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(14)
     fun `an authentication token is invalidated after logout, stays that way after reboot`(){
         val token = courseApp.login("matan", "s3kr1t")
         courseApp.logout(token)
@@ -168,6 +183,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(15)
     fun `password is valid`(){
         val token1 = courseApp.login("matan", "StrongPass")
         courseApp.logout(token1)
@@ -176,6 +192,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(16)
     fun `password is invalid`(){
         val token1 = courseApp.login("matan", "StrongPass")
         courseApp.logout(token1)
@@ -184,6 +201,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(17)
     fun `token is illegal at logout`(){
         val token = courseApp.login("matan", "StrongPass")
 
@@ -191,6 +209,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(18)
     fun `token is illegal at is isUserLoggedin`(){
         val token = courseApp.login("matan", "StrongPass")
 
@@ -198,6 +217,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(19)
     fun `Unregistered user returns null upon isUserLogIn check`(){
         val token = courseApp.login("matan", "StrongPass")
 
@@ -205,6 +225,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(20)
     fun `token is invalid after logout`(){
         val token1 = courseApp.login("matan2", "StrongPass")
         val token2 = courseApp.login("matan", "StrongPass")
@@ -215,6 +236,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(21)
     fun `enable to login same user after reboot`(){
         courseApp.login("matan", "StrongPass")
 
@@ -222,6 +244,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(22)
     fun `system is persistent after reboot`(){
         val tokens = ArrayList<String>(11)
         for (i in 0..10){
@@ -241,6 +264,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(23)
     fun `corrupted(prefix & suffix) token pass over`(){
         val token = courseApp.login("matan", "StrongPass")
 
@@ -253,6 +277,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(24)
     fun `login very long username and password`(){
         val allowedChars = "ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz"
 
@@ -264,6 +289,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(25)
     fun `trying to login with wrong pass`(){
         val token = courseApp.login("matan", "StrongPass")
         courseApp.logout(token)
@@ -272,6 +298,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(26)
     fun `selected amount of users are logged in at once`(){
         assert(false)
         val amount = 100
@@ -295,6 +322,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(27)
     fun `first user in the system becomes administrator automatically`() {
         val adminToken = courseApp.login("firstUser", "pass")
         val userToken = courseApp.login("regUser", "pass2")
@@ -303,6 +331,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(28)
     fun `makeAdministrator gets invalid token throws InvalidTokenException`() {
         val STRING_LENGTH = 20
         val charPool : List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
@@ -319,6 +348,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(29)
     fun `makeAdministrator gets token that is not associated to administrator`() {
         val adminToken = courseApp.login("firstUser", "pass")
         val userToken = courseApp.login("regUser", "pass2")
@@ -328,24 +358,27 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(30)
     fun `makeAdministrator gets invalid user`() {
         val adminToken = courseApp.login("firstUser", "pass")
         val userToken = courseApp.login("regUser", "pass2")
 
-        assertThrows<UserNotAuthorizedException> { courseApp.makeAdministrator(adminToken, "InvalidUser") }
+        assertThrows<NoSuchEntityException> { courseApp.makeAdministrator(adminToken, "InvalidUser") }
     }
 
     @Test
+    @Order(31)
     fun `makeAdministrator makes administrator, an admin again`() {
         val adminToken = courseApp.login("firstUser", "pass")
         val userToken = courseApp.login("regUser", "pass2")
 
         courseApp.makeAdministrator(adminToken, "regUser")
 
-        assertThrows<UserNotAuthorizedException> { courseApp.makeAdministrator(userToken, "firstUser") }
+        assertDoesNotThrow { courseApp.makeAdministrator(userToken, "firstUser") }
     }
 
     @Test
+    @Order(32)
     fun `administrator retain their status after relogging`() {
         val token = courseApp.login("matan", "s3kr1t")
         courseApp.makeAdministrator(token, "matan")
@@ -356,6 +389,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(33)
     fun `administrator retain their status after system reboot`() {
         val token = courseApp.login("matan", "s3kr1t")
         courseApp.makeAdministrator(token, "matan")
@@ -364,6 +398,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(34)
     fun `make random number of administrator in the system`() {
         val numOfAdmins = Random.nextInt(1, 100)
         val tokenDict = mutableMapOf<Int, String>()
@@ -379,6 +414,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(35)
     fun `make administrator of logged out user`() {
         val token = courseApp.login("matan", "s3kr1t")
         val ronToken = courseApp.login("Ron", "s3kwwwr1t")
@@ -389,6 +425,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(36)
     fun `create channel`() {
         val adminToken = courseApp.login("admin", "pass")
 
@@ -396,6 +433,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(37)
     fun `create channel with illegal name`() {
         val adminToken = courseApp.login("admin", "pass")
 
@@ -405,6 +443,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(38)
     fun `invalid token(not associated to no one) tries to join to channel`() {
         val adminT = courseApp.login("Ron", "IreallyLikeAvlss")
         courseApp.channelJoin(adminT, "#AvlLovers")
@@ -412,6 +451,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(39)
     fun `invalid token(not of admin) tries to create new channel`() {
         val adminT = courseApp.login("Ron", "IreallyLikeAvlss")
         val notAdminToken = courseApp.login("Person", "passssss")
@@ -419,6 +459,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(40)
     fun `first user in the channel is a Operator`() {
         val adminToken = courseApp.login("admin", "pass")
         val regUserToken = courseApp.login("regUser", "pass")
@@ -426,10 +467,11 @@ class CourseAppTest {
         courseApp.channelJoin(adminToken, "#greatChannel")
         courseApp.channelJoin(regUserToken, "#greatChannel")
 
-        assertDoesNotThrow{ courseApp.channelKick(adminToken, "#greatChannel", "regUsaer") }
+        assertDoesNotThrow{ courseApp.channelKick(adminToken, "#greatChannel", "regUser") }
     }
 
     @Test
+    @Order(41)
     fun `add up to 512 users to the channel`() {
         val numInChannel = Random.nextInt(1, 512)
         val tokenDict = mutableMapOf<Int, String>()
@@ -439,12 +481,17 @@ class CourseAppTest {
 
         assertDoesNotThrow {
             for (i in 1..numInChannel) {
-                courseApp.channelJoin(tokenDict[1]!!, "user$i")
+                var str: String = ""
+                for (j in 1..i) {
+                    str = str + "X"
+                }
+                courseApp.channelJoin(tokenDict[1]!!, "#channel$str")
             }
         }
     }
 
     @Test
+    @Order(42)
     fun `leave channel with illegal token(existing channel)`() {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.channelJoin(adminToken, "#TestChannel")
@@ -454,6 +501,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(43)
     fun `leave channel with illegal token(not existing channel)`() {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.channelJoin(adminToken, "#TestChannel")
@@ -463,6 +511,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(44)
     fun `trying to leave channel with token that is not member of the channel`() {
         val adminT = courseApp.login("Ron", "IreallyLikeAvlss")
         courseApp.channelJoin(adminT, "#AvlLovers")
@@ -473,7 +522,8 @@ class CourseAppTest {
     }
 
     @Test
-    fun `leave chanel with valid token but the channel does not exist`() {
+    @Order(45)
+    fun `leave channel with valid token but the channel does not exist`() {
         val adminT = courseApp.login("Ron", "IreallyLikeAvlss")
         courseApp.channelJoin(adminT, "#AvlLovers")
         assertThrows<NoSuchEntityException> {
@@ -482,6 +532,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(46)
     fun `regular member leaves channel`() {
         val adminToken = courseApp.login("admin", "pass")
         val regUserToken = courseApp.login("regUser", "pass")
@@ -493,6 +544,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(47)
     fun `operator leave the channel`() {
         val adminToken = courseApp.login("admin", "pass")
         val regUserToken = courseApp.login("regUser", "pass")
@@ -507,6 +559,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(48)
     fun `administrator that is not an operator of this channel leaves the channel`() {
         val adminToken = courseApp.login("admin", "pass")
         val regUserToken = courseApp.login("regUser", "pass")
@@ -521,6 +574,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(49)
     fun ` channel does not contains operators`() {
         val adminToken = courseApp.login("admin", "pass")
         val regUserToken = courseApp.login("regUser", "pass")
@@ -533,6 +587,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(50)
     fun `last user(regular) leaves the channel`() {
         val adminToken = courseApp.login("admin", "pass")
         val regUserToken = courseApp.login("regUser", "pass")
@@ -545,6 +600,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(51)
     fun `last user(operator) leaves the channel`() {
         val adminToken = courseApp.login("admin", "pass")
         val regUserToken = courseApp.login("regUser", "pass")
@@ -559,6 +615,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(52)
     fun `last user(administrator) leaves the channel`() {
         val adminToken = courseApp.login("admin", "pass")
 
@@ -568,6 +625,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(53)
     fun `trying to join to channel that was deleted`() {
         val adminToken = courseApp.login("admin", "pass")
 
@@ -575,10 +633,11 @@ class CourseAppTest {
         courseApp.channelPart(adminToken, "#greatChannel")
 
         val regUserToken = courseApp.login("regUser", "pass")
-        assertDoesNotThrow { courseApp.channelJoin(regUserToken, "#greatChannel")}
+        assertThrows<UserNotAuthorizedException> { courseApp.channelJoin(regUserToken, "#greatChannel")}
     }
 
     @Test
+    @Order(54)
     fun `make random number of channels`() {
         val numOfChannels = Random.nextInt(1, 100)
         val adminToken = courseApp.login("admin", "pass")
@@ -602,6 +661,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(55)
     fun `try to make operator with illegal token(regular)`() {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.channelJoin(adminToken, "#HappyLittleChannel")
@@ -612,6 +672,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(56)
     fun `try to make operator with illegal token(not of admin or operator)`() {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.channelJoin(adminToken, "#HappyLittleChannel")
@@ -623,19 +684,21 @@ class CourseAppTest {
     }
 
     @Test
-    fun `try to make operator with illegal token(is admin but not operator)`() {
+    @Order(57)
+    fun `try to make operator with illegal token - is admin but not operator`() {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.channelJoin(adminToken, "#HappyLittleChannel")
-        val regUserToken = courseApp.login("regUser", "pass")
-        courseApp.makeAdministrator(adminToken, "regUser")
-        courseApp.channelJoin(regUserToken, "#HappyLittleChannel")
+        val otherAdminToken = courseApp.login("otherAdmin", "pass")
+        courseApp.makeAdministrator(adminToken, "otherAdmin")
+        courseApp.channelJoin(otherAdminToken, "#HappyLittleChannel")
 
         assertThrows<UserNotAuthorizedException> {
-            courseApp.channelMakeOperator(regUserToken, "#HappyLittleChannel", "admin" )
+            courseApp.channelMakeOperator(otherAdminToken, "#HappyLittleChannel", "admin" )
         }
     }
 
     @Test
+    @Order(58)
     fun `try to make operator with illegal token(operator of other channel)`() {
         val adminToken = courseApp.login("admin", "pass")
         val targetToken = courseApp.login("sadPerson", "passss1234s")
@@ -652,6 +715,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(59)
     fun `admin makes himself as operator in the channel`() {
         val admin1Token = courseApp.login("admin1", "admin1")
         val admin2Token = courseApp.login("admin2", "admin2")
@@ -668,6 +732,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(60)
     fun `operator makes himself as an operator at the same channel`() {
         val adminToken = courseApp.login("admin", "admin1")
         courseApp.channelJoin(adminToken, "#HappyLittleChannel")
@@ -678,6 +743,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(61)
     fun `try to make operator of user that is not a member of this channel`() {
         val admin1Token = courseApp.login("admin1", "admin1")
         courseApp.login("regUser", "Usserrr")
@@ -689,6 +755,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(62)
     fun `try to make operator of admin that is not a member of this channel`() {
         val admin1Token = courseApp.login("admin1", "admin1")
         courseApp.channelJoin(admin1Token, "#HappyLittleChannel")
@@ -701,6 +768,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(63)
     fun `try to make operator with with channel that not exits(never been)`() {
         val adminToken = courseApp.login("admin", "admin")
 
@@ -710,6 +778,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(64)
     fun `try to make operator with with channel that not exits(was deleted)`() {
         val adminToken = courseApp.login("admin", "admin")
         courseApp.channelJoin(adminToken, "#HappyLittleChannel")
@@ -721,6 +790,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(65)
     fun `try to make operator of user that is not in the system`() {
         val adminToken = courseApp.login("admin", "admin")
         courseApp.channelJoin(adminToken, "#HappyLittleChannel")
@@ -731,6 +801,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(66)
     fun `make operator of user that is a member of the channel, but is logged out`() {
         val adminToken = courseApp.login("admin", "pass")
         val regUserToken = courseApp.login("regUser", "pass")
@@ -745,6 +816,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(67)
     fun `try to kick user with illegal token(regular)`() {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.channelJoin(adminToken, "#greatChannel")
@@ -754,6 +826,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(68)
     fun `try to kick user with illegal token(not operator)`() {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.channelJoin(adminToken, "#greatChannel")
@@ -766,6 +839,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(69)
     fun `try to kick user with illegal token(admin)`() {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.channelJoin(adminToken, "#greatChannel")
@@ -779,6 +853,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(70)
     fun `kick user from channel`() {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.channelJoin(adminToken, "#greatChannel")
@@ -790,6 +865,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(71)
     fun `kick another operator from channel`() {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.channelJoin(adminToken, "#greatChannel")
@@ -803,6 +879,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(72)
     fun `kick administrator from channel`() {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.channelJoin(adminToken, "#greatChannel")
@@ -816,6 +893,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(73)
     fun `kick another operator that is admin(as well) from channel`() {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.channelJoin(adminToken, "#greatChannel")
@@ -830,6 +908,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(74)
     fun `operator kick himself from the channel`() {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.channelJoin(adminToken, "#greatChannel")
@@ -842,6 +921,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(75)
     fun `operator kick himself from the channel, and he was the last one`() {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.channelJoin(adminToken, "#greatChannel")
@@ -852,6 +932,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(76)
     fun `try to kick from a channel that is not exists`() {
         val adminToken = courseApp.login("admin", "pass")
 
@@ -861,6 +942,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(77)
     fun `try to kick from a deleted channel that is not exists`() {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.channelJoin(adminToken, "#greatChannel")
@@ -872,6 +954,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(78)
     fun `try to kick illegal user`() {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.channelJoin(adminToken, "#greatChannel")
@@ -882,10 +965,12 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(79)
     fun `try to kick non member user`() {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.channelJoin(adminToken, "#greatChannel")
         val regUserToken = courseApp.login("regUser", "pass")
+        courseApp.channelJoin(adminToken, "#otherChannel")
         courseApp.channelJoin(regUserToken, "#otherChannel")
 
         assertThrows<NoSuchEntityException>{
@@ -894,6 +979,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(80)
     fun `try to kick user that was a member of the channel`() {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.channelJoin(adminToken, "#greatChannel")
@@ -907,6 +993,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(81)
     fun `isUserInChannel returns true for one user in channel`() {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.channelJoin(adminToken, "#greatChannel")
@@ -919,6 +1006,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(82)
     fun `isUserInChannel throws InvalidTokenException for non-existent token`() {
 
         assertThrows<InvalidTokenException> {
@@ -928,6 +1016,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(83)
     fun `isUserInChannel throws NoSuchEntityException for non-existent channel`() {
         val adminToken = courseApp.login("admin", "pass")
 
@@ -937,6 +1026,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(84)
     fun `isUserInChannel throws UserNotAuthorizedException for non-member and non-administrator user`() {
         val adminToken = courseApp.login("admin", "pass")
         val regUserToken = courseApp.login("regUser", "pass")
@@ -948,6 +1038,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(85)
     fun `isUserInChannel return null if user not exist `() {
         val adminToken = courseApp.login("admin", "pass")
         val regUserToken = courseApp.login("regUser", "pass")
@@ -959,6 +1050,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(86)
     fun `isUserInChannel return false if user exists and not in channel `() {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.login("regUser", "pass")
@@ -972,6 +1064,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(87)
     fun `isUserInChannel return true  if user exists and  in channel `() {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.login("regUser", "pass")
@@ -1012,6 +1105,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(88)
     fun `get number of active users in channel with zero active users`() {
         val listNames = mutableListOf<Pair<String,String>>()
         for(i in 1..10)
@@ -1027,6 +1121,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(89)
     fun `get number of active users in channel by admin that is not part of the channel`() {
         val listNames = mutableListOf<Pair<String,String>>()
         for(i in 1..10)
@@ -1042,6 +1137,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(90)
     fun `get number of active users in channel by user in the channel`() {
         val listNames = mutableListOf<Pair<String,String>>()
         for(i in 1..10)
@@ -1058,6 +1154,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(91)
     fun `try to get number of active users with illegal token`() {
 
         assertThrows<InvalidTokenException> {
@@ -1066,6 +1163,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(92)
     fun `try to get number of active users with channel that is not exits`() {
         val adminToken = courseApp.login("admin", "pass")
 
@@ -1075,6 +1173,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(93)
     fun `try to get number of active users with channel that was deleted`() {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.channelJoin(adminToken, "#greatChannel")
@@ -1086,6 +1185,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(94)
     fun `try to get number of active users with token that is not a member of the channel and not admin`() {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.channelJoin(adminToken, "#greatChannel")
@@ -1097,6 +1197,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(95)
     fun `get number of total users in channel by admin that is not part of the channel`() {
         val listNames = mutableListOf<Pair<String,String>>()
         for(i in 1..10)
@@ -1112,6 +1213,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(96)
     fun `get number of total users in channel by user in the channel`() {
         val listNames = mutableListOf<Pair<String,String>>()
         for(i in 1..10)
@@ -1128,6 +1230,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(97)
     fun `try to get total of active users with illegal token`() {
         assertThrows<InvalidTokenException> {
             courseApp.numberOfTotalUsersInChannel("thereAreNoTokens", "what__123ever#")
@@ -1135,6 +1238,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(98)
     fun `try to get total of active users with channel that is not exits`() {
         val adminToken = courseApp.login("admin", "pass")
 
@@ -1144,6 +1248,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(98)
     fun `try to get total of active users with channel that was deleted`() {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.channelJoin(adminToken, "#greatChannel")
@@ -1155,6 +1260,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Order(99)
     fun `try to get total of active users with token that is not a member of the channel and not admin`() {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.channelJoin(adminToken, "#greatChannel")
@@ -1167,11 +1273,13 @@ class CourseAppTest {
 
 /*
     @Test
+    @Order(100)
     fun `joining user to 128 channels`() {
 
     }
 
     @Test
+    @Order(101)
     fun `stress test for channels in the system`() {
 
     }

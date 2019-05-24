@@ -26,7 +26,7 @@ class CourseAppStatisticsTest {
 
     @Test
     fun `valid number of totalUsers`() {
-        val CA = CourseAppImpl(FakeSecureStorage())
+        val CA = CourseAppImpl(DataStoreIo(FakeSecureStorage()))
 
         for (i in 1..100) {
             println("i is: $i")
@@ -38,7 +38,7 @@ class CourseAppStatisticsTest {
 
     @Test
     fun `valid number of loggedUsers`(){
-        val CA = CourseAppImpl(FakeSecureStorage())
+        val CA = CourseAppImpl(DataStoreIo(FakeSecureStorage()))
 
         for (i in 1..100) {
             println("i is: $i")
@@ -50,7 +50,7 @@ class CourseAppStatisticsTest {
 
     @Test
     fun `valid number of totalUsers after logout`(){
-        val CA = CourseAppImpl(FakeSecureStorage())
+        val CA = CourseAppImpl(DataStoreIo(FakeSecureStorage()))
         val dict = hashMapOf<Int, String>()
 
         for (i in 1..100) {
@@ -68,7 +68,7 @@ class CourseAppStatisticsTest {
 
     @Test
     fun `get top 10 users - basic 1`(){
-        val CA = CourseAppImpl(FakeSecureStorage())
+        val CA = CourseAppImpl(DataStoreIo(FakeSecureStorage()))
         val userDict = hashMapOf<Int, String>()
 
         for (i in 1..20) {
@@ -82,7 +82,7 @@ class CourseAppStatisticsTest {
 
     @Test
     fun `get top 10 users - basic 2`(){
-        val CA = CourseAppImpl(FakeSecureStorage())
+        val CA = CourseAppImpl(DataStoreIo(FakeSecureStorage()))
         val userDict = hashMapOf<Int, String>()
 
         for (i in 1..100) {

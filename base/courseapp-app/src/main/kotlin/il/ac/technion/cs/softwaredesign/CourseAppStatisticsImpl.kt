@@ -3,7 +3,7 @@ package il.ac.technion.cs.softwaredesign
 import il.ac.technion.cs.softwaredesign.storage.*
 
 class CourseAppStatisticsImpl : CourseAppStatistics {
-    private val cApp: CourseAppImpl = CourseAppImpl(FakeSecureStorage())
+    private val cApp: CourseAppImpl = CourseAppImpl(DataStoreIo(FakeSecureStorage()))
 
     /**
      * Count the total number of users, both logged-in and logged-out, in the system.

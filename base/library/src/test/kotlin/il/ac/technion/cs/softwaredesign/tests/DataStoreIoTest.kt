@@ -36,7 +36,7 @@ class DataStoreIoTest {
         val valueLength = value.length.toLong()
         storage.write("My Key", value)
 
-        assertThat(runWithTimeout(ofSeconds(valueLength)) { storage.read("Ky Key") ==  value },
+        assertThat(runWithTimeout(ofSeconds(valueLength)) { storage.read("My Key") ==  value },
                 present(isTrue))
     }
 }

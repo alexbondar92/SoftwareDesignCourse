@@ -4,7 +4,7 @@ import il.ac.technion.cs.softwaredesign.exceptions.*
 import il.ac.technion.cs.softwaredesign.storage.SecureStorage
 import java.lang.NullPointerException
 
-class CourseAppImpl(storage: SecureStorage) : CourseApp{
+class CourseAppImpl(storage: DataStoreIo) : CourseApp{
 
     private val userLoggedIn = "1"
     private val passwordSignedIn = "1"
@@ -12,7 +12,7 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
     private val notRegistered = null
     private val isAdmin = 1
 
-    private val storageIo = DataStoreIo(storage)
+    private val storageIo = storage
     private var usersTree = RemoteAvlTree("AvlUsers",storageIo)
     private var channelByMembersTree = RemoteAvlTree("AvlChannel1",storageIo)
     private var channelByActiveTree = RemoteAvlTree("AvlChannel2",storageIo)
@@ -201,8 +201,6 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
         if (!isChannelExist(channel) && !isAdministrator(token))
             throw UserNotAuthorizedException()
 
-        val newIndex = getNewChannelIndex(channel)
-
         val size = amountOfUsersInChannel(channel)
         if ( size != null && size > 0){ //channel empty but was not empty in the past, or not empty now
 
@@ -223,6 +221,7 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
             insertToChannelsListOfUser(channel, token)
 
         } else {
+            val newIndex = getNewChannelIndex(channel)          // TODO("Alex: refactor this....")
             createChannel(channel, token)       // this fun create new channel and adding the admin(token) as first user and makes him/her operator
         }
     }
@@ -242,8 +241,8 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
         if (!validToken(token))
             throw InvalidTokenException()
 
-        if (!isChannelExist(channel) && !areUserAndChannelConnected(token, channel))
-            throw UserNotAuthorizedException()
+        if (!isChannelExist(channel) || !areUserAndChannelConnected(token, channel))
+            throw NoSuchEntityException()
 
         removeUserFromChannel(channel, token)   // this fun remove user from channel and update the trees + if the chanel is empty the channel will be deleted
     }
@@ -272,7 +271,7 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
         if(!isAdministrator(token) && !isOperator(token, channel))
             throw UserNotAuthorizedException()
 
-        if(isAdministrator(token) && !isOperator(token, channel))
+        if (isAdministrator(token) && !isOperator(token, channel) && usernameToToken(username) != token)
             throw UserNotAuthorizedException()
 
         if(!areUserAndChannelConnected(token, channel))
@@ -306,10 +305,10 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
             throw UserNotAuthorizedException()
 
         val userToken = usernameToToken(username)
-        if (readFromStorage(mutableListOf(userToken!!),  KeyType.USER) == notRegistered || !areUserAndChannelConnected(userToken, channel))
+        if (userToken == notRegistered || !areUserAndChannelConnected(userToken, channel))
             throw NoSuchEntityException()
 
-        removeUserFromChannel(channel, token)   // this fun remove user from channel and update the trees
+        removeUserFromChannel(channel, userToken)   // this fun remove user from channel and update the trees
     }
 
     /**
@@ -378,7 +377,7 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
         if (!isChannelExist(channel))
             throw NoSuchEntityException()
 
-        if (!isAdministrator(token) && !areUserAndChannelConnected(token, channel))
+        if (!isAdministrator(token) || !areUserAndChannelConnected(token, channel))
             throw UserNotAuthorizedException()
 
         return numberOfUsersInChannel(channel)
@@ -513,7 +512,9 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
     private fun insertToChannelsListOfUser(channel : String, token : String) {
         val str = readFromStorage(mutableListOf(token), KeyType.CHANNELS)
         val index = channelToIndex(channel)
-        writeToStorage(mutableListOf(token), data = "$str%$index", type = KeyType.CHANNELS)
+        var newStr = if (str == null) "$index" else "$str%$index"
+
+        writeToStorage(mutableListOf(token), data = newStr, type = KeyType.CHANNELS)
     }
 
     private fun updateAmountOfLoggedInChannel(channel : String, number: Long){
@@ -645,8 +646,8 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
                 str = storageIo.read(("activeUsers"))
             }
             KeyType.CHANNELLOGGED -> {
-                val channel = args[0]
-                val index = channelToIndex(channel)
+                val index = args[0]
+//                val index = channelToIndex(channel)
                 str = storageIo.read(("CL$index"))
             }
             KeyType.USERCHANNELS -> {
@@ -707,7 +708,8 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
 
     private fun numberOfActiveUsersInChannel(channel: String): Long {
         // Assumption: channel is valid
-        return readFromStorage(mutableListOf(channel), KeyType.CHANNELLOGGED)!!.toLong()
+        val channelIndex = channelToIndex(channel)
+        return readFromStorage(mutableListOf(channelIndex!!), KeyType.CHANNELLOGGED)!!.toLong()
     }
 
     private fun numOfUsers(): Long{
@@ -725,23 +727,27 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
     }
 
     private fun insertToTotalChannelsTree(channel : String, number : Long) {
-        channelByMembersTree.insert(channel, number.toString())
+        val channelIndex = channelToIndex(channel)!!
+        channelByMembersTree.insert(channelIndex, number.toString())
     }
 
     private fun insertToActiveChannelsTree(channel : String, number : Long) {
-        channelByActiveTree.insert(channel, number.toString())
+        val channelIndex = channelToIndex(channel)!!
+        channelByActiveTree.insert(channelIndex, number.toString())
     }
 
 
     //deletes:
     private fun  deleteFromTotalChannelsTree(channel: String){
         val number = numberOfUsersInChannel(channel)
-        channelByMembersTree.delete(channel, number.toString())
+        val channelIndex = channelToIndex(channel)!!
+        channelByMembersTree.delete(channelIndex, number.toString())
     }
 
     private fun  deleteFromActiveChannelsTree(channel: String){
         val number = numberOfActiveUsersInChannel(channel)
-        channelByActiveTree.delete(channel, number.toString())
+        val channelIndex = channelToIndex(channel)!!
+        channelByActiveTree.delete(channelIndex, number.toString())
     }
 
     private fun  deleteFromUsersTree(token: String) {
@@ -849,8 +855,8 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
         return readFromStorage(mutableListOf(token), KeyType.INDEXTOUSER)!!
     }
 
-    private fun channelToIndex(channel: String): String {
-        return readFromStorage(mutableListOf(channel), KeyType.CHANNELTOINDEX)!!
+    private fun channelToIndex(channel: String): String? {
+        return readFromStorage(mutableListOf(channel), KeyType.CHANNELTOINDEX)
     }
 
     private fun indexToChannel(index: String): String {
@@ -877,23 +883,23 @@ class CourseAppImpl(storage: SecureStorage) : CourseApp{
 
     private fun updateAssocChannels(token: String, kind: UpdateLoggedStatus){
         // Assumption:: token is valid
-        val channels = getChannelsOf(token)
-        for (channel in channels){ // TODO ("refactor this to updateChannel fun")
+        val channelIndexesList = getChannelsOf(token)
+        for (channelIndex in channelIndexesList){ // TODO ("refactor this to updateChannel fun")
             var numOfLoggedInUsers: Long = 0
-            val str: String  = readFromStorage(mutableListOf(channel), KeyType.CHANNELLOGGED)!!
+            val str: String  = readFromStorage(mutableListOf(channelIndex), KeyType.CHANNELLOGGED)!!
             numOfLoggedInUsers = str.toLong()
 
             if (numOfLoggedInUsers == 0.toLong())                         // Sanity check
                 assert(kind == UpdateLoggedStatus.IN)
 
-            channelByActiveTree.delete(channel, numOfLoggedInUsers.toString())
+            channelByActiveTree.delete(channelIndex, numOfLoggedInUsers.toString())
             when(kind){
                 UpdateLoggedStatus.IN -> numOfLoggedInUsers++
                 UpdateLoggedStatus.OUT -> numOfLoggedInUsers--
             }
-            channelByActiveTree.insert(channel, numOfLoggedInUsers.toString())
+            channelByActiveTree.insert(channelIndex, numOfLoggedInUsers.toString())
 
-            writeToStorage(mutableListOf(channel), data = numOfLoggedInUsers.toString(), type = KeyType.CHANNELLOGGED)
+            writeToStorage(mutableListOf(channelIndex), data = numOfLoggedInUsers.toString(), type = KeyType.CHANNELLOGGED)
         }
     }
 
