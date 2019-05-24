@@ -297,29 +297,29 @@ class CourseAppTest {
         assertThrows<NoSuchEntityException> { courseApp.login("matan", "WrongPass") }
     }
 
-    @Test
-    @Order(26)
-    fun `selected amount of users are logged in at once`(){
-        assert(false)
-        val amount = 100
-        runWithTimeout(ofSeconds(10)) {
-            for (i in 1..amount) {
-                println(i)
-                val username = "user" + i
-                val password = "StrongPass" + i
-                courseApp.login(username, password)
-            }
-            //the following check is too heavy time-wise, and not needed.
-            //why we left it here? to get some ideas for future stress testing..
-            /*
-            val token = innerCourseApp.login("heroUser", "password")
-
-            for (i in 1..amount) {
-                assertDoesNotThrow { innerCourseApp.isUserLoggedIn(token, "user" + i) }
-            }
-            */
-        }
-    }
+//    @Test
+//    @Order(26)
+//    fun `selected amount of users are logged in at once`(){
+//        assert(false)
+//        val amount = 100
+//        runWithTimeout(ofSeconds(10)) {
+//            for (i in 1..amount) {
+//                println(i)
+//                val username = "user" + i
+//                val password = "StrongPass" + i
+//                courseApp.login(username, password)
+//            }
+//            //the following check is too heavy time-wise, and not needed.
+//            //why we left it here? to get some ideas for future stress testing..
+//            /*
+//            val token = innerCourseApp.login("heroUser", "password")
+//
+//            for (i in 1..amount) {
+//                assertDoesNotThrow { innerCourseApp.isUserLoggedIn(token, "user" + i) }
+//            }
+//            */
+//        }
+//    }
 
     @Test
     @Order(27)
@@ -1086,6 +1086,7 @@ class CourseAppTest {
 
         var tokenMembers = mutableListOf<String>()
         val godToken = courseApp.login(godPair.first, godPair.second) //assume all actions go throw him/her.
+        courseApp.channelJoin(godToken, channelName)
 
         for(pair in members) {
 
@@ -1095,7 +1096,7 @@ class CourseAppTest {
 
             courseApp.channelJoin(token, channelName)
             if(name in loggedOutMembersNames) {
-                courseApp.channelPart(token, channelName)
+                courseApp.logout(token)
             }
             else{
                 tokenMembers.add( token)
@@ -1122,7 +1123,7 @@ class CourseAppTest {
 
     @Test
     @Order(89)
-    fun `get number of active users in channel by admin that is not part of the channel`() {
+    fun `get number of total users in channel by admin that is not part of the channel`() {
         val listNames = mutableListOf<Pair<String,String>>()
         for(i in 1..10)
             listNames.add(Pair("User$i", "Pass$i"))
@@ -1133,7 +1134,9 @@ class CourseAppTest {
         val channel = makeChannel("#bestChannel", Pair("admin", "admin"),listNames, listLoggedOut )
         courseApp.channelPart(channel.first, "#bestChannel")
 
-        assertEquals(courseApp.numberOfActiveUsersInChannel(channel.first, "#bestChannel"), 5)
+        assertEquals(
+                courseApp.numberOfTotalUsersInChannel(channel.first, "#bestChannel"), 10
+        )
     }
 
     @Test

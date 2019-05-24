@@ -6,12 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="3078e906-f4ea-42e8-a364-e8ec716816be" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$make random number of channels$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$make random number of channels$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$selected amount of users are logged in at once$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with channel that is not exits$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with channel that is not exits$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with channel that was deleted$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with channel that was deleted$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with illegal token$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with illegal token$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with token that is not a member of the channel and not admin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with token that is not a member of the channel and not admin$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with channel that is not exits$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with channel that is not exits$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with channel that was deleted$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with channel that was deleted$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with illegal token$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with illegal token$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with token that is not a member of the channel and not admin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with token that is not a member of the channel and not admin$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIo.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/DataStoreIoTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/DataStoreIoTest.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -119,20 +125,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="202">
               <caret line="201" selection-start-line="201" selection-end-line="201" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="1232" column="14" lean-forward="true" selection-start-line="1232" selection-start-column="14" selection-end-line="1232" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -150,7 +147,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>delete</find>
       <find>TreeType</find>
       <find>tokentous</find>
       <find>TODO</find>
@@ -180,6 +176,7 @@
       <find>leave chanel</find>
       <find>gets invalid u</find>
       <find>try to kick user tha</find>
+      <find>makeChannel</find>
     </findStrings>
     <replaceStrings>
       <replace>storage</replace>
@@ -452,7 +449,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CourseAppTest">
+  <component name="RunManager" selected="JUnit.CourseAppTest.get number of total users in channel by admin that is not part of the channel">
     <configuration name="CourseAppTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="base.courseapp-app.test" />
       <extension name="coverage">
@@ -500,7 +497,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CourseAppTest.kick another operator from channel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CourseAppTest.get number of total users in channel by admin that is not part of the channel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="base.courseapp-app.test" />
       <extension name="coverage">
         <pattern>
@@ -510,7 +507,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign" />
       <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.CourseAppTest" />
-      <option name="METHOD_NAME" value="kick another operator from channel" />
+      <option name="METHOD_NAME" value="get number of total users in channel by admin that is not part of the channel" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -547,11 +544,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CourseAppTest.get number of total users in channel by admin that is not part of the channel" />
         <item itemvalue="JUnit.CourseAppTest" />
         <item itemvalue="JUnit.CourseAppTest.get number of active users in channel with zero active users" />
         <item itemvalue="JUnit.CourseAppTest.add up to 512 users to the channel" />
         <item itemvalue="JUnit.CourseAppTest.try to kick user that was a member of the channel" />
-        <item itemvalue="JUnit.CourseAppTest.kick another operator from channel" />
       </list>
     </recent_temporary>
   </component>
@@ -572,44 +569,44 @@
       <updated>1557841104294</updated>
       <workItem from="1557841105497" duration="1958000" />
       <workItem from="1557844354299" duration="21529000" />
-      <workItem from="1558511376213" duration="25868000" />
+      <workItem from="1558511376213" duration="26744000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CourseAppTest - 2019.05.24 at 11h 40m 36s.xml">
-      <configuration name="CourseAppTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourseAppTest_add_up_to_512_users_to_the_channel - 2019.05.24 at 11h 41m 35s.xml">
-      <configuration name="CourseAppTest.add up to 512 users to the channel" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourseAppTest_add_up_to_512_users_to_the_channel - 2019.05.24 at 11h 44m 57s.xml">
-      <configuration name="CourseAppTest.add up to 512 users to the channel" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourseAppTest - 2019.05.24 at 11h 45m 05s.xml">
-      <configuration name="CourseAppTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourseAppTest - 2019.05.24 at 11h 45m 08s.xml">
-      <configuration name="CourseAppTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourseAppTest - 2019.05.24 at 11h 46m 52s.xml">
-      <configuration name="CourseAppTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourseAppTest_get_number_of_active_users_in_channel_with_zero_active_users - 2019.05.24 at 11h 46m 56s.xml">
-      <configuration name="CourseAppTest.get number of active users in channel with zero active users" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourseAppTest_get_number_of_active_users_in_channel_with_zero_active_users - 2019.05.24 at 11h 51m 20s.xml">
-      <configuration name="CourseAppTest.get number of active users in channel with zero active users" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourseAppTest - 2019.05.24 at 11h 51m 33s.xml">
-      <configuration name="CourseAppTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="CourseAppTest - 2019.05.24 at 11h 52m 33s.xml">
       <configuration name="CourseAppTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="CourseAppTest_get_number_of_active_users_in_channel_with_zero_active_users - 2019.05.24 at 13h 23m 14s.xml">
+      <configuration name="CourseAppTest.get number of active users in channel with zero active users" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CourseAppTest - 2019.05.24 at 13h 24m 22s.xml">
+      <configuration name="CourseAppTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CourseAppTest - 2019.05.24 at 13h 25m 10s.xml">
+      <configuration name="CourseAppTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CourseAppTest - 2019.05.24 at 13h 26m 36s.xml">
+      <configuration name="CourseAppTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CourseAppTest - 2019.05.24 at 13h 26m 45s.xml">
+      <configuration name="CourseAppTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CourseAppTest - 2019.05.24 at 13h 27m 05s.xml">
+      <configuration name="CourseAppTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CourseAppTest_get_number_of_total_users_in_channel_by_admin_that_is_not_part_of_the_channel - 2019.05.24 at 13h 28m 55s.xml">
+      <configuration name="CourseAppTest.get number of total users in channel by admin that is not part of the channel" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CourseAppTest_get_number_of_total_users_in_channel_by_admin_that_is_not_part_of_the_channel - 2019.05.24 at 13h 29m 33s.xml">
+      <configuration name="CourseAppTest.get number of total users in channel by admin that is not part of the channel" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CourseAppTest_get_number_of_total_users_in_channel_by_admin_that_is_not_part_of_the_channel - 2019.05.24 at 13h 31m 31s.xml">
+      <configuration name="CourseAppTest.get number of total users in channel by admin that is not part of the channel" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119273000" />
+    <option name="totallyTimeSpent" value="120149000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1614" height="987" extended-state="0" />
@@ -624,8 +621,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.19217877" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26815644" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.26815644" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -660,6 +657,12 @@
           <line>129</line>
           <properties />
           <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt</url>
+          <line>1086</line>
+          <properties />
+          <option name="timeStamp" value="103" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -1024,17 +1027,17 @@ import java.util.LinkedHashMap</custom-info>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="1255" column="40" lean-forward="true" selection-start-line="1255" selection-start-column="40" selection-end-line="1255" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
           <caret line="201" selection-start-line="201" selection-end-line="201" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="1232" column="14" lean-forward="true" selection-start-line="1232" selection-start-column="14" selection-end-line="1232" selection-end-column="14" />
         </state>
       </provider>
     </entry>
