@@ -1,8 +1,6 @@
 package il.ac.technion.cs.softwaredesign
 
 import il.ac.technion.cs.softwaredesign.exceptions.*
-import il.ac.technion.cs.softwaredesign.storage.SecureStorage
-import java.lang.NullPointerException
 
 class CourseAppImpl(storage: DataStoreIo) : CourseApp{
 
@@ -81,7 +79,7 @@ class CourseAppImpl(storage: DataStoreIo) : CourseApp{
                 incTotalUsers()
                 incTotalLoggedInUsers()
 
-                if (numOfUsers() == 1.toLong())    // first user in the system       TODO(maybe change to total users from stats)
+                if (getNumberOfLoggedInUsers() == 1.toLong())    // first user in the system
                     setAdministrator(genToken)
 
                 return genToken
@@ -120,7 +118,7 @@ class CourseAppImpl(storage: DataStoreIo) : CourseApp{
             userLoggedIn -> {
                 writeUserStatus(token, registeredNotLoggedIn)
                 updateAssocChannels(token, UpdateLoggedStatus.OUT)
-                DecTotalLoggedInUsers()
+                decTotalLoggedInUsers()
             }
         }
     }
@@ -167,12 +165,12 @@ class CourseAppImpl(storage: DataStoreIo) : CourseApp{
         if (!isAdministrator(token))
             throw UserNotAuthorizedException()
 
-        val token = usernameToToken(username)
-        when (readUserStatus(token)) {
+        val userToken = usernameToToken(username)
+        when (readUserStatus(userToken)) {
             notRegistered -> throw NoSuchEntityException()
 
             registeredNotLoggedIn, userLoggedIn -> {
-                setAdministrator(token!!)
+                setAdministrator(userToken!!)
             }
         }
     }
@@ -191,7 +189,7 @@ class CourseAppImpl(storage: DataStoreIo) : CourseApp{
      * @throws UserNotAuthorizedException If [channel] does not exist and [token] belongs to a user who is not an
      * administrator.
      */
-    override fun channelJoin(token: String, channel: String) {              //TODO("check logic again")
+    override fun channelJoin(token: String, channel: String) {
         if (!validToken(token))
             throw InvalidTokenException()
 
@@ -281,7 +279,7 @@ class CourseAppImpl(storage: DataStoreIo) : CourseApp{
         if(readUserStatus(userToken) == notRegistered || !areUserAndChannelConnected(userToken!!, channel))
             throw NoSuchEntityException()
 
-        makeUserOperator(channel, userToken!!)
+        makeUserOperator(channel, userToken)
     }
 
     /**
@@ -332,7 +330,8 @@ class CourseAppImpl(storage: DataStoreIo) : CourseApp{
         if (!isAdministrator(token) && !areUserAndChannelConnected(token, channel))
             throw UserNotAuthorizedException()
 
-        return areUserAndChannelConnected(usernameToToken(username)!!, channel)
+        val userToken = usernameToToken(username) ?: return null
+        return areUserAndChannelConnected(userToken, channel)
     }
 
     /**
@@ -377,7 +376,7 @@ class CourseAppImpl(storage: DataStoreIo) : CourseApp{
         if (!isChannelExist(channel))
             throw NoSuchEntityException()
 
-        if (!isAdministrator(token) || !areUserAndChannelConnected(token, channel))
+        if (!isAdministrator(token) && !areUserAndChannelConnected(token, channel))
             throw UserNotAuthorizedException()
 
         return numberOfUsersInChannel(channel)
@@ -387,12 +386,12 @@ class CourseAppImpl(storage: DataStoreIo) : CourseApp{
 
     fun getTotalUsers(): Long {
         val str = readFromStorage(mutableListOf(), KeyType.TOTALUSERSAMOUNT)
-        return if(str == null) 0 else str.toLong()
+        return str?.toLong() ?: 0
     }
 
     fun getTotalActiveUsers(): Long {
         val str = readFromStorage(mutableListOf(), KeyType.ACTIVEUSERSAMOUNT)
-        return if(str == null) 0 else str.toLong()
+        return str?.toLong() ?: 0
     }
 
     fun getTop10User(): List<String>{
@@ -512,7 +511,7 @@ class CourseAppImpl(storage: DataStoreIo) : CourseApp{
     private fun insertToChannelsListOfUser(channel : String, token : String) {
         val str = readFromStorage(mutableListOf(token), KeyType.CHANNELS)
         val index = channelToIndex(channel)
-        var newStr = if (str == null) "$index" else "$str%$index"
+        val newStr = if (str == null) "$index" else "$str%$index"
 
         writeToStorage(mutableListOf(token), data = newStr, type = KeyType.CHANNELS)
     }
@@ -587,8 +586,8 @@ class CourseAppImpl(storage: DataStoreIo) : CourseApp{
         writeToStorage(mutableListOf(), data = totalLoggedUsers.toString(), type = KeyType.ACTIVEUSERSAMOUNT)
     }
 
-    private fun DecTotalLoggedInUsers(){
-        var totalLoggedUsers = 0
+    private fun decTotalLoggedInUsers(){
+        var totalLoggedUsers: Int
         val str = readFromStorage(mutableListOf(), KeyType.ACTIVEUSERSAMOUNT) !!
         totalLoggedUsers = str.toInt()
 
@@ -712,11 +711,6 @@ class CourseAppImpl(storage: DataStoreIo) : CourseApp{
         return readFromStorage(mutableListOf(channelIndex!!), KeyType.CHANNELLOGGED)!!.toLong()
     }
 
-    private fun numOfUsers(): Long{
-        val str = readFromStorage(mutableListOf(), KeyType.TOTALUSERSAMOUNT) ?: throw NullPointerException()
-        return str.toLong()
-    }
-
     //end readers////////////////////////////////////////////////////
 
     //tree wrappers:*********************************
@@ -762,12 +756,7 @@ class CourseAppImpl(storage: DataStoreIo) : CourseApp{
     private fun getNewUserIndex(username: String): String {
         val str = readFromStorage(mutableListOf(),  KeyType.INDEXUSERSYS)
 
-        var newIndex = 0
-        if (str == null) {
-            newIndex = 1
-        } else {
-            newIndex = str!!.toInt() + 1
-        }
+        val newIndex = if (str == null) 1 else str.toInt() + 1
 
         writeToStorage(mutableListOf(newIndex.toString()), newIndex.toString(), KeyType.INDEXUSERSYS)
         attachUsernameToIndex(username, newIndex.toString())
@@ -777,12 +766,7 @@ class CourseAppImpl(storage: DataStoreIo) : CourseApp{
     private fun getNewChannelIndex(channel: String): String{
         val str = readFromStorage(mutableListOf(),  KeyType.INDEXCHANNELSYS)
 
-        var newIndex = 0
-        if (str == null) {
-            newIndex = 1
-        } else {
-            newIndex = str!!.toInt() + 1
-        }
+        val newIndex = if (str == null) 1 else str.toInt() + 1
 
         writeToStorage(mutableListOf(newIndex.toString()), newIndex.toString(), KeyType.INDEXCHANNELSYS)
         attachChannelToIndex(channel, newIndex.toString())
@@ -799,7 +783,7 @@ class CourseAppImpl(storage: DataStoreIo) : CourseApp{
         writeToStorage(mutableListOf(index), channel, KeyType.INDEXTOCHANNEL)
     }
 
-    private fun createChannel(channel: String, token: String) {             //TODO("check logic again")
+    private fun createChannel(channel: String, token: String) {
         // Assumption: token is valid and is associated & the token is associated to admin
 
         updateAmountOfUsersInChannel(channel, 1)
@@ -817,11 +801,10 @@ class CourseAppImpl(storage: DataStoreIo) : CourseApp{
         insertToTotalChannelsTree(channel, 1)
         insertToActiveChannelsTree(channel, 1)
 
-
         insertToChannelsListOfUser(channel, token)
     }
 
-    private fun removeUserFromChannel(channel: String, token: String){      //TODO("check logic again")
+    private fun removeUserFromChannel(channel: String, token: String){
         // Assumption: token and channel is valid
 
         // update user channel list
@@ -884,10 +867,9 @@ class CourseAppImpl(storage: DataStoreIo) : CourseApp{
     private fun updateAssocChannels(token: String, kind: UpdateLoggedStatus){
         // Assumption:: token is valid
         val channelIndexesList = getChannelsOf(token)
-        for (channelIndex in channelIndexesList){ // TODO ("refactor this to updateChannel fun")
-            var numOfLoggedInUsers: Long = 0
+        for (channelIndex in channelIndexesList){
             val str: String  = readFromStorage(mutableListOf(channelIndex), KeyType.CHANNELLOGGED)!!
-            numOfLoggedInUsers = str.toLong()
+            var numOfLoggedInUsers = str.toLong()
 
             if (numOfLoggedInUsers == 0.toLong())                         // Sanity check
                 assert(kind == UpdateLoggedStatus.IN)
@@ -898,6 +880,9 @@ class CourseAppImpl(storage: DataStoreIo) : CourseApp{
                 UpdateLoggedStatus.OUT -> numOfLoggedInUsers--
             }
             channelByActiveTree.insert(channelIndex, numOfLoggedInUsers.toString())
+
+            val channel = indexToChannel(channelIndex)
+            decLoggedInChannel(channel)
 
             writeToStorage(mutableListOf(channelIndex), data = numOfLoggedInUsers.toString(), type = KeyType.CHANNELLOGGED)
         }

@@ -1,13 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" line="321" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="3078e906-f4ea-42e8-a364-e8ec716816be" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/5.3.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.3.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.3.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.3.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.3.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.3.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.3.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.3.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.3.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.3.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.3.1/vcsMetadata-1/vcsMetadata-1.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.3.1/vcsMetadata-1/vcsMetadata-1.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10ChannelsByActiveUsers$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10ChannelsByActiveUsers$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10ChannelsByTotalUsers$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10ChannelsByTotalUsers$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10User$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10User$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/build-history.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/counters.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/counters.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.len" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab_i" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/last-build.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10ChannelsByActiveUsers$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10ChannelsByActiveUsers$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10ChannelsByTotalUsers$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10ChannelsByTotalUsers$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10User$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10User$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel return false if user exists and not in channel $1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel return false if user exists and not in channel $1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel return null if user not exist $1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel return true  if user exists and  in channel $1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$make random number of channels$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$make random number of channels$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$selected amount of users are logged in at once$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with channel that is not exits$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with channel that is not exits$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with channel that was deleted$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with channel that was deleted$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with illegal token$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with illegal token$1.class" afterDir="false" />
@@ -17,7 +60,46 @@
       <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with illegal token$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with illegal token$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with token that is not a member of the channel and not admin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with token that is not a member of the channel and not admin$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/classes/kotlin/main/META-INF/library.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/classes/kotlin/main/META-INF/library.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/AvlTree$Node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/AvlTree.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/AvlTreeKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/DataStoreIo.class" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/DataStoreIo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/build-history.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/counters.tab" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/counters.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.len" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab_i" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/last-build.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/kotlin/libraryjar-classes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/libraryjar-classes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build/libs/library.jar" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/libs/library.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/out/production/classes/META-INF/base.library.main.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/library/out/production/classes/META-INF/base.library.main.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/AvlTree$Node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/AvlTree.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/AvlTreeKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/DataStoreIo.class" beforeDir="false" afterPath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/DataStoreIo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/AvlTree.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIo.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -115,12 +197,12 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="202">
-              <caret line="111" column="8" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="8" />
+              <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -128,8 +210,35 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="201" selection-start-line="201" selection-end-line="201" />
+            <state relative-caret-position="262">
+              <caret line="225" lean-forward="true" selection-start-line="225" selection-end-line="225" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteAvlTree.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="149" selection-start-line="149" selection-end-line="149" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15585">
+              <caret line="1048" lean-forward="true" selection-start-line="1048" selection-end-line="1048" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIo.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="55">
+              <caret line="13" column="107" selection-start-line="13" selection-start-column="107" selection-end-line="13" selection-end-column="107" />
             </state>
           </provider>
         </entry>
@@ -147,15 +256,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>TreeType</find>
-      <find>tokentous</find>
-      <find>TODO</find>
-      <find>write</find>
-      <find>username</find>
-      <find>userTo</find>
-      <find>usernameTo</find>
-      <find>parent</find>
-      <find>storage</find>
       <find>DataStoreIo</find>
       <find>top10</find>
       <find>setP</find>
@@ -177,6 +277,15 @@
       <find>gets invalid u</find>
       <find>try to kick user tha</find>
       <find>makeChannel</find>
+      <find>get number of total users in channel by admin t</find>
+      <find>that is not part of the channel</find>
+      <find>isUserIn</find>
+      <find>isUserInChannel return null</find>
+      <find>isUserInChannel</find>
+      <find>i</find>
+      <find>DecTotalLoggedInUsers</find>
+      <find>TOTALUSERSAMOUNT</find>
+      <find>numOfUsers</find>
     </findStrings>
     <replaceStrings>
       <replace>storage</replace>
@@ -214,11 +323,11 @@
         <option value="$PROJECT_DIR$/courseapp-app/build.gradle.kts" />
         <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppInitializerImpl.kt" />
         <option value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/DataStoreIoTest.kt" />
-        <option value="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIo.kt" />
         <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt" />
         <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt" />
-        <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" />
+        <option value="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIo.kt" />
         <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" />
       </list>
     </option>
   </component>
@@ -233,7 +342,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -398,7 +507,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -449,7 +558,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CourseAppTest.get number of total users in channel by admin that is not part of the channel">
+  <component name="RunManager" selected="JUnit.CourseAppTest">
     <configuration name="CourseAppTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="base.courseapp-app.test" />
       <extension name="coverage">
@@ -465,7 +574,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CourseAppTest.add up to 512 users to the channel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CourseAppTest.get number of active users in channel by admin that is not part of the channel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="base.courseapp-app.test" />
       <extension name="coverage">
         <pattern>
@@ -475,7 +584,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign" />
       <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.CourseAppTest" />
-      <option name="METHOD_NAME" value="add up to 512 users to the channel" />
+      <option name="METHOD_NAME" value="get number of active users in channel by admin that is not part of the channel" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CourseAppTest.get number of active users in channel by user in the channel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="base.courseapp-app.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign" />
+      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.CourseAppTest" />
+      <option name="METHOD_NAME" value="get number of active users in channel by user in the channel" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -497,7 +622,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CourseAppTest.get number of total users in channel by admin that is not part of the channel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CourseAppTest.get number of total users in channel by user in the channel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="base.courseapp-app.test" />
       <extension name="coverage">
         <pattern>
@@ -507,23 +632,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign" />
       <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.CourseAppTest" />
-      <option name="METHOD_NAME" value="get number of total users in channel by admin that is not part of the channel" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CourseAppTest.try to kick user that was a member of the channel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="base.courseapp-app.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign" />
-      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.CourseAppTest" />
-      <option name="METHOD_NAME" value="try to kick user that was a member of the channel" />
+      <option name="METHOD_NAME" value="get number of total users in channel by user in the channel" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -544,11 +653,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CourseAppTest.get number of total users in channel by admin that is not part of the channel" />
         <item itemvalue="JUnit.CourseAppTest" />
+        <item itemvalue="JUnit.CourseAppTest.get number of total users in channel by user in the channel" />
+        <item itemvalue="JUnit.CourseAppTest.get number of active users in channel by user in the channel" />
+        <item itemvalue="JUnit.CourseAppTest.get number of active users in channel by admin that is not part of the channel" />
         <item itemvalue="JUnit.CourseAppTest.get number of active users in channel with zero active users" />
-        <item itemvalue="JUnit.CourseAppTest.add up to 512 users to the channel" />
-        <item itemvalue="JUnit.CourseAppTest.try to kick user that was a member of the channel" />
       </list>
     </recent_temporary>
   </component>
@@ -569,50 +678,51 @@
       <updated>1557841104294</updated>
       <workItem from="1557841105497" duration="1958000" />
       <workItem from="1557844354299" duration="21529000" />
-      <workItem from="1558511376213" duration="26744000" />
+      <workItem from="1558511376213" duration="27900000" />
+      <workItem from="1558695214350" duration="2909000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CourseAppTest - 2019.05.24 at 11h 52m 33s.xml">
+    <history-entry file="CourseAppTest - 2019.05.24 at 14h 26m 34s.xml">
       <configuration name="CourseAppTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseAppTest_get_number_of_active_users_in_channel_with_zero_active_users - 2019.05.24 at 13h 23m 14s.xml">
-      <configuration name="CourseAppTest.get number of active users in channel with zero active users" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourseAppTest - 2019.05.24 at 13h 24m 22s.xml">
+    <history-entry file="CourseAppTest - 2019.05.24 at 14h 26m 50s.xml">
       <configuration name="CourseAppTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseAppTest - 2019.05.24 at 13h 25m 10s.xml">
+    <history-entry file="CourseAppTest_get_number_of_total_users_in_channel_by_user_in_the_channel - 2019.05.24 at 14h 27m 33s.xml">
+      <configuration name="CourseAppTest.get number of total users in channel by user in the channel" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CourseAppTest_get_number_of_total_users_in_channel_by_user_in_the_channel - 2019.05.24 at 14h 27m 35s.xml">
+      <configuration name="CourseAppTest.get number of total users in channel by user in the channel" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CourseAppTest_get_number_of_total_users_in_channel_by_user_in_the_channel - 2019.05.24 at 14h 27m 54s.xml">
+      <configuration name="CourseAppTest.get number of total users in channel by user in the channel" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CourseAppTest_get_number_of_total_users_in_channel_by_user_in_the_channel - 2019.05.24 at 14h 30m 37s.xml">
+      <configuration name="CourseAppTest.get number of total users in channel by user in the channel" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CourseAppTest_get_number_of_total_users_in_channel_by_user_in_the_channel - 2019.05.24 at 14h 30m 57s.xml">
+      <configuration name="CourseAppTest.get number of total users in channel by user in the channel" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CourseAppTest - 2019.05.24 at 14h 31m 07s.xml">
       <configuration name="CourseAppTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseAppTest - 2019.05.24 at 13h 26m 36s.xml">
+    <history-entry file="CourseAppTest - 2019.05.24 at 14h 34m 58s.xml">
       <configuration name="CourseAppTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseAppTest - 2019.05.24 at 13h 26m 45s.xml">
+    <history-entry file="CourseAppTest - 2019.05.24 at 14h 35m 39s.xml">
       <configuration name="CourseAppTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourseAppTest - 2019.05.24 at 13h 27m 05s.xml">
-      <configuration name="CourseAppTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourseAppTest_get_number_of_total_users_in_channel_by_admin_that_is_not_part_of_the_channel - 2019.05.24 at 13h 28m 55s.xml">
-      <configuration name="CourseAppTest.get number of total users in channel by admin that is not part of the channel" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourseAppTest_get_number_of_total_users_in_channel_by_admin_that_is_not_part_of_the_channel - 2019.05.24 at 13h 29m 33s.xml">
-      <configuration name="CourseAppTest.get number of total users in channel by admin that is not part of the channel" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourseAppTest_get_number_of_total_users_in_channel_by_admin_that_is_not_part_of_the_channel - 2019.05.24 at 13h 31m 31s.xml">
-      <configuration name="CourseAppTest.get number of total users in channel by admin that is not part of the channel" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120149000" />
+    <option name="totallyTimeSpent" value="124214000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1614" height="987" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23791349" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24045801" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -621,8 +731,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.19217877" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.26815644" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26815644" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -633,7 +743,6 @@
       <window_info anchor="bottom" id="Messages" order="11" weight="0.2480447" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" />
-      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.32951653" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -644,6 +753,7 @@
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.32951653" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -657,12 +767,6 @@
           <line>129</line>
           <properties />
           <option name="timeStamp" value="50" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt</url>
-          <line>1086</line>
-          <properties />
-          <option name="timeStamp" value="103" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -696,20 +800,6 @@ import java.util.LinkedHashMap</custom-info>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Downloads/Assignment0-3421001554725919/base/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIo.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="40" lean-forward="true" selection-start-column="40" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../HW0/base/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseApp.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="6" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../HW0/base/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -809,13 +899,6 @@ import java.util.LinkedHashMap</custom-info>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-engine/5.5.0-M1/d6bfee6b76420550d757d324dca1193b766506bc/junit-jupiter-engine-5.5.0-M1-sources.jar!/org/junit/jupiter/engine/descriptor/TestMethodTestDescriptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="184" selection-start-line="184" selection-end-line="184" />
         </state>
       </provider>
     </entry>
@@ -934,16 +1017,6 @@ import java.util.LinkedHashMap</custom-info>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/DataStoreIoTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="38" column="75" selection-start-line="38" selection-start-column="75" selection-end-line="38" selection-end-column="75" />
-          <folding>
-            <element signature="e#48#306#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/RemoteNodeTest.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -961,13 +1034,6 @@ import java.util.LinkedHashMap</custom-info>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIo.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -982,34 +1048,10 @@ import java.util.LinkedHashMap</custom-info>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteAvlTree.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="152" selection-start-line="152" selection-end-line="152" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.5.0-M1/9d5ac902d2cac0033368cea686f0f19f4e35d19d/junit-jupiter-api-5.5.0-M1-sources.jar!/org/junit/jupiter/api/Assertions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="2972" selection-start-line="2972" selection-end-line="2972" />
-          <folding>
-            <element signature="e#109034#109035#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.5.0-M1/9d5ac902d2cac0033368cea686f0f19f4e35d19d/junit-jupiter-api-5.5.0-M1-sources.jar!/org/junit/jupiter/api/AssertDoesNotThrow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
           <caret line="54" selection-start-line="54" selection-end-line="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.5.0-M1/212dc68b153daa5df01db995ff163f0335ad1398/junit-platform-commons-1.5.0-M1-sources.jar!/org/junit/platform/commons/util/ReflectionUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="677" selection-start-line="677" selection-end-line="677" />
         </state>
       </provider>
     </entry>
@@ -1020,24 +1062,92 @@ import java.util.LinkedHashMap</custom-info>
         </state>
       </provider>
     </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.5.0-M1/9d5ac902d2cac0033368cea686f0f19f4e35d19d/junit-jupiter-api-5.5.0-M1-sources.jar!/org/junit/jupiter/api/AssertNull.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="e#799#800#0" expanded="true" />
+            <element signature="e#839#840#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.5.0-M1/9d5ac902d2cac0033368cea686f0f19f4e35d19d/junit-jupiter-api-5.5.0-M1-sources.jar!/org/junit/jupiter/api/Assertions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="257" selection-start-line="257" selection-end-line="257" />
+          <folding>
+            <element signature="e#9418#9419#0" expanded="true" />
+            <element signature="e#108978#108979#0" expanded="true" />
+            <element signature="e#109034#109035#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.5.0-M1/9d5ac902d2cac0033368cea686f0f19f4e35d19d/junit-jupiter-api-5.5.0-M1-sources.jar!/org/junit/jupiter/api/AssertionUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
+          <folding>
+            <element signature="e#2242#2243#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-engine/5.5.0-M1/d6bfee6b76420550d757d324dca1193b766506bc/junit-jupiter-engine-5.5.0-M1-sources.jar!/org/junit/jupiter/engine/descriptor/TestMethodTestDescriptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10">
+          <caret line="172" column="13" lean-forward="true" selection-start-line="172" selection-start-column="13" selection-end-line="172" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.5.0-M1/212dc68b153daa5df01db995ff163f0335ad1398/junit-platform-commons-1.5.0-M1-sources.jar!/org/junit/platform/commons/util/ReflectionUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="677" selection-start-line="677" selection-end-line="677" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/DataStoreIoTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIo.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="13" column="107" selection-start-line="13" selection-start-column="107" selection-end-line="13" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
-          <caret line="111" column="8" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="8" />
+          <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteAvlTree.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="149" selection-start-line="149" selection-end-line="149" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="1255" column="40" lean-forward="true" selection-start-line="1255" selection-start-column="40" selection-end-line="1255" selection-end-column="40" />
+        <state relative-caret-position="15585">
+          <caret line="1048" lean-forward="true" selection-start-line="1048" selection-end-line="1048" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="201" selection-start-line="201" selection-end-line="201" />
+        <state relative-caret-position="262">
+          <caret line="225" lean-forward="true" selection-start-line="225" selection-end-line="225" />
         </state>
       </provider>
     </entry>

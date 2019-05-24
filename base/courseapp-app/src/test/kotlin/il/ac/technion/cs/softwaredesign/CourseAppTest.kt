@@ -325,7 +325,7 @@ class CourseAppTest {
     @Order(27)
     fun `first user in the system becomes administrator automatically`() {
         val adminToken = courseApp.login("firstUser", "pass")
-        val userToken = courseApp.login("regUser", "pass2")
+        courseApp.login("regUser", "pass2")
 
         assertDoesNotThrow { courseApp.makeAdministrator(adminToken, "regUser") }
     }
@@ -350,9 +350,9 @@ class CourseAppTest {
     @Test
     @Order(29)
     fun `makeAdministrator gets token that is not associated to administrator`() {
-        val adminToken = courseApp.login("firstUser", "pass")
+        courseApp.login("firstUser", "pass")
         val userToken = courseApp.login("regUser", "pass2")
-        val otherUserToken = courseApp.login("otherUser", "pass3")
+        courseApp.login("otherUser", "pass3")
 
         assertThrows<UserNotAuthorizedException> { courseApp.makeAdministrator(userToken, "otherUser") }
     }
@@ -361,7 +361,7 @@ class CourseAppTest {
     @Order(30)
     fun `makeAdministrator gets invalid user`() {
         val adminToken = courseApp.login("firstUser", "pass")
-        val userToken = courseApp.login("regUser", "pass2")
+        courseApp.login("regUser", "pass2")
 
         assertThrows<NoSuchEntityException> { courseApp.makeAdministrator(adminToken, "InvalidUser") }
     }
@@ -453,7 +453,7 @@ class CourseAppTest {
     @Test
     @Order(39)
     fun `invalid token(not of admin) tries to create new channel`() {
-        val adminT = courseApp.login("Ron", "IreallyLikeAvlss")
+        courseApp.login("Ron", "IreallyLikeAvlss")
         val notAdminToken = courseApp.login("Person", "passssss")
         assertThrows<UserNotAuthorizedException> {courseApp.channelJoin(notAdminToken, "#SomeChannel#___")}
     }
@@ -495,7 +495,7 @@ class CourseAppTest {
     fun `leave channel with illegal token(existing channel)`() {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.channelJoin(adminToken, "#TestChannel")
-        val regToken = courseApp.login("reg", "pass")
+        courseApp.login("reg", "pass")
 
         assertThrows<InvalidTokenException> { courseApp.channelKick("SomeOtherToken", "#TestChannel", "reg") }
     }
@@ -505,7 +505,7 @@ class CourseAppTest {
     fun `leave channel with illegal token(not existing channel)`() {
         val adminToken = courseApp.login("admin", "pass")
         courseApp.channelJoin(adminToken, "#TestChannel")
-        val regToken = courseApp.login("reg", "pass")
+        courseApp.login("reg", "pass")
 
         assertThrows<InvalidTokenException> { courseApp.channelKick("SomeOtherToken", "#NotExistingChannel", "reg") }
     }
@@ -1041,12 +1041,10 @@ class CourseAppTest {
     @Order(85)
     fun `isUserInChannel return null if user not exist `() {
         val adminToken = courseApp.login("admin", "pass")
-        val regUserToken = courseApp.login("regUser", "pass")
+        courseApp.login("regUser", "pass")
         courseApp.channelJoin(adminToken, "#greatChannel")
 
-        assertNull {
-            courseApp.isUserInChannel(adminToken, "#greatChannel", "Asat"  )
-        }
+        assert (courseApp.isUserInChannel(adminToken, "#greatChannel", "Asat"  ) == null)
     }
 
     @Test
@@ -1065,9 +1063,8 @@ class CourseAppTest {
 
     @Test
     @Order(87)
-    fun `isUserInChannel return true  if user exists and  in channel `() {
+    fun `isUserInChannel return true if user exists and in channel`() {
         val adminToken = courseApp.login("admin", "pass")
-        courseApp.login("regUser", "pass")
         courseApp.channelJoin(adminToken, "#greatChannel")
         val regUserToken = courseApp.login("regUser", "pass")
         courseApp.channelJoin(regUserToken, "#greatChannel")
@@ -1123,7 +1120,7 @@ class CourseAppTest {
 
     @Test
     @Order(89)
-    fun `get number of total users in channel by admin that is not part of the channel`() {
+    fun `get number of active users in channel by admin that is not part of the channel`() {
         val listNames = mutableListOf<Pair<String,String>>()
         for(i in 1..10)
             listNames.add(Pair("User$i", "Pass$i"))
@@ -1134,9 +1131,7 @@ class CourseAppTest {
         val channel = makeChannel("#bestChannel", Pair("admin", "admin"),listNames, listLoggedOut )
         courseApp.channelPart(channel.first, "#bestChannel")
 
-        assertEquals(
-                courseApp.numberOfTotalUsersInChannel(channel.first, "#bestChannel"), 10
-        )
+        assertEquals(courseApp.numberOfActiveUsersInChannel(channel.first, "#bestChannel"), 5)
     }
 
     @Test
@@ -1212,7 +1207,9 @@ class CourseAppTest {
         val channel = makeChannel("#bestChannel", Pair("admin", "admin"),listNames, listLoggedOut )
         courseApp.channelPart(channel.first, "#bestChannel")
 
-        assertEquals(courseApp.numberOfTotalUsersInChannel(channel.first, "#bestChannel"), 10)
+        assertEquals(
+                courseApp.numberOfTotalUsersInChannel(channel.first, "#bestChannel"), 10
+        )
     }
 
     @Test

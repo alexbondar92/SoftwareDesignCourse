@@ -11,7 +11,7 @@ class DataStoreIo {
     val cache : HashMap<String, String>
     constructor(storage: SecureStorage) {
         this.storage = storage
-        this.cache = HashMap()                                  // Local cache for boosting the performence
+        this.cache = HashMap()                                  // Local cache for boosting the performance
     }
     fun write(key: String, data: String) {
         this.cache[key] = data                                  // Update the cache
@@ -29,6 +29,8 @@ class DataStoreIo {
         val tmpKey = key.toByteArray()
         val tmp = this.storage.read(tmpKey) ?: return null
         val charset = Charsets.UTF_8
-        return tmp.toString(charset)
+        val value = tmp.toString(charset)
+        this.cache[key] = value                                 // Update the cache
+        return value
     }
 }
