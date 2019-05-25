@@ -1,15 +1,19 @@
 package il.ac.technion.cs.softwaredesign
 
+import com.authzee.kotlinguice4.getInstance
+import com.google.inject.Guice
 import org.junit.jupiter.api.Test
 
 class CourseAppStatisticsTest {
 
-    private val courseAppInitializer = CourseAppInitializerImpl()
-    private val appStatistics: CourseAppStatistics
-    private val storage: DataStoreIo = DataStoreIo(FakeSecureStorage())
+    private val injector = Guice.createInjector(CourseAppModule()/*, SecureStorageModule()*/)
+
+    private val courseAppInitializer = injector.getInstance<CourseAppInitializer>()
+
+    private val courseApp = injector.getInstance<CourseApp>()
+    private val appStatistics = injector.getInstance<CourseAppStatistics>()
 
     init {
-        appStatistics = CourseAppStatisticsImpl(storage)
         courseAppInitializer.setup()
     }
 
@@ -24,10 +28,7 @@ class CourseAppStatisticsTest {
 
     @Test
     fun `valid number of totalUsers`() {
-        val courseApp = CourseAppImpl(storage)
-
         for (i in 1..100) {
-            println("i is: $i")
             courseApp.login("user$i", "pass$i")
         }
 
@@ -36,8 +37,6 @@ class CourseAppStatisticsTest {
 
     @Test
     fun `valid number of loggedUsers`(){
-        val courseApp = CourseAppImpl(storage)
-
         for (i in 1..100) {
             courseApp.login("user$i", "pass$i")
         }
@@ -47,7 +46,6 @@ class CourseAppStatisticsTest {
 
     @Test
     fun `valid number of totalUsers after logout`(){
-        val courseApp = CourseAppImpl(storage)
         val dict = hashMapOf<Int, String>()
 
         for (i in 1..100) {
@@ -63,11 +61,9 @@ class CourseAppStatisticsTest {
 
     @Test
     fun `get top 10 users - basic 1`(){
-        val courseApp = CourseAppImpl(storage)
         val userDict = hashMapOf<Int, String>()
 
         for (i in 1..20) {
-            println("logging: $i")
             userDict[i] = courseApp.login("user$i", "pass$i")
         }
 
@@ -77,7 +73,6 @@ class CourseAppStatisticsTest {
 
     @Test
     fun `get top 10 users - basic 2`() {
-        val courseApp = CourseAppImpl(storage)
         val userDict = hashMapOf<Int, String>()
 
         for (i in 1..100) {

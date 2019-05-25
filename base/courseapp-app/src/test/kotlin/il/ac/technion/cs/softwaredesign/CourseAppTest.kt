@@ -1,27 +1,27 @@
 package il.ac.technion.cs.softwaredesign
 
+import com.authzee.kotlinguice4.getInstance
+import com.google.inject.Guice
 import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.present
 import il.ac.technion.cs.softwaredesign.exceptions.*
+import il.ac.technion.cs.softwaredesign.storage.SecureStorageModule
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.*
 import org.junit.jupiter.api.assertThrows
-import java.nio.charset.Charset
 import java.time.Duration.ofSeconds
 import kotlin.random.Random
 
 class CourseAppTest {
-    private val courseAppInitializer = CourseAppInitializerImpl()
-    private val courseApp: CourseApp
-    private val courseAppReboot: CourseApp
+    private val injector = Guice.createInjector(CourseAppModule()/*, SecureStorageModule()*/)
+
+    private val courseAppInitializer = injector.getInstance<CourseAppInitializer>()
+
+    private val courseApp = injector.getInstance<CourseApp>()
+    private val courseAppReboot = injector.getInstance<CourseApp>()
 
     init {
-        val storageFactory = FakeSecureStorageFactory()
-        val session = storageFactory.open("main".toByteArray(Charset.defaultCharset()))
-        val storage = DataStoreIo(session)
         courseAppInitializer.setup()
-        courseApp = CourseAppImpl(storage)
-        courseAppReboot = CourseAppImpl(storage)
     }
 
     @Test
@@ -71,6 +71,7 @@ class CourseAppTest {
     @Order(5)
     fun `log in user twice should throw exception`(){
         courseApp.login("matan", "s3kr1t")
+
         assertThrows<UserAlreadyLoggedInException> {
             runWithTimeout(ofSeconds(10)) { courseApp.login("matan", "s3kr1t") }
         }

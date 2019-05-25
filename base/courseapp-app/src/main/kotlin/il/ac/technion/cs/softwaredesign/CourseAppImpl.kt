@@ -1,8 +1,9 @@
 package il.ac.technion.cs.softwaredesign
 
+import com.google.inject.Inject
 import il.ac.technion.cs.softwaredesign.exceptions.*
 
-class CourseAppImpl(storage: DataStoreIo) : CourseApp{
+class CourseAppImpl: CourseApp{
 
     private val userLoggedIn = "1"
     private val passwordSignedIn = "1"
@@ -10,10 +11,17 @@ class CourseAppImpl(storage: DataStoreIo) : CourseApp{
     private val notRegistered = null
     private val isAdmin = 1
 
-    private val storageIo = storage
-    private var usersTree = RemoteAvlTree("AvlUsers",storageIo)
-    private var channelByMembersTree = RemoteAvlTree("AvlChannel1",storageIo)
-    private var channelByActiveTree = RemoteAvlTree("AvlChannel2",storageIo)
+    private val storageIo: DataStoreIo
+    private var usersTree: RemoteAvlTree
+    private var channelByMembersTree: RemoteAvlTree
+    private var channelByActiveTree: RemoteAvlTree
+
+    @Inject constructor(storage: DataStoreIo) {
+        storageIo = storage
+        usersTree = RemoteAvlTree("AvlUsers",storageIo)
+        channelByMembersTree = RemoteAvlTree("AvlChannel1",storageIo)
+        channelByActiveTree = RemoteAvlTree("AvlChannel2",storageIo)
+    }
 
     enum class UserStatusInChannel(val type:Int){
         Unrelated(0),

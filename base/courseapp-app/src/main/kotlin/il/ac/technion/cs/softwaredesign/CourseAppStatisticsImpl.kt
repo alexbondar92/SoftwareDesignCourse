@@ -1,8 +1,15 @@
 package il.ac.technion.cs.softwaredesign
 
-class CourseAppStatisticsImpl(storage: DataStoreIo) : CourseAppStatistics {
-    private val storageIo = storage
-    private val cApp: CourseAppImpl = CourseAppImpl(storageIo)
+import com.google.inject.Inject
+
+class CourseAppStatisticsImpl: CourseAppStatistics {
+    private val storageIo: DataStoreIo
+    private val cApp: CourseAppImpl
+
+    @Inject constructor(storage: DataStoreIo) {
+        storageIo = storage
+        cApp = CourseAppImpl(storageIo)
+    }
 
     /**
      * Count the total number of users, both logged-in and logged-out, in the system.

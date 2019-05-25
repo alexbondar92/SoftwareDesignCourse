@@ -5,11 +5,12 @@ import il.ac.technion.cs.softwaredesign.FakeSecureStorage
 import il.ac.technion.cs.softwaredesign.RemoteNode
 import org.junit.jupiter.api.Test
 
-
 class RemoteNodeTest {
+
+    val dataStore = DataStoreIo(FakeSecureStorage())
+
     @Test
     fun `insert node - basic 1`() {
-        val dataStore = DataStoreIo(FakeSecureStorage())
         val mainKey = 10.toString()
         val secondaryKey = 20.toString()
         val treeName = "MyTree"
@@ -22,7 +23,6 @@ class RemoteNodeTest {
 
     @Test
     fun `set left son`() {
-        val dataStore = DataStoreIo(FakeSecureStorage())
         val treeName = "MyTree"
         val node = RemoteNode(dataStore, treeName, 10.toString(), 20.toString())       // write the new node to the server
         val son = RemoteNode(dataStore, treeName, 11.toString(), 21.toString())  // write the new node to the server
@@ -35,7 +35,6 @@ class RemoteNodeTest {
 
     @Test
     fun `set right son`() {
-        val dataStore = DataStoreIo(FakeSecureStorage())
         val treeName = "MyTree"
         val node = RemoteNode(dataStore, treeName, 10.toString(), 20.toString())       // write the new node to the server
         val son = RemoteNode(dataStore, treeName, 11.toString(), 21.toString())  // write the new node to the server
@@ -48,7 +47,6 @@ class RemoteNodeTest {
 
     @Test
     fun `set parent`() {
-        val dataStore = DataStoreIo(FakeSecureStorage())
         val treeName = "MyTree"
         val node = RemoteNode(dataStore, treeName, 10.toString(), 20.toString())       // write the new node to the server
         val son = RemoteNode(dataStore, treeName, 11.toString(), 21.toString())  // write the new node to the server
@@ -61,7 +59,6 @@ class RemoteNodeTest {
 
     @Test
     fun `set balance`() {
-        val dataStore = DataStoreIo(FakeSecureStorage())
         val treeName = "MyTree"
         val node = RemoteNode(dataStore, treeName, 10.toString(), 20.toString())       // write the new node to the server
 
@@ -73,7 +70,6 @@ class RemoteNodeTest {
 
     @Test
     fun `reset node`() {
-        val dataStore = DataStoreIo(FakeSecureStorage())
         val treeName = "MyTree"
         val node = RemoteNode(dataStore, treeName, 10.toString(), 20.toString())       // write the new node to the server
 

@@ -1,5 +1,6 @@
 package il.ac.technion.cs.softwaredesign
 
+import com.google.inject.Inject
 import il.ac.technion.cs.softwaredesign.storage.SecureStorage
 
 /*
@@ -9,7 +10,8 @@ to limit the dependency of the data-store library, we use a wrapper class for ea
 class DataStoreIo {
     val storage: SecureStorage
     val cache : HashMap<String, String>
-    constructor(storage: SecureStorage) {
+
+    @Inject constructor(storage: SecureStorage) {
         this.storage = storage
         this.cache = HashMap()                                  // Local cache for boosting the performance
     }

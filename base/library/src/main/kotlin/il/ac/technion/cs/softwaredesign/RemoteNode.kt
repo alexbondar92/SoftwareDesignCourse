@@ -47,7 +47,7 @@ class RemoteNode : Comparable<RemoteNode>{
         this.rightNodeKey = null
         this.parentKey = null
 
-        flushNode()             // TODO ("check logic of this flush")
+        flushNode()
     }
 
     fun getParent(): RemoteNode? {
