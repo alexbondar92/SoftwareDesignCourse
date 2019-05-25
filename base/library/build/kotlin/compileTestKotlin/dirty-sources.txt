@@ -1,4 +1,0 @@
-C:\Users\RonHome\IdeaProjects\GitCourseApp\base\library\src\test\kotlin\il\ac\technion\cs\softwaredesign\tests\DataStoreIoTest.kt
-C:\Users\RonHome\IdeaProjects\GitCourseApp\base\library\src\test\kotlin\il\ac\technion\cs\softwaredesign\tests\remoteAvlTreeTest.kt
-C:\Users\RonHome\IdeaProjects\GitCourseApp\base\library\src\test\kotlin\il\ac\technion\cs\softwaredesign\tests\RemoteNodeTest.kt
-C:\Users\RonHome\IdeaProjects\GitCourseApp\base\library\src\test\kotlin\il\ac\technion\cs\softwaredesign\tests\utils.kt

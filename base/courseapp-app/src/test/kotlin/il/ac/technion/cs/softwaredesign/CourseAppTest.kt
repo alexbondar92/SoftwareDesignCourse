@@ -13,7 +13,7 @@ import java.time.Duration.ofSeconds
 import kotlin.random.Random
 
 class CourseAppTest {
-    private val injector = Guice.createInjector(CourseAppModule()/*, SecureStorageModule()*/)
+    private val injector = Guice.createInjector(CourseAppModule(), FakeSecureStorageModule())
 
     private val courseAppInitializer = injector.getInstance<CourseAppInitializer>()
 

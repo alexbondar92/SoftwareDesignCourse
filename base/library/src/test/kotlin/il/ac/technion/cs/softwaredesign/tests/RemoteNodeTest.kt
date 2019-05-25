@@ -2,12 +2,13 @@ package il.ac.technion.cs.softwaredesign.tests
 
 import il.ac.technion.cs.softwaredesign.DataStoreIo
 import il.ac.technion.cs.softwaredesign.FakeSecureStorage
+import il.ac.technion.cs.softwaredesign.FakeSecureStorageFactory
 import il.ac.technion.cs.softwaredesign.RemoteNode
 import org.junit.jupiter.api.Test
 
 class RemoteNodeTest {
 
-    val dataStore = DataStoreIo(FakeSecureStorage())
+    val dataStore = DataStoreIo(FakeSecureStorageFactory())
 
     @Test
     fun `insert node - basic 1`() {

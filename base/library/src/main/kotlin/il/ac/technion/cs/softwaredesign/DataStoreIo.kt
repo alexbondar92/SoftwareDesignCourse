@@ -2,6 +2,8 @@ package il.ac.technion.cs.softwaredesign
 
 import com.google.inject.Inject
 import il.ac.technion.cs.softwaredesign.storage.SecureStorage
+import il.ac.technion.cs.softwaredesign.storage.SecureStorageFactory
+import java.nio.charset.Charset
 
 /*
 reason for this class existence:
@@ -11,8 +13,8 @@ class DataStoreIo {
     val storage: SecureStorage
     val cache : HashMap<String, String>
 
-    @Inject constructor(storage: SecureStorage) {
-        this.storage = storage
+    @Inject constructor(storageFactory: SecureStorageFactory) {
+        this.storage = storageFactory.open("remote secure storage".toByteArray(Charset.defaultCharset()))
         this.cache = HashMap()                                  // Local cache for boosting the performance
     }
     fun write(key: String, data: String) {

@@ -5,13 +5,14 @@ import org.junit.jupiter.api.Test
 import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.present
 import il.ac.technion.cs.softwaredesign.FakeSecureStorage
+import il.ac.technion.cs.softwaredesign.FakeSecureStorageFactory
 import java.time.Duration.*
 
 class DataStoreIoTest {
 
     @Test
     fun `returns null for unused key`() {
-        val storage = DataStoreIo(FakeSecureStorage())
+        val storage = DataStoreIo(FakeSecureStorageFactory())
 
         val ret = storage.read(key = "Unknown Key")
 
@@ -20,7 +21,7 @@ class DataStoreIoTest {
 
     @Test
     fun `write and read is consistent`() {
-        val storage = DataStoreIo(FakeSecureStorage())
+        val storage = DataStoreIo(FakeSecureStorageFactory())
 
         val value = "Some Data Sent to Storage"
         storage.write("My Key", value)
@@ -30,7 +31,7 @@ class DataStoreIoTest {
 
     @Test
     fun `read returns data for 1 ms per byte`() {
-        val storage = DataStoreIo(FakeSecureStorage())
+        val storage = DataStoreIo(FakeSecureStorageFactory())
 
         val value = "Long Long Long Long Long Long Long Long String"
         val valueLength = value.length.toLong()

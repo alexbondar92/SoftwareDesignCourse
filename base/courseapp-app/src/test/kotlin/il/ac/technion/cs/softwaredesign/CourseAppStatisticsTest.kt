@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test
 
 class CourseAppStatisticsTest {
 
-    private val injector = Guice.createInjector(CourseAppModule()/*, SecureStorageModule()*/)
+    private val injector = Guice.createInjector(CourseAppModule(), FakeSecureStorageModule())
 
     private val courseAppInitializer = injector.getInstance<CourseAppInitializer>()
 

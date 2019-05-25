@@ -2,12 +2,13 @@ package il.ac.technion.cs.softwaredesign.tests
 
 import il.ac.technion.cs.softwaredesign.DataStoreIo
 import il.ac.technion.cs.softwaredesign.FakeSecureStorage
+import il.ac.technion.cs.softwaredesign.FakeSecureStorageFactory
 import il.ac.technion.cs.softwaredesign.RemoteAvlTree
 import org.junit.jupiter.api.Test
 
 class RemoteAvlTreeTest {
 
-    val storage = DataStoreIo(FakeSecureStorage())
+    val storage = DataStoreIo(FakeSecureStorageFactory())
 
     @Test
     fun `insert - basic 1`() {
@@ -46,9 +47,8 @@ class RemoteAvlTreeTest {
 
     @Test
     fun `insert 20 elements`() {
-        val dataStore = DataStoreIo(FakeSecureStorage())
         val treeName = "MyTree"
-        val tree = RemoteAvlTree(treeName, dataStore)
+        val tree = RemoteAvlTree(treeName, storage)
 
         for (i in 1..20) {
             tree.insert(i.toString(), i.toString())
