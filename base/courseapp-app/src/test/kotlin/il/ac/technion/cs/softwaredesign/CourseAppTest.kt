@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.*
 import org.junit.jupiter.api.assertThrows
 import java.nio.charset.Charset
-import java.time.Duration
 import java.time.Duration.ofSeconds
 import kotlin.random.Random
 
@@ -115,11 +114,12 @@ class CourseAppTest {
         val charPool : List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
         val token = courseApp.login("matan", "s3kr1t")
         var differentToken : String = token
-        while (differentToken == token) {   //creating a random token for consistency and validity
+        //creating a random token for consistency and validity
+        while (differentToken == token) {
             differentToken = (1..STRING_LENGTH)
                     .map { Random.nextInt(0, charPool.size) }
                     .map(charPool::get)
-                    .joinToString("");
+                    .joinToString("")
         }
 
         assertThrows<InvalidTokenException> {runWithTimeout(ofSeconds(10)) { courseApp.logout(differentToken) }}
@@ -205,7 +205,7 @@ class CourseAppTest {
     fun `token is illegal at logout`(){
         val token = courseApp.login("matan", "StrongPass")
 
-        assertThrows<InvalidTokenException> { courseApp.logout("WrongToken"+ token) }
+        assertThrows<InvalidTokenException> { courseApp.logout("WrongToken$token") }
     }
 
     @Test
@@ -213,7 +213,7 @@ class CourseAppTest {
     fun `token is illegal at is isUserLoggedin`(){
         val token = courseApp.login("matan", "StrongPass")
 
-        assertThrows<InvalidTokenException> { courseApp.isUserLoggedIn("WrongToken"+ token, "matan") }
+        assertThrows<InvalidTokenException> { courseApp.isUserLoggedIn("WrongToken$token", "matan") }
     }
 
     @Test
@@ -250,9 +250,8 @@ class CourseAppTest {
         for (i in 0..10){
             tokens.add(courseApp.login("user$i", "pass$i"))
         }
-        for (i in 0..5){
+        for (i in 0..5)
             courseApp.logout(tokens[i])
-        }
 
         for (i in 0..5){
             assertThrows<InvalidTokenException> { courseAppReboot.isUserLoggedIn(tokens[i], "matan$i") }
@@ -297,29 +296,20 @@ class CourseAppTest {
         assertThrows<NoSuchEntityException> { courseApp.login("matan", "WrongPass") }
     }
 
-//    @Test
-//    @Order(26)
-//    fun `selected amount of users are logged in at once`(){
-//        assert(false)
-//        val amount = 100
-//        runWithTimeout(ofSeconds(10)) {
-//            for (i in 1..amount) {
-//                println(i)
-//                val username = "user" + i
-//                val password = "StrongPass" + i
-//                courseApp.login(username, password)
-//            }
-//            //the following check is too heavy time-wise, and not needed.
-//            //why we left it here? to get some ideas for future stress testing..
-//            /*
-//            val token = innerCourseApp.login("heroUser", "password")
-//
-//            for (i in 1..amount) {
-//                assertDoesNotThrow { innerCourseApp.isUserLoggedIn(token, "user" + i) }
-//            }
-//            */
-//        }
-//    }
+    @Test
+    @Order(26)
+    fun `operator title is removed after leaving the channel` () {
+        val adminToken = courseApp.login("admin", "pass")
+        courseApp.channelJoin(adminToken, "#TestChannel")
+        val operatorToken = courseApp.login("Oper", "pass")
+        courseApp.channelJoin(operatorToken, "#TestChannel")
+
+        courseApp.channelMakeOperator(adminToken, "#TestChannel", "Oper")
+        courseApp.channelPart(operatorToken, "#TestChannel")
+        courseApp.channelJoin(operatorToken, "#TestChannel")
+
+        assertThrows<UserNotAuthorizedException> { courseApp.channelKick(operatorToken, "#TestChannel", "admin") }
+    }
 
     @Test
     @Order(27)
@@ -341,7 +331,7 @@ class CourseAppTest {
             differentToken = (1..STRING_LENGTH)
                     .map { kotlin.random.Random.nextInt(0, charPool.size) }
                     .map(charPool::get)
-                    .joinToString("");
+                    .joinToString("")
         }
 
         assertThrows<InvalidTokenException> {courseApp.makeAdministrator(differentToken, "matam")}
@@ -481,9 +471,9 @@ class CourseAppTest {
 
         assertDoesNotThrow {
             for (i in 1..numInChannel) {
-                var str: String = ""
+                var str = ""
                 for (j in 1..i) {
-                    str = str + "X"
+                    str += "X"
                 }
                 courseApp.channelJoin(tokenDict[1]!!, "#channel$str")
             }
@@ -641,7 +631,7 @@ class CourseAppTest {
     fun `make random number of channels`() {
         val numOfChannels = Random.nextInt(1, 100)
         val adminToken = courseApp.login("admin", "pass")
-        val STRING_LENGTH = 20
+        val strLen = 20
         val charPool : List<Char> = ('a'..'z') + ('A'..'Z')
         val list  = mutableListOf<String>()
 
@@ -649,10 +639,10 @@ class CourseAppTest {
             for (i in 1..numOfChannels) {
                 var differentToken = "a"
                 while (list.contains(differentToken)) {   //creating a random string as channel name
-                    differentToken = (1..STRING_LENGTH)
+                    differentToken = (1..strLen)
                             .map { Random.nextInt(0, charPool.size) }
                             .map(charPool::get)
-                            .joinToString("");
+                            .joinToString("")
                 }
                 list.add(differentToken)
                 courseApp.channelJoin(adminToken, "#$differentToken")
@@ -1081,7 +1071,7 @@ class CourseAppTest {
                             members: List<Pair<String,String>>,
                             loggedOutMembersNames: List<String>) : Pair<String,MutableList<String>>{
 
-        var tokenMembers = mutableListOf<String>()
+        val tokenMembers = mutableListOf<String>()
         val godToken = courseApp.login(godPair.first, godPair.second) //assume all actions go throw him/her.
         courseApp.channelJoin(godToken, channelName)
 
@@ -1271,17 +1261,82 @@ class CourseAppTest {
         }
     }
 
-/*
     @Test
     @Order(100)
-    fun `joining user to 128 channels`() {
+    fun `operator title is still valid after relogging`() {
+        val adminToken = courseApp.login("admin", "pass")
+        courseApp.channelJoin(adminToken, "#TestChannel")
+        val operatorToken = courseApp.login("Oper", "pass")
+        courseApp.channelJoin(operatorToken, "#TestChannel")
 
+        courseApp.channelMakeOperator(adminToken, "#TestChannel", "Oper")
+        courseApp.logout(operatorToken)
+        val operatorToken2 = courseApp.login("Oper", "pass")
+
+        assertDoesNotThrow { courseApp.channelKick(operatorToken2, "#TestChannel", "admin") }
     }
 
     @Test
     @Order(101)
-    fun `stress test for channels in the system`() {
+    fun `selected amount of users are logged in at once - stress time test`() {
+        val amount = 5000
+        runWithTimeout(ofSeconds(10)) {
+            for (i in 1..amount) {
+                val username = "user$i"
+                val password = "StrongPass$i"
+                courseApp.login(username, password)
+            }
 
+            val token = courseAppReboot.login("heroUser", "password")
+            for (i in 1..amount) {
+                assertDoesNotThrow { courseAppReboot.isUserLoggedIn(token, "user$i") }
+            }
+        }
     }
-    */
+
+//    @Test
+//    @Order(102)
+//    fun `100,000 logged in users in system - stress test`() {
+//        val amount = 100000         // got up to 39049 logins....
+//        runWithTimeout(ofSeconds(60*10)) {
+//            for (i in 1..amount) {
+//                val username = "user" + i
+//                val password = "StrongPass" + i
+//                courseApp.login(username, password)
+//                println("login: $i")
+//            }
+////            val token = courseAppReboot.login("heroUser", "password")
+////            for (i in 1..amount) {
+////                assertDoesNotThrow { courseAppReboot.isUserLoggedIn(token, "user" + i) }
+////            }
+//        }
+//    }
+
+    @Test
+    @Order(103)
+    fun `joining user to 128 channels`() {
+        val amount = 10
+        val usersNumbers = 500
+        val dict = HashMap<Int, String>()
+        assertDoesNotThrow {
+            for (i in 1..usersNumbers) {
+                val username = "user$i"
+                val password = "StrongPass$i"
+                dict[i] = courseApp.login(username, password)
+                for (j in 1..amount) {
+                    var str = ""
+                    for (t in 1..j) {
+                        str += "X"
+                    }
+                    courseApp.channelJoin(dict[i]!!, "#channel$str")
+                }
+            }
+        }
+    }
+
+// @Test
+// @Order(104)
+// fun `stress test for channels in the system`() {
+//
+// }
 }

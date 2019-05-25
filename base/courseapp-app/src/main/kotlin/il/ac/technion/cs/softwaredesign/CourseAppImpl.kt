@@ -874,15 +874,19 @@ class CourseAppImpl(storage: DataStoreIo) : CourseApp{
             if (numOfLoggedInUsers == 0.toLong())                         // Sanity check
                 assert(kind == UpdateLoggedStatus.IN)
 
+            val channel = indexToChannel(channelIndex)              // TODO ("remove this...")
             channelByActiveTree.delete(channelIndex, numOfLoggedInUsers.toString())
             when(kind){
-                UpdateLoggedStatus.IN -> numOfLoggedInUsers++
-                UpdateLoggedStatus.OUT -> numOfLoggedInUsers--
+                UpdateLoggedStatus.IN -> {
+                    numOfLoggedInUsers++
+                    incLoggedInChannel(channel)
+                }
+                UpdateLoggedStatus.OUT -> {
+                    numOfLoggedInUsers--
+                    decLoggedInChannel(channel)
+                }
             }
             channelByActiveTree.insert(channelIndex, numOfLoggedInUsers.toString())
-
-            val channel = indexToChannel(channelIndex)
-            decLoggedInChannel(channel)
 
             writeToStorage(mutableListOf(channelIndex), data = numOfLoggedInUsers.toString(), type = KeyType.CHANNELLOGGED)
         }

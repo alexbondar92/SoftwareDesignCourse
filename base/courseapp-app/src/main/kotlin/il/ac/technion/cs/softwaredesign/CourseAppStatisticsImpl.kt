@@ -1,9 +1,8 @@
 package il.ac.technion.cs.softwaredesign
 
-import il.ac.technion.cs.softwaredesign.storage.*
-
-class CourseAppStatisticsImpl : CourseAppStatistics {
-    private val cApp: CourseAppImpl = CourseAppImpl(DataStoreIo(FakeSecureStorage()))
+class CourseAppStatisticsImpl(storage: DataStoreIo) : CourseAppStatistics {
+    private val storageIo = storage
+    private val cApp: CourseAppImpl = CourseAppImpl(storageIo)
 
     /**
      * Count the total number of users, both logged-in and logged-out, in the system.
@@ -65,6 +64,6 @@ class CourseAppStatisticsImpl : CourseAppStatistics {
      *
      */
     override fun top10UsersByChannels(): List<String> {
-        return cApp.getTop10ChannelsByTotalUsers()
+        return cApp.getTop10User()
     }
 }
