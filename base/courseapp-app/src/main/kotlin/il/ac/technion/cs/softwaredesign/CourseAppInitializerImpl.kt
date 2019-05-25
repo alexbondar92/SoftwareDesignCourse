@@ -8,7 +8,7 @@ class CourseAppInitializerImpl: CourseAppInitializer {
      *
      * You may assume that when this method is called the data-store is completely empty.
      */
-    val storage: DataStoreIo
+    private val storage: DataStoreIo
 
     @Inject
     constructor(storage: DataStoreIo) {
@@ -16,6 +16,6 @@ class CourseAppInitializerImpl: CourseAppInitializer {
     }
 
     override fun setup() {
-        // TODO ("does we need to add here some shit?!?!")
+        // Empty
     }
 }

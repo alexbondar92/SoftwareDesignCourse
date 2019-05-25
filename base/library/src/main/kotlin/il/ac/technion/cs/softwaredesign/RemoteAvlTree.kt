@@ -80,20 +80,20 @@ class RemoteAvlTree {
         setBalance(node)
         var nextNode = node
         if (nextNode.getBalance() == -2)
-            if (height(nextNode.getLeft()!!.getLeft()) >= height(nextNode.getLeft()!!.getRight()))
-                nextNode = rotateRight(nextNode)
+            nextNode = if (height(nextNode.getLeft()!!.getLeft()) >= height(nextNode.getLeft()!!.getRight()))
+                rotateRight(nextNode)
             else
-                nextNode = rotateLeftThenRight(nextNode)
+                rotateLeftThenRight(nextNode)
         else if (nextNode.getBalance() == 2)
-            if (height(nextNode.getRight()!!.getRight()) >= height(nextNode.getRight()!!.getLeft()))
-                nextNode = rotateLeft(nextNode)
+            nextNode = if (height(nextNode.getRight()!!.getRight()) >= height(nextNode.getRight()!!.getLeft()))
+                rotateLeft(nextNode)
             else
-                nextNode = rotateRightThenLeft(nextNode)
-        if (nextNode.getParent() != null) {
-            return nextNode.getParent()
+                rotateRightThenLeft(nextNode)
+        return if (nextNode.getParent() != null) {
+            nextNode.getParent()
         } else {
             setRoot(nextNode)
-            return null
+            null
         }
     }
 
@@ -180,16 +180,16 @@ class RemoteAvlTree {
                         delNode.getLeft()!!.setParent(parent)
 
                     parent!!.refresh()
-                    if (parent!!.getRight() != null && parent!!.getRight()!!.compareTo(delNode) == 0){
-                        parent!!.setRight(delNode.getLeft())
+                    if (parent.getRight() != null && parent.getRight()!!.compareTo(delNode) == 0){
+                        parent.setRight(delNode.getLeft())
                     } else {
-                        parent!!.setLeft(delNode.getLeft())
+                        parent.setLeft(delNode.getLeft())
                     }
-                    parent!!.refresh()
+                    parent.refresh()
                     rebalance(parent)
                 }
             } else if (n!!.compareTo(delNode.getRight()!!) == 0) {      // there is a successor for delNode at the sub tree & n is son of delNode
-                n!!.setLeft(delNode.getLeft())
+                n.setLeft(delNode.getLeft())
                 delNode.getLeft()?.setParent(n)
                 if (this.root != null && delNode.compareTo(this.root!!) == 0) {
                     setRoot(n)
@@ -201,12 +201,12 @@ class RemoteAvlTree {
                         delNode.getParent()!!.setLeft(n)
                     }
                     parent!!.refresh()
-                    rebalance(parent!!)
+                    rebalance(parent)
                 }
             } else {        // the general case, hold assumptions: n have right son; n is the left son of his parent
-                if (n!!.getRight() != null)
-                    n!!.getRight()!!.setParent(parent)
-                parent!!.setLeft(n!!.getRight())
+                if (n.getRight() != null)
+                    n.getRight()!!.setParent(parent)
+                parent!!.setLeft(n.getRight())
 
                 delNode.refresh()
                 n.refresh()
@@ -253,8 +253,8 @@ class RemoteAvlTree {
 
     fun top10(): List<Int>{
         updateRoot()
-        var list = mutableListOf<Int>()
-        var adder: (RemoteNode) -> Unit = {x: RemoteNode -> list.add(x.getMainKey().toInt())}
+        val list = mutableListOf<Int>()
+        val adder: (RemoteNode) -> Unit = { x: RemoteNode -> list.add(x.getMainKey().toInt())}
         val cond: () -> Boolean = {list.size < 10 }
         top10Aux(this.root, adder, cond)
         return list

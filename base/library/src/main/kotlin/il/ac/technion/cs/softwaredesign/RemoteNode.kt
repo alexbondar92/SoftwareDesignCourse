@@ -1,7 +1,5 @@
 package il.ac.technion.cs.softwaredesign
 
-import il.ac.technion.cs.softwaredesign.storage.SecureStorage
-
 class RemoteNode : Comparable<RemoteNode>{
     private var nodeStorageKey: String
     private var mainKey: String
@@ -23,9 +21,9 @@ class RemoteNode : Comparable<RemoteNode>{
         this.mainKey = mainKey
         this.nodeStorageKey = "$treeName%$mainKey"                      // the StorageKey for the node
 
-        val str = storage.read((this.nodeStorageKey!!))
+        val str = storage.read((this.nodeStorageKey))
         if (str != null) {
-            val tempList = str!!.split("%")                     // <secondaryKey>%<balance>%<parent>%<leftNodeKey>%<rightNodeKey>
+            val tempList = str.split("%")                     // <secondaryKey>%<balance>%<parent>%<leftNodeKey>%<rightNodeKey>
             this.secondaryKey = tempList[0]
             this.balance = tempList[1].toInt()
             this.parentKey = tempList[2]
@@ -51,10 +49,10 @@ class RemoteNode : Comparable<RemoteNode>{
     }
 
     fun getParent(): RemoteNode? {
-        if (this.parentKey == "null" || this.parentKey == null)
-            return null
+        return if (this.parentKey == "null" || this.parentKey == null)
+            null
         else
-            return RemoteNode(storage, this.treeName, this.parentKey!!)
+            RemoteNode(storage, this.treeName, this.parentKey!!)
     }
 
     fun setParent(newParent: RemoteNode?) {
@@ -77,10 +75,10 @@ class RemoteNode : Comparable<RemoteNode>{
     }
 
     fun getLeft(): RemoteNode? {
-        if (this.leftNodeKey == null || this.leftNodeKey == "null")
-            return null
+        return if (this.leftNodeKey == null || this.leftNodeKey == "null")
+            null
         else
-            return RemoteNode(this.storage, this.treeName, this.leftNodeKey!!)
+            RemoteNode(this.storage, this.treeName, this.leftNodeKey!!)
     }
 
     fun setLeft(node: RemoteNode?) {
@@ -92,10 +90,10 @@ class RemoteNode : Comparable<RemoteNode>{
     }
 
     fun getRight(): RemoteNode? {
-        if (this.rightNodeKey == null || this.rightNodeKey == "null")
-            return null
+        return if (this.rightNodeKey == null || this.rightNodeKey == "null")
+            null
         else
-            return RemoteNode(this.storage, this.treeName, this.rightNodeKey!!)
+            RemoteNode(this.storage, this.treeName, this.rightNodeKey!!)
     }
 
     fun setRight(node: RemoteNode?) {
@@ -106,16 +104,16 @@ class RemoteNode : Comparable<RemoteNode>{
         flushNode()
     }
 
-    override fun compareTo(node: RemoteNode): Int {
+    override fun compareTo(other: RemoteNode): Int {
         assert(this.secondaryKey != "null" )
-        if (this.secondaryKey!!.toInt() > node.secondaryKey!!.toInt())
+        if (this.secondaryKey!!.toInt() > other.secondaryKey!!.toInt())
             return 1
-        else if (this.secondaryKey!!.toInt() < node.secondaryKey!!.toInt())
+        else if (this.secondaryKey!!.toInt() < other.secondaryKey!!.toInt())
             return -1
         else {
-            if (this.mainKey.toInt() < node.mainKey.toInt())
+            if (this.mainKey.toInt() < other.mainKey.toInt())
                 return 1
-            else if (this.mainKey.toInt() > node.mainKey.toInt())
+            else if (this.mainKey.toInt() > other.mainKey.toInt())
                 return -1
         }
         return 0

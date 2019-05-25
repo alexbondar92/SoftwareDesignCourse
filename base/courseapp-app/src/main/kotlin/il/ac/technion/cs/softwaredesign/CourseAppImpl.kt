@@ -54,7 +54,7 @@ class CourseAppImpl: CourseApp{
     }
 
     init {
-        // TODO ("is it needed?!?!")
+        // Empty
     }
 
     /**
@@ -227,7 +227,7 @@ class CourseAppImpl: CourseApp{
             insertToChannelsListOfUser(channel, token)
 
         } else {
-            val newIndex = getNewChannelIndex(channel)          // TODO("Alex: refactor this....")
+            getNewChannelIndex(channel)
             createChannel(channel, token)       // this fun create new channel and adding the admin(token) as first user and makes him/her operator
         }
     }
@@ -882,7 +882,7 @@ class CourseAppImpl: CourseApp{
             if (numOfLoggedInUsers == 0.toLong())                         // Sanity check
                 assert(kind == UpdateLoggedStatus.IN)
 
-            val channel = indexToChannel(channelIndex)              // TODO ("remove this...")
+            val channel = indexToChannel(channelIndex)
             channelByActiveTree.delete(channelIndex, numOfLoggedInUsers.toString())
             when(kind){
                 UpdateLoggedStatus.IN -> {

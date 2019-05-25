@@ -11,7 +11,7 @@ to limit the dependency of the data-store library, we use a wrapper class for ea
 */
 class DataStoreIo {
     val storage: SecureStorage
-    val cache : HashMap<String, String>
+    private val cache : HashMap<String, String>
 
     @Inject constructor(storageFactory: SecureStorageFactory) {
         this.storage = storageFactory.open("remote secure storage".toByteArray(Charset.defaultCharset()))

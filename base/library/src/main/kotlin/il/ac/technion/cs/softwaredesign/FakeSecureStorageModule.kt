@@ -7,7 +7,7 @@ import il.ac.technion.cs.softwaredesign.storage.SecureStorageFactory
 class FakeSecureStorageModule  : KotlinModule() {
     override fun configure() {
 
-        bind<SecureStorageFactory>().to<FakeSecureStorageFactory>().`in`<Singleton>()         // TODO ("ask about it...)
+        bind<SecureStorageFactory>().to<FakeSecureStorageFactory>().`in`<Singleton>()
 
     }
 }

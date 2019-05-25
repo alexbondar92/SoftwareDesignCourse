@@ -5,7 +5,6 @@ import com.google.inject.Guice
 import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.present
 import il.ac.technion.cs.softwaredesign.exceptions.*
-import il.ac.technion.cs.softwaredesign.storage.SecureStorageModule
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.*
 import org.junit.jupiter.api.assertThrows
@@ -111,13 +110,13 @@ class CourseAppTest {
     @Test
     @Order(9)
     fun `log out a none exist user `(){
-        val STRING_LENGTH = 100
+        val strLen = 100
         val charPool : List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
         val token = courseApp.login("matan", "s3kr1t")
         var differentToken : String = token
         //creating a random token for consistency and validity
         while (differentToken == token) {
-            differentToken = (1..STRING_LENGTH)
+            differentToken = (1..strLen)
                     .map { Random.nextInt(0, charPool.size) }
                     .map(charPool::get)
                     .joinToString("")
@@ -324,12 +323,12 @@ class CourseAppTest {
     @Test
     @Order(28)
     fun `makeAdministrator gets invalid token throws InvalidTokenException`() {
-        val STRING_LENGTH = 20
+        val strLen = 20
         val charPool : List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
         val token = courseApp.login("matan", "s3kr1t")
         var differentToken : String = token
         while (differentToken == token) {   //creating a random token for consistency and validity
-            differentToken = (1..STRING_LENGTH)
+            differentToken = (1..strLen)
                     .map { kotlin.random.Random.nextInt(0, charPool.size) }
                     .map(charPool::get)
                     .joinToString("")
