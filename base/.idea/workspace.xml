@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3078e906-f4ea-42e8-a364-e8ec716816be" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -132,11 +131,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="56" column="61" lean-forward="true" selection-start-line="56" selection-start-column="61" selection-end-line="56" selection-end-column="61" />
+            <state relative-caret-position="885">
+              <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="740">
+                <caret line="55" selection-start-line="55" selection-end-line="55" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -255,6 +266,7 @@
         <option value="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIo.kt" />
         <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" />
         <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -487,7 +499,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CourseAppStatisticsTest">
+  <component name="RunManager" selected="JUnit.il.ac.technion.cs.softwaredesign in base.courseapp-app.test">
     <configuration name="CourseAppStatisticsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="base.courseapp-app.test" />
       <extension name="coverage">
@@ -550,8 +562,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CourseAppStatisticsTest" />
         <item itemvalue="JUnit.il.ac.technion.cs.softwaredesign in base.courseapp-app.test" />
+        <item itemvalue="JUnit.CourseAppStatisticsTest" />
         <item itemvalue="JUnit.CourseAppTest" />
         <item itemvalue="JUnit.RemoteAvlTreeTest.insert 100 elements" />
       </list>
@@ -576,17 +588,11 @@
       <workItem from="1557844354299" duration="21529000" />
       <workItem from="1558511376213" duration="27900000" />
       <workItem from="1558695214350" duration="25335000" />
-      <workItem from="1558792325381" duration="309000" />
+      <workItem from="1558792325381" duration="3013000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RemoteAvlTreeTest_insert_100_elements - 2019.05.25 at 14h 53m 03s.xml">
-      <configuration name="RemoteAvlTreeTest.insert 100 elements" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RemoteAvlTreeTest - 2019.05.25 at 14h 53m 42s.xml">
-      <configuration name="RemoteAvlTreeTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="RemoteAvlTreeTest - 2019.05.25 at 14h 54m 32s.xml">
       <configuration name="RemoteAvlTreeTest" configurationId="JUnit" />
     </history-entry>
@@ -611,9 +617,15 @@
     <history-entry file="il_ac_technion_cs_softwaredesign_in_base_courseapp-app_test - 2019.05.25 at 16h 53m 15s.xml">
       <configuration name="il.ac.technion.cs.softwaredesign in base.courseapp-app.test" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="CourseAppStatisticsTest - 2019.05.25 at 16h 57m 43s.xml">
+      <configuration name="CourseAppStatisticsTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="il_ac_technion_cs_softwaredesign_in_base_courseapp-app_test - 2019.05.25 at 16h 58m 31s.xml">
+      <configuration name="il.ac.technion.cs.softwaredesign in base.courseapp-app.test" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146982000" />
+    <option name="totallyTimeSpent" value="149686000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -659,7 +671,7 @@
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
-      <window_info anchor="right" id="Coverage" order="10" side_tool="true" visible="true" weight="0.32951653" />
+      <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.32951653" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -709,9 +721,6 @@ import java.util.LinkedHashMap</custom-info>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/Node.kt" />
     <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/Main.kt">
       <provider selected="true" editor-type-id="text-editor" />
@@ -1047,6 +1056,13 @@ import java.util.LinkedHashMap</custom-info>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="885">
+          <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="372">
@@ -1057,10 +1073,13 @@ import java.util.LinkedHashMap</custom-info>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="56" column="61" lean-forward="true" selection-start-line="56" selection-start-column="61" selection-end-line="56" selection-end-column="61" />
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="740">
+            <caret line="55" selection-start-line="55" selection-end-line="55" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
