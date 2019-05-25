@@ -2,383 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3078e906-f4ea-42e8-a364-e8ec716816be" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/5.3.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.3.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.3.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.3.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.3.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.3.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.3.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.3.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.3.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.3.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.3.1/vcsMetadata-1/vcsMetadata-1.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.3.1/vcsMetadata-1/vcsMetadata-1.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl$KeyType.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl$KeyType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl$UpdateLoggedStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl$UpdateLoggedStatus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl$UserStatusInChannel.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl$UserStatusInChannel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10ChannelsByActiveUsers$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10ChannelsByActiveUsers$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10ChannelsByTotalUsers$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10ChannelsByTotalUsers$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10User$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10User$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$ channel does not contains operators$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$ channel does not contains operators$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$add up to 512 users to the channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$add up to 512 users to the channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$admin makes himself as operator in the channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$admin makes himself as operator in the channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$administrator retain their status after relogging$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$administrator retain their status after relogging$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$administrator retain their status after system reboot$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$administrator retain their status after system reboot$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$administrator that is not an operator of this channel leaves the channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$administrator that is not an operator of this channel leaves the channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$after login, a user is logged in$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$after login, a user is logged in$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$an authentication token is invalidated after logout$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$an authentication token is invalidated after logout$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$an authentication token is invalidated after logout$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$an authentication token is invalidated after logout$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$an authentication token is invalidated after logout, stays that way after reboot$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$an authentication token is invalidated after logout, stays that way after reboot$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$an authentication token is invalidated after logout, stays that way after reboot$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$an authentication token is invalidated after logout, stays that way after reboot$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$corrupted(prefix &amp; suffix) token pass over$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$corrupted(prefix &amp; suffix) token pass over$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$corrupted(prefix &amp; suffix) token pass over$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$corrupted(prefix &amp; suffix) token pass over$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$create channel with illegal name$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$create channel with illegal name$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$create channel with illegal name$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$create channel with illegal name$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$create channel with illegal name$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$create channel with illegal name$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$create channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$create channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$enable to login same user after reboot$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$enable to login same user after reboot$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$first user in the channel is a Operator$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$first user in the channel is a Operator$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$first user in the system becomes administrator automatically$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$first user in the system becomes administrator automatically$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$invalid token(not associated to no one) tries to join to channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$invalid token(not associated to no one) tries to join to channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$invalid token(not of admin) tries to create new channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$invalid token(not of admin) tries to create new channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel return false if user exists and not in channel $1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel return false if user exists and not in channel $1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel return null if user not exist $1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel return true  if user exists and  in channel $1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel returns true for one user in channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel returns true for one user in channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel throws InvalidTokenException for non-existent token$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel throws InvalidTokenException for non-existent token$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel throws NoSuchEntityException for non-existent channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel throws NoSuchEntityException for non-existent channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel throws UserNotAuthorizedException for non-member and non-administrator user$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel throws UserNotAuthorizedException for non-member and non-administrator user$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$kick administrator from channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$kick administrator from channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$kick another operator from channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$kick another operator from channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$kick another operator that is admin(as well) from channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$kick another operator that is admin(as well) from channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$kick user from channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$kick user from channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$last user(administrator) leaves the channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$last user(administrator) leaves the channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$last user(operator) leaves the channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$last user(operator) leaves the channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$last user(regular) leaves the channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$last user(regular) leaves the channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$leave chanel with valid token but the channel does not exist$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$leave channel with illegal token(existing channel)$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$leave channel with illegal token(existing channel)$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$leave channel with illegal token(not existing channel)$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$leave channel with illegal token(not existing channel)$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$log in user twice and other users log in between should throw exception$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$log in user twice and other users log in between should throw exception$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$log in user twice and other users log in between should throw exception$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$log in user twice and other users log in between should throw exception$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$log in user twice should throw exception$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$log in user twice should throw exception$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$log in user twice should throw exception$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$log in user twice should throw exception$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$log out a none exist user $3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$log out a none exist user $3$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$log out a none exist user $3.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$log out a none exist user $3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$login very long username and password$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$login very long username and password$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$make administrator of logged out user$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$make administrator of logged out user$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$make operator of user that is a member of the channel, but is logged out$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$make operator of user that is a member of the channel, but is logged out$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$make random number of administrator in the system$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$make random number of administrator in the system$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$make random number of channels$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$make random number of channels$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$makeAdministrator gets invalid token throws InvalidTokenException$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$makeAdministrator gets invalid token throws InvalidTokenException$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$makeAdministrator gets invalid user$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$makeAdministrator gets invalid user$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$makeAdministrator gets token that is not associated to administrator$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$makeAdministrator gets token that is not associated to administrator$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$makeAdministrator makes administrator, an admin again$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$makeAdministrator makes administrator, an admin again$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$operator kick himself from the channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$operator kick himself from the channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$operator kick himself from the channel, and he was the last one$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$operator kick himself from the channel, and he was the last one$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$operator leave the channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$operator leave the channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$operator makes himself as an operator at the same channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$operator makes himself as an operator at the same channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$password is invalid$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$password is invalid$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$password is valid$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$password is valid$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with another logged in user s password should throw exception$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with another logged in user s password should throw exception$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with another logged in user s password should throw exception$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with another logged in user s password should throw exception$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with another registered not logged in user s password should throw exception$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with another registered not logged in user s password should throw exception$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with another registered not logged in user s password should throw exception$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with another registered not logged in user s password should throw exception$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with wrong password should throw exception$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with wrong password should throw exception$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with wrong password should throw exception$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with wrong password should throw exception$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$regular member leaves channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$regular member leaves channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$selected amount of users are logged in at once$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$system is persistent after reboot$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$system is persistent after reboot$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$system is persistent after reboot$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$system is persistent after reboot$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$system is persistent after reboot$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$system is persistent after reboot$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$token is illegal at is isUserLoggedin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$token is illegal at is isUserLoggedin$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$token is illegal at logout$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$token is illegal at logout$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$token is invalid after logout$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$token is invalid after logout$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with channel that is not exits$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with channel that is not exits$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with channel that was deleted$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with channel that was deleted$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with illegal token$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with illegal token$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with token that is not a member of the channel and not admin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with token that is not a member of the channel and not admin$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with channel that is not exits$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with channel that is not exits$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with channel that was deleted$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with channel that was deleted$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with illegal token$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with illegal token$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with token that is not a member of the channel and not admin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with token that is not a member of the channel and not admin$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick from a channel that is not exists$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick from a channel that is not exists$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick from a deleted channel that is not exists$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick from a deleted channel that is not exists$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick illegal user$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick illegal user$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick non member user$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick non member user$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick user that was a member of the channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick user that was a member of the channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick user with illegal token(admin)$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick user with illegal token(admin)$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick user with illegal token(not operator)$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick user with illegal token(not operator)$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick user with illegal token(regular)$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick user with illegal token(regular)$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator of admin that is not a member of this channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator of admin that is not a member of this channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator of user that is not a member of this channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator of user that is not a member of this channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator of user that is not in the system$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator of user that is not in the system$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with illegal token(is admin but not operator)$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with illegal token(not of admin or operator)$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with illegal token(not of admin or operator)$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with illegal token(operator of other channel)$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with illegal token(operator of other channel)$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with illegal token(regular)$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with illegal token(regular)$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with with channel that not exits(never been)$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with with channel that not exits(never been)$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with with channel that not exits(was deleted)$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with with channel that not exits(was deleted)$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$trying to join to channel that was deleted$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$trying to join to channel that was deleted$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$trying to leave channel with token that is not member of the channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$trying to leave channel with token that is not member of the channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$trying to login with wrong pass$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$trying to login with wrong pass$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$user log in then log out isUserLoggedIn returns False$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$user log in then log out isUserLoggedIn returns False$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$user never been in the system isUserLoggedIn returns null$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$user never been in the system isUserLoggedIn returns null$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$user stays logged in after reboot, assumes his token stays active$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest$user stays logged in after reboot, assumes his token stays active$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseAppTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/build-history.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/counters.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/counters.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab_i" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab_i" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/last-build.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/build-history.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab_i" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab_i" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab_i" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileTestKotlin/last-build.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/courseappappjar-classes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/kotlin/courseappappjar-classes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/libs/courseapp-app.jar" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/libs/courseapp-app.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/tmp/jar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build/tmp/jar/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$KeyType.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$KeyType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$UpdateLoggedStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$UpdateLoggedStatus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$UserStatusInChannel.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$UserStatusInChannel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10ChannelsByActiveUsers$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10ChannelsByActiveUsers$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10ChannelsByTotalUsers$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10ChannelsByTotalUsers$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10User$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10User$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppInitializerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppInitializerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppModule.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppModule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$ channel does not contains operators$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$ channel does not contains operators$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$add up to 512 users to the channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$add up to 512 users to the channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$admin makes himself as operator in the channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$admin makes himself as operator in the channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$administrator retain their status after relogging$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$administrator retain their status after relogging$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$administrator retain their status after system reboot$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$administrator retain their status after system reboot$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$administrator that is not an operator of this channel leaves the channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$administrator that is not an operator of this channel leaves the channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$after login, a user is logged in$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$after login, a user is logged in$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$an authentication token is invalidated after logout$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$an authentication token is invalidated after logout$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$an authentication token is invalidated after logout$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$an authentication token is invalidated after logout$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$an authentication token is invalidated after logout, stays that way after reboot$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$an authentication token is invalidated after logout, stays that way after reboot$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$an authentication token is invalidated after logout, stays that way after reboot$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$an authentication token is invalidated after logout, stays that way after reboot$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$corrupted(prefix &amp; suffix) token pass over$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$corrupted(prefix &amp; suffix) token pass over$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$corrupted(prefix &amp; suffix) token pass over$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$corrupted(prefix &amp; suffix) token pass over$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$create channel with illegal name$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$create channel with illegal name$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$create channel with illegal name$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$create channel with illegal name$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$create channel with illegal name$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$create channel with illegal name$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$create channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$create channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$enable to login same user after reboot$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$enable to login same user after reboot$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$first user in the channel is a Operator$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$first user in the channel is a Operator$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$first user in the system becomes administrator automatically$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$first user in the system becomes administrator automatically$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$invalid token(not associated to no one) tries to join to channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$invalid token(not associated to no one) tries to join to channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$invalid token(not of admin) tries to create new channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$invalid token(not of admin) tries to create new channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel return false if user exists and not in channel $1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel return false if user exists and not in channel $1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel return true if user exists and in channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel return true if user exists and in channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel returns true for one user in channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel returns true for one user in channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel throws InvalidTokenException for non-existent token$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel throws InvalidTokenException for non-existent token$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel throws NoSuchEntityException for non-existent channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel throws NoSuchEntityException for non-existent channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel throws UserNotAuthorizedException for non-member and non-administrator user$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel throws UserNotAuthorizedException for non-member and non-administrator user$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$joining user to 128 channels$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$joining user to 128 channels$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$kick administrator from channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$kick administrator from channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$kick another operator from channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$kick another operator from channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$kick another operator that is admin(as well) from channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$kick another operator that is admin(as well) from channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$kick user from channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$kick user from channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$last user(administrator) leaves the channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$last user(administrator) leaves the channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$last user(operator) leaves the channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$last user(operator) leaves the channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$last user(regular) leaves the channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$last user(regular) leaves the channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$leave channel with illegal token(existing channel)$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$leave channel with illegal token(existing channel)$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$leave channel with illegal token(not existing channel)$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$leave channel with illegal token(not existing channel)$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$leave channel with valid token but the channel does not exist$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$leave channel with valid token but the channel does not exist$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$log in user twice and other users log in between should throw exception$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$log in user twice and other users log in between should throw exception$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$log in user twice and other users log in between should throw exception$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$log in user twice and other users log in between should throw exception$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$log in user twice should throw exception$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$log in user twice should throw exception$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$log in user twice should throw exception$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$log in user twice should throw exception$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$log out a none exist user $3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$log out a none exist user $3$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$log out a none exist user $3.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$log out a none exist user $3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$login very long username and password$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$login very long username and password$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$make administrator of logged out user$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$make administrator of logged out user$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$make operator of user that is a member of the channel, but is logged out$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$make operator of user that is a member of the channel, but is logged out$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$make random number of administrator in the system$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$make random number of administrator in the system$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$make random number of channels$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$make random number of channels$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$makeAdministrator gets invalid token throws InvalidTokenException$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$makeAdministrator gets invalid token throws InvalidTokenException$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$makeAdministrator gets invalid user$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$makeAdministrator gets invalid user$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$makeAdministrator gets token that is not associated to administrator$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$makeAdministrator gets token that is not associated to administrator$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$makeAdministrator makes administrator, an admin again$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$makeAdministrator makes administrator, an admin again$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$operator kick himself from the channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$operator kick himself from the channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$operator kick himself from the channel, and he was the last one$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$operator kick himself from the channel, and he was the last one$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$operator leave the channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$operator leave the channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$operator makes himself as an operator at the same channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$operator makes himself as an operator at the same channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$operator title is removed after leaving the channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$operator title is removed after leaving the channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$operator title is still valid after relogging$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$operator title is still valid after relogging$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$password is invalid$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$password is invalid$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$password is valid$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$password is valid$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with another logged in user s password should throw exception$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with another logged in user s password should throw exception$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with another logged in user s password should throw exception$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with another logged in user s password should throw exception$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with another registered not logged in user s password should throw exception$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with another registered not logged in user s password should throw exception$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with another registered not logged in user s password should throw exception$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with another registered not logged in user s password should throw exception$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with wrong password should throw exception$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with wrong password should throw exception$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with wrong password should throw exception$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with wrong password should throw exception$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$regular member leaves channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$regular member leaves channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$selected amount of users are logged in at once - stress time test$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$selected amount of users are logged in at once - stress time test$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$selected amount of users are logged in at once - stress time test$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$selected amount of users are logged in at once - stress time test$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$system is persistent after reboot$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$system is persistent after reboot$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$system is persistent after reboot$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$system is persistent after reboot$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$system is persistent after reboot$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$system is persistent after reboot$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$token is illegal at is isUserLoggedin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$token is illegal at is isUserLoggedin$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$token is illegal at logout$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$token is illegal at logout$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$token is invalid after logout$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$token is invalid after logout$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with channel that is not exits$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with channel that is not exits$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with channel that was deleted$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with channel that was deleted$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with illegal token$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with illegal token$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with token that is not a member of the channel and not admin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with token that is not a member of the channel and not admin$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with channel that is not exits$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with channel that is not exits$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with channel that was deleted$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with channel that was deleted$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with illegal token$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with illegal token$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with token that is not a member of the channel and not admin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with token that is not a member of the channel and not admin$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick from a channel that is not exists$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick from a channel that is not exists$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick from a deleted channel that is not exists$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick from a deleted channel that is not exists$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick illegal user$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick illegal user$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick non member user$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick non member user$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick user that was a member of the channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick user that was a member of the channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick user with illegal token(admin)$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick user with illegal token(admin)$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick user with illegal token(not operator)$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick user with illegal token(not operator)$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick user with illegal token(regular)$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick user with illegal token(regular)$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator of admin that is not a member of this channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator of admin that is not a member of this channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator of user that is not a member of this channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator of user that is not a member of this channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator of user that is not in the system$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator of user that is not in the system$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with illegal token - is admin but not operator$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with illegal token - is admin but not operator$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with illegal token(not of admin or operator)$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with illegal token(not of admin or operator)$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with illegal token(operator of other channel)$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with illegal token(operator of other channel)$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with illegal token(regular)$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with illegal token(regular)$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with with channel that not exits(never been)$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with with channel that not exits(never been)$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with with channel that not exits(was deleted)$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with with channel that not exits(was deleted)$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$trying to join to channel that was deleted$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$trying to join to channel that was deleted$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$trying to leave channel with token that is not member of the channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$trying to leave channel with token that is not member of the channel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$trying to login with wrong pass$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$trying to login with wrong pass$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$user log in then log out isUserLoggedIn returns False$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$user log in then log out isUserLoggedIn returns False$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$user never been in the system isUserLoggedIn returns null$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$user never been in the system isUserLoggedIn returns null$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$user stays logged in after reboot, assumes his token stays active$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$user stays logged in after reboot, assumes his token stays active$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppInitializerImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppInitializerImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppModule.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/build-history.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab_i" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab_i" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build/kotlin/compileTestKotlin/last-build.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/DataStoreIo.class" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/DataStoreIo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/RemoteAvlTree$top10$adder$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/RemoteAvlTree$top10$adder$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/RemoteAvlTree$top10$cond$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/RemoteAvlTree$top10$cond$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/RemoteAvlTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/RemoteAvlTree.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/build-history.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/counters.tab" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/counters.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab_i" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab_i" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/kotlin/compileKotlin/last-build.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build/libs/library.jar" beforeDir="false" afterPath="$PROJECT_DIR$/library/build/libs/library.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/DataStoreIo.class" beforeDir="false" afterPath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/DataStoreIo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIo.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteAvlTree.kt.rej" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteNode.kt" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteNode.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/RemoteNodeTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/RemoteNodeTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/remoteAvlTreeTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/remoteAvlTreeTest.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -478,22 +103,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt">
+        <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteAvlTree.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
-              <folding>
-                <element signature="e#42#126#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+            <state relative-caret-position="329">
+              <caret line="111" column="16" selection-start-line="111" selection-start-column="16" selection-end-line="111" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -501,11 +114,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="120">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="372">
+              <caret line="882" column="53" lean-forward="true" selection-start-line="882" selection-start-column="53" selection-end-line="882" selection-end-column="53" />
               <folding>
-                <element signature="e#42#535#0" expanded="true" />
+                <element signature="e#42#126#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="233">
+              <caret line="56" column="61" lean-forward="true" selection-start-line="56" selection-start-column="61" selection-end-line="56" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -513,50 +144,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteNode.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="49" column="19" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppModule.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="56" lean-forward="true" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
-              <folding>
-                <element signature="e#42#215#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1110">
-              <caret line="74" column="40" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
-              <folding>
-                <element signature="e#42#150#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/remoteAvlTreeTest.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="58" column="2" selection-start-line="58" selection-start-column="2" selection-end-line="58" selection-end-column="2" />
+            <state relative-caret-position="1860">
+              <caret line="124" column="72" selection-start-line="124" selection-start-column="72" selection-end-line="124" selection-end-column="72" />
             </state>
           </provider>
         </entry>
@@ -564,20 +153,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/RemoteNodeTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="71" column="24" selection-start-line="71" selection-start-column="24" selection-end-line="71" selection-end-column="24" />
+            <state relative-caret-position="975">
+              <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIo.kt">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/remoteAvlTreeTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
-              <folding>
-                <element signature="e#42#135#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="555">
+              <caret line="40" selection-start-line="40" selection-end-line="40" />
             </state>
           </provider>
         </entry>
@@ -659,16 +245,16 @@
         <option value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/DataStoreIoTest.kt" />
         <option value="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteAvlTree.kt" />
         <option value="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteNode.kt" />
-        <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" />
         <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppInitializerImpl.kt" />
         <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" />
         <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppModule.kt" />
-        <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt" />
         <option value="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteAvlTree.kt.rej" />
         <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt" />
         <option value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/remoteAvlTreeTest.kt" />
         <option value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/RemoteNodeTest.kt" />
         <option value="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIo.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt" />
       </list>
     </option>
   </component>
@@ -685,6 +271,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -849,7 +436,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -901,7 +487,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CourseAppTest">
+  <component name="RunManager" selected="JUnit.CourseAppStatisticsTest">
     <configuration name="CourseAppStatisticsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="base.courseapp-app.test" />
       <extension name="coverage">
@@ -932,21 +518,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RemoteAvlTreeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="base.library.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign.tests" />
-      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.tests.RemoteAvlTreeTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="RemoteAvlTreeTest.insert 100 elements" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="base.library.test" />
       <extension name="coverage">
@@ -963,41 +534,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RemoteNodeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="base.library.test" />
+    <configuration name="il.ac.technion.cs.softwaredesign in base.courseapp-app.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="base.courseapp-app.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.tests.*" />
+          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign.tests" />
-      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.tests.RemoteNodeTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="il.ac.technion.cs.softwaredesign.AvlTreeKt" type="JetRunConfigurationType" factoryName="Kotlin" nameIsGenerated="true">
-      <module name="base.library.main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.AvlTreeKt" />
-      <option name="WORKING_DIRECTORY" />
+      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CourseAppTest" />
-        <item itemvalue="JUnit.RemoteNodeTest" />
-        <item itemvalue="JUnit.RemoteAvlTreeTest" />
-        <item itemvalue="JUnit.RemoteAvlTreeTest.insert 100 elements" />
         <item itemvalue="JUnit.CourseAppStatisticsTest" />
+        <item itemvalue="JUnit.il.ac.technion.cs.softwaredesign in base.courseapp-app.test" />
+        <item itemvalue="JUnit.CourseAppTest" />
+        <item itemvalue="JUnit.RemoteAvlTreeTest.insert 100 elements" />
       </list>
     </recent_temporary>
   </component>
@@ -1020,16 +576,11 @@
       <workItem from="1557844354299" duration="21529000" />
       <workItem from="1558511376213" duration="27900000" />
       <workItem from="1558695214350" duration="25335000" />
+      <workItem from="1558792325381" duration="309000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CourseAppTest - 2019.05.25 at 14h 49m 10s.xml">
-      <configuration name="CourseAppTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourseAppStatisticsTest - 2019.05.25 at 14h 52m 31s.xml">
-      <configuration name="CourseAppStatisticsTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="RemoteAvlTreeTest_insert_100_elements - 2019.05.25 at 14h 53m 03s.xml">
       <configuration name="RemoteAvlTreeTest.insert 100 elements" configurationId="JUnit" />
     </history-entry>
@@ -1054,9 +605,15 @@
     <history-entry file="CourseAppTest - 2019.05.25 at 14h 58m 54s.xml">
       <configuration name="CourseAppTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="il_ac_technion_cs_softwaredesign_in_base_courseapp-app_test - 2019.05.25 at 16h 52m 56s.xml">
+      <configuration name="il.ac.technion.cs.softwaredesign in base.courseapp-app.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="il_ac_technion_cs_softwaredesign_in_base_courseapp-app_test - 2019.05.25 at 16h 53m 15s.xml">
+      <configuration name="il.ac.technion.cs.softwaredesign in base.courseapp-app.test" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146640000" />
+    <option name="totallyTimeSpent" value="146982000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1071,7 +628,7 @@
     <frame x="41" y="31" width="1614" height="987" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24045801" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24363868" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1080,7 +637,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.19217877" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26815644" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.26815644" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1102,7 +659,7 @@
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
-      <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.32951653" />
+      <window_info anchor="right" id="Coverage" order="10" side_tool="true" visible="true" weight="0.32951653" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1126,6 +683,9 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/base$CourseAppTest_try_to_make_operator_with_illegal_token.ic" NAME="CourseAppTest.try to make operator with illegal token Coverage Results" MODIFIED="1558685879708" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>il.ac.technion.cs.softwaredesign.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/base$il_ac_technion_cs_softwaredesign_in_base_courseapp_app_test.ic" NAME="il.ac.technion.cs.softwaredesign in base.courseapp-app.test Coverage Results" MODIFIED="1558792382592" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>il.ac.technion.cs.softwaredesign.*</FILTER>
     </SUITE>
   </component>
@@ -1164,13 +724,7 @@ import java.util.LinkedHashMap</custom-info>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIo.kt" />
-    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/AvlTree.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2250">
-          <caret line="150" column="5" selection-start-line="150" selection-start-column="5" selection-end-line="150" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/AvlTree.kt" />
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.natpryce/hamkrest/1.7.0.0/a4d21d07b64fecd01fed89530d06040fb1b21c4b/hamkrest-1.7.0.0-sources.jar!/com/natpryce/hamkrest/assertion/assert.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1392,13 +946,6 @@ import java.util.LinkedHashMap</custom-info>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteAvlTree.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="238" selection-start-line="238" selection-end-line="238" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1845">
@@ -1410,16 +957,6 @@ import java.util.LinkedHashMap</custom-info>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
-          <folding>
-            <element signature="e#42#126#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1454,16 +991,7 @@ import java.util.LinkedHashMap</custom-info>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteAvlTree.kt.rej">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteAvlTree.kt.rej" />
     <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1110">
@@ -1474,37 +1002,6 @@ import java.util.LinkedHashMap</custom-info>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/remoteAvlTreeTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="58" column="2" selection-start-line="58" selection-start-column="2" selection-end-line="58" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/RemoteNodeTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="71" column="24" selection-start-line="71" selection-start-column="24" selection-end-line="71" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#42#535#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteNode.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="49" column="19" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIo.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -1512,6 +1009,58 @@ import java.util.LinkedHashMap</custom-info>
           <folding>
             <element signature="e#42#135#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteAvlTree.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="111" column="16" selection-start-line="111" selection-start-column="16" selection-end-line="111" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteNode.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1860">
+          <caret line="124" column="72" selection-start-line="124" selection-start-column="72" selection-end-line="124" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/RemoteNodeTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="975">
+          <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/remoteAvlTreeTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="882" column="53" lean-forward="true" selection-start-line="882" selection-start-column="53" selection-end-line="882" selection-end-column="53" />
+          <folding>
+            <element signature="e#42#126#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="56" column="61" lean-forward="true" selection-start-line="56" selection-start-column="61" selection-end-line="56" selection-end-column="61" />
         </state>
       </provider>
     </entry>

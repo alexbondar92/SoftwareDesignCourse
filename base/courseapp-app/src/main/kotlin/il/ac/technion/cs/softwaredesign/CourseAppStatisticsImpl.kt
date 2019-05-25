@@ -40,7 +40,7 @@ class CourseAppStatisticsImpl: CourseAppStatistics {
      * @return A sorted list of channels by user count.
      */
     override fun top10ChannelsByUsers(): List<String> {
-        return cApp.getTop10User()
+        return cApp.getTop10ChannelsByTotalUsers()
     }
 
     /**
