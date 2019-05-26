@@ -901,7 +901,7 @@ class CourseAppImpl: CourseApp{
     }
 
     private fun validNameChannel(channel: String): Boolean{
-        val regex = Regex("((#)([a-z]|[A-Z]|(#)|(_))*)")      // Regex pattern of valid channel
+        val regex = Regex("((#)([0-9]|[a-z]|[A-Z]|(#)|(_))*)")      // Regex pattern of valid channel
         return regex.matchEntire(channel)?.value != null
     }
 
