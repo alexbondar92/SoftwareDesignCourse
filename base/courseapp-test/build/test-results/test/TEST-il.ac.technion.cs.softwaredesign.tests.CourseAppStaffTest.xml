@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2019-06-03T14:01:33" hostname="alexs-mbp.cs.technion.ac.il" time="0.157">
+  <properties/>
+  <testcase name="an authentication token is invalidated after logout()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="0.02"/>
+  <testcase name="total user count in a channel is correct with a single user()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="0.011"/>
+  <testcase name="user is not in channel after being kicked()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="0.005"/>
+  <testcase name="user is not in channel after parting from it()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="0.002"/>
+  <testcase name="top 10 channel list counts only logged in users()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="0.028"/>
+  <testcase name="active user count in a channel is correct with a single user()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="0.002"/>
+  <testcase name="total user count is correct when no users exist()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="0.003"/>
+  <testcase name="top 10 user list does secondary sorting by registration order()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="0.003"/>
+  <testcase name="non-administrator can join existing channel and be made operator()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="0.002"/>
+  <testcase name="top 10 channel list does secondary sorting by creation order()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="0.002"/>
+  <testcase name="administrator can create channel and is a member of it()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="0.004"/>
+  <testcase name="logged in user count is correct when no user is logged in()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="0.003"/>
+  <testcase name="non-administrator can not make administrator()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="0.004"/>
+  <testcase name="after login, a user is logged in()" classname="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

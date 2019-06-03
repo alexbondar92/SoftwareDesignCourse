@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="il.ac.technion.cs.softwaredesign.CourseAppStatisticsTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2019-06-03T14:01:32" hostname="alexs-mbp.cs.technion.ac.il" time="0.116">
+  <properties/>
+  <testcase name="valid number of totalUsers()" classname="il.ac.technion.cs.softwaredesign.CourseAppStatisticsTest" time="0.005"/>
+  <testcase name="empty CourseApp()" classname="il.ac.technion.cs.softwaredesign.CourseAppStatisticsTest" time="0.006"/>
+  <testcase name="get top 10 users - basic 1()" classname="il.ac.technion.cs.softwaredesign.CourseAppStatisticsTest" time="0.009"/>
+  <testcase name="get top 10 users - basic 2()" classname="il.ac.technion.cs.softwaredesign.CourseAppStatisticsTest" time="0.07"/>
+  <testcase name="valid number of loggedUsers()" classname="il.ac.technion.cs.softwaredesign.CourseAppStatisticsTest" time="0.005"/>
+  <testcase name="valid number of totalUsers after logout()" classname="il.ac.technion.cs.softwaredesign.CourseAppStatisticsTest" time="0.007"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

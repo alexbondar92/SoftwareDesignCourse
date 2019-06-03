@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="il.ac.technion.cs.softwaredesign.tests.DataStoreIoTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2019-06-03T14:01:35" hostname="alexs-mbp.cs.technion.ac.il" time="0.013">
+  <properties/>
+  <testcase name="read returns data for 1 ms per byte()" classname="il.ac.technion.cs.softwaredesign.tests.DataStoreIoTest" time="0.011"/>
+  <testcase name="returns null for unused key()" classname="il.ac.technion.cs.softwaredesign.tests.DataStoreIoTest" time="0.0"/>
+  <testcase name="write and read is consistent()" classname="il.ac.technion.cs.softwaredesign.tests.DataStoreIoTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
