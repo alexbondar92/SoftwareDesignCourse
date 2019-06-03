@@ -1,5 +1,7 @@
 package il.ac.technion.cs.softwaredesign
 
+import java.util.concurrent.CompletableFuture
+
 /**
  * This class will be instantiated once, during system start, on an empty data-store.
  *
@@ -11,5 +13,5 @@ interface CourseAppInitializer {
      *
      * You may assume that when this method is called the data-store is completely empty.
      */
-    fun setup()
+    fun setup(): CompletableFuture<Unit>
 }

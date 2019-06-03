@@ -13,13 +13,10 @@ val kotlinGuiceVersion: String? by extra
 
 dependencies {
     compile(project(":library"))
-    
     compile("com.google.inject", "guice", guiceVersion)
     compile("com.authzee.kotlinguice4", "kotlin-guice", kotlinGuiceVersion)
 
     testCompile("org.junit.jupiter", "junit-jupiter-api", junitVersion)
     testCompile("org.junit.jupiter", "junit-jupiter-params", junitVersion)
     testCompile("com.natpryce", "hamkrest", hamkrestVersion)
-
-    testRuntime("org.junit.jupiter", "junit-jupiter-engine", junitVersion)
 }
