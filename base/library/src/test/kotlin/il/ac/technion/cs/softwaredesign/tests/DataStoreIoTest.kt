@@ -3,7 +3,6 @@ package il.ac.technion.cs.softwaredesign.tests
 import il.ac.technion.cs.softwaredesign.DataStoreIo
 import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.present
-import il.ac.technion.cs.softwaredesign.FakeSecureStorage
 import il.ac.technion.cs.softwaredesign.FakeSecureStorageFactory
 import org.junit.jupiter.api.Test
 import java.time.Duration.*
@@ -16,7 +15,7 @@ class DataStoreIoTest {
 
         val ret = storage.read(key = "Unknown Key")
 
-        assert(ret == null)
+        assert(ret.get() == null)
     }
 
     @Test
@@ -26,7 +25,7 @@ class DataStoreIoTest {
         val value = "Some Data Sent to Storage"
         storage.write("My Key", value)
 
-        assert(value == storage.read("My Key"))
+        assert(value == storage.read("My Key").get())
     }
 
     @Test
@@ -37,7 +36,7 @@ class DataStoreIoTest {
         val valueLength = value.length.toLong()
         storage.write("My Key", value)
 
-        assertThat(runWithTimeout(ofSeconds(valueLength)) { storage.read("My Key") ==  value },
+        assertThat(runWithTimeout(ofSeconds(valueLength)) { storage.read("My Key").get() ==  value },
                 present(isTrue))
     }
 }

@@ -12,31 +12,34 @@ to limit the dependency of the data-store library, we use a wrapper class for ea
 */
 class DataStoreIo {
     val storage: CompletableFuture<SecureStorage>
-    private val cache : HashMap<String, String>
+    private val cache : HashMap<String, CompletableFuture<String?>>                              // TODO("String or String? ?!?!?!?")
 
     @Inject constructor(storageFactory: SecureStorageFactory) {
         this.storage = storageFactory.open("remote secure storage".toByteArray(Charset.defaultCharset()))
         this.cache = HashMap()                                  // Local cache for boosting the performance
     }
-    fun write(key: String, data: String) {
-        this.cache[key] = data                                  // Update the cache
+    fun write(key: String, data: String): CompletableFuture<Unit> {
+        this.cache[key] = CompletableFuture.completedFuture(data)                  // Update the cache
 
         val charset = Charsets.UTF_8
         val tmpKey = key.toByteArray(charset)
-        this.storage.thenCompose { it.write(tmpKey, data.toByteArray(charset)) }
-        this.storage.write(tmpKey, data.toByteArray(charset))
+        return this.storage.thenCompose { it.write(tmpKey, data.toByteArray(charset)) }         // TODO("is it really a it")
     }
 
-    fun read(key: String): String? {
+    fun read(key: String): CompletableFuture<String?> {
         if (this.cache[key] != null) {
-            return this.cache[key]                              // Got a hit at the cache
+            return this.cache[key]!!                              // Got a hit at the cache
         }
 
-        val tmpKey = key.toByteArray()
-        val tmp = this.storage.read(tmpKey) ?: return null
         val charset = Charsets.UTF_8
-        val value = tmp.toString(charset)
-        this.cache[key] = value                                 // Update the cache
-        return value
+        val tmpKey = key.toByteArray(charset)
+        return this.storage.thenCompose {
+            val tmpRet = it.read(tmpKey).thenApply {
+                tmpVal ->
+                tmpVal?.toString(charset)
+            }
+            this.cache[key] = tmpRet                                 // Update the cache
+            tmpRet
+        }
     }
 }

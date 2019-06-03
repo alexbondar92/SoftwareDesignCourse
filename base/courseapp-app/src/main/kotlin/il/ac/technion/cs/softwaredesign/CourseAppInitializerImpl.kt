@@ -1,6 +1,7 @@
 package il.ac.technion.cs.softwaredesign
 
 import com.google.inject.Inject
+import java.util.concurrent.CompletableFuture
 
 class CourseAppInitializerImpl: CourseAppInitializer {
     /**
@@ -15,7 +16,8 @@ class CourseAppInitializerImpl: CourseAppInitializer {
         this.storage = storage
     }
 
-    override fun setup() {
+    override fun setup(): CompletableFuture<Unit> {
         // Empty
+        return CompletableFuture()
     }
 }

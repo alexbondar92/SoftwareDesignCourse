@@ -12,7 +12,7 @@ class RemoteAvlTree {
     }
 
     private fun getRootKey(): String?{
-        val str = storage.read(("T${this.treeName}"))
+        val str = storage.read(("T${this.treeName}")).get()
         if (str == null || str == "null")
             return null
         return str

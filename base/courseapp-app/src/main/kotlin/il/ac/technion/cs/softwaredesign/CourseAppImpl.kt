@@ -2,9 +2,10 @@ package il.ac.technion.cs.softwaredesign
 
 import com.google.inject.Inject
 import il.ac.technion.cs.softwaredesign.exceptions.*
+import il.ac.technion.cs.softwaredesign.messages.Message
+import java.util.concurrent.CompletableFuture
 
 class CourseAppImpl: CourseApp{
-
     private val userLoggedIn = "1"
     private val passwordSignedIn = "1"
     private val registeredNotLoggedIn = "0"
@@ -73,7 +74,7 @@ class CourseAppImpl: CourseApp{
      * @throws UserAlreadyLoggedInException If the user is already logged-in.
      * @return An authentication token to be used in other calls.
      */
-    override fun login(username: String, password: String): String {
+    override fun login(username: String, password: String): CompletableFuture<String> {
         when (readUserStatus(usernameToToken(username))) {
             notRegistered -> {
                 val genToken = getNewUserIndex(username)
@@ -90,7 +91,7 @@ class CourseAppImpl: CourseApp{
                 if (getNumberOfLoggedInUsers() == 1.toLong())    // first user in the system
                     setAdministrator(genToken)
 
-                return genToken
+                return CompletableFuture.completedFuture(genToken)
             }
 
             registeredNotLoggedIn -> {
@@ -101,7 +102,7 @@ class CourseAppImpl: CourseApp{
                 writeUserStatus(token, userLoggedIn)
                 updateAssocChannels(token, UpdateLoggedStatus.IN)
                 incTotalLoggedInUsers()
-                return token
+                return CompletableFuture.completedFuture(token)
             }
 
             userLoggedIn -> throw UserAlreadyLoggedInException()
@@ -119,7 +120,7 @@ class CourseAppImpl: CourseApp{
      *
      * @throws InvalidTokenException If the auth [token] is invalid.
      */
-    override fun logout(token: String) {
+    override fun logout(token: String): CompletableFuture<Unit> {
         when (readUserStatus(token)) {
             notRegistered, registeredNotLoggedIn -> throw InvalidTokenException()
 
@@ -129,6 +130,7 @@ class CourseAppImpl: CourseApp{
                 decTotalLoggedInUsers()
             }
         }
+        return CompletableFuture.completedFuture(Unit)
     }
 
     /**
@@ -142,14 +144,14 @@ class CourseAppImpl: CourseApp{
      * @return True if [username] exists and is logged in, false if it exists and is not logged in, and null if it does
      * not exist.
      */
-    override fun isUserLoggedIn(token: String, username: String): Boolean? {
+    override fun isUserLoggedIn(token: String, username: String): CompletableFuture<Boolean?> {
         if (!validToken(token))
             throw InvalidTokenException()
 
         when (readUserStatus(usernameToToken(username))) {
-            notRegistered -> return null
-            registeredNotLoggedIn -> return false
-            userLoggedIn -> return true
+            notRegistered -> return CompletableFuture.completedFuture(null)
+            registeredNotLoggedIn -> return CompletableFuture.completedFuture(false)
+            userLoggedIn -> return CompletableFuture.completedFuture(true)
         }
 
         assert(false)       //shouldn't get here, data-store might be corrupted.
@@ -166,7 +168,7 @@ class CourseAppImpl: CourseApp{
      * @throws UserNotAuthorizedException If the auth [token] does not belong to a user who is an administrator.
      * @throws NoSuchEntityException If [username] does not exist.
      */
-    override fun makeAdministrator(token: String, username: String) {
+    override fun makeAdministrator(token: String, username: String): CompletableFuture<Unit> {
         if (!validToken(token))
             throw InvalidTokenException()
 
@@ -181,6 +183,7 @@ class CourseAppImpl: CourseApp{
                 setAdministrator(userToken!!)
             }
         }
+        return CompletableFuture.completedFuture(Unit)
     }
 
     /**
@@ -197,7 +200,7 @@ class CourseAppImpl: CourseApp{
      * @throws UserNotAuthorizedException If [channel] does not exist and [token] belongs to a user who is not an
      * administrator.
      */
-    override fun channelJoin(token: String, channel: String) {
+    override fun channelJoin(token: String, channel: String): CompletableFuture<Unit> {
         if (!validToken(token))
             throw InvalidTokenException()
 
@@ -230,6 +233,7 @@ class CourseAppImpl: CourseApp{
             getNewChannelIndex(channel)
             createChannel(channel, token)       // this fun create new channel and adding the admin(token) as first user and makes him/her operator
         }
+        return CompletableFuture.completedFuture(Unit)
     }
 
     /**
@@ -243,7 +247,7 @@ class CourseAppImpl: CourseApp{
      * @throws NoSuchEntityException If [token] identifies a user who is not a member of [channel], or [channel] does
      * does exist.
      */
-    override fun channelPart(token: String, channel: String) {
+    override fun channelPart(token: String, channel: String): CompletableFuture<Unit> {
         if (!validToken(token))
             throw InvalidTokenException()
 
@@ -251,6 +255,7 @@ class CourseAppImpl: CourseApp{
             throw NoSuchEntityException()
 
         removeUserFromChannel(channel, token)   // this fun remove user from channel and update the trees + if the chanel is empty the channel will be deleted
+        return CompletableFuture.completedFuture(Unit)
     }
 
     /**
@@ -267,7 +272,7 @@ class CourseAppImpl: CourseApp{
      * 3. Not a member of [channel].
      * @throws NoSuchEntityException If [username] does not exist, or if [username] is not a member of [channel].
      */
-    override fun channelMakeOperator(token: String, channel: String, username: String) {
+    override fun channelMakeOperator(token: String, channel: String, username: String): CompletableFuture<Unit> {
         if (!validToken(token))
             throw InvalidTokenException()
 
@@ -288,6 +293,7 @@ class CourseAppImpl: CourseApp{
             throw NoSuchEntityException()
 
         makeUserOperator(channel, userToken)
+        return CompletableFuture.completedFuture(Unit)
     }
 
     /**
@@ -300,7 +306,7 @@ class CourseAppImpl: CourseApp{
      * @throws UserNotAuthorizedException If [token] is not an operator of this channel.
      * @throws NoSuchEntityException If [username] does not exist, or if [username] is not a member of [channel].
      */
-    override fun channelKick(token: String, channel: String, username: String) {
+    override fun channelKick(token: String, channel: String, username: String): CompletableFuture<Unit> {
         if (!validToken(token))
             throw InvalidTokenException()
 
@@ -315,6 +321,7 @@ class CourseAppImpl: CourseApp{
             throw NoSuchEntityException()
 
         removeUserFromChannel(channel, userToken)   // this fun remove user from channel and update the trees
+        return CompletableFuture.completedFuture(Unit)
     }
 
     /**
@@ -328,7 +335,7 @@ class CourseAppImpl: CourseApp{
      * @return True if [username] exists and is a member of [channel], false if it exists and is not a member, and null
      * if it does not exist.
      */
-    override fun isUserInChannel(token: String, channel: String, username: String): Boolean? {
+    override fun isUserInChannel(token: String, channel: String, username: String): CompletableFuture<Boolean?> {
         if (!validToken(token))
             throw InvalidTokenException()
 
@@ -338,8 +345,8 @@ class CourseAppImpl: CourseApp{
         if (!isAdministrator(token) && !areUserAndChannelConnected(token, channel))
             throw UserNotAuthorizedException()
 
-        val userToken = usernameToToken(username) ?: return null
-        return areUserAndChannelConnected(userToken, channel)
+        val userToken = usernameToToken(username) ?: return CompletableFuture.completedFuture(null)
+        return CompletableFuture.completedFuture(areUserAndChannelConnected(userToken, channel))
     }
 
     /**
@@ -353,7 +360,7 @@ class CourseAppImpl: CourseApp{
      * of [channel].
      * @returns Number of logged-in users in [channel].
      */
-    override fun numberOfActiveUsersInChannel(token: String, channel: String): Long {
+    override fun numberOfActiveUsersInChannel(token: String, channel: String): CompletableFuture<Long> {
         if (!validToken(token))
             throw InvalidTokenException()
 
@@ -363,7 +370,7 @@ class CourseAppImpl: CourseApp{
         if (!isAdministrator(token) && !areUserAndChannelConnected(token, channel))
             throw UserNotAuthorizedException()
 
-        return numberOfActiveUsersInChannel(channel)
+        return CompletableFuture.completedFuture(numberOfActiveUsersInChannel(channel))
     }
 
     /**
@@ -377,7 +384,7 @@ class CourseAppImpl: CourseApp{
      * of [channel].
      * @return Number of users, both logged-in and logged-out, in [channel].
      */
-    override fun numberOfTotalUsersInChannel(token: String, channel: String): Long {
+    override fun numberOfTotalUsersInChannel(token: String, channel: String): CompletableFuture<Long> {
         if (!validToken(token))
             throw InvalidTokenException()
 
@@ -387,7 +394,89 @@ class CourseAppImpl: CourseApp{
         if (!isAdministrator(token) && !areUserAndChannelConnected(token, channel))
             throw UserNotAuthorizedException()
 
-        return numberOfUsersInChannel(channel)
+        return CompletableFuture.completedFuture(numberOfUsersInChannel(channel))
+    }
+
+    /**
+     * Adds a listener to this Course App instance. See Observer design pattern for more information.
+     *
+     * See the assignment PDF for semantics.
+     *
+     * This is an *update* command.
+     *
+     * @throws InvalidTokenException if the auth [token] is invalid.
+     */
+    override fun addListener(token: String, callback: ListenerCallback): CompletableFuture<Unit> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    /**
+     * Remove a listener from this Course App instance. See Observer design pattern for more information.
+     *
+     * @throws InvalidTokenException If the auth [token] is invalid.
+     * @throws NoSuchEntityException If [callback] is not registered with this instance.
+     */
+    override fun removeListener(token: String, callback: ListenerCallback): CompletableFuture<Unit> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    /**
+     * Send a message to a channel from the user identified by [token]. Listeners will be notified, source will be
+     * "[channel]@<user>" (including the leading `"`). So, if `gal` sent a message to `#236700`, the source will be
+     * `#236700@gal`.
+     *
+     * This is an *update* command.
+     *
+     * @throws InvalidTokenException If the auth [token] is invalid.
+     * @throws NoSuchEntityException If [channel] does not exist.
+     * @throws UserNotAuthorizedException If [token] identifies a user who is not a member of [channel].
+     */
+    override fun channelSend(token: String, channel: String, message: Message): CompletableFuture<Unit> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    /**
+     * Sends a message to all users from an admin identified by [token]. Listeners will be notified, source is
+     * "BROADCAST".
+     *
+     * This is an *update* command.
+     *
+     * @throws InvalidTokenException If the auth [token] is invalid.
+     * @throws UserNotAuthorizedException If [token] does not identify an administrator.
+     */
+    override fun broadcast(token: String, message: Message): CompletableFuture<Unit> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    /**
+     * Sends a private message from the user identified by [token] to [user]. Listeners will be notified, source will be
+     * "@<user>", where <user> is the user identified by [token]. So, if `gal` sent `matan` a message, that source will
+     * be `@gal`.
+     *
+     * This is an *update* command.
+     *
+     * @throws InvalidTokenException If the auth [token] is invalid.
+     * @throws NoSuchEntityException If [user] does not exist.
+     */
+    override fun privateSend(token: String, user: String, message: Message): CompletableFuture<Unit> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    /**
+     * Returns the message identified by [id], if it exists.
+     *
+     * This method is only useful for messages sent to channels.
+     *
+     * This is a *read* command.
+     *
+     * @throws InvalidTokenException If the auth [token] is invalid.
+     * @throws NoSuchEntityException If [id] does not exist or is not a channel message.
+     * @throws UserNotAuthorizedException If [id] identifies a message in a channel that the user identified by [token]
+     * is not a member of.
+     * @return The message identified by [id] along with its source.
+     */
+    override fun fetchMessage(token: String, id: Long): CompletableFuture<Pair<String, Message>> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     // =========================================== API for statistics ==================================================
@@ -420,68 +509,68 @@ class CourseAppImpl: CourseApp{
         when (type) {
             KeyType.USER -> {
                 val token = args[0]
-                storageIo.write("UV$token", data)
+                storageIo.write("UV$token", data).get()
             }
             KeyType.PASSWORD -> {
                 val username = args[0]
                 val password = args[1]
-                storageIo.write(("UP$username$password"), data)
+                storageIo.write(("UP$username$password"), data).get()
             }
             KeyType.ADMIN ->{
                 val userIndex = args[0]
-                storageIo.write(("UA$userIndex"),data)
+                storageIo.write(("UA$userIndex"),data).get()
             }
             KeyType.CHANNEL -> {
                 val channel = args[0]
                 val index = channelToIndex(channel)
-                storageIo.write(("CV$index"), data)
+                storageIo.write(("CV$index"), data).get()
             }
             KeyType.PARTICIPANT -> {
                 val channel = args[0]
                 val index = channelToIndex(channel)
                 val token = args[1]
-                storageIo.write(("CU$index%$token"), data) //delimiter "%" between channel and token
+                storageIo.write(("CU$index%$token"), data).get() //delimiter "%" between channel and token
             }
             KeyType.CHANNELS -> {
                 val token = args[0]
-                storageIo.write(("UCL$token"), data)
+                storageIo.write(("UCL$token"), data).get()
             }
             KeyType.TOTALUSERSAMOUNT -> {
-                storageIo.write(("totalUsers"), data)
+                storageIo.write(("totalUsers"), data).get()
             }
             KeyType.ACTIVEUSERSAMOUNT -> {
-                storageIo.write(("activeUsers"), data)
+                storageIo.write(("activeUsers"), data).get()
             }
             KeyType.CHANNELLOGGED -> {
                 val channel = args[0]
                 val index = channelToIndex(channel)
-                storageIo.write(("CL$index"), data)
+                storageIo.write(("CL$index"), data).get()
             }
             KeyType.USERCHANNELS -> {
                 val token = args[0]
-                storageIo.write(("UL$token"), data)
+                storageIo.write(("UL$token"), data).get()
             }
             KeyType.INDEXCHANNELSYS -> {
-                storageIo.write(("IndexChannelSys"), data)
+                storageIo.write(("IndexChannelSys"), data).get()
             }
             KeyType.INDEXUSERSYS -> {
-                storageIo.write(("IndexUserSys"), data)
+                storageIo.write(("IndexUserSys"), data).get()
             }
             KeyType.CHANNELTOINDEX -> {
                 val channel = args[0]
-                storageIo.write(("CI$channel"), data)
+                storageIo.write(("CI$channel"), data).get()
             }
             KeyType.INDEXTOCHANNEL -> {
                 val index = args[0]
-                storageIo.write(("IC$index"), data)
+                storageIo.write(("IC$index"), data).get()
             }
             KeyType.USERTOINDEX -> {
                 val username = args[0]
-                storageIo.write(("UI$username"), data)
+                storageIo.write(("UI$username"), data).get()
             }
             KeyType.INDEXTOUSER -> {
                 val index = args[0]
-                storageIo.write(("IU$index"), data)
+                storageIo.write(("IU$index"), data).get()
             }
         }
     }
@@ -619,69 +708,69 @@ class CourseAppImpl: CourseApp{
         when (type) {
             KeyType.USER -> {
                 val token = args[0]
-                str = storageIo.read("UV$token")
+                str = storageIo.read("UV$token").get()
             }
             KeyType.PASSWORD -> {
                 val username = args[0]
                 val password = args[1]
-                str = storageIo.read(("UP$username$password"))
+                str = storageIo.read(("UP$username$password")).get()
 
             }
             KeyType.ADMIN ->{
                 val token = args[0]
-                str = storageIo.read(("UA$token"))
+                str = storageIo.read(("UA$token")).get()
             }
             KeyType.CHANNEL -> {
                 val channel = args[0]
                 val index = channelToIndex(channel)
-                str = storageIo.read(("CV$index"))
+                str = storageIo.read(("CV$index")).get()
             }
             KeyType.PARTICIPANT -> {
                 val channel = args[0]
                 val index = channelToIndex(channel)
                 val token = args[1]
-                str = storageIo.read(("CU$index%$token")) //delimiter "%" between channel and token
+                str = storageIo.read(("CU$index%$token")).get() //delimiter "%" between channel and token
             }
             KeyType.CHANNELS -> {
                 val token = args[0]
-                str = storageIo.read(("UCL$token"))
+                str = storageIo.read(("UCL$token")).get()
             }
             KeyType.TOTALUSERSAMOUNT -> {
-                str = storageIo.read(("totalUsers"))
+                str = storageIo.read(("totalUsers")).get()
             }
             KeyType.ACTIVEUSERSAMOUNT -> {
-                str = storageIo.read(("activeUsers"))
+                str = storageIo.read(("activeUsers")).get()
             }
             KeyType.CHANNELLOGGED -> {
                 val index = args[0]
 //                val index = channelToIndex(channel)
-                str = storageIo.read(("CL$index"))
+                str = storageIo.read(("CL$index")).get()
             }
             KeyType.USERCHANNELS -> {
                 val token = args[0]
-                str = storageIo.read(("UL$token"))
+                str = storageIo.read(("UL$token")).get()
             }
             KeyType.INDEXCHANNELSYS -> {
-                str = storageIo.read(("IndexChannelSys"))
+                str = storageIo.read(("IndexChannelSys")).get()
             }
             KeyType.INDEXUSERSYS -> {
-                str = storageIo.read(("IndexUserSys"))
+                str = storageIo.read(("IndexUserSys")).get()
             }
             KeyType.CHANNELTOINDEX -> {
                 val channel = args[0]
-                str = storageIo.read(("CI$channel"))
+                str = storageIo.read(("CI$channel")).get()
             }
             KeyType.INDEXTOCHANNEL -> {
                 val index = args[0]
-                str = storageIo.read(("IC$index"))
+                str = storageIo.read(("IC$index")).get()
             }
             KeyType.USERTOINDEX -> {
                 val username = args[0]
-                str = storageIo.read(("UI$username"))
+                str = storageIo.read(("UI$username")).get()
             }
             KeyType.INDEXTOUSER -> {
                 val index = args[0]
-                str = storageIo.read(("IU$index"))
+                str = storageIo.read(("IU$index")).get()
             }
         }
         return str

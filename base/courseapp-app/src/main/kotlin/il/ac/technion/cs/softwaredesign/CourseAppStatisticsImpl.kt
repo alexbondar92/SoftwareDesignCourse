@@ -1,8 +1,10 @@
 package il.ac.technion.cs.softwaredesign
 
 import com.google.inject.Inject
+import java.util.concurrent.CompletableFuture
 
 class CourseAppStatisticsImpl: CourseAppStatistics {
+
     private val storageIo: DataStoreIo
     private val cApp: CourseAppImpl
 
@@ -16,8 +18,8 @@ class CourseAppStatisticsImpl: CourseAppStatistics {
      *
      * @return The total number of users.
      */
-    override fun totalUsers(): Long {
-        return cApp.getTotalUsers()
+    override fun totalUsers(): CompletableFuture<Long> {
+        return CompletableFuture.completedFuture(cApp.getTotalUsers())
     }
 
     /**
@@ -25,8 +27,8 @@ class CourseAppStatisticsImpl: CourseAppStatistics {
      *
      * @return The number of logged-in users.
      */
-    override fun loggedInUsers(): Long {
-        return cApp.getTotalActiveUsers()
+    override fun loggedInUsers(): CompletableFuture<Long> {
+        return CompletableFuture.completedFuture(cApp.getTotalActiveUsers())
     }
 
     /**
@@ -39,8 +41,8 @@ class CourseAppStatisticsImpl: CourseAppStatistics {
      *
      * @return A sorted list of channels by user count.
      */
-    override fun top10ChannelsByUsers(): List<String> {
-        return cApp.getTop10ChannelsByTotalUsers()
+    override fun top10ChannelsByUsers(): CompletableFuture<List<String>> {
+        return CompletableFuture.completedFuture(cApp.getTop10ChannelsByTotalUsers())
     }
 
     /**
@@ -54,8 +56,8 @@ class CourseAppStatisticsImpl: CourseAppStatistics {
      *
      * @return A sorted list of channels by logged-in user count.
      */
-    override fun top10ActiveChannelsByUsers(): List<String> {
-        return cApp.getTop10ChannelsByActiveUsers()
+    override fun top10ActiveChannelsByUsers(): CompletableFuture<List<String>> {
+        return CompletableFuture.completedFuture(cApp.getTop10ChannelsByActiveUsers())
     }
 
     /**
@@ -70,7 +72,40 @@ class CourseAppStatisticsImpl: CourseAppStatistics {
      * @return A sorted list of users by channel count.
      *
      */
-    override fun top10UsersByChannels(): List<String> {
-        return cApp.getTop10User()
+    override fun top10UsersByChannels(): CompletableFuture<List<String>> {
+        return CompletableFuture.completedFuture(cApp.getTop10User())
+    }
+
+    /**
+     * Total number of pending messages, i.e. messages that are waiting for a user to read them, not including channel
+     * messages.
+     *
+     * @return The number of pending messages.
+     */
+    override fun pendingMessages(): CompletableFuture<Long> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    /**
+     * Total number of channel messages, i.e., messages that can be fetched using [CourseApp.fetchMessage].
+     *
+     * @return The number of messages in channels.
+     */
+    override fun channelMessages(): CompletableFuture<Long> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    /**
+     * Return a sorted list of the top 10 channels in the system by message volume. The list will be sorted in
+     * descending order.
+     *
+     * If two channels have the exact same number of messages, they will be sorted in ascending appearance order.
+     *
+     * If there are less than 10 channels in the system, a shorter list will be returned.
+     *
+     * @return A sorted list of channels by message count.
+     */
+    override fun top10ChannelsByMessages(): CompletableFuture<List<String>> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

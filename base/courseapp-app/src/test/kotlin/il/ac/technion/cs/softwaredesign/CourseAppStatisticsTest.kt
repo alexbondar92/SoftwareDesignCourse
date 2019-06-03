@@ -19,11 +19,11 @@ class CourseAppStatisticsTest {
 
     @Test
     fun `empty CourseApp`() {
-        assert(appStatistics.loggedInUsers() == 0.toLong())
-        assert(appStatistics.totalUsers() == 0.toLong())
-        assert(appStatistics.top10UsersByChannels() == listOf<String>())
-        assert(appStatistics.top10ChannelsByUsers() == listOf<String>())
-        assert(appStatistics.top10ActiveChannelsByUsers() == listOf<String>())
+        assert(appStatistics.loggedInUsers().get() == 0.toLong())
+        assert(appStatistics.totalUsers().get() == 0.toLong())
+        assert(appStatistics.top10UsersByChannels().get() == listOf<String>())
+        assert(appStatistics.top10ChannelsByUsers().get() == listOf<String>())
+        assert(appStatistics.top10ActiveChannelsByUsers().get() == listOf<String>())
     }
 
     @Test
@@ -32,7 +32,7 @@ class CourseAppStatisticsTest {
             courseApp.login("user$i", "pass$i")
         }
 
-        assert(appStatistics.totalUsers() == 100.toLong())
+        assert(appStatistics.totalUsers().get() == 100.toLong())
     }
 
     @Test
@@ -41,7 +41,7 @@ class CourseAppStatisticsTest {
             courseApp.login("user$i", "pass$i")
         }
 
-        assert(appStatistics.loggedInUsers() == 100.toLong())
+        assert(appStatistics.loggedInUsers().get() == 100.toLong())
     }
 
     @Test
@@ -49,14 +49,14 @@ class CourseAppStatisticsTest {
         val dict = hashMapOf<Int, String>()
 
         for (i in 1..100) {
-            dict[i] = courseApp.login("user$i", "pass$i")
+            dict[i] = courseApp.login("user$i", "pass$i").get()
         }
         for (i in 1..50) {
             courseApp.logout(dict[i]!!)
         }
 
-        assert(appStatistics.loggedInUsers() == 50.toLong())
-        assert(appStatistics.totalUsers() == 100.toLong())
+        assert(appStatistics.loggedInUsers().get() == 50.toLong())
+        assert(appStatistics.totalUsers().get() == 100.toLong())
     }
 
     @Test
@@ -64,10 +64,10 @@ class CourseAppStatisticsTest {
         val userDict = hashMapOf<Int, String>()
 
         for (i in 1..20) {
-            userDict[i] = courseApp.login("user$i", "pass$i")
+            userDict[i] = courseApp.login("user$i", "pass$i").get()
         }
 
-        val list = appStatistics.top10UsersByChannels()
+        val list = appStatistics.top10UsersByChannels().get()
         assert(list == listOf("user1", "user2", "user3", "user4", "user5", "user6", "user7", "user8", "user9", "user10"))
     }
 
@@ -76,19 +76,19 @@ class CourseAppStatisticsTest {
         val userDict = hashMapOf<Int, String>()
 
         for (i in 1..100) {
-            userDict[i] = courseApp.login("user$i", "pass$i")
+            userDict[i] = courseApp.login("user$i", "pass$i").get()
         }
         for (c in 1..20) {
             var str = ""
             for (j in 1..c) {
                 str += "X"
             }
-            courseApp.channelJoin(userDict[1]!!, "#channel$str")
+            courseApp.channelJoin(userDict[1]!!, "#channel$str").get()
             for (i in 20..30) {
-                courseApp.channelJoin(userDict[i]!!, "#channel$str")
+                courseApp.channelJoin(userDict[i]!!, "#channel$str").get()
             }
         }
 
-        assert(appStatistics.top10UsersByChannels() == listOf("user1", "user20", "user21", "user22", "user23", "user24", "user25", "user26", "user27", "user28"))
+        assert(appStatistics.top10UsersByChannels().get() == listOf("user1", "user20", "user21", "user22", "user23", "user24", "user25", "user26", "user27", "user28"))
     }
 }

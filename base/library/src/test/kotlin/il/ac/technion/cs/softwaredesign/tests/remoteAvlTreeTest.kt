@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test
 
 class RemoteAvlTreeTest {
 
-    val storage = DataStoreIo(FakeSecureStorageFactory())
+    private val storage = DataStoreIo(FakeSecureStorageFactory())
 
     @Test
     fun `insert - basic 1`() {

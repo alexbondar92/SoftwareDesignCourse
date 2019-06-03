@@ -21,7 +21,7 @@ class RemoteNode : Comparable<RemoteNode>{
         this.mainKey = mainKey
         this.nodeStorageKey = "$treeName%$mainKey"                      // the StorageKey for the node
 
-        val str = storage.read((this.nodeStorageKey))
+        val str = storage.read((this.nodeStorageKey)).get()
         if (str != null) {
             val tempList = str.split("%")                     // <secondaryKey>%<balance>%<parent>%<leftNodeKey>%<rightNodeKey>
             this.secondaryKey = tempList[0]
