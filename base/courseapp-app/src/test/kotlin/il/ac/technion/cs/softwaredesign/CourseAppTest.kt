@@ -1296,23 +1296,23 @@ class CourseAppTest {
         }
     }
 
-//    @Test
-//    @Order(102)
-//    fun `100,000 logged in users in system - stress test`() {
-//        val amount = 100000         // got up to 39049 logins....
-//        runWithTimeout(ofSeconds(60*10)) {
-//            for (i in 1..amount) {
-//                val username = "user" + i
-//                val password = "StrongPass" + i
-//                courseApp.login(username, password).get()
-//                println("login: $i")
-//            }
-////            val token = courseAppReboot.login("heroUser", "password").get()
-////            for (i in 1..amount) {
-////                assertDoesNotThrow { courseAppReboot.isUserLoggedIn(token, "user" + i).joinException() }
-////            }
-//        }
-//    }
+    @Test
+    @Order(102)
+    fun `250,000 logged in users in system - stress test`() {
+        val amount = 250000         // got up to 39049 logins in 10 minuts.... nope 250,000 in 16 seconds
+        runWithTimeout(ofSeconds(60*10)) {
+            for (i in 1..amount) {
+                val username = "user" + i
+                val password = "StrongPass" + i
+                courseApp.login(username, password).get()
+                if (i % 1000 == 0) println("login: $i")
+            }
+            val token = courseAppReboot.login("heroUser", "password").get()
+            for (i in 1..amount) {
+                assertDoesNotThrow { courseAppReboot.isUserLoggedIn(token, "user" + i).joinException() }
+            }
+        }
+    }
 
     @Test
     @Order(103)

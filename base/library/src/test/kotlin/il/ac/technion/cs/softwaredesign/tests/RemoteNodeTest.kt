@@ -58,16 +58,6 @@ class RemoteNodeTest {
         assert(tmpParent!!.compareTo(node) == 0)
     }
 
-    @Test
-    fun `set balance`() {
-        val treeName = "MyTree"
-        val node = RemoteNode(dataStore, treeName, 10.toString(), 20.toString())       // write the new node to the server
-
-        node.setBalance(2)
-        val tmpNode = RemoteNode(dataStore, treeName, 10.toString())
-
-        assert(tmpNode.getBalance() == 2)
-    }
 
     @Test
     fun `reset node`() {

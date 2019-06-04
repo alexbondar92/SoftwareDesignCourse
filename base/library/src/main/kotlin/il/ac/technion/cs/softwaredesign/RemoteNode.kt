@@ -4,7 +4,7 @@ class RemoteNode : Comparable<RemoteNode>{
     private var nodeStorageKey: String
     private var mainKey: String
     private var secondaryKey: String?
-    private var balance: Int = 0
+    private var height: Int = 0
     private var leftNodeKey:  String? = null
     private var rightNodeKey: String? = null
     private var treeName: String
@@ -15,6 +15,10 @@ class RemoteNode : Comparable<RemoteNode>{
         secondaryKey = "null"
     }
 
+    /*
+        this constructor return a node with the values saved in storage,
+        there is an overhead of reading from storage.
+     */
     constructor(storage: DataStoreIo, treeName: String, mainKey: String) {
         this.storage = storage
         this.treeName = treeName
@@ -23,9 +27,9 @@ class RemoteNode : Comparable<RemoteNode>{
 
         val str = storage.read((this.nodeStorageKey)).get()
         if (str != null) {
-            val tempList = str.split("%")                     // <secondaryKey>%<balance>%<parent>%<leftNodeKey>%<rightNodeKey>
+            val tempList = str.split("%")                     // <secondaryKey>%<height>%<parent>%<leftNodeKey>%<rightNodeKey>
             this.secondaryKey = tempList[0]
-            this.balance = tempList[1].toInt()
+            this.height = tempList[1].toInt()
             this.parentKey = tempList[2]
             this.leftNodeKey = tempList[3]
             this.rightNodeKey = tempList[4]
@@ -34,18 +38,22 @@ class RemoteNode : Comparable<RemoteNode>{
         }
     }
 
+    /*
+        this constructor creating a new node and updates storage for persistence matter,
+        there is an overhead of writing from storage.
+     */
     constructor(storage: DataStoreIo, treeName: String, mainKey: String, secondaryKey: String) {
         this.storage = storage
         this.treeName = treeName
         this.mainKey = mainKey
         this.secondaryKey = secondaryKey
         this.nodeStorageKey = "$treeName%$mainKey"                      // the StorageKey for the node
-        this.balance = 0
+        this.height = 0         //leafs have height 0.
         this.leftNodeKey = null
         this.rightNodeKey = null
         this.parentKey = null
 
-        flushNode()
+        flushNode()     //writes to storage
     }
 
     fun getParent(): RemoteNode? {
@@ -67,10 +75,29 @@ class RemoteNode : Comparable<RemoteNode>{
 
 //    fun getStorageKey(): String? = this.nodeStorageKey
 
-    fun getBalance(): Int = this.balance
+    private fun getLeftHeight() : Int{
+        var heightLeft = getLeft()?.height
+        if(heightLeft == null)
+            heightLeft = -1     //null as a son have height of -1.
+        return heightLeft
+    }
 
-    fun setBalance(balance: Int) {
-        this.balance = balance
+    private fun getRightHeight() : Int{
+        var heightRight = getRight()?.height
+        if(heightRight == null)
+            heightRight = -1    //null as a son have height of -1.
+        return heightRight
+    }
+
+    fun getBalance(): Int = getRightHeight() - getLeftHeight()
+
+    /*
+        call this function only!! if suns heights are already updated,
+        height of a leaf is -1 by definition, and already been set to this value by calling second constructor.
+     */
+    fun setHeight(){
+
+        height = 1+ Math.max(getLeftHeight(), getRightHeight())
         flushNode()
     }
 
@@ -78,7 +105,7 @@ class RemoteNode : Comparable<RemoteNode>{
         return if (this.leftNodeKey == null || this.leftNodeKey == "null")
             null
         else
-            RemoteNode(this.storage, this.treeName, this.leftNodeKey!!)
+            RemoteNode(this.storage, this.treeName, this.leftNodeKey!!) //reads from storage
     }
 
     fun setLeft(node: RemoteNode?) {
@@ -86,14 +113,14 @@ class RemoteNode : Comparable<RemoteNode>{
             this.leftNodeKey = "null"
         else
             this.leftNodeKey = node.mainKey
-        flushNode()
+        flushNode()     //writes to storage
     }
 
     fun getRight(): RemoteNode? {
         return if (this.rightNodeKey == null || this.rightNodeKey == "null")
             null
         else
-            RemoteNode(this.storage, this.treeName, this.rightNodeKey!!)
+            RemoteNode(this.storage, this.treeName, this.rightNodeKey!!)    //reads from storage
     }
 
     fun setRight(node: RemoteNode?) {
@@ -101,7 +128,7 @@ class RemoteNode : Comparable<RemoteNode>{
             this.rightNodeKey = null
         else
             this.rightNodeKey = node.mainKey
-        flushNode()
+        flushNode()        //writes to storage
     }
 
     override fun compareTo(other: RemoteNode): Int {
@@ -119,8 +146,8 @@ class RemoteNode : Comparable<RemoteNode>{
         return 0
     }
 
-    private fun flushNode() {                       // <secondaryKey>%<balance>%<parent>%<leftNodeKey>%<rightNodeKey>
-        storage.write(this.nodeStorageKey, ("$secondaryKey%$balance%$parentKey%$leftNodeKey%$rightNodeKey"))
+    private fun flushNode() {                       // <secondaryKey>%<height>%<parent>%<leftNodeKey>%<rightNodeKey>
+        storage.write(this.nodeStorageKey, ("$secondaryKey%$height%$parentKey%$leftNodeKey%$rightNodeKey"))
     }
 
     fun compareUgly(mainKey: String, secondaryKey: String): Int {
@@ -143,7 +170,7 @@ class RemoteNode : Comparable<RemoteNode>{
 
     fun reset() {
         this.secondaryKey = "null"
-        this.balance = 0
+        this.height = -1    //not important...
         this.parentKey = null
         this.leftNodeKey = null
         this.rightNodeKey = null
@@ -154,7 +181,7 @@ class RemoteNode : Comparable<RemoteNode>{
     fun refresh() {
         val tmpNode = RemoteNode(this.storage, this.treeName, this.mainKey)
         this.secondaryKey = tmpNode.secondaryKey
-        this.balance = tmpNode.balance
+        this.height = tmpNode.height
         this.parentKey = tmpNode.parentKey
         this.leftNodeKey = tmpNode.leftNodeKey
         this.rightNodeKey = tmpNode.rightNodeKey

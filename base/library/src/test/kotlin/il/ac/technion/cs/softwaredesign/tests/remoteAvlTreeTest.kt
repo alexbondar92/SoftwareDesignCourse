@@ -4,6 +4,7 @@ import il.ac.technion.cs.softwaredesign.DataStoreIo
 import il.ac.technion.cs.softwaredesign.FakeSecureStorage
 import il.ac.technion.cs.softwaredesign.FakeSecureStorageFactory
 import il.ac.technion.cs.softwaredesign.RemoteAvlTree
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 
 class RemoteAvlTreeTest {
@@ -19,6 +20,7 @@ class RemoteAvlTreeTest {
         tree.delete(10.toString(), 20.toString())
 
         assert(tree.top10() == listOf<String>())
+        assertTrue(tree.balanced())
     }
 
     @Test
@@ -31,6 +33,7 @@ class RemoteAvlTreeTest {
         tree.delete(10.toString(), 20.toString())
 
         assert(tree.top10().size == 1)
+        assertTrue(tree.balanced())
     }
 
     @Test
@@ -43,6 +46,7 @@ class RemoteAvlTreeTest {
         }
 
         assert(tree.top10().size == 10)
+        assertTrue(tree.balanced())
     }
 
     @Test
@@ -58,6 +62,7 @@ class RemoteAvlTreeTest {
         val list = tree.top10()
 //        print(list)
         assert(tree.top10().size == 10)
+        assertTrue(tree.balanced())
     }
 
     @Test
@@ -71,6 +76,7 @@ class RemoteAvlTreeTest {
         }
 
         assert(tree.top10().size == 10)
+        assertTrue(tree.balanced())
     }
 
     @Test
@@ -88,6 +94,7 @@ class RemoteAvlTreeTest {
         }
 
         assert(tree.top10().size == 3)
+        assertTrue(tree.balanced())
     }
 
     @Test
@@ -109,5 +116,6 @@ class RemoteAvlTreeTest {
 //        println("delete: 4")
 
         assert(tree.top10().size == 6)
+        assertTrue(tree.balanced())
     }
 }

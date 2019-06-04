@@ -1,5 +1,7 @@
 package il.ac.technion.cs.softwaredesign
 
+import kotlin.math.abs
+
 class RemoteAvlTree {
     private var treeName: String
     private var storage: DataStoreIo
@@ -35,6 +37,7 @@ class RemoteAvlTree {
             storage.write(("T${this.treeName}"), "null")
         else {
             newRoot.setParent(null)
+            newRoot.setHeight()
             storage.write(("T${this.treeName}"), newRoot.getMainKey())
         }
     }
@@ -69,26 +72,32 @@ class RemoteAvlTree {
         return true
     }
 
-    private fun rebalance(node: RemoteNode?) {
+    private fun rebalance(node: RemoteNode?) {      //TODO:("distinct insert/delete if possible maybe do it while debugging")
         var tmpNode = node
         while (tmpNode != null) {
+            tmpNode.setHeight()
             tmpNode = rebalanceAux(tmpNode)
         }
     }
 
-    private fun rebalanceAux(node: RemoteNode): RemoteNode? {
-        setBalance(node)
+    private fun rebalanceAux(node: RemoteNode): RemoteNode? {    //TODO:("distinct insert/delete")
         var nextNode = node
-        if (nextNode.getBalance() == -2)
-            nextNode = if (height(nextNode.getLeft()!!.getLeft()) >= height(nextNode.getLeft()!!.getRight()))
-                rotateRight(nextNode)
+
+        val balanceValue = node.getBalance()
+
+        //decide which rotation to do if needed:
+        if (balanceValue == -2)
+            nextNode = if(node.getLeft()!!.getBalance() <= 0)
+                rotateRight(node)
             else
-                rotateLeftThenRight(nextNode)
-        else if (nextNode.getBalance() == 2)
-            nextNode = if (height(nextNode.getRight()!!.getRight()) >= height(nextNode.getRight()!!.getLeft()))
-                rotateLeft(nextNode)
+                rotateLeftThenRight(node)
+
+        else if (balanceValue == 2)
+            nextNode = if(node.getRight()!!.getBalance() >= 0)
+                rotateLeft(node)
             else
-                rotateRightThenLeft(nextNode)
+                rotateRightThenLeft(node)
+
         return if (nextNode.getParent() != null) {
             nextNode.getParent()
         } else {
@@ -97,15 +106,10 @@ class RemoteAvlTree {
         }
     }
 
-    private fun setBalance(vararg nodes: RemoteNode) {
-        for (node in nodes)
-            node.setBalance(height(node.getRight()) - height(node.getLeft()))
-    }
-
-    private fun height(node: RemoteNode?): Int {
-        if (node == null)
-            return -1
-        return 1+ Math.max(height(node.getLeft()), height(node.getRight()))
+    private fun setHeights(papa : RemoteNode){
+        papa.getLeft()?.setHeight()
+        papa.getRight()?.setHeight()
+        papa.setHeight()
     }
 
     private fun rotateRight(a: RemoteNode): RemoteNode {
@@ -122,13 +126,15 @@ class RemoteAvlTree {
             else
                 b.getParent()!!.setLeft(b)
         }
-        setBalance(a, b)
+        setHeights(b)   //update triangle heights after connection pointers.
         return b
     }
 
     private fun rotateLeftThenRight(node: RemoteNode): RemoteNode {
         node.setLeft(rotateLeft(node.getLeft()!!))
-        return rotateRight(node)
+        val n = rotateRight(node)
+        setHeights(n)
+        return n
     }
 
     private fun rotateLeft(a: RemoteNode): RemoteNode {
@@ -146,13 +152,15 @@ class RemoteAvlTree {
             else
                 b.getParent()!!.setRight(b)
         }
-        setBalance(a, b)
+        setHeights(b)
         return b
     }
 
     private fun rotateRightThenLeft(node: RemoteNode): RemoteNode {
         node.setRight(rotateRight(node.getRight()!!))
-        return rotateLeft(node)
+        val n =  rotateLeft(node)
+        setHeights(n)
+        return n
     }
 
     //     fun delete(delKey: Int) {
@@ -170,12 +178,11 @@ class RemoteAvlTree {
             if (n.compareUgly(mainKey, secondaryKey) == 0)
                 delNode = n
         }
-        if (delNode != null) {
+        if (delNode != null) {  //if found node for deletion.
             if (delNode.getRight() == null) {   // the right son of delNode is null
-                if (this.root != null && delNode.compareTo(this.root!!) == 0) {
-                    setRoot(delNode.getLeft())
-                } else {        // there is a parent for delNode
-//                    val leftSon1 = delNode.getLeft()
+                if (this.root != null && delNode.compareTo(this.root!!) == 0) { //new root, because node to delete is old root.
+                    setRoot(delNode.getLeft())  //no need to update height.
+                } else {        // there is a parent for delNode, not a root.
                     if (delNode.getLeft() != null)
                         delNode.getLeft()!!.setParent(parent)
 
@@ -259,4 +266,18 @@ class RemoteAvlTree {
         top10Aux(this.root, adder, cond)
         return list
     }
+
+    private fun balance(node: RemoteNode?) : Int {
+        if(node == null) return 0
+        return node.getBalance()
+    }
+
+    private fun balancedAux(node: RemoteNode?): Boolean {
+        if (node == null ) return true
+        return balancedAux(node.getRight()) &&
+                balancedAux(node.getLeft()) &&
+                abs(balance(node)) < 2
+    }
+
+    fun balanced() : Boolean = balancedAux(this.root)
 }
