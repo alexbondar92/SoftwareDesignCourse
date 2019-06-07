@@ -8,4 +8,5 @@ interface Message {
     val contents: ByteArray
     val created: LocalDateTime
     var received: LocalDateTime?
+
 }

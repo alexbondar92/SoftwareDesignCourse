@@ -2,19 +2,16 @@ package il.ac.technion.cs.softwaredesign
 
 import com.google.inject.Inject
 import il.ac.technion.cs.softwaredesign.exceptions.*
-import il.ac.technion.cs.softwaredesign.messages.MediaType
 import il.ac.technion.cs.softwaredesign.messages.Message
-import il.ac.technion.cs.softwaredesign.messages.MessageImpl
 
-import io.reactivex.rxkotlin.subscribeBy
-import io.reactivex.rxkotlin.toObservable
-import java.time.LocalDateTime
-import java.util.*
 import java.util.concurrent.CompletableFuture
-import kotlin.collections.HashMap
 
 
 class CourseAppImpl: CourseApp{
+
+    // TODO("Remove this shit")
+    class OurObservableImpl: OurObservable<String, Message, CompletableFuture<Unit>>()
+
     private val userLoggedIn = "1"
     private val passwordSignedIn = "1"
     private val registeredNotLoggedIn = "0"
@@ -27,8 +24,11 @@ class CourseAppImpl: CourseApp{
     private var channelByActiveTree: RemoteAvlTree
     private var channelByMessagesTree: RemoteAvlTree
 
-    private var disposableOfBroadcast = HashMap<ListenerCallback, Disposable>()
-    private var broadCastObserver =  listOf<ListenerCallback>().toObservable()
+//    private var disposableOfBroadcast = HashMap<ListenerCallback, Disposable>()
+//    private var broadCastObserver =  listOf<ListenerCallback>().toObservable()
+    private var broadCastObserver: OurObservableImpl
+    private var channelObservers: HashMap<String, OurObservableImpl>
+    private var userObservers: HashMap<String, OurObservableImpl>
 
     @Inject constructor(storage: DataStoreIo) {
         storageIo = storage
@@ -36,6 +36,10 @@ class CourseAppImpl: CourseApp{
         channelByMembersTree = RemoteAvlTree("AvlChannel1",storageIo)
         channelByActiveTree = RemoteAvlTree("AvlChannel2",storageIo)
         channelByMessagesTree = RemoteAvlTree("AvlChannel3",storageIo)
+
+        broadCastObserver = OurObservableImpl()
+        channelObservers = HashMap()
+        userObservers = HashMap()
     }
 
     enum class UserStatusInChannel(val type:Int){
@@ -65,7 +69,8 @@ class CourseAppImpl: CourseApp{
         USERTOINDEX,
         INDEXTOUSER,
         CHANNELTOINDEX,
-        INDEXTOCHANNEL
+        INDEXTOCHANNEL,
+        INDEXMESSAGESYS
     }
 
     init {
@@ -105,6 +110,9 @@ class CourseAppImpl: CourseApp{
                 if (getNumberOfLoggedInUsers() == 1.toLong())    // first user in the system
                     setAdministrator(genToken)
 
+                // Add Observer for private messages
+                initializeObserverForUser(genToken)
+
                 return CompletableFuture.completedFuture(genToken)
             }
 
@@ -116,6 +124,10 @@ class CourseAppImpl: CourseApp{
                 writeUserStatus(token, userLoggedIn)
                 updateAssocChannels(token, UpdateLoggedStatus.IN)
                 incTotalLoggedInUsers()
+
+                // Add Observer for private messages
+                initializeObserverForUser(token)
+
                 return CompletableFuture.completedFuture(token)
             }
 
@@ -124,6 +136,10 @@ class CourseAppImpl: CourseApp{
 
         assert(false)       //shouldn't get here, data-store might be corrupted.
         throw IllegalArgumentException()
+    }
+
+    private fun initializeObserverForUser(genToken: String) {
+        this.userObservers[genToken] = OurObservableImpl()
     }
 
     /**
@@ -142,8 +158,12 @@ class CourseAppImpl: CourseApp{
                 writeUserStatus(token, registeredNotLoggedIn)
                 updateAssocChannels(token, UpdateLoggedStatus.OUT)
                 decTotalLoggedInUsers()
+
+                // Remove Observable of this user
+                this.userObservers.remove(token)
             }
         }
+
         return CompletableFuture.completedFuture(Unit)
     }
 
@@ -247,6 +267,11 @@ class CourseAppImpl: CourseApp{
             getNewChannelIndex(channel)
             createChannel(channel, token)       // this fun create new channel and adding the admin(token) as first user and makes him/her operator
         }
+
+        // Add new Observer for this new channel for sending messages inside the channel
+        if (this.channelObservers[channel] == null)
+            this.channelObservers[channel] = OurObservableImpl()        // in case of new channel or after new courseApp instance, we need new Observable
+
         return CompletableFuture.completedFuture(Unit)
     }
 
@@ -269,6 +294,13 @@ class CourseAppImpl: CourseApp{
             throw NoSuchEntityException()
 
         removeUserFromChannel(channel, token)   // this fun remove user from channel and update the trees + if the chanel is empty the channel will be deleted
+
+        // Messages System, remove from observers
+        if (!isChannelExist(channel))
+            this.channelObservers.remove(channel)        // in case of new channel or after new courseApp instance, we need new Observable
+        //else
+            // By the FAQ we can assume that the user have been removed all his listens
+
         return CompletableFuture.completedFuture(Unit)
     }
 
@@ -335,6 +367,13 @@ class CourseAppImpl: CourseApp{
             throw NoSuchEntityException()
 
         removeUserFromChannel(channel, userToken)   // this fun remove user from channel and update the trees
+
+        // Messages System, remove from observers
+        if (!isChannelExist(channel))
+            this.channelObservers.remove(channel)        // in case of new channel or after new courseApp instance, we need new Observable
+        //else
+        // By the FAQ we can assume that the user have been removed all his listens
+
         return CompletableFuture.completedFuture(Unit)
     }
 
@@ -425,25 +464,26 @@ class CourseAppImpl: CourseApp{
             throw InvalidTokenException()
 
         addListenerToBroadcastObserver(callback)
-        addListenerToPrivateObserver(token, callback)
         addListenerToChannelsObserver(token, callback)
+        addListenerToPrivateObserver(token, callback)
 
-        activatePendingMessagesFor(token, callback) //after need to initialize pendings...
+        //activatePendingMessagesFor(token, callback) //after need to initialize pendings...
 
         return CompletableFuture.completedFuture(Unit)
     }
 
+    private fun addListenerToPrivateObserver(token: String, callback: ListenerCallback) {
+        this.userObservers[token]!!.listen(callback)
+    }
+
+    private fun addListenerToChannelsObserver(token: String, callback: ListenerCallback) {
+        val channelList = getChannelsOf(token)
+        for (channel in channelList)
+            this.channelObservers[channel]!!.listen(callback)
+    }
+
     private fun addListenerToBroadcastObserver(callback: ListenerCallback) {
-        //this.disposableOfBroadcast[callback] =
-        val subscribeBy = this.broadCastObserver.subscribeBy(
-                onNext = { callback }
-        )
-        disposableOfBroadcast[callback] = subscribeBy
-        /*
-        this.broadCastObserver.forEach { it("hi", MessageImpl(30,MediaType.AUDIO, "1".toByteArray(), LocalDateTime.now(), null )) }
-        //example of using.
-        */
-        //subscribeBy.dispose()
+        this.broadCastObserver.listen(callback)
     }
 
     /**
@@ -455,18 +495,37 @@ class CourseAppImpl: CourseApp{
     override fun removeListener(token: String, callback: ListenerCallback): CompletableFuture<Unit> {
         if (!validToken(token))
             throw InvalidTokenException()
-        if(!isListenerExist(token, callback))
+        if(!isListenerExist(callback))
             throw NoSuchEntityException()
 
-        removeListenerFromBroadcastObserver(token, callback)
-        removeListenerFromPrivateObserver(token, callback)
+        removeListenerFromBroadcastObserver(callback)
         removeListenerFromChannelsObserver(token, callback)
+        removeListenerFromPrivateObserver(token, callback)
 
         return CompletableFuture.completedFuture(Unit)
     }
 
+    private fun removeListenerFromPrivateObserver(token: String, callback: ListenerCallback) {
+        this.userObservers[token]!!.unlisten(callback)
+    }
+
+    /*
+        broadCastObserver contains all the listeners of the system, so it is a nice place to check if
+        a specific user is a listener.
+     */
+    private fun isListenerExist(callback: ListenerCallback): Boolean {
+        return this.broadCastObserver.contains(callback)
+    }
+
+    private fun removeListenerFromChannelsObserver(token: String, callback: ListenerCallback) {
+        val channelList = getChannelsOf(token)
+        for (channel in channelList)
+            this.channelObservers[channel]!!.unlisten(callback)
+    }
+
     private fun removeListenerFromBroadcastObserver( callback: ListenerCallback) {
-        disposableOfBroadcast[callback].dispose()
+//        disposableOfBroadcast[callback].dispose()
+        this.broadCastObserver.unlisten(callback)
     }
 
     /**
@@ -488,9 +547,22 @@ class CourseAppImpl: CourseApp{
         if(!areUserAndChannelConnected(token, channel))
             throw UserNotAuthorizedException()
 
+//        associateIndexForMessage(message)
         sendMessageInChannel(token, channel, message)
 
         return CompletableFuture.completedFuture(Unit)
+    }
+
+//    private fun associateIndexForMessage(message: Message) {
+//        val lastIndex = readFromStorage(mutableListOf(),KeyType.INDEXMESSAGESYS).toLong()
+//        val newIndex = lastIndex + 1
+//        writeToStorage(mutableListOf(newIndex.toString()), _________, KeyType.INDEXMESSAGESYS)    // index to message & opposite(?)
+//        writeToStorage(mutableListOf(), newIndex.toString(), KeyType.INDEXMESSAGESYS )    // newIndex
+//    }
+
+    private fun sendMessageInChannel(token: String, channel: String, message: Message) {
+        val username = tokenToUsername(token)
+        this.channelObservers[channel]!!.onChange("$channel@$username", message)
     }
 
     /**
@@ -508,9 +580,14 @@ class CourseAppImpl: CourseApp{
         if(!isAdministrator(token))
             throw UserNotAuthorizedException()
 
-        sendMessageInBroadcast(token, message)
+//        associateIndexForMessage(message)
+        sendMessageInBroadcast(message)
 
         return CompletableFuture.completedFuture(Unit)
+    }
+
+    private fun sendMessageInBroadcast(message: Message) {
+        this.broadCastObserver.onChange("BROADCAST", message)
     }
 
     /**
@@ -526,12 +603,23 @@ class CourseAppImpl: CourseApp{
     override fun privateSend(token: String, user: String, message: Message): CompletableFuture<Unit> {
         if (!validToken(token))
             throw InvalidTokenException()
-        if(readUserStatus(usernameToToken(user)) == notRegistered)
-            throw NoSuchEntityException()
-
-        sendMessageInPrivate(token, user, message)
+        val res = readUserStatus(usernameToToken(user))
+        when(res) {
+            notRegistered -> throw NoSuchEntityException()
+            registeredNotLoggedIn -> {
+                assert(false)
+            }  //TODO:("pending")
+            userLoggedIn -> {
+//                associateIndexForMessage(message)
+                sendMessageInPrivate(user, token, message)
+            }
+        }
 
         return CompletableFuture.completedFuture(Unit)
+    }
+
+    private fun sendMessageInPrivate(user: String, token: String, message: Message) {
+        this.userObservers[user]!!.onChange(tokenToUsername(token), message)
     }
 
     /**
@@ -558,6 +646,10 @@ class CourseAppImpl: CourseApp{
             throw UserNotAuthorizedException()
 
         return fetchMessageAux(token, id)
+    }
+
+    private fun validMessage(id: Long): Any {
+
     }
 
     // =========================================== API for statistics ==================================================
@@ -652,6 +744,9 @@ class CourseAppImpl: CourseApp{
             KeyType.INDEXTOUSER -> {
                 val index = args[0]
                 storageIo.write(("IU$index"), data).get()
+            }
+            KeyType.INDEXMESSAGESYS -> {
+                storageIo.write(("IndexMessageSys"), data).get()
             }
         }
     }
@@ -852,6 +947,9 @@ class CourseAppImpl: CourseApp{
             KeyType.INDEXTOUSER -> {
                 val index = args[0]
                 str = storageIo.read(("IU$index")).get()
+            }
+            KeyType.INDEXMESSAGESYS -> {
+                str = storageIo.read(("IndexMessageSys")).get()
             }
         }
         return str
