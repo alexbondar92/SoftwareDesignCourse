@@ -2,8 +2,17 @@ package il.ac.technion.cs.softwaredesign
 
 import com.google.inject.Inject
 import il.ac.technion.cs.softwaredesign.exceptions.*
+import il.ac.technion.cs.softwaredesign.messages.MediaType
 import il.ac.technion.cs.softwaredesign.messages.Message
+import il.ac.technion.cs.softwaredesign.messages.MessageImpl
+
+import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.rxkotlin.toObservable
+import java.time.LocalDateTime
+import java.util.*
 import java.util.concurrent.CompletableFuture
+import kotlin.collections.HashMap
+
 
 class CourseAppImpl: CourseApp{
     private val userLoggedIn = "1"
@@ -16,12 +25,17 @@ class CourseAppImpl: CourseApp{
     private var usersTree: RemoteAvlTree
     private var channelByMembersTree: RemoteAvlTree
     private var channelByActiveTree: RemoteAvlTree
+    private var channelByMessagesTree: RemoteAvlTree
+
+    private var disposableOfBroadcast = HashMap<ListenerCallback, Disposable>()
+    private var broadCastObserver =  listOf<ListenerCallback>().toObservable()
 
     @Inject constructor(storage: DataStoreIo) {
         storageIo = storage
         usersTree = RemoteAvlTree("AvlUsers",storageIo)
         channelByMembersTree = RemoteAvlTree("AvlChannel1",storageIo)
         channelByActiveTree = RemoteAvlTree("AvlChannel2",storageIo)
+        channelByMessagesTree = RemoteAvlTree("AvlChannel3",storageIo)
     }
 
     enum class UserStatusInChannel(val type:Int){
@@ -407,7 +421,29 @@ class CourseAppImpl: CourseApp{
      * @throws InvalidTokenException if the auth [token] is invalid.
      */
     override fun addListener(token: String, callback: ListenerCallback): CompletableFuture<Unit> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        if (!validToken(token))
+            throw InvalidTokenException()
+
+        addListenerToBroadcastObserver(callback)
+        addListenerToPrivateObserver(token, callback)
+        addListenerToChannelsObserver(token, callback)
+
+        activatePendingMessagesFor(token, callback) //after need to initialize pendings...
+
+        return CompletableFuture.completedFuture(Unit)
+    }
+
+    private fun addListenerToBroadcastObserver(callback: ListenerCallback) {
+        //this.disposableOfBroadcast[callback] =
+        val subscribeBy = this.broadCastObserver.subscribeBy(
+                onNext = { callback }
+        )
+        disposableOfBroadcast[callback] = subscribeBy
+        /*
+        this.broadCastObserver.forEach { it("hi", MessageImpl(30,MediaType.AUDIO, "1".toByteArray(), LocalDateTime.now(), null )) }
+        //example of using.
+        */
+        //subscribeBy.dispose()
     }
 
     /**
@@ -417,7 +453,20 @@ class CourseAppImpl: CourseApp{
      * @throws NoSuchEntityException If [callback] is not registered with this instance.
      */
     override fun removeListener(token: String, callback: ListenerCallback): CompletableFuture<Unit> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        if (!validToken(token))
+            throw InvalidTokenException()
+        if(!isListenerExist(token, callback))
+            throw NoSuchEntityException()
+
+        removeListenerFromBroadcastObserver(token, callback)
+        removeListenerFromPrivateObserver(token, callback)
+        removeListenerFromChannelsObserver(token, callback)
+
+        return CompletableFuture.completedFuture(Unit)
+    }
+
+    private fun removeListenerFromBroadcastObserver( callback: ListenerCallback) {
+        disposableOfBroadcast[callback].dispose()
     }
 
     /**
@@ -432,7 +481,16 @@ class CourseAppImpl: CourseApp{
      * @throws UserNotAuthorizedException If [token] identifies a user who is not a member of [channel].
      */
     override fun channelSend(token: String, channel: String, message: Message): CompletableFuture<Unit> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        if (!validToken(token))
+            throw InvalidTokenException()
+        if(!isChannelExist(channel))
+            throw NoSuchEntityException()
+        if(!areUserAndChannelConnected(token, channel))
+            throw UserNotAuthorizedException()
+
+        sendMessageInChannel(token, channel, message)
+
+        return CompletableFuture.completedFuture(Unit)
     }
 
     /**
@@ -445,7 +503,14 @@ class CourseAppImpl: CourseApp{
      * @throws UserNotAuthorizedException If [token] does not identify an administrator.
      */
     override fun broadcast(token: String, message: Message): CompletableFuture<Unit> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        if (!validToken(token))
+            throw InvalidTokenException()
+        if(!isAdministrator(token))
+            throw UserNotAuthorizedException()
+
+        sendMessageInBroadcast(token, message)
+
+        return CompletableFuture.completedFuture(Unit)
     }
 
     /**
@@ -459,7 +524,14 @@ class CourseAppImpl: CourseApp{
      * @throws NoSuchEntityException If [user] does not exist.
      */
     override fun privateSend(token: String, user: String, message: Message): CompletableFuture<Unit> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        if (!validToken(token))
+            throw InvalidTokenException()
+        if(readUserStatus(usernameToToken(user)) == notRegistered)
+            throw NoSuchEntityException()
+
+        sendMessageInPrivate(token, user, message)
+
+        return CompletableFuture.completedFuture(Unit)
     }
 
     /**
@@ -476,7 +548,16 @@ class CourseAppImpl: CourseApp{
      * @return The message identified by [id] along with its source.
      */
     override fun fetchMessage(token: String, id: Long): CompletableFuture<Pair<String, Message>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        if (!validToken(token))
+            throw InvalidTokenException()
+
+        if (!validMessage(id) || validChannelMessage(id))
+            throw NoSuchEntityException()
+
+        if (!messageIsSameChannelAsUser(message, id))
+            throw UserNotAuthorizedException()
+
+        return fetchMessageAux(token, id)
     }
 
     // =========================================== API for statistics ==================================================

@@ -83,7 +83,7 @@ class CourseAppStatisticsImpl: CourseAppStatistics {
      * @return The number of pending messages.
      */
     override fun pendingMessages(): CompletableFuture<Long> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return CompletableFuture.completedFuture(cApp.getPendingMessagesNumberForUsers())
     }
 
     /**
@@ -92,7 +92,7 @@ class CourseAppStatisticsImpl: CourseAppStatistics {
      * @return The number of messages in channels.
      */
     override fun channelMessages(): CompletableFuture<Long> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return CompletableFuture.completedFuture(cApp.getPendingMessagesNumberForChannels())
     }
 
     /**
@@ -106,6 +106,6 @@ class CourseAppStatisticsImpl: CourseAppStatistics {
      * @return A sorted list of channels by message count.
      */
     override fun top10ChannelsByMessages(): CompletableFuture<List<String>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return CompletableFuture.completedFuture(cApp.getTop10ChannelsByMessagesNumber())
     }
 }

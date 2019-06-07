@@ -12,6 +12,8 @@ val guiceVersion: String? by extra
 val kotlinGuiceVersion: String? by extra
 
 dependencies {
+    
+    compile("io.reactivex.rxjava2:rxkotlin:2.2.0")
     compile(project(":library"))
     compile("com.google.inject", "guice", guiceVersion)
     compile("com.authzee.kotlinguice4", "kotlin-guice", kotlinGuiceVersion)
