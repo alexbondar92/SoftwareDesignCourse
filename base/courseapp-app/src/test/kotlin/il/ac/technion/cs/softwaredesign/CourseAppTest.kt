@@ -1302,6 +1302,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Disabled
     @Order(102)
     fun `1,000,000 logged in users in system - stress test`() {
         val amount = 1000000
@@ -1470,7 +1471,7 @@ class CourseAppTest {
 
     @Test
     @Order(111)
-    fun `adding few listenerd successfully`(){
+    fun `adding few listeners successfully`(){
         val adminToken = courseApp.login("admin", "pass").get()
         val otherToken = courseApp.login("user1", "justPassword").get()
         val sources = HashSet<String>()

@@ -3,6 +3,7 @@ package il.ac.technion.cs.softwaredesign
 import com.google.inject.Inject
 import il.ac.technion.cs.softwaredesign.exceptions.*
 import il.ac.technion.cs.softwaredesign.messages.Message
+import java.time.LocalDateTime
 
 import java.util.concurrent.CompletableFuture
 
@@ -24,8 +25,6 @@ class CourseAppImpl: CourseApp{
     private var channelByActiveTree: RemoteAvlTree
     private var channelByMessagesTree: RemoteAvlTree
 
-//    private var disposableOfBroadcast = HashMap<ListenerCallback, Disposable>()
-//    private var broadCastObserver =  listOf<ListenerCallback>().toObservable()
     private var broadCastObserver: OurObservableImpl
     private var channelObservers: HashMap<String, OurObservableImpl>
     private var userObservers: HashMap<String, OurObservableImpl>
@@ -70,7 +69,17 @@ class CourseAppImpl: CourseApp{
         INDEXTOUSER,
         CHANNELTOINDEX,
         INDEXTOCHANNEL,
-        INDEXMESSAGESYS
+        INDEXMESSAGESYS,
+        CHANNELSLOGINTIME,
+        MESSAGETYPE,
+        MESSAGEDATA,
+        MESSAGESNUMBERINCHANNEL
+    }
+
+    enum class typeMessage {
+        PRIVATE,
+        CHANNEL,
+        BROADCAST
     }
 
     init {
@@ -263,16 +272,22 @@ class CourseAppImpl: CourseApp{
 
             insertToChannelsListOfUser(channel, token)
 
+            // Add new Observer for this new channel for sending messages inside the channel
+            if (this.channelObservers[channel] == null)
+                this.channelObservers[channel] = OurObservableImpl()        // in case of new channel or after new courseApp instance, we need new Observable
+
+            insertToMessagesChannelsTree(channel, getNumberOfMessageIn(channel) + 1)
+
         } else {
             getNewChannelIndex(channel)
             createChannel(channel, token)       // this fun create new channel and adding the admin(token) as first user and makes him/her operator
+
+            // Add new Observer for this new channel for sending messages inside the channel
+            if (this.channelObservers[channel] == null)
+                this.channelObservers[channel] = OurObservableImpl()        // in case of new channel or after new courseApp instance, we need new Observable
+
+            insertToMessagesChannelsTree(channel, 0)
         }
-
-        // Add new Observer for this new channel for sending messages inside the channel
-        if (this.channelObservers[channel] == null)
-            this.channelObservers[channel] = OurObservableImpl()        // in case of new channel or after new courseApp instance, we need new Observable
-
-        TODO ("add channel to tree of channels by messages")
 
         return CompletableFuture.completedFuture(Unit)
     }
@@ -300,7 +315,7 @@ class CourseAppImpl: CourseApp{
         // Messages System, remove from observers
         if (!isChannelExist(channel)) {
             this.channelObservers.remove(channel)        // in case of new channel or after new courseApp instance, we need new Observable
-            TODO ("remove channel from tree of channels by messages")
+            deleteFromMessagesChannelsTree(channel)
         }
         //else
             // By the FAQ we can assume that the user have been removed all his listens
@@ -375,7 +390,7 @@ class CourseAppImpl: CourseApp{
         // Messages System, remove from observers
         if (!isChannelExist(channel)) {
             this.channelObservers.remove(channel)        // in case of new channel or after new courseApp instance, we need new Observable
-            TODO ("remove channel from tree of channels by messages")
+            deleteFromMessagesChannelsTree(channel)
         }
         //else
         // By the FAQ we can assume that the user have been removed all his listens
@@ -479,13 +494,15 @@ class CourseAppImpl: CourseApp{
     }
 
     private fun activatePendingMessagesFor(token: String, callback: ListenerCallback) {
-        TODO ("Implement this")
-        TODO ("update number of pending messages for users")
-        TODO ("update number of pending messages for channels")
+        TODO ("Impl this")
+//          for (list of pending messages(max 1024))
+//              for each check if this message is for this user(token)
+//                  if (it is for him)
+//                      send it to the callback func & decrease for number of users for this message as pending
     }
 
-    private fun addListenerToPrivateObserver(token: String, callback: ListenerCallback) {
-        this.userObservers[token]!!.listen(callback)
+    private fun addListenerToBroadcastObserver(callback: ListenerCallback) {
+        this.broadCastObserver.listen(callback)
     }
 
     private fun addListenerToChannelsObserver(token: String, callback: ListenerCallback) {
@@ -494,8 +511,8 @@ class CourseAppImpl: CourseApp{
             this.channelObservers[channel]!!.listen(callback)
     }
 
-    private fun addListenerToBroadcastObserver(callback: ListenerCallback) {
-        this.broadCastObserver.listen(callback)
+    private fun addListenerToPrivateObserver(token: String, callback: ListenerCallback) {
+        this.userObservers[token]!!.listen(callback)
     }
 
     /**
@@ -517,10 +534,6 @@ class CourseAppImpl: CourseApp{
         return CompletableFuture.completedFuture(Unit)
     }
 
-    private fun removeListenerFromPrivateObserver(token: String, callback: ListenerCallback) {
-        this.userObservers[token]!!.unlisten(callback)
-    }
-
     private fun isListenerExist(callback: ListenerCallback): Boolean {
         /*
             broadCastObserver contains all the listeners of the system, so it is a nice place to check if
@@ -529,14 +542,18 @@ class CourseAppImpl: CourseApp{
         return this.broadCastObserver.contains(callback)
     }
 
+    private fun removeListenerFromBroadcastObserver( callback: ListenerCallback) {
+        this.broadCastObserver.unlisten(callback)
+    }
+
     private fun removeListenerFromChannelsObserver(token: String, callback: ListenerCallback) {
         val channelList = getChannelsOf(token)
         for (channel in channelList)
             this.channelObservers[channel]!!.unlisten(callback)
     }
 
-    private fun removeListenerFromBroadcastObserver( callback: ListenerCallback) {
-        this.broadCastObserver.unlisten(callback)
+    private fun removeListenerFromPrivateObserver(token: String, callback: ListenerCallback) {
+        this.userObservers[token]!!.unlisten(callback)
     }
 
     /**
@@ -558,27 +575,47 @@ class CourseAppImpl: CourseApp{
         if(!areUserAndChannelConnected(token, channel))
             throw UserNotAuthorizedException()
 
-        TODO ("update that this message is associated to this channel")
-        TODO ("update number of pending messages for users")
-        TODO ("update number of pending messages for channels")
-        TODO ("add this message to the history of this channel")
-        TODO ("update the tree of channels by messages number")
-        TODO ("save messages for pending for users that have not in listen mode now")
+        assocMessage(message, typeMessage.CHANNEL, data = channel)
+        saveMessageInStorage(message)
+        addMessageForChannel(channel, message, token)
         sendMessageInChannel(token, channel, message)
 
         return CompletableFuture.completedFuture(Unit)
     }
 
-//    private fun associateIndexForMessage(message: Message) {
-//        val lastIndex = readFromStorage(mutableListOf(),KeyType.INDEXMESSAGESYS).toLong()
-//        val newIndex = lastIndex + 1
-//        writeToStorage(mutableListOf(newIndex.toString()), _________, KeyType.INDEXMESSAGESYS)    // index to message & opposite(?)
-//        writeToStorage(mutableListOf(), newIndex.toString(), KeyType.INDEXMESSAGESYS )    // newIndex
-//    }
+    private fun assocMessage(message: Message, type: typeMessage, data: String? = null) {
+        when (type) {
+            typeMessage.PRIVATE -> {
+                val token = data!!         // token of the user that the message is for
+                writeToStorage(mutableListOf(message.id.toString()), "PRIVATE%$token", KeyType.MESSAGETYPE)
+            }
+            typeMessage.CHANNEL -> {
+                val channelIndex = channelToIndex(data!!)         // channel index of the the message is associated for
+                writeToStorage(mutableListOf(message.id.toString()), "CHANNEL%$channelIndex", KeyType.MESSAGETYPE)
+            }
+            typeMessage.BROADCAST -> {
+                writeToStorage(mutableListOf(message.id.toString()), "BROADCAST", KeyType.MESSAGETYPE)
+            }
+        }
+    }
+
+    private fun saveMessageInStorage(message: Message) {
+        val id = message.id
+        val str = message.toString()
+        writeToStorage(mutableListOf(id.toString()), str, KeyType.MESSAGEDATA)
+    }
+
+    private fun addMessageForChannel(channel: String, message: Message, token: String) {
+//      update the tree of channels by messages number(for top10)
+    }
 
     private fun sendMessageInChannel(token: String, channel: String, message: Message) {
         val username = tokenToUsername(token)
         this.channelObservers[channel]!!.onChange("$channel@$username", message)
+
+//      for the rest of the users(that is not in listen mode), this message will be added into the pending list(max 1024)
+//      update at the storage the number of pending users for this message
+//      update at the storage the number of pending channel messages(++)
     }
 
     /**
@@ -596,8 +633,8 @@ class CourseAppImpl: CourseApp{
         if(!isAdministrator(token))
             throw UserNotAuthorizedException()
 
-        TODO ("update number of pending messages for users")
-        TODO ("save messages for pending for users that have not in listen mode now")
+        assocMessage(message, typeMessage.BROADCAST)
+        saveMessageInStorage(message)
         sendMessageInBroadcast(message)
 
         return CompletableFuture.completedFuture(Unit)
@@ -605,6 +642,10 @@ class CourseAppImpl: CourseApp{
 
     private fun sendMessageInBroadcast(message: Message) {
         this.broadCastObserver.onChange("BROADCAST", message)
+
+//      for the rest of the users(that is not in listen mode), this message will be added into the pending list(max 1024)
+//      update at the storage the number of pending users for this message
+//      update at the storage the number of pending messages(++)
     }
 
     /**
@@ -623,14 +664,9 @@ class CourseAppImpl: CourseApp{
         val res = readUserStatus(usernameToToken(user))
         when(res) {
             notRegistered -> throw NoSuchEntityException()
-            registeredNotLoggedIn -> {
-                assert(false)
-                TODO ("update number of pending messages for users")
-                TODO ("save messages for pending for users that have not in listen mode now")
-            }
-            userLoggedIn -> {
-                TODO ("update number of pending messages for users")
-                TODO ("save messages for pending for users that have not in listen mode now")
+            registeredNotLoggedIn, userLoggedIn -> {
+                assocMessage(message, typeMessage.PRIVATE, data = token)
+                saveMessageInStorage(message)
                 sendMessageInPrivate(user, token, message)
             }
         }
@@ -639,7 +675,13 @@ class CourseAppImpl: CourseApp{
     }
 
     private fun sendMessageInPrivate(user: String, token: String, message: Message) {
-        this.userObservers[user]!!.onChange(tokenToUsername(token), message)
+        if (this.userObservers[user] != null)
+            this.userObservers[user]!!.onChange(tokenToUsername(token), message)
+        else {
+//        add this message to pending list
+//        update at the storage the number of pending users for this message
+//        update at the storage the number of pending messages(++)
+        }
     }
 
     /**
@@ -671,18 +713,27 @@ class CourseAppImpl: CourseApp{
     private fun validMessage(id: Long): Boolean{
         val lastIndex = readFromStorage(mutableListOf(),KeyType.INDEXMESSAGESYS)!!.toLong()
         return id <= lastIndex
+        TODO ("ask about the validity of ids/messages(every message from the factory must be sent in the right order)")
     }
 
     private fun validChannelMessage(id: Long): Boolean {
-        TODO ("check if this id belong to channel message")
+//      check if the status of this message is channel message
+        return true
     }
 
     private fun messageIsSameChannelAsUser(token: String, id: Long): Boolean {
-        TODO ("check if this message id is in the same channel as the user(token)")
+//      check if the user is in the same channel as the message
+        return true
     }
 
     private fun fetchMessageAux(token: String, id: Long): CompletableFuture<Pair<String, Message>> {
-        TODO ("return the message of the this id")
+//      return the message from the storage with this id
+//      need to "cast" from message.toString() back to Message Object
+        return CompletableFuture.completedFuture(null)
+    }
+
+    private fun getNumberOfMessageIn(channel: String): Long {
+        return readFromStorage(mutableListOf(channel), KeyType.MESSAGESNUMBERINCHANNEL).toLong()
     }
 
     // =========================================== API for statistics ==================================================
@@ -781,6 +832,18 @@ class CourseAppImpl: CourseApp{
             KeyType.INDEXMESSAGESYS -> {
                 storageIo.write(("IndexMessageSys"), data).get()
             }
+            KeyType.CHANNELSLOGINTIME -> {
+                val token = args[0]
+                storageIo.write(("CTL$token"), data).get()
+            }
+            KeyType.MESSAGETYPE -> {
+                val id = args[0]
+                storageIo.write(("MSGT$id"), data).get()
+            }
+            KeyType.MESSAGEDATA -> {
+                val id = args[0]
+                storageIo.write(("MSGD$id"), data).get()
+            }
         }
     }
 
@@ -820,6 +883,13 @@ class CourseAppImpl: CourseApp{
         val newStr = if (str == null) "$index" else "$str%$index"
 
         writeToStorage(mutableListOf(token), data = newStr, type = KeyType.CHANNELS)
+
+        // Add channel join time for using is the Messages system
+        val str2 = readFromStorage(mutableListOf(token), KeyType.CHANNELSLOGINTIME)
+        val currTime = LocalDateTime.now()
+        val newStr2 = if (str2 == null) "$currTime" else "$str2%$currTime"
+
+        writeToStorage(mutableListOf(token), data = newStr2, type = KeyType.CHANNELSLOGINTIME)
     }
 
     private fun updateAmountOfLoggedInChannel(channel : String, number: Long){
@@ -903,8 +973,24 @@ class CourseAppImpl: CourseApp{
 
     private fun removeFromChannelListOfUser(token: String, channel: String) : Int{
         val list = getChannelsOf(token)
+        val i = list.indexOf(channelToIndex(channel))
+
         list.remove(channelToIndex(channel))
         writeToStorage(mutableListOf(token), data = list.joinToString("%"), type = KeyType.CHANNELS)
+
+        // remove channel join time for using is the Messages system
+        val str2 = readFromStorage(mutableListOf(token), KeyType.CHANNELSLOGINTIME)
+        if (str2 != null) {
+            val list2 = str2!!.split("%").toMutableList()
+            list2.removeAt(i)
+            var retStr = ""
+            list2.forEach { retStr = "$retStr%$it" }
+
+            writeToStorage(mutableListOf(token), data = retStr, type = KeyType.CHANNELSLOGINTIME)
+        } else {
+            assert(false)           // sanity check
+        }
+
         return list.size
     }
 
@@ -984,6 +1070,10 @@ class CourseAppImpl: CourseApp{
             KeyType.INDEXMESSAGESYS -> {
                 str = storageIo.read(("IndexMessageSys")).get()
             }
+            KeyType.CHANNELSLOGINTIME -> TODO()
+            KeyType.MESSAGETYPE -> TODO()
+            KeyType.MESSAGEDATA -> TODO()
+            KeyType.MESSAGESNUMBERINCHANNEL -> TODO()
         }
         return str
     }
@@ -1039,6 +1129,11 @@ class CourseAppImpl: CourseApp{
         channelByActiveTree.insert(channelIndex, number.toString())
     }
 
+    private fun insertToMessagesChannelsTree(channel : String, number : Long) {
+        val channelIndex = channelToIndex(channel)!!
+        channelByActiveTree.insert(channelIndex, number.toString())
+    }
+
 
     //deletes:
     private fun  deleteFromTotalChannelsTree(channel: String){
@@ -1056,6 +1151,12 @@ class CourseAppImpl: CourseApp{
     private fun  deleteFromUsersTree(token: String) {
         val number = readAmountOfChannelsForUser(token)
         usersTree.delete(token, number.toString())
+    }
+
+    private fun  deleteFromMessagesChannelsTree(channel: String){
+        val number = numberOfActiveUsersInChannel(channel)      // TODO ("change to number of messages per channel")
+        val channelIndex = channelToIndex(channel)!!
+        channelByActiveTree.delete(channelIndex, number.toString())
     }
 
     //end tree wrappers*********************************
@@ -1225,14 +1326,17 @@ class CourseAppImpl: CourseApp{
     }
 
     fun getPendingMessagesNumberForUsers(): Long {
-        TODO ("return the number of pending messages for users")
+//        TODO ("return the number of pending messages for users")
+        return -1
     }
 
     fun getPendingMessagesNumberForChannels(): Long {
-        TODO("return the number of pending messages for users")
+//        TODO("return the number of pending messages for users")
+        return -1
     }
 
     fun getTop10ChannelsByMessagesNumber(): List<String> {
-        TODO ("return list of top ten channels by messages")
+//        TODO ("return list of top ten channels by messages")
+        return listOf()
     }
 }
