@@ -267,6 +267,23 @@ class RemoteAvlTree {
         return list
     }
 
+    fun toKeyList() : List<Long> {
+        val list = mutableListOf<Long>()
+        val adder: (RemoteNode) -> Unit = { x: RemoteNode -> list.add(x.getMainKey().toLong())}
+        tokKeyListAux(this.root, adder)
+
+        return list
+    }
+
+    private fun tokKeyListAux(node: RemoteNode?, adder: (RemoteNode) -> Unit) {
+        if (node == null)
+            return
+
+        tokKeyListAux(node.getRight(), adder)
+        adder(node)
+        tokKeyListAux(node.getLeft(), adder)
+    }
+
     private fun balance(node: RemoteNode?) : Int {
         if(node == null) return 0
         return node.getBalance()

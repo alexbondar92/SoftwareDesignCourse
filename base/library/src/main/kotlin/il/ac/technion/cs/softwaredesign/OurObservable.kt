@@ -19,4 +19,6 @@ abstract class OurObservable<T,V,R>{
     fun contains(listener: (T,V) -> R): Boolean {
         return listeners.contains(listener)
     }
+
+    fun toList (): List<(T,V) -> R> = listeners.toList()
 }

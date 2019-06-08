@@ -2,123 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3078e906-f4ea-42e8-a364-e8ec716816be" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/META-INF/courseapp-app.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseApp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl$KeyType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl$OurObservableImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl$UpdateLoggedStatus.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl$UserStatusInChannel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl$WhenMappings.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10ChannelsByActiveUsers$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10ChannelsByTotalUsers$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10User$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppInitializer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppInitializerImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppKt.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppModule$configure$$inlined$bind$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppModule$configure$$inlined$bind$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppModule$configure$$inlined$bind$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppModule$configure$$inlined$bind$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppModule$configure$$inlined$to$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppModule$configure$$inlined$to$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppModule$configure$$inlined$to$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppModule.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppStatistics.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/MainKt.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/exceptions/InvalidTokenException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/exceptions/NameFormatException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/exceptions/NoSuchEntityException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/exceptions/UserAlreadyLoggedInException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/exceptions/UserNotAuthorizedException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/messages/MediaType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/messages/Message.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/messages/MessageFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/messages/MessageFactoryImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/classes/kotlin/main/il/ac/technion/cs/softwaredesign/messages/MessageImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/counters.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/build/kotlin/compileKotlin/last-build.bin" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppModule.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/OurObservable.kt" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/OurObservable.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteAvlTree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteAvlTree.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -217,32 +103,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-531">
-              <caret line="1002" column="10" lean-forward="true" selection-start-line="1002" selection-start-column="10" selection-end-line="1002" selection-end-column="10" />
+            <state relative-caret-position="287">
+              <caret line="1362" column="29" selection-start-line="1362" selection-start-column="29" selection-end-line="1362" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteAvlTree.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="229">
+              <caret line="177" selection-start-line="177" selection-end-line="177" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="1473" column="25" selection-start-line="1473" selection-start-column="25" selection-end-line="1473" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppModule.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="70" selection-start-line="17" selection-start-column="70" selection-end-line="17" selection-end-column="70" />
-              <folding>
-                <element signature="e#42#253#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="182">
+              <caret line="472" column="14" selection-start-line="472" selection-start-column="14" selection-end-line="472" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -260,20 +143,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>DecTotalLoggedInUsers</find>
-      <find>TOTALUSERSAMOUNT</find>
-      <find>numOfUsers</find>
-      <find>this.root</find>
-      <find>#</find>
-      <find>_</find>
-      <find>for</find>
-      <find>X</find>
-      <find>X&quot;</find>
-      <find>print</find>
-      <find>if (</find>
-      <find>stre</find>
-      <find>DataStoreIo</find>
-      <find>fun writeToStorage(</find>
       <find>storageIo.</find>
       <find>CompletableFuture(</find>
       <find>CompletableFuture()</find>
@@ -286,10 +155,24 @@
       <find>Mess</find>
       <find>messageFactory</find>
       <find>broadcast</find>
-      <find>addListener</find>
       <find>channel</find>
       <find>TODO</find>
       <find>KeyType.CHANNELS</find>
+      <find>MESSAGETYPE</find>
+      <find>lamd</find>
+      <find>updateNumberOfMessagesInChannel</find>
+      <find>update</find>
+      <find>updateNu</find>
+      <find>remove</find>
+      <find>login</find>
+      <find>readFromStorage</find>
+      <find>join</find>
+      <find>addListener</find>
+      <find>MESSAGEDATA</find>
+      <find>MSGC</find>
+      <find>stati</find>
+      <find>addLo</find>
+      <find>channelJoin</find>
     </findStrings>
     <replaceStrings>
       <replace>storage</replace>
@@ -330,19 +213,19 @@
         <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt" />
         <option value="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteNode.kt" />
         <option value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/RemoteNodeTest.kt" />
-        <option value="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteAvlTree.kt" />
         <option value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/remoteAvlTreeTest.kt" />
         <option value="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/OurObserver.kt" />
-        <option value="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/OurObservable.kt" />
         <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/Message.kt" />
         <option value="$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest.kt" />
         <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/MessageFactoryImpl.kt" />
         <option value="$PROJECT_DIR$/courseapp-app/build.gradle.kts" />
-        <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/MessageImpl.kt" />
         <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt" />
         <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppModule.kt" />
-        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/MessageImpl.kt" />
+        <option value="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteAvlTree.kt" />
+        <option value="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/OurObservable.kt" />
         <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" />
       </list>
     </option>
   </component>
@@ -352,10 +235,11 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="width" value="840" />
-    <option name="height" value="1038" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="43" />
+    <option name="y" value="26" />
+    <option name="width" value="1614" />
+    <option name="height" value="987" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -601,6 +485,21 @@
     </option>
   </component>
   <component name="RunManager" selected="JUnit.CourseAppTest">
+    <configuration name="CourseAppStatisticsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="base.courseapp-app.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign" />
+      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.CourseAppStatisticsTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CourseAppTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="base.courseapp-app.test" />
       <extension name="coverage">
@@ -612,6 +511,22 @@
       <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign" />
       <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.CourseAppTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CourseAppTest.add up to 512 users to the channel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="base.courseapp-app.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign" />
+      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.CourseAppTest" />
+      <option name="METHOD_NAME" value="add up to 512 users to the channel" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -632,7 +547,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CourseAppTest.adding listener and broadcast successfully with the right broadcast source string" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CourseAppTest.regular member leaves channel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="base.courseapp-app.test" />
       <extension name="coverage">
         <pattern>
@@ -642,39 +557,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign" />
       <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.CourseAppTest" />
-      <option name="METHOD_NAME" value="adding listener and broadcast successfully with the right broadcast source string" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CourseAppTest.adding listener and removes it with bad callback lambda throws NoSuchEntityException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="base.courseapp-app.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign" />
-      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.CourseAppTest" />
-      <option name="METHOD_NAME" value="adding listener and removes it with bad callback lambda throws NoSuchEntityException" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CourseAppTest.adding listener and removes it with invalid token throws InvalidTokenException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="base.courseapp-app.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign" />
-      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.CourseAppTest" />
-      <option name="METHOD_NAME" value="adding listener and removes it with invalid token throws InvalidTokenException" />
+      <option name="METHOD_NAME" value="regular member leaves channel" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -683,10 +566,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.CourseAppTest" />
+        <item itemvalue="JUnit.CourseAppStatisticsTest" />
+        <item itemvalue="JUnit.CourseAppTest.regular member leaves channel" />
+        <item itemvalue="JUnit.CourseAppTest.add up to 512 users to the channel" />
         <item itemvalue="JUnit.CourseAppTest.adding few listeners successfully" />
-        <item itemvalue="JUnit.CourseAppTest.adding listener and broadcast successfully with the right broadcast source string" />
-        <item itemvalue="JUnit.CourseAppTest.adding listener and removes it with bad callback lambda throws NoSuchEntityException" />
-        <item itemvalue="JUnit.CourseAppTest.adding listener and removes it with invalid token throws InvalidTokenException" />
       </list>
     </recent_temporary>
   </component>
@@ -728,39 +611,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CourseAppTest_joining_user_to_128_channels - 2019.06.08 at 13h 04m 59s.xml">
-      <configuration name="CourseAppTest.joining user to 128 channels" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="CourseAppTest_adding_listener_successfully - 2019.06.08 at 16h 08m 51s.xml">
-      <configuration name="CourseAppTest.adding listener successfully" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourseAppTest_adding_listener_successfully - 2019.06.08 at 16h 10m 10s.xml">
-      <configuration name="CourseAppTest.adding listener successfully" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourseAppTest_adding_listener_with_bad_token_throws_InvalidTokenException - 2019.06.08 at 16h 10m 19s.xml">
-      <configuration name="CourseAppTest.adding listener with bad token throws InvalidTokenException" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourseAppTest_adding_listener_and_removes_it_successfully - 2019.06.08 at 16h 10m 25s.xml">
-      <configuration name="CourseAppTest.adding listener and removes it successfully" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourseAppTest_adding_listener_and_removes_it_with_invalid_token_throws_InvalidTokenException - 2019.06.08 at 16h 10m 30s.xml">
-      <configuration name="CourseAppTest.adding listener and removes it with invalid token throws InvalidTokenException" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourseAppTest_adding_listener_and_removes_it_with_bad_callback_lambda_throws_NoSuchEntityException - 2019.06.08 at 16h 10m 36s.xml">
-      <configuration name="CourseAppTest.adding listener and removes it with bad callback lambda throws NoSuchEntityException" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourseAppTest_adding_listener_and_broadcast_successfully_with_the_right_broadcast_source_string - 2019.06.08 at 16h 10m 42s.xml">
+    <history-entry file="CourseAppTest_adding_listener_and_broadcast_successfully_with_the_right_broadcast_source_string - 2019.06.08 at 23h 11m 08s.xml">
       <configuration name="CourseAppTest.adding listener and broadcast successfully with the right broadcast source string" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseAppTest_adding_few_listeners_successfully - 2019.06.08 at 16h 11m 12s.xml">
+    <history-entry file="CourseAppTest_adding_few_listeners_successfully - 2019.06.08 at 23h 11m 14s.xml">
       <configuration name="CourseAppTest.adding few listeners successfully" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseAppTest - 2019.06.08 at 16h 12m 44s.xml">
+    <history-entry file="CourseAppTest - 2019.06.08 at 23h 12m 49s.xml">
+      <configuration name="CourseAppTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CourseAppTest_add_up_to_512_users_to_the_channel - 2019.06.08 at 23h 12m 52s.xml">
+      <configuration name="CourseAppTest.add up to 512 users to the channel" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CourseAppTest - 2019.06.08 at 23h 13m 22s.xml">
+      <configuration name="CourseAppTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CourseAppTest - 2019.06.08 at 23h 13m 48s.xml">
+      <configuration name="CourseAppTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CourseAppTest_regular_member_leaves_channel - 2019.06.08 at 23h 14m 42s.xml">
+      <configuration name="CourseAppTest.regular member leaves channel" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CourseAppTest_regular_member_leaves_channel - 2019.06.08 at 23h 17m 50s.xml">
+      <configuration name="CourseAppTest.regular member leaves channel" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CourseAppTest_regular_member_leaves_channel - 2019.06.08 at 23h 18m 00s.xml">
+      <configuration name="CourseAppTest.regular member leaves channel" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CourseAppTest - 2019.06.08 at 23h 18m 24s.xml">
       <configuration name="CourseAppTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180234000" />
+    <option name="totallyTimeSpent" value="196575000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -772,7 +655,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="31" y="30" width="1614" height="987" extended-state="0" />
+    <frame x="43" y="26" width="1614" height="987" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.27798983" />
@@ -784,7 +667,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.19217877" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2603352" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2603352" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -793,7 +676,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32960895" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Messages" order="11" visible="true" weight="0.2480447" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.2480447" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.32960895" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -865,6 +748,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added some top to down implementation, trying to activate observer pattern..." />
     <option name="LAST_COMMIT_MESSAGE" value="added some top to down implementation, trying to activate observer pattern..." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt</url>
+          <line>285</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1024,13 +919,6 @@ import java.util.LinkedHashMap</custom-info>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteAvlTree.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1819">
-          <caret line="107" selection-start-line="107" selection-end-line="107" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/library/build.gradle.kts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -1060,13 +948,6 @@ import java.util.LinkedHashMap</custom-info>
           <folding>
             <element signature="e#42#282#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/OurObservable.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="29" lean-forward="true" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -1112,23 +993,6 @@ import java.util.LinkedHashMap</custom-info>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="183" column="19" selection-start-line="183" selection-start-column="8" selection-end-line="183" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/MessageImpl.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#51#113#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/MessageFactoryImpl.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1153,17 +1017,27 @@ import java.util.LinkedHashMap</custom-info>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/Message.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="20" lean-forward="true" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.31/958c401b129f64de74af4b11a0894693edfa168d/kotlin-stdlib-common-1.3.31-sources.jar!/kotlin/util/Standard.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="257">
           <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/MessageImpl.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#51#113#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/Message.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -1177,17 +1051,38 @@ import java.util.LinkedHashMap</custom-info>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt">
+    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/OurObservable.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="1473" column="25" selection-start-line="1473" selection-start-column="25" selection-end-line="1473" selection-end-column="25" />
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="20" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteAvlTree.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="177" selection-start-line="177" selection-end-line="177" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="87" column="8" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-531">
-          <caret line="1002" column="10" lean-forward="true" selection-start-line="1002" selection-start-column="10" selection-end-line="1002" selection-end-column="10" />
+        <state relative-caret-position="287">
+          <caret line="1362" column="29" selection-start-line="1362" selection-start-column="29" selection-end-line="1362" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="472" column="14" selection-start-line="472" selection-start-column="14" selection-end-line="472" selection-end-column="14" />
         </state>
       </provider>
     </entry>

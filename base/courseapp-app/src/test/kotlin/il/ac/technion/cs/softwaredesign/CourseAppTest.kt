@@ -1302,7 +1302,6 @@ class CourseAppTest {
     }
 
     @Test
-    @Disabled
     @Order(102)
     fun `1,000,000 logged in users in system - stress test`() {
         val amount = 1000000
