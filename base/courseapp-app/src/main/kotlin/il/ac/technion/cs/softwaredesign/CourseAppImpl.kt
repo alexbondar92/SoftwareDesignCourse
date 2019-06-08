@@ -272,6 +272,8 @@ class CourseAppImpl: CourseApp{
         if (this.channelObservers[channel] == null)
             this.channelObservers[channel] = OurObservableImpl()        // in case of new channel or after new courseApp instance, we need new Observable
 
+        TODO ("add channel to tree of channels by messages")
+
         return CompletableFuture.completedFuture(Unit)
     }
 
@@ -296,8 +298,10 @@ class CourseAppImpl: CourseApp{
         removeUserFromChannel(channel, token)   // this fun remove user from channel and update the trees + if the chanel is empty the channel will be deleted
 
         // Messages System, remove from observers
-        if (!isChannelExist(channel))
+        if (!isChannelExist(channel)) {
             this.channelObservers.remove(channel)        // in case of new channel or after new courseApp instance, we need new Observable
+            TODO ("remove channel from tree of channels by messages")
+        }
         //else
             // By the FAQ we can assume that the user have been removed all his listens
 
@@ -369,8 +373,10 @@ class CourseAppImpl: CourseApp{
         removeUserFromChannel(channel, userToken)   // this fun remove user from channel and update the trees
 
         // Messages System, remove from observers
-        if (!isChannelExist(channel))
+        if (!isChannelExist(channel)) {
             this.channelObservers.remove(channel)        // in case of new channel or after new courseApp instance, we need new Observable
+            TODO ("remove channel from tree of channels by messages")
+        }
         //else
         // By the FAQ we can assume that the user have been removed all his listens
 
@@ -467,9 +473,15 @@ class CourseAppImpl: CourseApp{
         addListenerToChannelsObserver(token, callback)
         addListenerToPrivateObserver(token, callback)
 
-        //activatePendingMessagesFor(token, callback) //after need to initialize pendings...
+        activatePendingMessagesFor(token, callback) //after need to initialize pendings...
 
         return CompletableFuture.completedFuture(Unit)
+    }
+
+    private fun activatePendingMessagesFor(token: String, callback: ListenerCallback) {
+        TODO ("Implement this")
+        TODO ("update number of pending messages for users")
+        TODO ("update number of pending messages for channels")
     }
 
     private fun addListenerToPrivateObserver(token: String, callback: ListenerCallback) {
@@ -509,11 +521,11 @@ class CourseAppImpl: CourseApp{
         this.userObservers[token]!!.unlisten(callback)
     }
 
-    /*
-        broadCastObserver contains all the listeners of the system, so it is a nice place to check if
-        a specific user is a listener.
-     */
     private fun isListenerExist(callback: ListenerCallback): Boolean {
+        /*
+            broadCastObserver contains all the listeners of the system, so it is a nice place to check if
+            a specific user is a listener.
+        */
         return this.broadCastObserver.contains(callback)
     }
 
@@ -524,7 +536,6 @@ class CourseAppImpl: CourseApp{
     }
 
     private fun removeListenerFromBroadcastObserver( callback: ListenerCallback) {
-//        disposableOfBroadcast[callback].dispose()
         this.broadCastObserver.unlisten(callback)
     }
 
@@ -547,7 +558,12 @@ class CourseAppImpl: CourseApp{
         if(!areUserAndChannelConnected(token, channel))
             throw UserNotAuthorizedException()
 
-//        associateIndexForMessage(message)
+        TODO ("update that this message is associated to this channel")
+        TODO ("update number of pending messages for users")
+        TODO ("update number of pending messages for channels")
+        TODO ("add this message to the history of this channel")
+        TODO ("update the tree of channels by messages number")
+        TODO ("save messages for pending for users that have not in listen mode now")
         sendMessageInChannel(token, channel, message)
 
         return CompletableFuture.completedFuture(Unit)
@@ -580,7 +596,8 @@ class CourseAppImpl: CourseApp{
         if(!isAdministrator(token))
             throw UserNotAuthorizedException()
 
-//        associateIndexForMessage(message)
+        TODO ("update number of pending messages for users")
+        TODO ("save messages for pending for users that have not in listen mode now")
         sendMessageInBroadcast(message)
 
         return CompletableFuture.completedFuture(Unit)
@@ -608,9 +625,12 @@ class CourseAppImpl: CourseApp{
             notRegistered -> throw NoSuchEntityException()
             registeredNotLoggedIn -> {
                 assert(false)
-            }  //TODO:("pending")
+                TODO ("update number of pending messages for users")
+                TODO ("save messages for pending for users that have not in listen mode now")
+            }
             userLoggedIn -> {
-//                associateIndexForMessage(message)
+                TODO ("update number of pending messages for users")
+                TODO ("save messages for pending for users that have not in listen mode now")
                 sendMessageInPrivate(user, token, message)
             }
         }
@@ -642,14 +662,27 @@ class CourseAppImpl: CourseApp{
         if (!validMessage(id) || validChannelMessage(id))
             throw NoSuchEntityException()
 
-        if (!messageIsSameChannelAsUser(message, id))
+        if (!messageIsSameChannelAsUser(token, id))
             throw UserNotAuthorizedException()
 
         return fetchMessageAux(token, id)
     }
 
-    private fun validMessage(id: Long): Any {
+    private fun validMessage(id: Long): Boolean{
+        val lastIndex = readFromStorage(mutableListOf(),KeyType.INDEXMESSAGESYS)!!.toLong()
+        return id <= lastIndex
+    }
 
+    private fun validChannelMessage(id: Long): Boolean {
+        TODO ("check if this id belong to channel message")
+    }
+
+    private fun messageIsSameChannelAsUser(token: String, id: Long): Boolean {
+        TODO ("check if this message id is in the same channel as the user(token)")
+    }
+
+    private fun fetchMessageAux(token: String, id: Long): CompletableFuture<Pair<String, Message>> {
+        TODO ("return the message of the this id")
     }
 
     // =========================================== API for statistics ==================================================
@@ -1189,5 +1222,17 @@ class CourseAppImpl: CourseApp{
         // Assumption: token and channel is valid
         val str = readFromStorage(mutableListOf(channel, token), KeyType.PARTICIPANT) ?: return false
         return str.toInt() == UserStatusInChannel.Operator.type
+    }
+
+    fun getPendingMessagesNumberForUsers(): Long {
+        TODO ("return the number of pending messages for users")
+    }
+
+    fun getPendingMessagesNumberForChannels(): Long {
+        TODO("return the number of pending messages for users")
+    }
+
+    fun getTop10ChannelsByMessagesNumber(): List<String> {
+        TODO ("return list of top ten channels by messages")
     }
 }

@@ -106,6 +106,6 @@ class CourseAppStatisticsImpl: CourseAppStatistics {
      * @return A sorted list of channels by message count.
      */
     override fun top10ChannelsByMessages(): CompletableFuture<List<String>> {
-        return CompletableFuture.completedFuture(cApp.getTop10ChannelsByMessagesNumber())
+        return CompletableFuture.completedFuture(cApp. getTop10ChannelsByMessagesNumber())
     }
 }
