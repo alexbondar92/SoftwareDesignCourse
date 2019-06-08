@@ -5,6 +5,9 @@ import com.google.inject.Guice
 import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.present
 import il.ac.technion.cs.softwaredesign.exceptions.*
+import il.ac.technion.cs.softwaredesign.messages.MediaType
+import il.ac.technion.cs.softwaredesign.messages.Message
+import il.ac.technion.cs.softwaredesign.messages.MessageFactory
 import il.ac.technion.cs.softwaredesign.tests.isFalse
 import il.ac.technion.cs.softwaredesign.tests.isTrue
 import il.ac.technion.cs.softwaredesign.tests.joinException
@@ -13,6 +16,7 @@ import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.*
 import org.junit.jupiter.api.assertThrows
 import java.time.Duration.ofSeconds
+import java.util.concurrent.CompletableFuture
 import kotlin.random.Random
 
 class CourseAppTest {
@@ -22,6 +26,7 @@ class CourseAppTest {
 
     private val courseApp = injector.getInstance<CourseApp>()
     private val courseAppReboot = injector.getInstance<CourseApp>()
+    private val messageFactory = injector.getInstance<MessageFactory>()
 
     init {
         courseAppInitializer.setup()
@@ -1365,5 +1370,116 @@ class CourseAppTest {
                 println ("i: $i")
             }
         }
+    }
+
+    // new tests:
+    @Test
+    @Order(105)
+    fun `adding listener successfully`(){
+        val adminToken = courseApp.login("admin", "pass").get()
+        val sources = HashSet<String>()
+        val callBack : ListenerCallback = {
+                source, _ -> sources.add(source)
+                    CompletableFuture.completedFuture(Unit)
+        }
+        assertDoesNotThrow {courseApp.addListener(adminToken, callBack) }
+
+    }
+
+    @Test
+    @Order(106)
+    fun `adding listener with bad token throws InvalidTokenException`(){
+        val adminToken = courseApp.login("admin", "pass").get()
+        val sources = HashSet<String>()
+        val callBack : ListenerCallback = {
+            source, _ -> sources.add(source)
+            CompletableFuture.completedFuture(Unit)
+        }
+
+        assertThrows<InvalidTokenException> {courseApp.addListener("not$adminToken", callBack) }
+    }
+
+    @Test
+    @Order(107)
+    fun `adding listener and removes it successfully`(){
+        val adminToken = courseApp.login("admin", "pass").get()
+        val sources = HashSet<String>()
+        val callBack : ListenerCallback = {
+            source, _ -> sources.add(source)
+            CompletableFuture.completedFuture(Unit)
+        }
+
+        courseApp.addListener(adminToken, callBack)
+
+        assertDoesNotThrow { courseApp.removeListener(adminToken, callBack)}
+    }
+
+    @Test
+    @Order(108)
+    fun `adding listener and removes it with invalid token throws InvalidTokenException`(){
+        val adminToken = courseApp.login("admin", "pass").get()
+        val sources = HashSet<String>()
+        val callBack : ListenerCallback = {
+            source, _ -> sources.add(source)
+            CompletableFuture.completedFuture(Unit)
+        }
+
+        courseApp.addListener(adminToken, callBack)
+
+        assertThrows<InvalidTokenException> { courseApp.removeListener("not$adminToken", callBack)}
+    }
+
+    @Test
+    @Order(109)
+    fun `adding listener and removes it with bad callback lambda throws NoSuchEntityException`(){
+        val adminToken = courseApp.login("admin", "pass").get()
+        val sources = HashSet<String>()
+        val callBack : ListenerCallback = {
+            source, _ -> sources.add(source)
+            CompletableFuture.completedFuture(Unit)
+        }
+
+        courseApp.addListener(adminToken, callBack)
+
+        val otherCallBack : ListenerCallback = {
+            source, _ -> sources.add(source)
+            CompletableFuture.completedFuture(Unit)
+        }
+
+        assertThrows<NoSuchEntityException> { courseApp.removeListener(adminToken, otherCallBack)}
+    }
+
+    @Test
+    @Order(110)
+    fun `adding listener and broadcast successfully with the right broadcast source string`(){
+        val adminToken = courseApp.login("admin", "pass").get()
+        val sources = HashSet<String>()
+        val callBack : ListenerCallback = {
+            source, _ -> sources.add(source)
+            CompletableFuture.completedFuture(Unit)
+        }
+
+        courseApp.addListener(adminToken, callBack)
+
+        assertDoesNotThrow {
+            courseApp.broadcast(adminToken,
+                                messageFactory.create(MediaType.LOCATION, "Israel".toByteArray()).get())
+            assertTrue(sources.contains("BROADCAST"))
+        }
+    }
+
+    @Test
+    @Order(111)
+    fun `adding few listenerd successfully`(){
+        val adminToken = courseApp.login("admin", "pass").get()
+        val otherToken = courseApp.login("user1", "justPassword").get()
+        val sources = HashSet<String>()
+        val callBack : ListenerCallback = {
+            source, _ -> sources.add(source)
+            CompletableFuture.completedFuture(Unit)
+        }
+        assertDoesNotThrow {courseApp.addListener(adminToken, callBack)
+                            courseApp.addListener(otherToken, callBack)}
+
     }
 }
