@@ -15,6 +15,7 @@ import il.ac.technion.cs.softwaredesign.tests.runWithTimeout
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.*
 import org.junit.jupiter.api.assertThrows
+import java.nio.charset.Charset
 import java.time.Duration.ofSeconds
 import java.util.concurrent.CompletableFuture
 import kotlin.random.Random
@@ -77,7 +78,7 @@ class CourseAppTest {
 
     @Test
     @Order(5)
-    fun `log in user twice should throw exception`(){
+    fun `log in user twice should throw exception`() {
         courseApp.login("matan", "s3kr1t").get()
 
         assertThrows<UserAlreadyLoggedInException> {
@@ -87,7 +88,7 @@ class CourseAppTest {
 
     @Test
     @Order(6)
-    fun `log in user twice and other users log in between should throw exception`(){
+    fun `log in user twice and other users log in between should throw exception`() {
         courseApp.login("matan", "s3kr1t").get()
         courseApp.login("imaman", "31337").get()
         courseApp.login("gal", "hunter2").get()
@@ -98,7 +99,7 @@ class CourseAppTest {
 
     @Test
     @Order(7)
-    fun `user log in then log out isUserLoggedIn returns False`(){
+    fun `user log in then log out isUserLoggedIn returns False`() {
         val token = courseApp.login("matan", "s3kr1t").get()
         val token2 = courseApp.login("imaman", "31337").get()
         courseApp.logout(token2)
@@ -109,7 +110,7 @@ class CourseAppTest {
 
     @Test
     @Order(8)
-    fun `user never been in the system isUserLoggedIn returns null`(){
+    fun `user never been in the system isUserLoggedIn returns null`() {
         val token = courseApp.login("matan", "s3kr1t").get()
 
         assertNull(runWithTimeout(ofSeconds(10)) { courseApp.isUserLoggedIn(token, "imaman").join() })
@@ -118,11 +119,11 @@ class CourseAppTest {
 
     @Test
     @Order(9)
-    fun `log out a none exist user `(){
+    fun `log out a none exist user `() {
         val strLen = 100
-        val charPool : List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
+        val charPool: List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
         val token = courseApp.login("matan", "s3kr1t").get()
-        var differentToken : String = token
+        var differentToken: String = token
         //creating a random token for consistency and validity
         while (differentToken == token) {
             differentToken = (1..strLen)
@@ -131,13 +132,13 @@ class CourseAppTest {
                     .joinToString("")
         }
 
-        assertThrows<InvalidTokenException> {runWithTimeout(ofSeconds(10)) { courseApp.logout(differentToken).joinException() }}
+        assertThrows<InvalidTokenException> { runWithTimeout(ofSeconds(10)) { courseApp.logout(differentToken).joinException() } }
 
     }
 
     @Test
     @Order(10)
-    fun `registered user log in with wrong password should throw exception`(){
+    fun `registered user log in with wrong password should throw exception`() {
         val token = courseApp.login("matan", "s3kr1t").get()
         courseApp.logout(token).get()
 
@@ -148,7 +149,7 @@ class CourseAppTest {
 
     @Test
     @Order(11)
-    fun `registered user log in with another logged in user s password should throw exception`(){
+    fun `registered user log in with another logged in user s password should throw exception`() {
         val token = courseApp.login("matan", "s3kr1t").get()
         courseApp.login("imaman", "another_user_password").get()
         courseApp.logout(token).get()
@@ -160,7 +161,7 @@ class CourseAppTest {
 
     @Test
     @Order(12)
-    fun `registered user log in with another registered not logged in user s password should throw exception`(){
+    fun `registered user log in with another registered not logged in user s password should throw exception`() {
         val token = courseApp.login("matan", "s3kr1t").get()
         val token2 = courseApp.login("imaman", "another_user_password").get()
         courseApp.logout(token).get()
@@ -173,7 +174,7 @@ class CourseAppTest {
 
     @Test
     @Order(13)
-    fun `user stays logged in after reboot, assumes his token stays active`(){
+    fun `user stays logged in after reboot, assumes his token stays active`() {
         val token = courseApp.login("matan", "s3kr1t").get()
 
         assertThat(runWithTimeout(ofSeconds(10)) { courseAppReboot.isUserLoggedIn(token, "matan").join() },
@@ -182,7 +183,7 @@ class CourseAppTest {
 
     @Test
     @Order(14)
-    fun `an authentication token is invalidated after logout, stays that way after reboot`(){
+    fun `an authentication token is invalidated after logout, stays that way after reboot`() {
         val token = courseApp.login("matan", "s3kr1t").get()
         courseApp.logout(token).get()
 
@@ -193,7 +194,7 @@ class CourseAppTest {
 
     @Test
     @Order(15)
-    fun `password is valid`(){
+    fun `password is valid`() {
         val token1 = courseApp.login("matan", "StrongPass").get()
         courseApp.logout(token1).get()
 
@@ -202,7 +203,7 @@ class CourseAppTest {
 
     @Test
     @Order(16)
-    fun `password is invalid`(){
+    fun `password is invalid`() {
         val token1 = courseApp.login("matan", "StrongPass").get()
         courseApp.logout(token1).get()
 
@@ -211,7 +212,7 @@ class CourseAppTest {
 
     @Test
     @Order(17)
-    fun `token is illegal at logout`(){
+    fun `token is illegal at logout`() {
         val token = courseApp.login("matan", "StrongPass").get()
 
         assertThrows<InvalidTokenException> { courseApp.logout("WrongToken$token").joinException() }
@@ -219,7 +220,7 @@ class CourseAppTest {
 
     @Test
     @Order(18)
-    fun `token is illegal at is isUserLoggedin`(){
+    fun `token is illegal at is isUserLoggedin`() {
         val token = courseApp.login("matan", "StrongPass").get()
 
         assertThrows<InvalidTokenException> { courseApp.isUserLoggedIn("WrongToken$token", "matan").joinException() }
@@ -227,7 +228,7 @@ class CourseAppTest {
 
     @Test
     @Order(19)
-    fun `Unregistered user returns null upon isUserLogIn check`(){
+    fun `Unregistered user returns null upon isUserLogIn check`() {
         val token = courseApp.login("matan", "StrongPass").get()
 
         assert(courseApp.isUserLoggedIn(token, "natam").join() == null)
@@ -235,7 +236,7 @@ class CourseAppTest {
 
     @Test
     @Order(20)
-    fun `token is invalid after logout`(){
+    fun `token is invalid after logout`() {
         val token1 = courseApp.login("matan2", "StrongPass").get()
         val token2 = courseApp.login("matan", "StrongPass").get()
         courseApp.logout(token2).get()
@@ -246,7 +247,7 @@ class CourseAppTest {
 
     @Test
     @Order(21)
-    fun `enable to login same user after reboot`(){
+    fun `enable to login same user after reboot`() {
         courseApp.login("matan", "StrongPass").get()
 
         assertThrows<UserAlreadyLoggedInException> { courseAppReboot.login("matan", "StrongPass").joinException() }
@@ -254,26 +255,26 @@ class CourseAppTest {
 
     @Test
     @Order(22)
-    fun `system is persistent after reboot`(){
+    fun `system is persistent after reboot`() {
         val tokens = ArrayList<String>(11)
-        for (i in 0..10){
+        for (i in 0..10) {
             tokens.add(courseApp.login("user$i", "pass$i").get())
         }
         for (i in 0..5)
             courseApp.logout(tokens[i]).get()
 
-        for (i in 0..5){
+        for (i in 0..5) {
             assertThrows<InvalidTokenException> { courseAppReboot.isUserLoggedIn(tokens[i], "matan$i").joinException() }
             assertDoesNotThrow { courseAppReboot.login("matan$i", "StrongPass$i").joinException() }
         }
-        for (i in 6..10){
+        for (i in 6..10) {
             assertDoesNotThrow { courseAppReboot.isUserLoggedIn(tokens[i], "matan$i").joinException() }
         }
     }
 
     @Test
     @Order(23)
-    fun `corrupted(prefix & suffix) token pass over`(){
+    fun `corrupted(prefix & suffix) token pass over`() {
         val token = courseApp.login("matan", "StrongPass").get()
 
         for (i in 1..20) {      // for testing couple of random suffix & prefix of the token
@@ -286,7 +287,7 @@ class CourseAppTest {
 
     @Test
     @Order(24)
-    fun `login very long username and password`(){
+    fun `login very long username and password`() {
         val allowedChars = "ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz"
 
         for (i in 1..50) {
@@ -298,7 +299,7 @@ class CourseAppTest {
 
     @Test
     @Order(25)
-    fun `trying to login with wrong pass`(){
+    fun `trying to login with wrong pass`() {
         val token = courseApp.login("matan", "StrongPass").get()
         courseApp.logout(token).get()
 
@@ -307,7 +308,7 @@ class CourseAppTest {
 
     @Test
     @Order(26)
-    fun `operator title is removed after leaving the channel` () {
+    fun `operator title is removed after leaving the channel`() {
         val adminToken = courseApp.login("admin", "pass").get()
         courseApp.channelJoin(adminToken, "#TestChannel").get()
         val operatorToken = courseApp.login("Oper", "pass").get()
@@ -333,9 +334,9 @@ class CourseAppTest {
     @Order(28)
     fun `makeAdministrator gets invalid token throws InvalidTokenException`() {
         val strLen = 20
-        val charPool : List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
+        val charPool: List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
         val token = courseApp.login("matan", "s3kr1t").get()
-        var differentToken : String = token
+        var differentToken: String = token
         while (differentToken == token) {   //creating a random token for consistency and validity
             differentToken = (1..strLen)
                     .map { kotlin.random.Random.nextInt(0, charPool.size) }
@@ -343,7 +344,7 @@ class CourseAppTest {
                     .joinToString("")
         }
 
-        assertThrows<InvalidTokenException> {courseApp.makeAdministrator(differentToken, "matam").joinException()}
+        assertThrows<InvalidTokenException> { courseApp.makeAdministrator(differentToken, "matam").joinException() }
     }
 
     @Test
@@ -384,7 +385,7 @@ class CourseAppTest {
         courseApp.logout(token).get()
         val secondToken = courseApp.login("matan", "s3kr1t").get()
         courseApp.login("Ron", "s3kwwwr1t").get()
-        assertDoesNotThrow{ courseApp.makeAdministrator(secondToken,"Ron").joinException()}
+        assertDoesNotThrow { courseApp.makeAdministrator(secondToken, "Ron").joinException() }
     }
 
     @Test
@@ -393,7 +394,7 @@ class CourseAppTest {
         val token = courseApp.login("matan", "s3kr1t").get()
         courseApp.makeAdministrator(token, "matan").get()
         courseApp.login("Ron", "s3kwwwr1t").get()
-        assertDoesNotThrow{ courseAppReboot.makeAdministrator(token,"Ron").joinException()}
+        assertDoesNotThrow { courseAppReboot.makeAdministrator(token, "Ron").joinException() }
     }
 
     @Test
@@ -418,7 +419,7 @@ class CourseAppTest {
         val token = courseApp.login("matan", "s3kr1t").get()
         val ronToken = courseApp.login("Ron", "s3kwwwr1t").get()
         courseApp.logout(ronToken).get()
-        assertDoesNotThrow{
+        assertDoesNotThrow {
             courseApp.makeAdministrator(token, "Ron").joinException()
         }
     }
@@ -428,7 +429,7 @@ class CourseAppTest {
     fun `create channel`() {
         val adminToken = courseApp.login("admin", "pass").get()
 
-        assertDoesNotThrow {courseApp.channelJoin(adminToken, "#greatChannel").joinException()}
+        assertDoesNotThrow { courseApp.channelJoin(adminToken, "#greatChannel").joinException() }
     }
 
     @Test
@@ -446,7 +447,7 @@ class CourseAppTest {
     fun `invalid token(not associated to no one) tries to join to channel`() {
         val adminT = courseApp.login("Ron", "IreallyLikeAvlss").get()
         courseApp.channelJoin(adminT, "#AvlLovers").get()
-        assertThrows<InvalidTokenException> {courseApp.channelJoin("different$adminT", "#AvlLovers").joinException()}
+        assertThrows<InvalidTokenException> { courseApp.channelJoin("different$adminT", "#AvlLovers").joinException() }
     }
 
     @Test
@@ -454,7 +455,7 @@ class CourseAppTest {
     fun `invalid token(not of admin) tries to create new channel`() {
         courseApp.login("Ron", "IreallyLikeAvlss").get()
         val notAdminToken = courseApp.login("Person", "passssss").get()
-        assertThrows<UserNotAuthorizedException> {courseApp.channelJoin(notAdminToken, "#SomeChannel#___").joinException()}
+        assertThrows<UserNotAuthorizedException> { courseApp.channelJoin(notAdminToken, "#SomeChannel#___").joinException() }
     }
 
     @Test
@@ -466,7 +467,7 @@ class CourseAppTest {
         courseApp.channelJoin(adminToken, "#greatChannel").get()
         courseApp.channelJoin(regUserToken, "#greatChannel").get()
 
-        assertDoesNotThrow{ courseApp.channelKick(adminToken, "#greatChannel", "regUser").joinException() }
+        assertDoesNotThrow { courseApp.channelKick(adminToken, "#greatChannel", "regUser").joinException() }
     }
 
     @Test
@@ -516,7 +517,7 @@ class CourseAppTest {
         courseApp.channelJoin(adminT, "#AvlLovers").get()
         val t1 = courseApp.login("p1", "Ifffs").get()
         assertThrows<NoSuchEntityException> {
-            courseApp.channelPart(t1,"#AvlLovers").joinException()
+            courseApp.channelPart(t1, "#AvlLovers").joinException()
         }
     }
 
@@ -526,7 +527,7 @@ class CourseAppTest {
         val adminT = courseApp.login("Ron", "IreallyLikeAvlss").get()
         courseApp.channelJoin(adminT, "#AvlLovers").get()
         assertThrows<NoSuchEntityException> {
-            courseApp.channelPart(adminT,"#AILovers").joinException()
+            courseApp.channelPart(adminT, "#AILovers").joinException()
         }
     }
 
@@ -594,7 +595,7 @@ class CourseAppTest {
         courseApp.channelJoin(adminToken, "#greatChannel").get()
         courseApp.channelJoin(regUserToken, "#greatChannel").get()
         courseApp.channelPart(adminToken, "#greatChannel").get()
-        assertDoesNotThrow {courseApp.channelPart(regUserToken, "#greatChannel").joinException()}
+        assertDoesNotThrow { courseApp.channelPart(regUserToken, "#greatChannel").joinException() }
 
     }
 
@@ -606,10 +607,10 @@ class CourseAppTest {
 
         courseApp.channelJoin(adminToken, "#greatChannel").get()
         courseApp.channelJoin(regUserToken, "#greatChannel").get()
-        courseApp.channelMakeOperator(adminToken,"#greatChannel", "regUser" ).get()
+        courseApp.channelMakeOperator(adminToken, "#greatChannel", "regUser").get()
         courseApp.channelPart(adminToken, "#greatChannel").get()
 
-        assertDoesNotThrow { courseApp.channelPart(regUserToken, "#greatChannel").joinException()}
+        assertDoesNotThrow { courseApp.channelPart(regUserToken, "#greatChannel").joinException() }
 
     }
 
@@ -620,7 +621,7 @@ class CourseAppTest {
 
         courseApp.channelJoin(adminToken, "#greatChannel").get()
 
-        assertDoesNotThrow { courseApp.channelPart(adminToken, "#greatChannel")}
+        assertDoesNotThrow { courseApp.channelPart(adminToken, "#greatChannel") }
     }
 
     @Test
@@ -632,7 +633,7 @@ class CourseAppTest {
         courseApp.channelPart(adminToken, "#greatChannel").get()
 
         val regUserToken = courseApp.login("regUser", "pass").get()
-        assertThrows<UserNotAuthorizedException> { courseApp.channelJoin(regUserToken, "#greatChannel").joinException()}
+        assertThrows<UserNotAuthorizedException> { courseApp.channelJoin(regUserToken, "#greatChannel").joinException() }
     }
 
     @Test
@@ -641,8 +642,8 @@ class CourseAppTest {
         val numOfChannels = Random.nextInt(1, 100)
         val adminToken = courseApp.login("admin", "pass").get()
         val strLen = 20
-        val charPool : List<Char> = ('a'..'z') + ('A'..'Z')
-        val list  = mutableListOf<String>()
+        val charPool: List<Char> = ('a'..'z') + ('A'..'Z')
+        val list = mutableListOf<String>()
 
         assertDoesNotThrow {
             for (i in 1..numOfChannels) {
@@ -666,7 +667,7 @@ class CourseAppTest {
         courseApp.channelJoin(adminToken, "#HappyLittleChannel").get()
 
         assertThrows<InvalidTokenException> {
-            courseApp.channelMakeOperator("diff$adminToken", "#BadChannel", "someone" ).joinException()
+            courseApp.channelMakeOperator("diff$adminToken", "#BadChannel", "someone").joinException()
         }
     }
 
@@ -678,7 +679,7 @@ class CourseAppTest {
         val regUserToken = courseApp.login("regUser", "pass").get()
 
         assertThrows<UserNotAuthorizedException> {
-            courseApp.channelMakeOperator(regUserToken, "#HappyLittleChannel", "admin" ).joinException()
+            courseApp.channelMakeOperator(regUserToken, "#HappyLittleChannel", "admin").joinException()
         }
     }
 
@@ -692,7 +693,7 @@ class CourseAppTest {
         courseApp.channelJoin(otherAdminToken, "#HappyLittleChannel").get()
 
         assertThrows<UserNotAuthorizedException> {
-            courseApp.channelMakeOperator(otherAdminToken, "#HappyLittleChannel", "admin" ).joinException()
+            courseApp.channelMakeOperator(otherAdminToken, "#HappyLittleChannel", "admin").joinException()
         }
     }
 
@@ -722,10 +723,10 @@ class CourseAppTest {
         courseApp.channelJoin(admin2Token, "#HappyLittleChannel").get()
         courseApp.makeAdministrator(admin1Token, "admin2").get()
 
-        assertDoesNotThrow{
-            courseApp.channelMakeOperator(admin2Token,"#HappyLittleChannel", "admin2").joinException()
+        assertDoesNotThrow {
+            courseApp.channelMakeOperator(admin2Token, "#HappyLittleChannel", "admin2").joinException()
             //checks if admin2 can kick admin1 from his channel:
-            courseApp.channelKick(admin2Token,"#HappyLittleChannel", "admin1").joinException()
+            courseApp.channelKick(admin2Token, "#HappyLittleChannel", "admin1").joinException()
 
         }
     }
@@ -736,8 +737,8 @@ class CourseAppTest {
         val adminToken = courseApp.login("admin", "admin1").get()
         courseApp.channelJoin(adminToken, "#HappyLittleChannel").get()
 
-        assertDoesNotThrow{
-            courseApp.channelMakeOperator(adminToken,"#HappyLittleChannel", "admin").joinException()
+        assertDoesNotThrow {
+            courseApp.channelMakeOperator(adminToken, "#HappyLittleChannel", "admin").joinException()
         }
     }
 
@@ -748,8 +749,8 @@ class CourseAppTest {
         courseApp.login("regUser", "Usserrr").get()
         courseApp.channelJoin(admin1Token, "#HappyLittleChannel").get()
 
-        assertThrows<NoSuchEntityException>{
-            courseApp.channelMakeOperator(admin1Token,"#HappyLittleChannel", "regUser").joinException()
+        assertThrows<NoSuchEntityException> {
+            courseApp.channelMakeOperator(admin1Token, "#HappyLittleChannel", "regUser").joinException()
         }
     }
 
@@ -761,8 +762,8 @@ class CourseAppTest {
         courseApp.login("regUser", "Usserrr").get()
         courseApp.makeAdministrator(admin1Token, "regUser").get()
 
-        assertThrows<NoSuchEntityException>{
-            courseApp.channelMakeOperator(admin1Token,"#HappyLittleChannel", "regUser").joinException()
+        assertThrows<NoSuchEntityException> {
+            courseApp.channelMakeOperator(admin1Token, "#HappyLittleChannel", "regUser").joinException()
         }
     }
 
@@ -771,8 +772,8 @@ class CourseAppTest {
     fun `try to make operator with with channel that not exits(never been)`() {
         val adminToken = courseApp.login("admin", "admin").get()
 
-        assertThrows<NoSuchEntityException>{
-            courseApp.channelMakeOperator(adminToken,"#fakeNewsChannel", "someone").joinException()
+        assertThrows<NoSuchEntityException> {
+            courseApp.channelMakeOperator(adminToken, "#fakeNewsChannel", "someone").joinException()
         }
     }
 
@@ -783,8 +784,8 @@ class CourseAppTest {
         courseApp.channelJoin(adminToken, "#HappyLittleChannel").get()
         courseApp.channelPart(adminToken, "#HappyLittleChannel").get()
 
-        assertThrows<NoSuchEntityException>{
-            courseApp.channelMakeOperator(adminToken,"#HappyLittleChannel", "someone").joinException()
+        assertThrows<NoSuchEntityException> {
+            courseApp.channelMakeOperator(adminToken, "#HappyLittleChannel", "someone").joinException()
         }
     }
 
@@ -794,8 +795,8 @@ class CourseAppTest {
         val adminToken = courseApp.login("admin", "admin").get()
         courseApp.channelJoin(adminToken, "#HappyLittleChannel").get()
 
-        assertThrows<NoSuchEntityException>{
-            courseApp.channelMakeOperator(adminToken,"#HappyLittleChannel", "fakeUser").joinException()
+        assertThrows<NoSuchEntityException> {
+            courseApp.channelMakeOperator(adminToken, "#HappyLittleChannel", "fakeUser").joinException()
         }
     }
 
@@ -809,8 +810,8 @@ class CourseAppTest {
         courseApp.channelJoin(regUserToken, "#greatChannel").get()
         courseApp.logout(regUserToken).get()
 
-        assertDoesNotThrow{
-            courseApp.channelMakeOperator(adminToken, "#greatChannel", "regUser" ).joinException()
+        assertDoesNotThrow {
+            courseApp.channelMakeOperator(adminToken, "#greatChannel", "regUser").joinException()
         }
     }
 
@@ -858,7 +859,7 @@ class CourseAppTest {
         courseApp.channelJoin(adminToken, "#greatChannel").get()
         val regUserToken = courseApp.login("regUser", "pass").get()
         courseApp.channelJoin(regUserToken, "#greatChannel").get()
-        assertDoesNotThrow{
+        assertDoesNotThrow {
             courseApp.channelKick(adminToken, "#greatChannel", "regUser").joinException()
         }
     }
@@ -872,7 +873,7 @@ class CourseAppTest {
         courseApp.channelJoin(regUserToken, "#greatChannel").get()
         courseApp.channelMakeOperator(adminToken, "#greatChannel", "regUser").get()
 
-        assertDoesNotThrow{
+        assertDoesNotThrow {
             courseApp.channelKick(adminToken, "#greatChannel", "regUser").joinException()
         }
     }
@@ -884,9 +885,9 @@ class CourseAppTest {
         courseApp.channelJoin(adminToken, "#greatChannel").get()
         val regUserToken = courseApp.login("regUser", "pass").get()
         courseApp.channelJoin(regUserToken, "#greatChannel").get()
-        courseApp.makeAdministrator(adminToken,"regUser").get()
+        courseApp.makeAdministrator(adminToken, "regUser").get()
 
-        assertDoesNotThrow{
+        assertDoesNotThrow {
             courseApp.channelKick(adminToken, "#greatChannel", "regUser").joinException()
         }
     }
@@ -898,10 +899,10 @@ class CourseAppTest {
         courseApp.channelJoin(adminToken, "#greatChannel").get()
         val regUserToken = courseApp.login("regUser", "pass").get()
         courseApp.channelJoin(regUserToken, "#greatChannel").get()
-        courseApp.makeAdministrator(adminToken,"regUser").get()
+        courseApp.makeAdministrator(adminToken, "regUser").get()
         courseApp.channelMakeOperator(regUserToken, "#greatChannel", "regUser").get()
 
-        assertDoesNotThrow{
+        assertDoesNotThrow {
             courseApp.channelKick(adminToken, "#greatChannel", "regUser").joinException()
         }
     }
@@ -914,7 +915,7 @@ class CourseAppTest {
         val regUserToken = courseApp.login("regUser", "pass").get()
         courseApp.channelJoin(regUserToken, "#greatChannel").get()
 
-        assertDoesNotThrow{
+        assertDoesNotThrow {
             courseApp.channelKick(adminToken, "#greatChannel", "admin").joinException()
         }
     }
@@ -925,7 +926,7 @@ class CourseAppTest {
         val adminToken = courseApp.login("admin", "pass").get()
         courseApp.channelJoin(adminToken, "#greatChannel").get()
 
-        assertDoesNotThrow{
+        assertDoesNotThrow {
             courseApp.channelKick(adminToken, "#greatChannel", "admin").joinException()
         }
     }
@@ -935,7 +936,7 @@ class CourseAppTest {
     fun `try to kick from a channel that is not exists`() {
         val adminToken = courseApp.login("admin", "pass").get()
 
-        assertThrows<NoSuchEntityException>{
+        assertThrows<NoSuchEntityException> {
             courseApp.channelKick(adminToken, "#nope", "admin").joinException()
         }
     }
@@ -947,7 +948,7 @@ class CourseAppTest {
         courseApp.channelJoin(adminToken, "#greatChannel").get()
         courseApp.channelPart(adminToken, "#greatChannel").get()
 
-        assertThrows<NoSuchEntityException>{
+        assertThrows<NoSuchEntityException> {
             courseApp.channelKick(adminToken, "#greatChannel", "admin").joinException()
         }
     }
@@ -958,7 +959,7 @@ class CourseAppTest {
         val adminToken = courseApp.login("admin", "pass").get()
         courseApp.channelJoin(adminToken, "#greatChannel").get()
 
-        assertThrows<NoSuchEntityException>{
+        assertThrows<NoSuchEntityException> {
             courseApp.channelKick(adminToken, "#greatChannel", "nope").joinException()
         }
     }
@@ -972,7 +973,7 @@ class CourseAppTest {
         courseApp.channelJoin(adminToken, "#otherChannel").get()
         courseApp.channelJoin(regUserToken, "#otherChannel").get()
 
-        assertThrows<NoSuchEntityException>{
+        assertThrows<NoSuchEntityException> {
             courseApp.channelKick(adminToken, "#greatChannel", "regUser").joinException()
         }
     }
@@ -986,7 +987,7 @@ class CourseAppTest {
         courseApp.channelJoin(regUserToken, "#greatChannel").get()
         courseApp.channelKick(adminToken, "#greatChannel", "regUser").get()
 
-        assertThrows<NoSuchEntityException>{
+        assertThrows<NoSuchEntityException> {
             courseApp.channelKick(adminToken, "#greatChannel", "regUser").joinException()
         }
     }
@@ -1043,7 +1044,7 @@ class CourseAppTest {
         courseApp.login("regUser", "pass").get()
         courseApp.channelJoin(adminToken, "#greatChannel").get()
 
-        assert (courseApp.isUserInChannel(adminToken, "#greatChannel", "Asat").joinException() == null)
+        assert(courseApp.isUserInChannel(adminToken, "#greatChannel", "Asat").joinException() == null)
     }
 
     @Test
@@ -1054,7 +1055,7 @@ class CourseAppTest {
         courseApp.channelJoin(adminToken, "#greatChannel").get()
 
         assertDoesNotThrow {
-            val res =   courseApp.isUserInChannel(adminToken, "#greatChannel", "regUser").joinException()
+            val res = courseApp.isUserInChannel(adminToken, "#greatChannel", "regUser").joinException()
             assertNotNull(res)
             assertFalse(res!!)
         }
@@ -1069,7 +1070,7 @@ class CourseAppTest {
         courseApp.channelJoin(regUserToken, "#greatChannel").get()
 
         assertDoesNotThrow {
-            val res =   courseApp.isUserInChannel(regUserToken, "#greatChannel", "admin").joinException()
+            val res = courseApp.isUserInChannel(regUserToken, "#greatChannel", "admin").joinException()
             assertNotNull(res)
             assertTrue(res!!)
         }
@@ -1077,24 +1078,23 @@ class CourseAppTest {
 
     private fun makeChannel(channelName: String,
                             godPair: Pair<String, String>,
-                            members: List<Pair<String,String>>,
-                            loggedOutMembersNames: List<String>) : Pair<String,MutableList<String>>{
+                            members: List<Pair<String, String>>,
+                            loggedOutMembersNames: List<String>): Pair<String, MutableList<String>> {
 
         val tokenMembers = mutableListOf<String>()
         val godToken = courseApp.login(godPair.first, godPair.second).get() //assume all actions go throw him/her.
         courseApp.channelJoin(godToken, channelName).get()
 
-        for(pair in members) {
+        for (pair in members) {
 
             val name = pair.first
             val password = pair.second
             val token = courseApp.login(name, password).get()
 
             courseApp.channelJoin(token, channelName).get()
-            if(name in loggedOutMembersNames) {
+            if (name in loggedOutMembersNames) {
                 courseApp.logout(token).get()
-            }
-            else{
+            } else {
                 tokenMembers.add(token)
             }
         }
@@ -1104,14 +1104,14 @@ class CourseAppTest {
     @Test
     @Order(88)
     fun `get number of active users in channel with zero active users`() {
-        val listNames = mutableListOf<Pair<String,String>>()
-        for(i in 1..10)
+        val listNames = mutableListOf<Pair<String, String>>()
+        for (i in 1..10)
             listNames.add(Pair("User$i", "Pass$i"))
         val listLoggedOut = mutableListOf<String>()
-        for(i in 1..10)
+        for (i in 1..10)
             listLoggedOut.add("User$i")
 
-        val channel = makeChannel("#bestChannel", Pair("admin", "admin"),listNames, listLoggedOut)
+        val channel = makeChannel("#bestChannel", Pair("admin", "admin"), listNames, listLoggedOut)
         courseApp.channelPart(channel.first, "#bestChannel").get()
 
         assertEquals(courseApp.numberOfActiveUsersInChannel(channel.first, "#bestChannel").get(), 0)
@@ -1120,14 +1120,14 @@ class CourseAppTest {
     @Test
     @Order(89)
     fun `get number of active users in channel by admin that is not part of the channel`() {
-        val listNames = mutableListOf<Pair<String,String>>()
-        for(i in 1..10)
+        val listNames = mutableListOf<Pair<String, String>>()
+        for (i in 1..10)
             listNames.add(Pair("User$i", "Pass$i"))
         val listLoggedOut = mutableListOf<String>()
-        for(i in 1..5)
+        for (i in 1..5)
             listLoggedOut.add("User$i")
 
-        val channel = makeChannel("#bestChannel", Pair("admin", "admin"),listNames, listLoggedOut)
+        val channel = makeChannel("#bestChannel", Pair("admin", "admin"), listNames, listLoggedOut)
         courseApp.channelPart(channel.first, "#bestChannel").get()
 
         assertEquals(courseApp.numberOfActiveUsersInChannel(channel.first, "#bestChannel").joinException(), 5)
@@ -1136,14 +1136,14 @@ class CourseAppTest {
     @Test
     @Order(90)
     fun `get number of active users in channel by user in the channel`() {
-        val listNames = mutableListOf<Pair<String,String>>()
-        for(i in 1..10)
+        val listNames = mutableListOf<Pair<String, String>>()
+        for (i in 1..10)
             listNames.add(Pair("User$i", "Pass$i"))
         val listLoggedOut = mutableListOf<String>()
-        for(i in 1..5)
+        for (i in 1..5)
             listLoggedOut.add("User$i")
 
-        val channel = makeChannel("#bestChannel", Pair("admin", "admin"),listNames, listLoggedOut)
+        val channel = makeChannel("#bestChannel", Pair("admin", "admin"), listNames, listLoggedOut)
         val adminT = channel.first
         courseApp.channelPart(adminT, "#bestChannel").get()
 
@@ -1196,14 +1196,14 @@ class CourseAppTest {
     @Test
     @Order(95)
     fun `get number of total users in channel by admin that is not part of the channel`() {
-        val listNames = mutableListOf<Pair<String,String>>()
-        for(i in 1..10)
+        val listNames = mutableListOf<Pair<String, String>>()
+        for (i in 1..10)
             listNames.add(Pair("User$i", "Pass$i"))
         val listLoggedOut = mutableListOf<String>()
-        for(i in 1..5)
+        for (i in 1..5)
             listLoggedOut.add("User$i")
 
-        val channel = makeChannel("#bestChannel", Pair("admin", "admin"),listNames, listLoggedOut )
+        val channel = makeChannel("#bestChannel", Pair("admin", "admin"), listNames, listLoggedOut)
         courseApp.channelPart(channel.first, "#bestChannel").get()
 
         assertEquals(courseApp.numberOfTotalUsersInChannel(channel.first, "#bestChannel").joinException(), 10)
@@ -1212,14 +1212,14 @@ class CourseAppTest {
     @Test
     @Order(96)
     fun `get number of total users in channel by user in the channel`() {
-        val listNames = mutableListOf<Pair<String,String>>()
-        for(i in 1..10)
+        val listNames = mutableListOf<Pair<String, String>>()
+        for (i in 1..10)
             listNames.add(Pair("User$i", "Pass$i"))
         val listLoggedOut = mutableListOf<String>()
-        for(i in 1..5)
+        for (i in 1..5)
             listLoggedOut.add("User$i")
 
-        val channel = makeChannel("#bestChannel", Pair("admin", "admin"),listNames, listLoggedOut )
+        val channel = makeChannel("#bestChannel", Pair("admin", "admin"), listNames, listLoggedOut)
         val adminT = channel.first
         courseApp.channelPart(adminT, "#bestChannel").get()
 
@@ -1306,7 +1306,7 @@ class CourseAppTest {
     @Order(102)
     fun `1,000,000 logged in users in system - stress test`() {
         val amount = 1000000
-        runWithTimeout(ofSeconds(60*10)) {
+        runWithTimeout(ofSeconds(60 * 10)) {
             for (i in 1..amount) {
                 val username = "user" + i
                 val password = "StrongPass" + i
@@ -1348,7 +1348,7 @@ class CourseAppTest {
     fun `stress test for 1,000,000 users and 100,000 channels in the system`() {
         val amount = 1000000
         val dict = HashMap<Int, String>()
-        runWithTimeout(ofSeconds(60*10)) {
+        runWithTimeout(ofSeconds(60 * 10)) {
             for (i in 1..amount) {
                 val username = "user" + i
                 val password = "StrongPass" + i
@@ -1364,11 +1364,11 @@ class CourseAppTest {
             for (i in 1..amount step 512) {
                 for (channel in 1..128) {
                     courseApp.makeAdministrator(dict[1]!!, "user$i")
-                    for (user in i..i+511) {
+                    for (user in i..i + 511) {
                         courseApp.channelJoin(dict[user]!!, "#channel${i}#$channel")
                     }
                 }
-                println ("i: $i")
+                println("i: $i")
             }
         }
     }
@@ -1376,87 +1376,87 @@ class CourseAppTest {
     // new tests:
     @Test
     @Order(105)
-    fun `adding listener successfully`(){
+    fun `adding listener successfully`() {
         val adminToken = courseApp.login("admin", "pass").get()
         val sources = HashSet<String>()
-        val callBack : ListenerCallback = {
-                source, _ -> sources.add(source)
-                    CompletableFuture.completedFuture(Unit)
+        val callBack: ListenerCallback = { source, _ ->
+            sources.add(source)
+            CompletableFuture.completedFuture(Unit)
         }
-        assertDoesNotThrow {courseApp.addListener(adminToken, callBack) }
+        assertDoesNotThrow { courseApp.addListener(adminToken, callBack) }
 
     }
 
     @Test
     @Order(106)
-    fun `adding listener with bad token throws InvalidTokenException`(){
+    fun `adding listener with bad token throws InvalidTokenException`() {
         val adminToken = courseApp.login("admin", "pass").get()
         val sources = HashSet<String>()
-        val callBack : ListenerCallback = {
-            source, _ -> sources.add(source)
+        val callBack: ListenerCallback = { source, _ ->
+            sources.add(source)
             CompletableFuture.completedFuture(Unit)
         }
 
-        assertThrows<InvalidTokenException> {courseApp.addListener("not$adminToken", callBack) }
+        assertThrows<InvalidTokenException> { courseApp.addListener("not$adminToken", callBack) }
     }
 
     @Test
     @Order(107)
-    fun `adding listener and removes it successfully`(){
+    fun `adding listener and removes it successfully`() {
         val adminToken = courseApp.login("admin", "pass").get()
         val sources = HashSet<String>()
-        val callBack : ListenerCallback = {
-            source, _ -> sources.add(source)
+        val callBack: ListenerCallback = { source, _ ->
+            sources.add(source)
             CompletableFuture.completedFuture(Unit)
         }
 
         courseApp.addListener(adminToken, callBack)
 
-        assertDoesNotThrow { courseApp.removeListener(adminToken, callBack)}
+        assertDoesNotThrow { courseApp.removeListener(adminToken, callBack) }
     }
 
     @Test
     @Order(108)
-    fun `adding listener and removes it with invalid token throws InvalidTokenException`(){
+    fun `adding listener and removes it with invalid token throws InvalidTokenException`() {
         val adminToken = courseApp.login("admin", "pass").get()
         val sources = HashSet<String>()
-        val callBack : ListenerCallback = {
-            source, _ -> sources.add(source)
+        val callBack: ListenerCallback = { source, _ ->
+            sources.add(source)
             CompletableFuture.completedFuture(Unit)
         }
 
         courseApp.addListener(adminToken, callBack)
 
-        assertThrows<InvalidTokenException> { courseApp.removeListener("not$adminToken", callBack)}
+        assertThrows<InvalidTokenException> { courseApp.removeListener("not$adminToken", callBack) }
     }
 
     @Test
     @Order(109)
-    fun `adding listener and removes it with bad callback lambda throws NoSuchEntityException`(){
+    fun `adding listener and removes it with bad callback lambda throws NoSuchEntityException`() {
         val adminToken = courseApp.login("admin", "pass").get()
         val sources = HashSet<String>()
-        val callBack : ListenerCallback = {
-            source, _ -> sources.add(source)
+        val callBack: ListenerCallback = { source, _ ->
+            sources.add(source)
             CompletableFuture.completedFuture(Unit)
         }
 
         courseApp.addListener(adminToken, callBack)
 
-        val otherCallBack : ListenerCallback = {
-            source, _ -> sources.add(source)
+        val otherCallBack: ListenerCallback = { source, _ ->
+            sources.add(source)
             CompletableFuture.completedFuture(Unit)
         }
 
-        assertThrows<NoSuchEntityException> { courseApp.removeListener(adminToken, otherCallBack)}
+        assertThrows<NoSuchEntityException> { courseApp.removeListener(adminToken, otherCallBack) }
     }
 
     @Test
     @Order(110)
-    fun `adding listener and broadcast successfully with the right broadcast source string`(){
+    fun `adding listener and broadcast successfully with the right broadcast source string`() {
         val adminToken = courseApp.login("admin", "pass").get()
         val sources = HashSet<String>()
-        val callBack : ListenerCallback = {
-            source, _ -> sources.add(source)
+        val callBack: ListenerCallback = { source, _ ->
+            sources.add(source)
             CompletableFuture.completedFuture(Unit)
         }
 
@@ -1464,23 +1464,25 @@ class CourseAppTest {
 
         assertDoesNotThrow {
             courseApp.broadcast(adminToken,
-                                messageFactory.create(MediaType.LOCATION, "Israel".toByteArray()).get())
+                    messageFactory.create(MediaType.LOCATION, "Israel".toByteArray()).get())
             assertTrue(sources.contains("BROADCAST"))
         }
     }
 
     @Test
     @Order(111)
-    fun `adding few listeners successfully`(){
+    fun `adding few listeners successfully`() {
         val adminToken = courseApp.login("admin", "pass").get()
         val otherToken = courseApp.login("user1", "justPassword").get()
         val sources = HashSet<String>()
-        val callBack : ListenerCallback = {
-            source, _ -> sources.add(source)
+        val callBack: ListenerCallback = { source, _ ->
+            sources.add(source)
             CompletableFuture.completedFuture(Unit)
         }
-        assertDoesNotThrow {courseApp.addListener(adminToken, callBack)
-                            courseApp.addListener(otherToken, callBack)}
+        assertDoesNotThrow {
+            courseApp.addListener(adminToken, callBack)
+            courseApp.addListener(otherToken, callBack)
+        }
 
     }
 
@@ -1491,8 +1493,8 @@ class CourseAppTest {
         val otherToken = courseApp.login("other", "pass").get()
 
         val sources = HashSet<String>()
-        val callBack : ListenerCallback = {
-            source, _ -> sources.add(source)
+        val callBack: ListenerCallback = { source, _ ->
+            sources.add(source)
             CompletableFuture.completedFuture(Unit)
         }
         val message1 = messageFactory.create(MediaType.PICTURE, "Some Message No.1".toByteArray()).get()
@@ -1502,8 +1504,8 @@ class CourseAppTest {
         courseApp.privateSend(adminToken, "other", message1)
         courseApp.broadcast(adminToken, message2)
 
-        assertThrows<NoSuchEntityException> { courseApp.fetchMessage(adminToken, message1.id)}
-        assertThrows<NoSuchEntityException> { courseApp.fetchMessage(adminToken, message2.id)}
+        assertThrows<NoSuchEntityException> { courseApp.fetchMessage(adminToken, message1.id) }
+        assertThrows<NoSuchEntityException> { courseApp.fetchMessage(adminToken, message2.id) }
     }
 
     @Test
@@ -1513,13 +1515,13 @@ class CourseAppTest {
         val otherToken = courseApp.login("other", "pass").get()
 
         var source1 = HashSet<String>()
-        val callBack1 : ListenerCallback = {
-            source, _ -> source1.add(source)
+        val callBack1: ListenerCallback = { source, _ ->
+            source1.add(source)
             CompletableFuture.completedFuture(Unit)
         }
         var source2 = HashSet<String>()
-        val callBack2 : ListenerCallback = {
-            source, _ -> source2.add(source)
+        val callBack2: ListenerCallback = { source, _ ->
+            source2.add(source)
             CompletableFuture.completedFuture(Unit)
         }
 
@@ -1548,8 +1550,8 @@ class CourseAppTest {
     fun `unable to fetch messages that was after channel deleted and created again`() {
         val adminToken = courseApp.login("admin", "pass").get()
         var source1 = HashSet<String>()
-        val callback1 : ListenerCallback = {
-            source, _ -> source1.add(source)
+        val callback1: ListenerCallback = { source, _ ->
+            source1.add(source)
             CompletableFuture.completedFuture(Unit)
         }
         val message1 = messageFactory.create(MediaType.PICTURE, "Some Message No. 1".toByteArray()).get()
@@ -1563,4 +1565,81 @@ class CourseAppTest {
 
         assertThrows<NoSuchEntityException> { courseApp.fetchMessage(adminToken, message1.id) }
     }
+
+    @Test
+    @Order(115)
+    fun `getting all the pending messages when addListener is being invoked`() {
+        val adminToken = courseApp.login("admin", "pass").get()
+        var messages = HashSet<String>()
+        val callback: ListenerCallback = { _, message ->
+            messages.add(message.contents.toString(Charset.defaultCharset()))
+            CompletableFuture.completedFuture(Unit)
+        }
+        val otherUser1 = courseApp.login("other1", "pass").get()
+        val otherUser2 = courseApp.login("other2", "pass").get()
+        courseApp.channelJoin(adminToken, "#MyChannel")
+        courseApp.channelJoin(otherUser2, "#MyChannel")
+
+        val broadcastList = mutableListOf<Message>()
+        for (i in 1..10) {
+            val message = messageFactory.create(MediaType.PICTURE, "Some Message No. $i".toByteArray()).get()
+            courseApp.broadcast(adminToken, message)
+            broadcastList.add(message)
+        }
+
+        val privateList = mutableListOf<Message>()
+        for (i in 1..10) {
+            val message = messageFactory.create(MediaType.PICTURE, "Some Private Message No. $i".toByteArray()).get()
+            courseApp.privateSend(otherUser1, "admin", message)
+            privateList.add(message)
+        }
+
+        val channelList = mutableListOf<Message>()
+        for (i in 1..10) {
+            val message = messageFactory.create(MediaType.PICTURE, "Some Channel Message No. $i".toByteArray()).get()
+            courseApp.channelSend(otherUser2, "#MyChannel", message)
+            channelList.add(message)
+        }
+
+        courseApp.addListener(adminToken, callback)
+
+        assert(messages.size == 30)
+    }
+
+    @Test
+    @Order(116)
+    fun `get private messages`() {
+        val adminToken = courseApp.login("admin", "pass").get()
+        var messages = HashSet<String>()
+        val callback: ListenerCallback = { _, message ->
+            messages.add(message.contents.toString(Charset.defaultCharset()))
+            CompletableFuture.completedFuture(Unit)
+        }
+        val otherUser= courseApp.login("other", "pass").get()
+        courseApp.addListener(adminToken, callback)
+
+        val message = messageFactory.create(MediaType.PICTURE, "Some Message No. 1".toByteArray()).get()
+        courseApp.privateSend(otherUser, "admin", message)
+
+        assert(messages.size == 1)
+    }
+
+    @Test
+    @Order(116)
+    fun `get pending private messages`() {
+        val adminToken = courseApp.login("admin", "pass").get()
+        var messages = HashSet<String>()
+        val callback: ListenerCallback = { _, message ->
+            messages.add(message.contents.toString(Charset.defaultCharset()))
+            CompletableFuture.completedFuture(Unit)
+        }
+        val otherUser= courseApp.login("other", "pass").get()
+
+        val message = messageFactory.create(MediaType.PICTURE, "Some Message No. 1".toByteArray()).get()
+        courseApp.privateSend(otherUser, "admin", message)
+        courseApp.addListener(adminToken, callback)
+
+        assert(messages.size == 1)
+    }
+
 }

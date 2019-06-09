@@ -14,7 +14,6 @@ import java.util.concurrent.CompletableFuture
 
 class CourseAppImpl: CourseApp{
 
-    // TODO("Remove this shit / maybe it is not really as shitty...")
     class OurObservableImpl: OurObservable<String, Message, CompletableFuture<Unit>>()
 
     private val userLoggedIn = "1"
@@ -98,7 +97,8 @@ class CourseAppImpl: CourseApp{
         TOTALPENDINGMESSAGES,
         MESSAGESOURCE,
         USERCREATIONTIME,
-        MESSAGECREATIONTIME
+        MESSAGECREATIONTIME,
+        TOTALCHANNELSPENDINGMESSAGES
     }
 
     enum class TypeMessage  {
@@ -345,6 +345,8 @@ class CourseAppImpl: CourseApp{
         if (!isChannelExist(channel)) {
             this.channelObservers.remove(channel)        // in case of new channel or after new courseApp instance, we need new Observable
             deleteFromMessagesChannelsTree(channel)
+
+            // TODO ("do we need to dec the number of messages in the system after this channel is deleted")
         }
         //else
             // By the FAQ we can assume that the user have been removed all his listens
@@ -420,6 +422,8 @@ class CourseAppImpl: CourseApp{
         if (!isChannelExist(channel)) {
             this.channelObservers.remove(channel)        // in case of new channel or after new courseApp instance, we need new Observable
             deleteFromMessagesChannelsTree(channel)
+
+            // TODO ("do we need to dec the number of messages in the system after this channel is deleted")
         }
         //else
         // By the FAQ we can assume that the user have been removed all his listens
@@ -612,16 +616,17 @@ class CourseAppImpl: CourseApp{
     override fun privateSend(token: String, user: String, message: Message): CompletableFuture<Unit> {
         if (!validToken(token))
             throw InvalidTokenException()
-        val res = readUserStatus(usernameToToken(user))
+        val userToken = usernameToToken(user)
+        val res = readUserStatus(userToken)
         when(res) {
             notRegistered -> throw NoSuchEntityException()
             registeredNotLoggedIn, userLoggedIn -> {
                 val username = tokenToUsername(token)
                 val source = "@$username"
 
-                assocMessage(message, TypeMessage.PRIVATE, data = token)
+                assocMessage(message, TypeMessage.PRIVATE, data = userToken)
                 saveMessageInStorage(source, message)
-                sendMessageInPrivate(user, source, message)
+                sendMessageInPrivate(userToken!!, source, message)
             }
         }
 
@@ -684,8 +689,8 @@ class CourseAppImpl: CourseApp{
     }
 
     fun getPendingMessagesNumberForChannels(): Long {
-//        TODO("return the number of pending messages for users")
-        return -1
+        val str = readFromStorage(mutableListOf(), KeyType.TOTALCHANNELSPENDINGMESSAGES)
+        return str?.toLong() ?: 0
     }
 
     fun getTop10ChannelsByMessagesNumber(): List<String> {
@@ -799,6 +804,9 @@ class CourseAppImpl: CourseApp{
             KeyType.MESSAGECREATIONTIME -> {
                 val id = args[0]
                 storageIo.write(("MSGCT$id"), data).get()
+            }
+            KeyType.TOTALCHANNELSPENDINGMESSAGES -> {
+                storageIo.write(("TCPM"), data).get()
             }
         }
     }
@@ -965,7 +973,6 @@ class CourseAppImpl: CourseApp{
                 val username = args[0]
                 val password = args[1]
                 str = storageIo.read(("UP$username$password")).get()
-
             }
             KeyType.ADMIN ->{
                 val token = args[0]
@@ -1061,6 +1068,9 @@ class CourseAppImpl: CourseApp{
             KeyType.MESSAGECREATIONTIME -> {
                 val id = args[0]
                 str = storageIo.read(("MSGCT$id")).get()
+            }
+            KeyType.TOTALCHANNELSPENDINGMESSAGES -> {
+                str = storageIo.read(("TCPM")).get()
             }
         }
         return str
@@ -1347,10 +1357,9 @@ class CourseAppImpl: CourseApp{
                         if (channelList.contains(channelOfMessage)) {
                             activateLambdaWithSourceAndMessageFromStorage(currId, callback)
                             if (decPendingUsersForMessage(currId) == 0.toLong()) {
-                                this.pendingMessagesTree.delete(currId.toString(), currId.toString())
+                                decTotalNumberOfPendingChannelsMessages()
+                                removeMessageFromPending(currId)
                             }
-
-                            // TODO("add logic for pending users counter(for statistics)")
                         }
                     }
                     "BROADCAST" -> {
@@ -1378,7 +1387,7 @@ class CourseAppImpl: CourseApp{
 
     private fun decTotalPendingMessagesIfNeeded(currPendingNumber: Long, currId: Long) {
         if (currPendingNumber == 0.toLong()) {
-            pendingMessagesTree.delete(currId.toString(), currId.toString())
+            removeMessageFromPending(currId)
 
             val prevTotalPendingMessages = readFromStorage(mutableListOf(), KeyType.TOTALPENDINGMESSAGES)!!.toLong()
             val currTotalPendingMessages = prevTotalPendingMessages - 1.toLong()
@@ -1391,7 +1400,8 @@ class CourseAppImpl: CourseApp{
 
         val str2 = readFromStorage(mutableListOf(currId.toString()), KeyType.MESSAGEDATA)
         val listOfFields = str2!!.split("%")
-        val receivedTime = if (listOfFields[4] != null && listOfFields[4] != "null") LocalDateTime.parse(listOfFields[4], timeFormatter) else null
+        //val receivedTime = if (listOfFields[4] != null && listOfFields[4] != "null") LocalDateTime.parse(listOfFields[4], timeFormatter) else null
+        val receivedTime = LocalDateTime.now()                  // TODO("this option or the previous one")
         val message = MessageImpl(id = listOfFields[0].toLong(),
                 media = MediaType.valueOf(listOfFields[1]),
                 contents = listOfFields[2].toByteArray(Charset.defaultCharset()),
@@ -1453,8 +1463,6 @@ class CourseAppImpl: CourseApp{
                 writeToStorage(mutableListOf(message.id.toString()), "BROADCAST", KeyType.MESSAGETYPE)
             }
         }
-
-        // TODO ("add sanity check that this message is inserted into the courseApp system(new mapping in the storage for this) - other addition in the validMessage func")
     }
 
     private fun saveMessageInStorage(source: String, message: Message) {
@@ -1462,7 +1470,6 @@ class CourseAppImpl: CourseApp{
         val str = message.toString()
         writeToStorage(mutableListOf(id.toString()), str, KeyType.MESSAGEDATA)
         writeToStorage(mutableListOf(id.toString()), message.created.toString(), KeyType.MESSAGECREATIONTIME)
-
         writeToStorage(mutableListOf(id.toString()), source, KeyType.MESSAGESOURCE)
     }
 
@@ -1487,9 +1494,22 @@ class CourseAppImpl: CourseApp{
         val numberOfPendingUsers = numberOfTotalUsersInChannel(token, channel).get() - receivedUsers.size.toLong()
 
         if (numberOfPendingUsers != 0.toLong()) {
+            incTotalNumberOfPendingChannelsMessages()
             addMessageToPending(message.id)
             writeToStorage(mutableListOf(message.id.toString()), numberOfPendingUsers.toString(), KeyType.MESSAGEPENDINGCOUNTER)
         }
+    }
+
+    private fun incTotalNumberOfPendingChannelsMessages() {
+        val previousNumberOfPendingMessages = getPendingMessagesNumberForChannels()
+        val currPendingNumberOfPendingMessages = previousNumberOfPendingMessages + 1
+        writeToStorage(mutableListOf(), currPendingNumberOfPendingMessages.toString(), KeyType.TOTALCHANNELSPENDINGMESSAGES)
+    }
+
+    private fun decTotalNumberOfPendingChannelsMessages() {
+        val previousNumberOfPendingMessages = getPendingMessagesNumberForChannels()
+        val currPendingNumberOfPendingMessages = previousNumberOfPendingMessages - 1
+        writeToStorage(mutableListOf(), currPendingNumberOfPendingMessages.toString(), KeyType.TOTALCHANNELSPENDINGMESSAGES)
     }
 
     private fun addMessageToPending(id: Long) {
@@ -1535,9 +1555,9 @@ class CourseAppImpl: CourseApp{
         writeToStorage(mutableListOf(), numberOfPendingMessages.toString(), KeyType.TOTALPENDINGMESSAGES)
     }
 
-    private fun sendMessageInPrivate(user: String, source: String, message: Message) {
-        if (this.userObservers[user] != null)
-            this.userObservers[user]!!.onChange(source, message)
+    private fun sendMessageInPrivate(token: String, source: String, message: Message) {
+        if (this.userObservers[token] != null && !this.userObservers[token]!!.isEmpty())
+            this.userObservers[token]!!.onChange(source, message)
         else {
             addMessageToPending(message.id)
             writeToStorage(mutableListOf(message.id.toString()), 1.toString(), KeyType.MESSAGEPENDINGCOUNTER)
@@ -1547,8 +1567,7 @@ class CourseAppImpl: CourseApp{
 
     private fun validMessage(id: Long): Boolean{
         val lastIndex = readFromStorage(mutableListOf(),KeyType.INDEXMESSAGESYS)!!.toLong()
-        return id <= lastIndex
-        // TODO (" && sanity check that this message is inserted into the courseApp system(new mapping in the storage for this) - the other addition is in the assoc func")
+        return id <= lastIndex && readFromStorage(mutableListOf(id.toString()), KeyType.MESSAGECREATIONTIME) != null
     }
 
     private fun validChannelMessage(id: Long): Boolean {
