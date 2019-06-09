@@ -7,6 +7,7 @@ import il.ac.technion.cs.softwaredesign.messages.Message
 import il.ac.technion.cs.softwaredesign.messages.MessageImpl
 import java.nio.charset.Charset
 import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 import java.util.concurrent.CompletableFuture
 
@@ -35,6 +36,9 @@ class CourseAppImpl: CourseApp{
     private var userObservers: HashMap<String, OurObservableImpl>
     private var callbackToToken: HashMap<ListenerCallback, String>
 
+
+//    private val formatter = DateTimeFormatter.ISO_DATE_TIME
+    private val timeFormatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME
 
 
     @Inject constructor(storage: DataStoreIo) {
@@ -143,9 +147,11 @@ class CourseAppImpl: CourseApp{
                 // Add Observer for private messages
                 initializeObserverForUser(genToken)
 
-                val time = LocalDateTime.now().toString()
                 //update user creation time:
+                val time = LocalDateTime.now().format(timeFormatter)
                 writeToStorage(mutableListOf(genToken), time, KeyType.USERCREATIONTIME)
+
+
                 return CompletableFuture.completedFuture(genToken)
             }
 
@@ -518,87 +524,6 @@ class CourseAppImpl: CourseApp{
         return CompletableFuture.completedFuture(Unit)
     }
 
-    private fun activatePendingMessagesFor(token: String, callback: ListenerCallback) {
-        val channelList = getChannelsOf(token)
-        val userCreationTime = LocalDateTime.parse(readFromStorage(mutableListOf(token), KeyType.USERCREATIONTIME))
-
-        for (currId in this.pendingMessagesTree.toKeyList()) {
-            val messageCreationTime = LocalDateTime.parse(readFromStorage(mutableListOf(currId.toString()), KeyType.MESSAGECREATIONTIME))
-            if (userCreationTime < messageCreationTime) {
-                val str = readFromStorage(mutableListOf(currId.toString()), KeyType.MESSAGETYPE)!!
-                val list = str.split("%")
-                val type = list[0]
-                when (type) {
-                    "PRIVATE" -> {
-                        val receiveToken = list[1]
-                        if (receiveToken == token) {
-                            activateLambdaWithSourceAndMessageFromStorage(currId, callback)
-                            updateMessageCounterAndTotalPending(currId)
-                        }
-                    }
-                    "CHANNEL" -> {
-                        val channelOfMessage = list[1]
-                        if (channelList.contains(channelOfMessage)) {
-                            activateLambdaWithSourceAndMessageFromStorage(currId, callback)
-                            val currPendingNumber = updateNumberOfMessagesInChannel(channelOfMessage, UpdateType.DEC)
-
-                            decTotalPendingMessagesIfNeeded(currPendingNumber, currId)
-                        }
-                    }
-                    "BROADCAST" -> {
-                        activateLambdaWithSourceAndMessageFromStorage(currId, callback)
-                        updateMessageCounterAndTotalPending(currId)
-                    }
-                }
-            }
-        }
-    }
-
-    private fun updateMessageCounterAndTotalPending(currId: Long) {
-        val prevPendingNumber = readFromStorage(mutableListOf(currId.toString()), KeyType.MESSAGEPENDINGCOUNTER)!!.toLong()
-        val currPendingNumber = prevPendingNumber - 1.toLong()
-        writeToStorage(mutableListOf(currId.toString()), currPendingNumber.toString(), KeyType.MESSAGEPENDINGCOUNTER)
-        decTotalPendingMessagesIfNeeded(currPendingNumber, currId)
-    }
-
-    private fun decTotalPendingMessagesIfNeeded(currPendingNumber: Long, currId: Long) {
-        if (currPendingNumber == 0.toLong()) {
-            pendingMessagesTree.delete(currId.toString(), currId.toString())
-
-            val prevTotalPendingMessages = readFromStorage(mutableListOf(), KeyType.TOTALPENDINGMESSAGES)!!.toLong()
-            val currTotalPendingMessages = prevTotalPendingMessages - 1.toLong()
-            writeToStorage(mutableListOf(currId.toString()), currTotalPendingMessages.toString(), KeyType.TOTALPENDINGMESSAGES)
-        }
-    }
-
-    private fun activateLambdaWithSourceAndMessageFromStorage(currId: Long, callback: ListenerCallback) {
-        val source = readFromStorage(mutableListOf(currId.toString()), KeyType.MESSAGESOURCE)!!
-
-        val str2 = readFromStorage(mutableListOf(currId.toString()), KeyType.MESSAGEDATA)
-        val listOfFileds = str2!!.split("%")
-        val message = MessageImpl(id = listOfFileds[0].toLong(),
-                media = MediaType.valueOf(listOfFileds[1]),
-                contents = listOfFileds[2].toByteArray(Charset.defaultCharset()),
-                created = LocalDateTime.parse(listOfFileds[3]),
-                received = LocalDateTime.parse(listOfFileds[4]))
-
-        callback(source, message)
-    }
-
-    private fun addListenerToBroadcastObserver(callback: ListenerCallback) {
-        this.broadCastObserver.listen(callback)
-    }
-
-    private fun addListenerToChannelsObserver(token: String, callback: ListenerCallback) {
-        val channelList = getChannelsOf(token)
-        for (channel in channelList)
-            this.channelObservers[channel]!!.listen(callback)
-    }
-
-    private fun addListenerToPrivateObserver(token: String, callback: ListenerCallback) {
-        this.userObservers[token]!!.listen(callback)
-    }
-
     /**
      * Remove a listener from this Course App instance. See Observer design pattern for more information.
      *
@@ -618,28 +543,6 @@ class CourseAppImpl: CourseApp{
         callbackToToken.remove(callback)
 
         return CompletableFuture.completedFuture(Unit)
-    }
-
-    private fun isListenerExist(callback: ListenerCallback): Boolean {
-        /*
-            broadCastObserver contains all the listeners of the system, so it is a nice place to check if
-            a specific user is a listener.
-        */
-        return this.broadCastObserver.contains(callback)
-    }
-
-    private fun removeListenerFromBroadcastObserver( callback: ListenerCallback) {
-        this.broadCastObserver.unlisten(callback)
-    }
-
-    private fun removeListenerFromChannelsObserver(token: String, callback: ListenerCallback) {
-        val channelList = getChannelsOf(token)
-        for (channel in channelList)
-            this.channelObservers[channel]!!.unlisten(callback)
-    }
-
-    private fun removeListenerFromPrivateObserver(token: String, callback: ListenerCallback) {
-        this.userObservers[token]!!.unlisten(callback)
     }
 
     /**
@@ -672,65 +575,6 @@ class CourseAppImpl: CourseApp{
         return CompletableFuture.completedFuture(Unit)
     }
 
-    private fun assocMessage(message: Message, type: TypeMessage, data: String? = null) {
-        when (type) {
-            TypeMessage.PRIVATE -> {
-                val token = data!!         // token of the user that the message is for
-                writeToStorage(mutableListOf(message.id.toString()), "PRIVATE%$token", KeyType.MESSAGETYPE)
-            }
-            TypeMessage.CHANNEL -> {
-                val channelIndex = channelToIndex(data!!)         // channel index of the the message is associated for
-                writeToStorage(mutableListOf(message.id.toString()), "CHANNEL%$channelIndex", KeyType.MESSAGETYPE)
-            }
-            TypeMessage.BROADCAST -> {
-                writeToStorage(mutableListOf(message.id.toString()), "BROADCAST", KeyType.MESSAGETYPE)
-            }
-        }
-    }
-
-    private fun saveMessageInStorage(source: String, message: Message) {
-        val id = message.id
-        val str = message.toString()
-        writeToStorage(mutableListOf(id.toString()), str, KeyType.MESSAGEDATA)
-        writeToStorage(mutableListOf(id.toString()), message.created.toString(), KeyType.MESSAGECREATIONTIME)
-
-        writeToStorage(mutableListOf(id.toString()), source, KeyType.MESSAGESOURCE)
-    }
-
-    private fun updateNumberOfMessagesInChannel(channel: String, type: UpdateType): Long {
-        deleteFromMessagesChannelsTree(channel)
-
-        val numberOfMessages = when (type) {
-            UpdateType.DEC -> getNumberOfMessageIn(channel) - 1
-            UpdateType.INC -> getNumberOfMessageIn(channel) + 1
-        }
-        writeToStorage(mutableListOf(channel), numberOfMessages.toString(), KeyType.MESSAGESNUMBERINCHANNEL)
-
-        insertToMessagesChannelsTree(channel, numberOfMessages)
-        return numberOfMessages
-    }
-
-    private fun sendMessageInChannel(token: String, channel: String, source: String, message: Message) {
-        val obs= this.channelObservers[channel]!!
-        obs.onChange(source, message)
-
-        val receivedUsers:MutableList<String> = getListenUsers(obs)
-        val numberOfPendingUsers = numberOfTotalUsersInChannel(token, channel).get() - receivedUsers.size.toLong()
-
-        if (numberOfPendingUsers != 0.toLong()) {
-            addMessageToPending(message.id)
-            writeToStorage(mutableListOf(message.id.toString()), numberOfPendingUsers.toString(), KeyType.MESSAGEPENDINGCOUNTER)
-        }
-    }
-
-    private fun addMessageToPending(id: Long) {
-        pendingMessagesTree.insert(id.toString(), id.toString())
-    }
-
-    private fun removeMessageFromPending(id: Long) {
-        pendingMessagesTree.delete(id.toString(), id.toString())
-    }
-
     /**
      * Sends a message to all users from an admin identified by [token]. Listeners will be notified, source is
      * "BROADCAST".
@@ -753,41 +597,6 @@ class CourseAppImpl: CourseApp{
         sendMessageInBroadcast(source, message)
 
         return CompletableFuture.completedFuture(Unit)
-    }
-
-    private fun sendMessageInBroadcast(source: String, message: Message) {
-        this.broadCastObserver.onChange(source, message)
-
-        val receivedUsers:MutableList<String> = getListenUsers(this.broadCastObserver)
-        val numberOfPendingUsers = getTotalUsers() - receivedUsers.size.toLong()
-
-        if (numberOfPendingUsers != 0.toLong()) {
-            addMessageToPending(message.id)
-            writeToStorage(mutableListOf(message.id.toString()), numberOfPendingUsers.toString(), KeyType.MESSAGEPENDINGCOUNTER)
-        }
-
-        incNumberOfPendingMessages()
-    }
-
-    private fun getListenUsers(observer: CourseAppImpl.OurObservableImpl): MutableList<String> {
-        val observersList = observer.toList()
-        val users = mutableListOf<String>()
-        for (currObservable in observersList) {
-            val user = callbackToToken[currObservable]
-            if (user != null) {
-                users.add(user)
-            }
-        }
-        return users
-    }
-
-    private fun getNumberOfPendingMessages(): Long {
-        return readFromStorage(mutableListOf(), KeyType.TOTALPENDINGMESSAGES)?.toLong() ?: 0
-    }
-
-    private fun incNumberOfPendingMessages() {
-        val numberOfPendingMessages = getNumberOfPendingMessages() + 1.toLong()
-        writeToStorage(mutableListOf(), numberOfPendingMessages.toString(), KeyType.TOTALPENDINGMESSAGES)
     }
 
     /**
@@ -819,16 +628,6 @@ class CourseAppImpl: CourseApp{
         return CompletableFuture.completedFuture(Unit)
     }
 
-    private fun sendMessageInPrivate(user: String, source: String, message: Message) {
-        if (this.userObservers[user] != null)
-            this.userObservers[user]!!.onChange(source, message)
-        else {
-            addMessageToPending(message.id)
-            writeToStorage(mutableListOf(message.id.toString()), 1.toString(), KeyType.MESSAGEPENDINGCOUNTER)
-            incNumberOfPendingMessages()
-        }
-    }
-
     /**
      * Returns the message identified by [id], if it exists.
      *
@@ -846,42 +645,13 @@ class CourseAppImpl: CourseApp{
         if (!validToken(token))
             throw InvalidTokenException()
 
-        if (!validMessage(id) || validChannelMessage(id))
+        if (!validMessage(id) || !validChannelMessage(id))
             throw NoSuchEntityException()
 
         if (!messageIsSameChannelAsUser(token, id))
             throw UserNotAuthorizedException()
 
         return fetchMessageAux(id)
-    }
-
-    private fun validMessage(id: Long): Boolean{
-        val lastIndex = readFromStorage(mutableListOf(),KeyType.INDEXMESSAGESYS)!!.toLong()
-        return id <= lastIndex
-    }
-
-    private fun validChannelMessage(id: Long): Boolean {
-        val str = readFromStorage(mutableListOf(id.toString()), KeyType.MESSAGETYPE)
-        return str!!.split("%")[0] == "CHANNEL"
-    }
-
-    private fun messageIsSameChannelAsUser(token: String, id: Long): Boolean {
-        val channel = readFromStorage(mutableListOf(id.toString()), KeyType.MESSAGETYPE)!!.split("%")[1]
-        return getChannelsOf(token).contains(channel)
-    }
-
-    private fun fetchMessageAux( id: Long): CompletableFuture<Pair<String, Message>> {
-        var ret: Pair<String, Message>? = null
-        val lamd : ListenerCallback = { s: String, message: Message -> ret = Pair(s, message)
-            CompletableFuture.completedFuture(Unit)
-        }
-        activateLambdaWithSourceAndMessageFromStorage(id, lamd)
-
-        return CompletableFuture.completedFuture(ret)
-    }
-
-    private fun getNumberOfMessageIn(channel: String): Long {
-        return readFromStorage(mutableListOf(channel), KeyType.MESSAGESNUMBERINCHANNEL)!!.toLong()
     }
 
     // =========================================== API for statistics ==================================================
@@ -906,6 +676,20 @@ class CourseAppImpl: CourseApp{
 
     fun getTop10ChannelsByActiveUsers(): List<String>{
         return this.channelByActiveTree.top10().asSequence().map { indexToChannel(it.toString()) }.toList()
+    }
+
+    fun getPendingMessagesNumberForUsers(): Long {
+        val str = readFromStorage(mutableListOf(), KeyType.TOTALPENDINGMESSAGES)
+        return str?.toLong() ?: 0
+    }
+
+    fun getPendingMessagesNumberForChannels(): Long {
+//        TODO("return the number of pending messages for users")
+        return -1
+    }
+
+    fun getTop10ChannelsByMessagesNumber(): List<String> {
+        return this.channelByMessagesTree.top10().asSequence().map { indexToChannel(it.toString()) }.toList()
     }
 
     //writers:////////////////////////////////////////////////////
@@ -1431,14 +1215,18 @@ class CourseAppImpl: CourseApp{
         val updatedChannelsAmountOfUser = decChannelAmountofUser(token)
         val updatedUsersAmount = decUsersInChannel(channel)
 
-        insertToTotalChannelsTree(channel, updatedUsersAmount)
-        insertUsersTree(token, updatedChannelsAmountOfUser)
+        if (updatedUsersAmount != 0.toLong()) {
+            insertToTotalChannelsTree(channel, updatedUsersAmount)
+            insertUsersTree(token, updatedChannelsAmountOfUser)
 
-        if (readFromStorage(mutableListOf(token),  KeyType.USER) ==  userLoggedIn) {
+            if (readFromStorage(mutableListOf(token), KeyType.USER) == userLoggedIn) {
 
-            deleteFromActiveChannelsTree(channel)
-            val updatedActiveAmount = decLoggedInChannel(channel)
-            insertToActiveChannelsTree(channel, updatedActiveAmount)
+                deleteFromActiveChannelsTree(channel)
+                val updatedActiveAmount = decLoggedInChannel(channel)
+                insertToActiveChannelsTree(channel, updatedActiveAmount)
+            }
+        } else {
+            deleteIndexChannel(channelToIndex(channel)!!)
         }
 
         disConnectUserFromChannel(channel, token)
@@ -1458,6 +1246,10 @@ class CourseAppImpl: CourseApp{
 
     private fun indexToChannel(index: String): String {
         return readFromStorage(mutableListOf(index), KeyType.INDEXTOCHANNEL)!!
+    }
+
+    private fun deleteIndexChannel(index: String) {
+        writeToStorage(mutableListOf(index), "null", KeyType.INDEXTOCHANNEL)
     }
 
     private fun passwordValid(username: String, password: String): Boolean {
@@ -1529,17 +1321,264 @@ class CourseAppImpl: CourseApp{
         return str.toInt() == UserStatusInChannel.Operator.type
     }
 
-    fun getPendingMessagesNumberForUsers(): Long {
-        val str = readFromStorage(mutableListOf(), KeyType.TOTALPENDINGMESSAGES)
-        return str?.toLong() ?: 0
+    private fun activatePendingMessagesFor(token: String, callback: ListenerCallback) {
+        val channelList = getChannelsOf(token)
+        val userCreationTime = LocalDateTime.parse(readFromStorage(mutableListOf(token), KeyType.USERCREATIONTIME), timeFormatter)
+
+        val pendingMessagesList = this.pendingMessagesTree.toKeyList()
+        for (currId in pendingMessagesList) {
+            val messageCreationTime = LocalDateTime.parse(readFromStorage(mutableListOf(currId.toString()), KeyType.MESSAGECREATIONTIME), timeFormatter)
+            if (userCreationTime < messageCreationTime) {
+                val str = readFromStorage(mutableListOf(currId.toString()), KeyType.MESSAGETYPE)!!
+                val list = str.split("%")
+                val type = list[0]
+                when (type) {
+                    "PRIVATE" -> {
+                        val receiveToken = list[1]
+                        if (receiveToken == token) {
+                            activateLambdaWithSourceAndMessageFromStorage(currId, callback)
+                            updateMessageCounterAndTotalPending(currId)
+                        }
+                    }
+                    "CHANNEL" -> {
+                        val channelOfMessage = list[1]
+
+                        // TODO("add logic for checking if user already had callback for this message")
+                        if (channelList.contains(channelOfMessage)) {
+                            activateLambdaWithSourceAndMessageFromStorage(currId, callback)
+                            if (decPendingUsersForMessage(currId) == 0.toLong()) {
+                                this.pendingMessagesTree.delete(currId.toString(), currId.toString())
+                            }
+
+                            // TODO("add logic for pending users counter(for statistics)")
+                        }
+                    }
+                    "BROADCAST" -> {
+                        activateLambdaWithSourceAndMessageFromStorage(currId, callback)
+                        updateMessageCounterAndTotalPending(currId)
+                    }
+                }
+            }
+        }
     }
 
-    fun getPendingMessagesNumberForChannels(): Long {
-//        TODO("return the number of pending messages for users")
-        return -1
+    private fun decPendingUsersForMessage(currId: Long): Long {
+        val prevPendingNumber = readFromStorage(mutableListOf(currId.toString()), KeyType.MESSAGEPENDINGCOUNTER)!!.toLong()
+        val currPendingNumber = prevPendingNumber - 1.toLong()
+        writeToStorage(mutableListOf(currId.toString()), currPendingNumber.toString(), KeyType.MESSAGEPENDINGCOUNTER)
+        return currPendingNumber
     }
 
-    fun getTop10ChannelsByMessagesNumber(): List<String> {
-        return this.channelByMessagesTree.top10().asSequence().map { indexToChannel(it.toString()) }.toList()
+    private fun updateMessageCounterAndTotalPending(currId: Long) {
+        val prevPendingNumber = readFromStorage(mutableListOf(currId.toString()), KeyType.MESSAGEPENDINGCOUNTER)!!.toLong()
+        val currPendingNumber = prevPendingNumber - 1.toLong()
+        writeToStorage(mutableListOf(currId.toString()), currPendingNumber.toString(), KeyType.MESSAGEPENDINGCOUNTER)
+        decTotalPendingMessagesIfNeeded(currPendingNumber, currId)
+    }
+
+    private fun decTotalPendingMessagesIfNeeded(currPendingNumber: Long, currId: Long) {
+        if (currPendingNumber == 0.toLong()) {
+            pendingMessagesTree.delete(currId.toString(), currId.toString())
+
+            val prevTotalPendingMessages = readFromStorage(mutableListOf(), KeyType.TOTALPENDINGMESSAGES)!!.toLong()
+            val currTotalPendingMessages = prevTotalPendingMessages - 1.toLong()
+            writeToStorage(mutableListOf(currId.toString()), currTotalPendingMessages.toString(), KeyType.TOTALPENDINGMESSAGES)
+        }
+    }
+
+    private fun activateLambdaWithSourceAndMessageFromStorage(currId: Long, callback: ListenerCallback) {
+        val source = readFromStorage(mutableListOf(currId.toString()), KeyType.MESSAGESOURCE)!!
+
+        val str2 = readFromStorage(mutableListOf(currId.toString()), KeyType.MESSAGEDATA)
+        val listOfFields = str2!!.split("%")
+        val receivedTime = if (listOfFields[4] != null && listOfFields[4] != "null") LocalDateTime.parse(listOfFields[4], timeFormatter) else null
+        val message = MessageImpl(id = listOfFields[0].toLong(),
+                media = MediaType.valueOf(listOfFields[1]),
+                contents = listOfFields[2].toByteArray(Charset.defaultCharset()),
+                created = LocalDateTime.parse(listOfFields[3], timeFormatter),
+                received = receivedTime)
+
+        callback(source, message)
+    }
+
+    private fun addListenerToBroadcastObserver(callback: ListenerCallback) {
+        this.broadCastObserver.listen(callback)
+    }
+
+    private fun addListenerToChannelsObserver(token: String, callback: ListenerCallback) {
+        val channelList = getChannelsOf(token)
+        for (channelIndex in channelList)
+            this.channelObservers[indexToChannel(channelIndex)]!!.listen(callback)
+    }
+
+    private fun addListenerToPrivateObserver(token: String, callback: ListenerCallback) {
+        this.userObservers[token]!!.listen(callback)
+    }
+
+    private fun isListenerExist(callback: ListenerCallback): Boolean {
+        /*
+            broadCastObserver contains all the listeners of the system, so it is a nice place to check if
+            a specific user is a listener.
+        */
+        return this.broadCastObserver.contains(callback)
+    }
+
+    private fun removeListenerFromBroadcastObserver( callback: ListenerCallback) {
+        this.broadCastObserver.unlisten(callback)
+    }
+
+    private fun removeListenerFromChannelsObserver(token: String, callback: ListenerCallback) {
+        val channelList = getChannelsOf(token)
+        for (channelIndex in channelList) {
+            val channelName = indexToChannel(channelIndex)
+            this.channelObservers[channelName]!!.unlisten(callback)
+        }
+    }
+
+    private fun removeListenerFromPrivateObserver(token: String, callback: ListenerCallback) {
+        this.userObservers[token]!!.unlisten(callback)
+    }
+
+    private fun assocMessage(message: Message, type: TypeMessage, data: String? = null) {
+        when (type) {
+            TypeMessage.PRIVATE -> {
+                val token = data!!         // token of the user that the message is for
+                writeToStorage(mutableListOf(message.id.toString()), "PRIVATE%$token", KeyType.MESSAGETYPE)
+            }
+            TypeMessage.CHANNEL -> {
+                val channelIndex = channelToIndex(data!!)         // channel index of the the message is associated for
+                writeToStorage(mutableListOf(message.id.toString()), "CHANNEL%$channelIndex", KeyType.MESSAGETYPE)
+            }
+            TypeMessage.BROADCAST -> {
+                writeToStorage(mutableListOf(message.id.toString()), "BROADCAST", KeyType.MESSAGETYPE)
+            }
+        }
+
+        // TODO ("add sanity check that this message is inserted into the courseApp system(new mapping in the storage for this) - other addition in the validMessage func")
+    }
+
+    private fun saveMessageInStorage(source: String, message: Message) {
+        val id = message.id
+        val str = message.toString()
+        writeToStorage(mutableListOf(id.toString()), str, KeyType.MESSAGEDATA)
+        writeToStorage(mutableListOf(id.toString()), message.created.toString(), KeyType.MESSAGECREATIONTIME)
+
+        writeToStorage(mutableListOf(id.toString()), source, KeyType.MESSAGESOURCE)
+    }
+
+    private fun updateNumberOfMessagesInChannel(channel: String, type: UpdateType): Long {
+        deleteFromMessagesChannelsTree(channel)
+
+        val numberOfMessages = when (type) {
+            UpdateType.DEC -> getNumberOfMessageIn(channel) - 1
+            UpdateType.INC -> getNumberOfMessageIn(channel) + 1
+        }
+        writeToStorage(mutableListOf(channel), numberOfMessages.toString(), KeyType.MESSAGESNUMBERINCHANNEL)
+
+        insertToMessagesChannelsTree(channel, numberOfMessages)
+        return numberOfMessages
+    }
+
+    private fun sendMessageInChannel(token: String, channel: String, source: String, message: Message) {
+        val obs= this.channelObservers[channel]!!
+        obs.onChange(source, message)
+
+        val receivedUsers:MutableList<String> = getListenUsers(obs)
+        val numberOfPendingUsers = numberOfTotalUsersInChannel(token, channel).get() - receivedUsers.size.toLong()
+
+        if (numberOfPendingUsers != 0.toLong()) {
+            addMessageToPending(message.id)
+            writeToStorage(mutableListOf(message.id.toString()), numberOfPendingUsers.toString(), KeyType.MESSAGEPENDINGCOUNTER)
+        }
+    }
+
+    private fun addMessageToPending(id: Long) {
+        pendingMessagesTree.insert(id.toString(), id.toString())
+    }
+
+    private fun removeMessageFromPending(id: Long) {
+        pendingMessagesTree.delete(id.toString(), id.toString())
+    }
+
+    private fun sendMessageInBroadcast(source: String, message: Message) {
+        this.broadCastObserver.onChange(source, message)
+
+        val receivedUsers:MutableList<String> = getListenUsers(this.broadCastObserver)
+        val numberOfPendingUsers = getTotalUsers() - receivedUsers.size.toLong()
+
+        if (numberOfPendingUsers != 0.toLong()) {
+            addMessageToPending(message.id)
+            writeToStorage(mutableListOf(message.id.toString()), numberOfPendingUsers.toString(), KeyType.MESSAGEPENDINGCOUNTER)
+        }
+
+        incNumberOfPendingMessages()
+    }
+
+    private fun getListenUsers(observer: CourseAppImpl.OurObservableImpl): MutableList<String> {
+        val observersList = observer.toList()
+        val users = mutableListOf<String>()
+        for (currObservable in observersList) {
+            val user = callbackToToken[currObservable]
+            if (user != null) {
+                users.add(user)
+            }
+        }
+        return users
+    }
+
+    private fun getNumberOfPendingMessages(): Long {
+        return readFromStorage(mutableListOf(), KeyType.TOTALPENDINGMESSAGES)?.toLong() ?: 0
+    }
+
+    private fun incNumberOfPendingMessages() {
+        val numberOfPendingMessages = getNumberOfPendingMessages() + 1.toLong()
+        writeToStorage(mutableListOf(), numberOfPendingMessages.toString(), KeyType.TOTALPENDINGMESSAGES)
+    }
+
+    private fun sendMessageInPrivate(user: String, source: String, message: Message) {
+        if (this.userObservers[user] != null)
+            this.userObservers[user]!!.onChange(source, message)
+        else {
+            addMessageToPending(message.id)
+            writeToStorage(mutableListOf(message.id.toString()), 1.toString(), KeyType.MESSAGEPENDINGCOUNTER)
+            incNumberOfPendingMessages()
+        }
+    }
+
+    private fun validMessage(id: Long): Boolean{
+        val lastIndex = readFromStorage(mutableListOf(),KeyType.INDEXMESSAGESYS)!!.toLong()
+        return id <= lastIndex
+        // TODO (" && sanity check that this message is inserted into the courseApp system(new mapping in the storage for this) - the other addition is in the assoc func")
+    }
+
+    private fun validChannelMessage(id: Long): Boolean {
+        val str = readFromStorage(mutableListOf(id.toString()), KeyType.MESSAGETYPE)
+        val list = str!!.split("%")
+        val type = list[0]
+        if (type != "CHANNEL")
+            return false
+
+        val channelMessageIndex = list[1]
+        return isChannelExist(indexToChannel(channelMessageIndex))
+        // second check is for messages that was associated to deleted channel
+    }
+
+    private fun messageIsSameChannelAsUser(token: String, id: Long): Boolean {
+        val channel = readFromStorage(mutableListOf(id.toString()), KeyType.MESSAGETYPE)!!.split("%")[1]
+        return getChannelsOf(token).contains(channel)
+    }
+
+    private fun fetchMessageAux( id: Long): CompletableFuture<Pair<String, Message>> {
+        var ret: Pair<String, Message>? = null
+        val lamd : ListenerCallback = { s: String, message: Message -> ret = Pair(s, message)
+            CompletableFuture.completedFuture(Unit)
+        }
+        activateLambdaWithSourceAndMessageFromStorage(id, lamd)
+
+        return CompletableFuture.completedFuture(ret)
+    }
+
+    private fun getNumberOfMessageIn(channel: String): Long {
+        return readFromStorage(mutableListOf(channel), KeyType.MESSAGESNUMBERINCHANNEL)?.toLong() ?: 0
     }
 }

@@ -1302,6 +1302,7 @@ class CourseAppTest {
     }
 
     @Test
+    @Disabled
     @Order(102)
     fun `1,000,000 logged in users in system - stress test`() {
         val amount = 1000000
@@ -1481,5 +1482,85 @@ class CourseAppTest {
         assertDoesNotThrow {courseApp.addListener(adminToken, callBack)
                             courseApp.addListener(otherToken, callBack)}
 
+    }
+
+    @Test
+    @Order(112)
+    fun `unable to fetch messages not from channel message type`() {
+        val adminToken = courseApp.login("admin", "pass").get()
+        val otherToken = courseApp.login("other", "pass").get()
+
+        val sources = HashSet<String>()
+        val callBack : ListenerCallback = {
+            source, _ -> sources.add(source)
+            CompletableFuture.completedFuture(Unit)
+        }
+        val message1 = messageFactory.create(MediaType.PICTURE, "Some Message No.1".toByteArray()).get()
+        val message2 = messageFactory.create(MediaType.PICTURE, "Some Message No.2".toByteArray()).get()
+        courseApp.channelJoin(adminToken, "#MyChannel")
+
+        courseApp.privateSend(adminToken, "other", message1)
+        courseApp.broadcast(adminToken, message2)
+
+        assertThrows<NoSuchEntityException> { courseApp.fetchMessage(adminToken, message1.id)}
+        assertThrows<NoSuchEntityException> { courseApp.fetchMessage(adminToken, message2.id)}
+    }
+
+    @Test
+    @Order(113)
+    fun `fetch messages from history of channel messages`() {
+        val adminToken = courseApp.login("admin", "pass").get()
+        val otherToken = courseApp.login("other", "pass").get()
+
+        var source1 = HashSet<String>()
+        val callBack1 : ListenerCallback = {
+            source, _ -> source1.add(source)
+            CompletableFuture.completedFuture(Unit)
+        }
+        var source2 = HashSet<String>()
+        val callBack2 : ListenerCallback = {
+            source, _ -> source2.add(source)
+            CompletableFuture.completedFuture(Unit)
+        }
+
+        val message1 = messageFactory.create(MediaType.PICTURE, "Some Message No. 1".toByteArray()).get()
+        val message2 = messageFactory.create(MediaType.PICTURE, "Some Message No.2".toByteArray()).get()
+        courseApp.channelJoin(adminToken, "#MyChannel")
+        courseApp.channelJoin(otherToken, "#MyChannel")
+
+        courseApp.channelSend(adminToken, "#MyChannel", message1)
+        courseApp.channelSend(otherToken, "#MyChannel", message2)
+
+        courseApp.addListener(adminToken, callBack1)
+        courseApp.addListener(otherToken, callBack2)
+
+        assertDoesNotThrow {
+            val tmp1 = courseApp.fetchMessage(otherToken, message1.id).get()
+            val tmp2 = courseApp.fetchMessage(adminToken, message2.id).get()
+
+            assert(source1.contains(tmp1.first) && tmp1.second.id == message1.id)
+            assert(source2.contains(tmp2.first) && tmp2.second.id == message2.id)
+        }
+    }
+
+    @Test
+    @Order(114)
+    fun `unable to fetch messages that was after channel deleted and created again`() {
+        val adminToken = courseApp.login("admin", "pass").get()
+        var source1 = HashSet<String>()
+        val callback1 : ListenerCallback = {
+            source, _ -> source1.add(source)
+            CompletableFuture.completedFuture(Unit)
+        }
+        val message1 = messageFactory.create(MediaType.PICTURE, "Some Message No. 1".toByteArray()).get()
+
+        courseApp.channelJoin(adminToken, "#MyChannel")
+        courseApp.channelSend(adminToken, "#MyChannel", message1)
+        courseApp.addListener(adminToken, callback1)
+        courseApp.removeListener(adminToken, callback1)
+        courseApp.channelPart(adminToken, "#MyChannel")
+        courseApp.channelJoin(adminToken, "#MyChannel")
+
+        assertThrows<NoSuchEntityException> { courseApp.fetchMessage(adminToken, message1.id) }
     }
 }

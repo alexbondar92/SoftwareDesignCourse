@@ -279,9 +279,9 @@ class RemoteAvlTree {
         if (node == null)
             return
 
-        tokKeyListAux(node.getRight(), adder)
-        adder(node)
         tokKeyListAux(node.getLeft(), adder)
+        adder(node)
+        tokKeyListAux(node.getRight(), adder)
     }
 
     private fun balance(node: RemoteNode?) : Int {

@@ -3,6 +3,7 @@ package il.ac.technion.cs.softwaredesign.messages
 import com.google.inject.Inject
 import il.ac.technion.cs.softwaredesign.CourseAppImpl
 import il.ac.technion.cs.softwaredesign.DataStoreIo
+import java.time.Clock
 import java.time.LocalDateTime
 import java.util.concurrent.CompletableFuture
 
@@ -24,8 +25,9 @@ class MessageFactoryImpl: MessageFactory {
 
         val previousIndex = str?.toLong() ?: 0
         val newIndex = previousIndex + 1
+        val time = LocalDateTime.now(Clock.systemDefaultZone())
 
-        val message = MessageImpl(id = newIndex, media = media, contents = contents, created = LocalDateTime.now(), received = null)
+        val message = MessageImpl(id = newIndex, media = media, contents = contents, created = time, received = null)
 
         storageIo.write(("MsgIndex$newIndex"), message.toString()).get()    // index to message & opposite(?)
         storageIo.write(("IndexMessageSys"), newIndex.toString()).get()    // newIndex
