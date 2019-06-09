@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3078e906-f4ea-42e8-a364-e8ec716816be" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -105,8 +104,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3772">
-              <caret line="425" column="108" selection-start-line="425" selection-start-column="108" selection-end-line="425" selection-end-column="108" />
+            <state relative-caret-position="175">
+              <caret line="1524" column="5" lean-forward="true" selection-start-line="1524" selection-start-column="5" selection-end-line="1524" selection-end-column="5" />
               <folding>
                 <element signature="e#45625#45819#0" />
               </folding>
@@ -625,12 +624,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CourseAppTest_get_pending_private_messages - 2019.06.09 at 14h 00m 07s.xml">
-      <configuration name="CourseAppTest.get pending private messages" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourseAppTest_get_pending_private_messages - 2019.06.09 at 14h 00m 41s.xml">
-      <configuration name="CourseAppTest.get pending private messages" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="CourseAppTest_get_pending_private_messages - 2019.06.09 at 14h 04m 36s.xml">
       <configuration name="CourseAppTest.get pending private messages" configurationId="JUnit" />
     </history-entry>
@@ -655,9 +648,15 @@
     <history-entry file="CourseAppTest - 2019.06.09 at 14h 33m 32s.xml">
       <configuration name="CourseAppTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="CourseAppTest - 2019.06.09 at 14h 37m 56s.xml">
+      <configuration name="CourseAppTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="il_ac_technion_cs_softwaredesign_in_base_courseapp-app_test - 2019.06.09 at 14h 38m 16s.xml">
+      <configuration name="il.ac.technion.cs.softwaredesign in base.courseapp-app.test" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="212866000" />
+    <option name="totallyTimeSpent" value="213188000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1101,8 +1100,8 @@ import java.util.LinkedHashMap</custom-info>
     </entry>
     <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3772">
-          <caret line="425" column="108" selection-start-line="425" selection-start-column="108" selection-end-line="425" selection-end-column="108" />
+        <state relative-caret-position="175">
+          <caret line="1524" column="5" lean-forward="true" selection-start-line="1524" selection-start-column="5" selection-end-line="1524" selection-end-column="5" />
           <folding>
             <element signature="e#45625#45819#0" />
           </folding>

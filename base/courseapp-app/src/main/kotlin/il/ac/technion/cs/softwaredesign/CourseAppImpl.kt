@@ -1345,6 +1345,8 @@ class CourseAppImpl: CourseApp{
                 when (type) {
                     "PRIVATE" -> {
                         val receiveToken = list[1]
+
+                        // TODO("add logic for checking if user already had callback for this message")
                         if (receiveToken == token) {
                             activateLambdaWithSourceAndMessageFromStorage(currId, callback)
                             updateMessageCounterAndTotalPending(currId)
@@ -1363,6 +1365,8 @@ class CourseAppImpl: CourseApp{
                         }
                     }
                     "BROADCAST" -> {
+
+                        // TODO("add logic for checking if user already had callback for this message")
                         activateLambdaWithSourceAndMessageFromStorage(currId, callback)
                         updateMessageCounterAndTotalPending(currId)
                     }
