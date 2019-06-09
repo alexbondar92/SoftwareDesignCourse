@@ -1338,7 +1338,7 @@ class CourseAppImpl: CourseApp{
         val pendingMessagesList = this.pendingMessagesTree.toKeyList()
         for (currId in pendingMessagesList) {
             val messageCreationTime = LocalDateTime.parse(readFromStorage(mutableListOf(currId.toString()), KeyType.MESSAGECREATIONTIME), timeFormatter)
-            if (userCreationTime < messageCreationTime) {
+            if (userCreationTime <= messageCreationTime) {
                 val str = readFromStorage(mutableListOf(currId.toString()), KeyType.MESSAGETYPE)!!
                 val list = str.split("%")
                 val type = list[0]
