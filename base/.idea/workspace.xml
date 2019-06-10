@@ -31,7 +31,7 @@
       <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$user that created after broadcast dont have pending messages$callback$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$user that created after broadcast dont have pending messages$callback$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$user that created after broadcast dont have pending messages$callback2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$user that created after broadcast dont have pending messages$callback2$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$active user count in a channel is correct with a single user$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$active user count in a channel is correct with a single user$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$active user count in a channel is correct with a single user$adminToken$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$active user count in a channel is correct with a single user$adminToken$1$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$active user count in a channel is correct with a single user$adminToken$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$active user count in a channel is correct with a single user$adminToken$1.class" afterDir="false" />
@@ -226,41 +226,79 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="316" column="69" selection-start-line="316" selection-start-column="69" selection-end-line="316" selection-end-column="69" />
-              <folding>
-                <element signature="e#48#940#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-227">
-              <caret line="1805" column="10" selection-start-line="1805" selection-start-column="10" selection-end-line="1805" selection-end-column="10" />
-              <folding>
-                <element signature="e#42#921#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="108" column="10" selection-start-line="108" selection-start-column="8" selection-end-line="108" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.56809026">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest.kt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-2084">
+                  <caret line="149" selection-start-line="149" selection-end-line="149" />
+                  <folding>
+                    <element signature="e#48#940#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="180">
+                  <caret line="1223" column="29" selection-start-line="1223" selection-start-column="18" selection-end-line="1223" selection-end-column="29" />
+                  <folding>
+                    <element signature="e#42#921#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="239">
+                  <caret line="1236" lean-forward="true" selection-start-line="1236" selection-end-line="1236" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="482">
+                  <caret line="195" column="29" selection-start-line="195" selection-start-column="29" selection-end-line="195" selection-end-column="29" />
+                  <folding>
+                    <element signature="e#42#150#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatistics.kt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="243">
+                  <caret line="25" column="15" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="15" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$USER_HOME$/Downloads/base/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatistics.kt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-119">
+                  <caret line="34" column="13" lean-forward="true" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -273,9 +311,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>unable to</find>
-      <find>removeLi</find>
-      <find>privateSe</find>
       <find>assoc</find>
       <find>validMessage</find>
       <find>addLi</find>
@@ -303,6 +338,9 @@
       <find>(all</find>
       <find>userObservers[</find>
       <find>//</find>
+      <find>one user logged in, broadcast lead to one pending message</find>
+      <find>channelPart</find>
+      <find>channelP</find>
     </findStrings>
     <replaceStrings>
       <replace>storage</replace>
@@ -338,7 +376,6 @@
         <option value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/DataStoreIoTest.kt" />
         <option value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/utils.kt" />
         <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/utils.kt" />
-        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt" />
         <option value="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteNode.kt" />
         <option value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/RemoteNodeTest.kt" />
         <option value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/remoteAvlTreeTest.kt" />
@@ -356,6 +393,7 @@
         <option value="$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest.kt" />
         <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" />
         <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt" />
       </list>
     </option>
   </component>
@@ -614,45 +652,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.base [clean]">
-    <configuration name="base [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="clean" />
-          </list>
-        </option>
-        <option name="vmOptions" value="" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="base [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="run" />
-          </list>
-        </option>
-        <option name="vmOptions" value="" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="JUnit.CourseAppStatisticsTest.get top10 channels by messages for system with zero messages and 10000 channels">
     <configuration name="CourseAppStaffTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="base.courseapp-test.test" />
       <extension name="coverage">
@@ -668,23 +668,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CourseAppStaffTest.there is 1 pending message after privateSend with no listener" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="base.courseapp-test.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign.tests" />
-      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.tests.CourseAppStaffTest" />
-      <option name="METHOD_NAME" value="there is 1 pending message after privateSend with no listener" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="il.ac.technion.cs.softwaredesign in base.courseapp-app.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CourseAppStatisticsTest.get top10 channels by messages for empty system" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="base.courseapp-app.test" />
       <extension name="coverage">
         <pattern>
@@ -693,18 +677,68 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.CourseAppStatisticsTest" />
+      <option name="METHOD_NAME" value="get top10 channels by messages for empty system" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CourseAppStatisticsTest.get top10 channels by messages for system with zero messages and 10000 channels" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="base.courseapp-app.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign" />
+      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.CourseAppStatisticsTest" />
+      <option name="METHOD_NAME" value="get top10 channels by messages for system with zero messages and 10000 channels" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CourseAppStatisticsTest.get top10 channels for empty system" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="base.courseapp-app.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign" />
+      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.CourseAppStatisticsTest" />
+      <option name="METHOD_NAME" value="get top10 channels for empty system" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CourseAppStatisticsTest.get top10 for 7 channels with 1 message each" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="base.courseapp-app.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign" />
+      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.CourseAppStatisticsTest" />
+      <option name="METHOD_NAME" value="get top10 for 7 channels with 1 message each" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CourseAppStatisticsTest.get top10 channels by messages for system with zero messages and 10000 channels" />
+        <item itemvalue="JUnit.CourseAppStatisticsTest.get top10 for 7 channels with 1 message each" />
+        <item itemvalue="JUnit.CourseAppStatisticsTest.get top10 channels by messages for empty system" />
+        <item itemvalue="JUnit.CourseAppStatisticsTest.get top10 channels for empty system" />
         <item itemvalue="JUnit.CourseAppStaffTest" />
-        <item itemvalue="JUnit.il.ac.technion.cs.softwaredesign in base.courseapp-app.test" />
-        <item itemvalue="Gradle.base [run]" />
-        <item itemvalue="Gradle.base [clean]" />
-        <item itemvalue="JUnit.CourseAppStaffTest.there is 1 pending message after privateSend with no listener" />
       </list>
     </recent_temporary>
   </component>
@@ -735,7 +769,7 @@
       <workItem from="1559568432766" duration="81000" />
       <workItem from="1559571364492" duration="8604000" />
       <workItem from="1560178462672" duration="122000" />
-      <workItem from="1560178713868" duration="4485000" />
+      <workItem from="1560178713868" duration="7060000" />
     </task>
     <task id="LOCAL-00001" summary="added some top to down implementation, trying to activate observer pattern...">
       <created>1559916616634</created>
@@ -755,39 +789,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CourseAppStaffTest_channel_message_received_successfully - 2019.06.10 at 18h 54m 21s.xml">
-      <configuration name="CourseAppStaffTest.channel message received successfully" configurationId="JUnit" />
+    <history-entry file="CourseAppStatisticsTest_get_top10_for_7_channels_with_1_message_each - 2019.06.10 at 19h 45m 48s.xml">
+      <configuration name="CourseAppStatisticsTest.get top10 for 7 channels with 1 message each" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseAppStaffTest - 2019.06.10 at 18h 55m 33s.xml">
-      <configuration name="CourseAppStaffTest" configurationId="JUnit" />
+    <history-entry file="CourseAppStatisticsTest_get_top10_for_7_channels_with_1_message_each - 2019.06.10 at 19h 46m 48s.xml">
+      <configuration name="CourseAppStatisticsTest.get top10 for 7 channels with 1 message each" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseAppStaffTest_private_message_received_successfully - 2019.06.10 at 18h 58m 57s.xml">
-      <configuration name="CourseAppStaffTest.private message received successfully" configurationId="JUnit" />
+    <history-entry file="CourseAppStatisticsTest_get_top10_for_7_channels_with_1_message_each - 2019.06.10 at 19h 48m 09s.xml">
+      <configuration name="CourseAppStatisticsTest.get top10 for 7 channels with 1 message each" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseAppStaffTest_private_message_received_successfully - 2019.06.10 at 18h 59m 09s.xml">
-      <configuration name="CourseAppStaffTest.private message received successfully" configurationId="JUnit" />
+    <history-entry file="CourseAppStatisticsTest_get_top10_for_7_channels_with_1_message_each - 2019.06.10 at 19h 48m 23s.xml">
+      <configuration name="CourseAppStatisticsTest.get top10 for 7 channels with 1 message each" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseAppStaffTest_private_message_received_successfully - 2019.06.10 at 18h 59m 38s.xml">
-      <configuration name="CourseAppStaffTest.private message received successfully" configurationId="JUnit" />
+    <history-entry file="CourseAppStatisticsTest_get_top10_for_7_channels_with_1_message_each - 2019.06.10 at 19h 48m 33s.xml">
+      <configuration name="CourseAppStatisticsTest.get top10 for 7 channels with 1 message each" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseAppStaffTest_there_is_1_pending_message_after_privateSend_with_no_listener - 2019.06.10 at 18h 59m 56s.xml">
-      <configuration name="CourseAppStaffTest.there is 1 pending message after privateSend with no listener" configurationId="JUnit" />
+    <history-entry file="CourseAppStatisticsTest_get_top10_channels_by_messages_for_system_with_zero_messages_and_10000_channels - 2019.06.10 at 19h 54m 05s.xml">
+      <configuration name="CourseAppStatisticsTest.get top10 channels by messages for system with zero messages and 10000 channels" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="il_ac_technion_cs_softwaredesign_in_base_courseapp-app_test - 2019.06.10 at 19h 00m 59s.xml">
-      <configuration name="il.ac.technion.cs.softwaredesign in base.courseapp-app.test" configurationId="JUnit" />
+    <history-entry file="CourseAppStatisticsTest_get_top10_channels_by_messages_for_system_with_zero_messages_and_10000_channels - 2019.06.10 at 19h 55m 34s.xml">
+      <configuration name="CourseAppStatisticsTest.get top10 channels by messages for system with zero messages and 10000 channels" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseAppStaffTest - 2019.06.10 at 19h 02m 13s.xml">
-      <configuration name="CourseAppStaffTest" configurationId="JUnit" />
+    <history-entry file="CourseAppStatisticsTest_get_top10_channels_by_messages_for_system_with_zero_messages_and_10000_channels - 2019.06.10 at 19h 56m 19s.xml">
+      <configuration name="CourseAppStatisticsTest.get top10 channels by messages for system with zero messages and 10000 channels" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="il_ac_technion_cs_softwaredesign_in_base_courseapp-app_test - 2019.06.10 at 19h 06m 28s.xml">
-      <configuration name="il.ac.technion.cs.softwaredesign in base.courseapp-app.test" configurationId="JUnit" />
+    <history-entry file="CourseAppStatisticsTest_get_top10_channels_by_messages_for_system_with_zero_messages_and_10000_channels - 2019.06.10 at 19h 56m 37s.xml">
+      <configuration name="CourseAppStatisticsTest.get top10 channels by messages for system with zero messages and 10000 channels" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseAppStaffTest - 2019.06.10 at 19h 06m 42s.xml">
-      <configuration name="CourseAppStaffTest" configurationId="JUnit" />
+    <history-entry file="CourseAppStatisticsTest_get_top10_channels_by_messages_for_system_with_zero_messages_and_10000_channels - 2019.06.10 at 19h 59m 51s.xml">
+      <configuration name="CourseAppStatisticsTest.get top10 channels by messages for system with zero messages and 10000 channels" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="222783000" />
+    <option name="totallyTimeSpent" value="225358000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -811,7 +845,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.19217877" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.2820513" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.2820513" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.33100232" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -875,6 +909,24 @@
           <properties />
           <option name="timeStamp" value="12" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt</url>
+          <line>198</line>
+          <properties />
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt</url>
+          <line>185</line>
+          <properties />
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt</url>
+          <line>192</line>
+          <properties />
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -910,13 +962,6 @@ import java.util.LinkedHashMap</custom-info>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteNode.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="99" selection-start-line="99" selection-end-line="99" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/library/build.gradle.kts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -998,16 +1043,6 @@ import java.util.LinkedHashMap</custom-info>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1411">
-          <caret line="84" column="61" selection-start-line="84" selection-start-column="61" selection-end-line="84" selection-end-column="61" />
-          <folding>
-            <element signature="e#42#119#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/MessageFactoryImpl.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -1016,23 +1051,6 @@ import java.util.LinkedHashMap</custom-info>
       </provider>
     </entry>
     <entry file="jar://C:/Gradle/gradle-5.4.1/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.4.2/2e434692947b66671a53b7ec887d50688dc61baf/junit-platform-commons-1.4.2-sources.jar!/org/junit/platform/commons/util/ReflectionUtils.java" />
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatistics.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="25" column="63" selection-start-line="25" selection-start-column="63" selection-end-line="25" selection-end-column="63" />
-          <folding>
-            <element signature="e#42#150#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/.gradle/vcs-1/sd-primiti_elg5897bo108epkmmadxzsqtf/sd-primitive-storage-layer/build/libs/primitive-storage-layer-1.0.jar!/il/ac/technion/cs/softwaredesign/storage/SecureStorageModule.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1196,13 +1214,6 @@ import java.util.LinkedHashMap</custom-info>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="87" column="8" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/Message.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1219,28 +1230,69 @@ import java.util.LinkedHashMap</custom-info>
     </entry>
     <entry file="file://$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="316" column="69" selection-start-line="316" selection-start-column="69" selection-end-line="316" selection-end-column="69" />
+        <state relative-caret-position="-2084">
+          <caret line="149" selection-start-line="149" selection-end-line="149" />
           <folding>
             <element signature="e#48#940#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="84" column="61" selection-start-line="84" selection-start-column="61" selection-end-line="84" selection-end-column="61" />
+          <folding>
+            <element signature="e#42#119#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatistics.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="25" column="15" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/base/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatistics.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-119">
+          <caret line="34" column="13" lean-forward="true" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="101" column="8" selection-start-line="101" selection-start-column="8" selection-end-line="101" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-227">
-          <caret line="1805" column="10" selection-start-line="1805" selection-start-column="10" selection-end-line="1805" selection-end-column="10" />
+        <state relative-caret-position="180">
+          <caret line="1223" column="29" selection-start-line="1223" selection-start-column="18" selection-end-line="1223" selection-end-column="29" />
           <folding>
             <element signature="e#42#921#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="195" column="29" selection-start-line="195" selection-start-column="29" selection-end-line="195" selection-end-column="29" />
+          <folding>
+            <element signature="e#42#150#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="108" column="10" selection-start-line="108" selection-start-column="8" selection-end-line="108" selection-end-column="10" />
+        <state relative-caret-position="239">
+          <caret line="1236" lean-forward="true" selection-start-line="1236" selection-end-line="1236" />
         </state>
       </provider>
     </entry>
