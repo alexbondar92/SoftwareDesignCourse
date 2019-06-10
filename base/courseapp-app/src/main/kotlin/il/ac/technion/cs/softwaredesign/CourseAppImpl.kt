@@ -321,7 +321,14 @@ class CourseAppImpl: CourseApp{
             writeToStorage(mutableListOf(channel), 0.toString(), KeyType.MESSAGESNUMBERINCHANNEL)
         }
 
+        //add listeners of this user to the channel observable
+        addListenersOfUserWhenJoiningChannel(token, channel)
+
         return CompletableFuture.completedFuture(Unit)
+    }
+
+    private fun addListenersOfUserWhenJoiningChannel(token: String, channel: String) {
+        userObservers[token]!!.toList().asSequence().forEach { channelObservers[channel]!!.listen(it) }
     }
 
     /**
@@ -516,9 +523,6 @@ class CourseAppImpl: CourseApp{
         if (!validToken(token))
             throw InvalidTokenException()
 
-        //update last listen time(default is listen at creation of user)
-        updateLastUserListenTime(token)
-
         addListenerToBroadcastObserver(callback)
         addListenerToChannelsObserver(token, callback)
         addListenerToPrivateObserver(token, callback)
@@ -526,6 +530,9 @@ class CourseAppImpl: CourseApp{
         activatePendingMessagesFor(token, callback)
 
         callbackToToken[callback] = token
+
+        //update last listen time(default is listen at creation of user)
+        updateLastUserListenTime(token)
 
         return CompletableFuture.completedFuture(Unit)
     }
@@ -850,7 +857,7 @@ class CourseAppImpl: CourseApp{
     private fun insertToChannelsListOfUser(channel : String, token : String) {
         val str = readFromStorage(mutableListOf(token), KeyType.CHANNELS)
         val index = channelToIndex(channel)
-        val newStr = if (str == null) "$index" else "$str%$index"
+        val newStr = if (str == null || str == "") "$index" else "$str%$index"
 
         writeToStorage(mutableListOf(token), data = newStr, type = KeyType.CHANNELS)
 
@@ -1350,7 +1357,7 @@ class CourseAppImpl: CourseApp{
         val pendingMessagesList = this.pendingMessagesTree.toKeyList()
         for (currId in pendingMessagesList) {
             val messageCreationTime = LocalDateTime.parse(readFromStorage(mutableListOf(currId.toString()), KeyType.MESSAGECREATIONTIME), timeFormatter)
-            if (messageCreationTime in userCreationTime..userLastListenTime) {
+            if (userCreationTime <= messageCreationTime && userLastListenTime <= messageCreationTime) {
                 val str = readFromStorage(mutableListOf(currId.toString()), KeyType.MESSAGETYPE)!!
                 val list = str.split("%")
                 val type = list[0]

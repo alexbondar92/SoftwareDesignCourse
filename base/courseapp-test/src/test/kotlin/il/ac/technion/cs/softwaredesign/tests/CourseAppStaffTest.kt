@@ -9,6 +9,7 @@ import il.ac.technion.cs.softwaredesign.*
 import il.ac.technion.cs.softwaredesign.exceptions.InvalidTokenException
 import il.ac.technion.cs.softwaredesign.exceptions.UserNotAuthorizedException
 import il.ac.technion.cs.softwaredesign.messages.MediaType
+import il.ac.technion.cs.softwaredesign.messages.Message
 import il.ac.technion.cs.softwaredesign.messages.MessageFactory
 import il.ac.technion.cs.softwaredesign.storage.SecureStorageModule
 import io.mockk.confirmVerified
@@ -18,6 +19,7 @@ import io.mockk.verify
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
+import java.nio.charset.Charset
 import java.time.Duration.ofSeconds
 import java.util.concurrent.CompletableFuture
 
@@ -97,7 +99,7 @@ class CourseAppStaffTest {
                 }.join()
 
         assertThat(runWithTimeout(ofSeconds(10)) {
-            courseApp.isUserInChannel(adminToken, "#mychannel", "matan").join()
+            courseApp.isUserInChannel(adminToken, "#test", "matan").join()
         }, isTrue)
     }
 
@@ -225,14 +227,22 @@ class CourseAppStaffTest {
 
     @Test
     fun `private message received successfully`() {
-        val listener = mockk<ListenerCallback>()
-        every { listener(any(), any()) }.returns(CompletableFuture.completedFuture(Unit))
+        var sources = mutableListOf<String>()
+        var messages = mutableListOf<Message>()
+        val callback: ListenerCallback = { source, message ->
+            sources.add(source)
+            messages.add(message)
+            CompletableFuture.completedFuture(Unit)
+        }
+//        val listener = mockk<ListenerCallback>()
+//        every { listener(any(), any()) }.returns(CompletableFuture.completedFuture(Unit))
 
         val (token, message) = courseApp.login("admin", "admin")
                 .thenCompose { adminToken ->
                     courseApp.login("gal", "hunter2").thenApply { Pair(adminToken, it) }
                 }.thenCompose { (adminToken, nonAdminToken) ->
-                            courseApp.addListener(nonAdminToken, listener)
+//                            courseApp.addListener(nonAdminToken, listener)
+                            courseApp.addListener(nonAdminToken, callback)
                             .thenCompose { messageFactory.create(MediaType.TEXT, "hello, world\n".toByteArray()) }
                             .thenApply { message -> Pair(adminToken, message) }
                 }.join()
@@ -242,23 +252,35 @@ class CourseAppStaffTest {
             assertEquals(0, courseAppStatistics.pendingMessages().join())
         }
 
-        verify {
-            listener(match { it == "@admin" },
-                    match { it.contents contentEquals "hello, world\n".toByteArray() })
-        }
-        confirmVerified(listener)
+        assertEquals(1, sources.size)
+        assertEquals(1, messages.size)
+        assertEquals("@admin", sources[0])
+        assertEquals( "hello, world\n", messages[0].contents.toString(Charset.defaultCharset()))
+//        verify {
+//            listener(match { it == "@admin" },
+//                    match { it.contents contentEquals "hello, world\n".toByteArray() })
+//        }
+//        confirmVerified(listener)
     }
 
     @Test
     fun `channel message received successfully`() {
-        val listener = mockk<ListenerCallback>()
-        every { listener(any(), any()) }.returns(CompletableFuture.completedFuture(Unit))
+        var sources = mutableListOf<String>()
+        var messages = mutableListOf<Message>()
+        val callback: ListenerCallback = { source, message ->
+            sources.add(source)
+            messages.add(message)
+            CompletableFuture.completedFuture(Unit)
+        }
+//        val listener = mockk<ListenerCallback>()
+//        every { listener(any(), any()) }.returns(CompletableFuture.completedFuture(Unit))
 
         val (token, message) = courseApp.login("admin", "admin")
                 .thenCompose { adminToken ->
                     courseApp.login("gal", "hunter2").thenApply { Pair(adminToken, it) }
                 }.thenCompose { (adminToken, userToken) ->
-                    courseApp.addListener(userToken, listener)
+                    courseApp.addListener(userToken, callback)
+//                    courseApp.addListener(userToken, listener)
                             .thenCompose { courseApp.channelJoin(adminToken, "#jokes") }
                             .thenCompose { courseApp.channelJoin(userToken, "#jokes") }
                             .thenCompose { messageFactory.create(MediaType.TEXT, "why did the chicken cross the road?".toByteArray()) }
@@ -267,11 +289,20 @@ class CourseAppStaffTest {
 
         runWithTimeout(ofSeconds(10)) { courseApp.channelSend(token, "#jokes", message).join() }
 
-        verify {
-            listener(match { it == "#jokes@admin" },
-                    match { it.contents contentEquals "why did the chicken cross the road?".toByteArray() })
-        }
-        confirmVerified(listener)
+        assertEquals(1, sources.size)
+        assertEquals(1, messages.size)
+        assertEquals("#jokes@admin", sources[0])
+        println("why did the chicken cross the road?".toByteArray(Charset.defaultCharset()))
+        println("why did the chicken cross the road?".toByteArray())
+        println("why did the chicken cross the road?".toByteArray().toString(Charset.defaultCharset()))
+        println(messages[0].contents.toString(Charset.defaultCharset()))
+        assertEquals("why did the chicken cross the road?", messages[0].contents.toString(Charset.defaultCharset()))
+//        verify {
+//            listener(match { it == "#jokes@admin" },
+////                    match { it.contents contentEquals "why did the chicken cross the road?".toByteArray() })
+//                    match { it.contents.toString(Charset.defaultCharset()) == "why did the chicken cross the road?" })
+//        }
+//        confirmVerified(listener)
     }
 
     @Test

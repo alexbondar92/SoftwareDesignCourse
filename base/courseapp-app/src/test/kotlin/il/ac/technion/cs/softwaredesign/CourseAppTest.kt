@@ -1833,7 +1833,7 @@ class CourseAppTest {
 
     @Test
     @Order(126)
-    fun `get pending broadcast messages, 1000 pending (all from broadcast), 2 users become listeners and get totally 2000 activation`() {
+    fun `get pending broadcast messages, 1000 pending, 2 users become listeners and get totally 2000 activation`() {
         val adminToken = courseApp.login("admin", "pass").get()
         var messages = mutableListOf<String>()
         val callback: ListenerCallback = { _, message ->
@@ -1929,7 +1929,8 @@ class CourseAppTest {
         val amount = 100000
         var messages = mutableListOf<String>()
         for(i in 1..amount){
-            println(i)
+            if (i%10000 == 0)
+                println(i)
             val otherUser= courseApp.login("other$i", "pass$i").get()
             courseApp.channelJoin(otherUser, "#channel___")
             val callback: ListenerCallback = { _, message ->
@@ -1953,7 +1954,8 @@ class CourseAppTest {
         val amount = 100000
         var messages = mutableListOf<String>()
         for(i in 1..amount){
-            println(i)
+            if (i%10000 == 0)
+                println(i)
             val otherUser= courseApp.login("other$i", "pass$i").get()
             courseApp.channelJoin(otherUser, "#channel___")
             if(i%2 != 0) {
