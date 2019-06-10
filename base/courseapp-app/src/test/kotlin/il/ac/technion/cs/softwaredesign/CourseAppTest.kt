@@ -1882,6 +1882,94 @@ class CourseAppTest {
         assertEquals(20, messages.size )
     }
 
+    @Test
+    @Order(128)
+    fun `edge case, every user should get a pending massage only once`() { //Matan agreeded that this case is correct
+        val adminToken = courseApp.login("admin", "pass").get()
+        val otherUser= courseApp.login("other", "pass").get()
+        var messages = mutableListOf<String>()
+        val callback: ListenerCallback = { _, message ->
+            messages.add(message.contents.toString(Charset.defaultCharset()))
+            CompletableFuture.completedFuture(Unit)
+        }
+        val message = messageFactory.create(MediaType.PICTURE, "Some Message No. 1".toByteArray()).get()
+        courseApp.broadcast(adminToken, message)
+
+        courseApp.addListener(adminToken, callback)
+        assertEquals(1, messages.size)
+
+        courseApp.removeListener(adminToken, callback)
+        courseApp.addListener(adminToken, callback)
+        assertEquals(1, messages.size)
+
+    }
+
+    @Test
+    @Order(129)
+    fun `channelSend activate lambda of a listener in the channel`(){
+        val adminToken = courseApp.login("admin", "pass").get()
+        courseApp.channelJoin(adminToken, "#channel___")
+        var messages = mutableListOf<String>()
+        val callback: ListenerCallback = { _, message ->
+            messages.add(message.contents.toString(Charset.defaultCharset()))
+            CompletableFuture.completedFuture(Unit)
+        }
+        val message = messageFactory.create(MediaType.PICTURE, "Some Message No. 1".toByteArray()).get()
+        courseApp.addListener(adminToken, callback)
+        courseApp.channelSend(adminToken, "#channel___", message)
+
+        assertEquals(1, messages.size)
+    }
+
+    @Test
+    @Order(130)
+    fun `channelSend activate lambda of a 100000 listeners in the channel`(){
+        val adminToken = courseApp.login("admin", "pass").get()
+        courseApp.channelJoin(adminToken, "#channel___")
+        val amount = 100000
+        var messages = mutableListOf<String>()
+        for(i in 1..amount){
+            println(i)
+            val otherUser= courseApp.login("other$i", "pass$i").get()
+            courseApp.channelJoin(otherUser, "#channel___")
+            val callback: ListenerCallback = { _, message ->
+                messages.add(message.contents.toString(Charset.defaultCharset()))
+                CompletableFuture.completedFuture(Unit)
+            }
+            courseApp.addListener(otherUser, callback)
+        }
+
+        val message = messageFactory.create(MediaType.PICTURE, "Some Message No. 1".toByteArray()).get()
+        courseApp.channelSend(adminToken, "#channel___", message)
+
+        assertEquals(amount, messages.size)
+    }
+
+    @Test
+    @Order(131)
+    fun `channelSend activate lambda of a 50000 listeners in the channel when only half of members are listeners`(){
+        val adminToken = courseApp.login("admin", "pass").get()
+        courseApp.channelJoin(adminToken, "#channel___")
+        val amount = 100000
+        var messages = mutableListOf<String>()
+        for(i in 1..amount){
+            println(i)
+            val otherUser= courseApp.login("other$i", "pass$i").get()
+            courseApp.channelJoin(otherUser, "#channel___")
+            if(i%2 != 0) {
+                val callback: ListenerCallback = { _, message ->
+                    messages.add(message.contents.toString(Charset.defaultCharset()))
+                    CompletableFuture.completedFuture(Unit)
+                }
+                courseApp.addListener(otherUser, callback)
+            }
+        }
+
+        val message = messageFactory.create(MediaType.PICTURE, "Some Message No. 1".toByteArray()).get()
+        courseApp.channelSend(adminToken, "#channel___", message)
+
+        assertEquals(amount/2, messages.size)
+    }
 
 
 }
