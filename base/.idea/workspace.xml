@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3078e906-f4ea-42e8-a364-e8ec716816be" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" afterDir="false" />
-    </list>
+    <list default="true" id="3078e906-f4ea-42e8-a364-e8ec716816be" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -105,20 +102,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
+            <state relative-caret-position="649">
               <caret line="242" column="8" selection-start-line="242" selection-start-column="8" selection-end-line="242" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="859" column="48" selection-start-line="859" selection-start-column="48" selection-end-line="859" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -138,7 +126,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
+            <state relative-caret-position="396">
               <caret line="1565" column="29" selection-start-line="1565" selection-start-column="29" selection-end-line="1565" selection-end-column="29" />
               <folding>
                 <element signature="e#42#921#0" expanded="true" />
@@ -647,21 +635,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CourseAppStaffTest_channel_message_received_successfully - 2019.06.10 at 17h 29m 00s.xml">
-      <configuration name="CourseAppStaffTest.channel message received successfully" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourseAppTest_unable_to_fetch_messages_that_was_after_channel_deleted_and_created_again - 2019.06.10 at 17h 32m 01s.xml">
-      <configuration name="CourseAppTest.unable to fetch messages that was after channel deleted and created again" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourseAppTest_unable_to_fetch_messages_that_was_after_channel_deleted_and_created_again - 2019.06.10 at 17h 32m 31s.xml">
-      <configuration name="CourseAppTest.unable to fetch messages that was after channel deleted and created again" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourseAppTest_unable_to_fetch_messages_that_was_after_channel_deleted_and_created_again - 2019.06.10 at 17h 36m 10s.xml">
-      <configuration name="CourseAppTest.unable to fetch messages that was after channel deleted and created again" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CourseAppTest_unable_to_fetch_messages_that_was_after_channel_deleted_and_created_again - 2019.06.10 at 17h 36m 15s.xml">
-      <configuration name="CourseAppTest.unable to fetch messages that was after channel deleted and created again" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="CourseAppTest_unable_to_fetch_messages_that_was_after_channel_deleted_and_created_again - 2019.06.10 at 17h 37m 21s.xml">
       <configuration name="CourseAppTest.unable to fetch messages that was after channel deleted and created again" configurationId="JUnit" />
     </history-entry>
@@ -677,9 +650,24 @@
     <history-entry file="CourseAppTest_unable_to_fetch_messages_that_was_after_channel_deleted_and_created_again - 2019.06.10 at 17h 45m 29s.xml">
       <configuration name="CourseAppTest.unable to fetch messages that was after channel deleted and created again" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="CourseAppTest_unable_to_fetch_messages_that_was_after_channel_deleted_and_created_again - 2019.06.10 at 17h 48m 15s.xml">
+      <configuration name="CourseAppTest.unable to fetch messages that was after channel deleted and created again" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CourseAppTest_unable_to_fetch_messages_that_was_after_channel_deleted_and_created_again - 2019.06.10 at 17h 48m 20s.xml">
+      <configuration name="CourseAppTest.unable to fetch messages that was after channel deleted and created again" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CourseAppTest_unable_to_fetch_messages_that_was_after_channel_deleted_and_created_again - 2019.06.10 at 17h 48m 44s.xml">
+      <configuration name="CourseAppTest.unable to fetch messages that was after channel deleted and created again" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CourseAppTest - 2019.06.10 at 17h 49m 56s.xml">
+      <configuration name="CourseAppTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CourseAppTest_unable_to_fetch_messages_that_was_after_channel_deleted_and_created_again - 2019.06.10 at 17h 51m 08s.xml">
+      <configuration name="CourseAppTest.unable to fetch messages that was after channel deleted and created again" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="217914000" />
+    <option name="totallyTimeSpent" value="218176000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -692,7 +680,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="21" y="42" width="1503" height="923" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2368241" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -704,7 +691,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.19217877" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" weight="0.28279182" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.33212996" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.33212996" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32960895" />
@@ -800,12 +787,6 @@
           <line>99</line>
           <properties />
           <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt</url>
-          <line>1601</line>
-          <properties />
-          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -1139,16 +1120,9 @@ import java.util.LinkedHashMap</custom-info>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="242" column="8" selection-start-line="242" selection-start-column="8" selection-end-line="242" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
+        <state relative-caret-position="396">
           <caret line="1565" column="29" selection-start-line="1565" selection-start-column="29" selection-end-line="1565" selection-end-column="29" />
           <folding>
             <element signature="e#42#921#0" expanded="true" />
@@ -1158,8 +1132,15 @@ import java.util.LinkedHashMap</custom-info>
     </entry>
     <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="859" column="48" selection-start-line="859" selection-start-column="48" selection-end-line="859" selection-end-column="48" />
+        <state relative-caret-position="199">
+          <caret line="1591" column="30" lean-forward="true" selection-start-line="1591" selection-start-column="30" selection-end-line="1591" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="649">
+          <caret line="242" column="8" selection-start-line="242" selection-start-column="8" selection-end-line="242" selection-end-column="8" />
         </state>
       </provider>
     </entry>
