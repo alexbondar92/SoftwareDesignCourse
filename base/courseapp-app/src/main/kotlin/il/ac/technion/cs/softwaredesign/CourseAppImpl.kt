@@ -35,10 +35,7 @@ class CourseAppImpl: CourseApp{
     private var userObservers: HashMap<String, OurObservableImpl>
     private var callbackToToken: HashMap<ListenerCallback, String>
 
-
-//    private val formatter = DateTimeFormatter.ISO_DATE_TIME
     private val timeFormatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME
-
 
     @Inject constructor(storage: DataStoreIo) {
         storageIo = storage
@@ -287,7 +284,7 @@ class CourseAppImpl: CourseApp{
             throw UserNotAuthorizedException()
 
         val size = amountOfUsersInChannel(channel)
-        if ( size != null && size > 0){ //channel empty but was not empty in the past, or not empty now
+        if ( size != null && size > 0){         //channel empty but was not empty in the past, or not empty now
 
             makeUserConnectedToChannel(channel, token)
 
@@ -1014,7 +1011,6 @@ class CourseAppImpl: CourseApp{
             }
             KeyType.CHANNELLOGGED -> {
                 val index = args[0]
-//                val index = channelToIndex(channel)
                 str = storageIo.read(("CL$index")).get()
             }
             KeyType.USERCHANNELS -> {
@@ -1253,9 +1249,6 @@ class CourseAppImpl: CourseApp{
                 insertToActiveChannelsTree(channel, updatedActiveAmount)
             }
         }
-//        else {
-//            deleteIndexChannel(channelToIndex(channel)!!)
-//        }
 
         disConnectUserFromChannel(channel, token)
     }
@@ -1275,10 +1268,6 @@ class CourseAppImpl: CourseApp{
     private fun indexToChannel(index: String): String {
         return readFromStorage(mutableListOf(index), KeyType.INDEXTOCHANNEL)!!
     }
-
-//    private fun deleteIndexChannel(index: String) {
-//        writeToStorage(mutableListOf(index), "null", KeyType.INDEXTOCHANNEL)
-//    }
 
     private fun passwordValid(username: String, password: String): Boolean {
         return readFromStorage(mutableListOf(username, password), KeyType.PASSWORD) != null
@@ -1606,9 +1595,7 @@ class CourseAppImpl: CourseApp{
 
     private fun messageIsSameChannelAsUser(token: String, id: Long): Boolean {
         val channelIndex = readFromStorage(mutableListOf(id.toString()), KeyType.MESSAGETYPE)!!.split("%")[1]
-        val tmp = getChannelsOf(token)
         return getChannelsOf(token).asSequence().map { indexToChannel(it) }.toList().contains(indexToChannel(channelIndex))
-//        return getChannelsOf(token).contains(channel)
     }
 
     private fun fetchMessageAux( id: Long): CompletableFuture<Pair<String, Message>> {
