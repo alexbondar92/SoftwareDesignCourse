@@ -1563,7 +1563,7 @@ class CourseAppTest {
         courseApp.channelPart(adminToken, "#MyChannel")
         courseApp.channelJoin(adminToken, "#MyChannel")
 
-        assertThrows<NoSuchEntityException> { courseApp.fetchMessage(adminToken, message1.id) }
+        assertDoesNotThrow { courseApp.fetchMessage(adminToken, message1.id) }
     }
 
     @Test
