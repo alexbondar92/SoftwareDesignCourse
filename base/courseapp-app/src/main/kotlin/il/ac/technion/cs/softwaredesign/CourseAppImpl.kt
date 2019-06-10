@@ -98,7 +98,8 @@ class CourseAppImpl: CourseApp{
         MESSAGESOURCE,
         USERCREATIONTIME,
         MESSAGECREATIONTIME,
-        TOTALCHANNELSPENDINGMESSAGES
+        TOTALCHANNELSPENDINGMESSAGES,
+        USERLASTLISTENTIME
     }
 
     enum class TypeMessage  {
@@ -151,6 +152,8 @@ class CourseAppImpl: CourseApp{
                 val time = LocalDateTime.now().format(timeFormatter)
                 writeToStorage(mutableListOf(genToken), time, KeyType.USERCREATIONTIME)
 
+                //update last listen time(default is listen at creation of user)
+                updateLastUserListenTime(genToken)
 
                 return CompletableFuture.completedFuture(genToken)
             }
@@ -345,8 +348,6 @@ class CourseAppImpl: CourseApp{
         if (!isChannelExist(channel)) {
             this.channelObservers.remove(channel)        // in case of new channel or after new courseApp instance, we need new Observable
             deleteFromMessagesChannelsTree(channel)
-
-            // TODO ("do we need to dec the number of messages in the system after this channel is deleted")
         }
         //else
             // By the FAQ we can assume that the user have been removed all his listens
@@ -422,8 +423,6 @@ class CourseAppImpl: CourseApp{
         if (!isChannelExist(channel)) {
             this.channelObservers.remove(channel)        // in case of new channel or after new courseApp instance, we need new Observable
             deleteFromMessagesChannelsTree(channel)
-
-            // TODO ("do we need to dec the number of messages in the system after this channel is deleted")
         }
         //else
         // By the FAQ we can assume that the user have been removed all his listens
@@ -516,6 +515,9 @@ class CourseAppImpl: CourseApp{
     override fun addListener(token: String, callback: ListenerCallback): CompletableFuture<Unit> {
         if (!validToken(token))
             throw InvalidTokenException()
+
+        //update last listen time(default is listen at creation of user)
+        updateLastUserListenTime(token)
 
         addListenerToBroadcastObserver(callback)
         addListenerToChannelsObserver(token, callback)
@@ -808,6 +810,10 @@ class CourseAppImpl: CourseApp{
             KeyType.TOTALCHANNELSPENDINGMESSAGES -> {
                 storageIo.write(("TCPM"), data).get()
             }
+            KeyType.USERLASTLISTENTIME -> {
+                val token = args[0]
+                storageIo.write(("USERLASTTISTEN$token"), data).get()
+            }
         }
     }
 
@@ -1072,6 +1078,10 @@ class CourseAppImpl: CourseApp{
             KeyType.TOTALCHANNELSPENDINGMESSAGES -> {
                 str = storageIo.read(("TCPM")).get()
             }
+            KeyType.USERLASTLISTENTIME -> {
+                val token = args[0]
+                str = storageIo.read(("USERLASTTISTEN$token")).get()
+            }
         }
         return str
     }
@@ -1334,11 +1344,12 @@ class CourseAppImpl: CourseApp{
     private fun activatePendingMessagesFor(token: String, callback: ListenerCallback) {
         val channelList = getChannelsOf(token)
         val userCreationTime = LocalDateTime.parse(readFromStorage(mutableListOf(token), KeyType.USERCREATIONTIME), timeFormatter)
+        val userLastListenTime = LocalDateTime.parse(readFromStorage(mutableListOf(token), KeyType.USERLASTLISTENTIME), timeFormatter)
 
         val pendingMessagesList = this.pendingMessagesTree.toKeyList()
         for (currId in pendingMessagesList) {
             val messageCreationTime = LocalDateTime.parse(readFromStorage(mutableListOf(currId.toString()), KeyType.MESSAGECREATIONTIME), timeFormatter)
-            if (userCreationTime <= messageCreationTime) {
+            if (messageCreationTime in userCreationTime..userLastListenTime) {
                 val str = readFromStorage(mutableListOf(currId.toString()), KeyType.MESSAGETYPE)!!
                 val list = str.split("%")
                 val type = list[0]
@@ -1346,7 +1357,6 @@ class CourseAppImpl: CourseApp{
                     "PRIVATE" -> {
                         val receiveToken = list[1]
 
-                        // TODO("add logic for checking if user already had callback for this message")
                         if (receiveToken == token) {
                             activateLambdaWithSourceAndMessageFromStorage(currId, callback)
                             updateMessageCounterAndTotalPending(currId)
@@ -1355,7 +1365,6 @@ class CourseAppImpl: CourseApp{
                     "CHANNEL" -> {
                         val channelOfMessage = list[1]
 
-                        // TODO("add logic for checking if user already had callback for this message")
                         if (channelList.contains(channelOfMessage)) {
                             activateLambdaWithSourceAndMessageFromStorage(currId, callback)
                             if (decPendingUsersForMessage(currId) == 0.toLong()) {
@@ -1365,8 +1374,6 @@ class CourseAppImpl: CourseApp{
                         }
                     }
                     "BROADCAST" -> {
-
-                        // TODO("add logic for checking if user already had callback for this message")
                         activateLambdaWithSourceAndMessageFromStorage(currId, callback)
                         updateMessageCounterAndTotalPending(currId)
                     }
@@ -1404,14 +1411,17 @@ class CourseAppImpl: CourseApp{
 
         val str2 = readFromStorage(mutableListOf(currId.toString()), KeyType.MESSAGEDATA)
         val listOfFields = str2!!.split("%")
-        //val receivedTime = if (listOfFields[4] != null && listOfFields[4] != "null") LocalDateTime.parse(listOfFields[4], timeFormatter) else null
-        val receivedTime = LocalDateTime.now()                  // TODO("this option or the previous one")
+
+        val receivedTime = if (listOfFields[4] == "null") LocalDateTime.now()
+                                         else LocalDateTime.parse(listOfFields[4], timeFormatter)
+
         val message = MessageImpl(id = listOfFields[0].toLong(),
                 media = MediaType.valueOf(listOfFields[1]),
                 contents = listOfFields[2].toByteArray(Charset.defaultCharset()),
                 created = LocalDateTime.parse(listOfFields[3], timeFormatter),
                 received = receivedTime)
 
+        saveMessageInStorage(source, message)
         callback(source, message)
     }
 
@@ -1603,5 +1613,10 @@ class CourseAppImpl: CourseApp{
 
     private fun getNumberOfMessageIn(channel: String): Long {
         return readFromStorage(mutableListOf(channel), KeyType.MESSAGESNUMBERINCHANNEL)?.toLong() ?: 0
+    }
+
+    private fun updateLastUserListenTime(token: String) {
+        val time = LocalDateTime.now()
+        writeToStorage(mutableListOf(token), time.format(timeFormatter), KeyType.USERLASTLISTENTIME)
     }
 }

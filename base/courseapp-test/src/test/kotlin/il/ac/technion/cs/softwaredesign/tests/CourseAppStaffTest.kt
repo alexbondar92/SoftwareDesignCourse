@@ -22,7 +22,8 @@ import java.time.Duration.ofSeconds
 import java.util.concurrent.CompletableFuture
 
 class CourseAppStaffTest {
-    private val injector = Guice.createInjector(CourseAppModule(), SecureStorageModule())
+//    private val injector = Guice.createInjector(CourseAppModule(), SecureStorageModule())
+    private val injector = Guice.createInjector(CourseAppModule(), FakeSecureStorageModule())
 
     init {
         injector.getInstance<CourseAppInitializer>().setup().join()
@@ -231,7 +232,7 @@ class CourseAppStaffTest {
                 .thenCompose { adminToken ->
                     courseApp.login("gal", "hunter2").thenApply { Pair(adminToken, it) }
                 }.thenCompose { (adminToken, nonAdminToken) ->
-                    courseApp.addListener(nonAdminToken, listener)
+                            courseApp.addListener(nonAdminToken, listener)
                             .thenCompose { messageFactory.create(MediaType.TEXT, "hello, world\n".toByteArray()) }
                             .thenApply { message -> Pair(adminToken, message) }
                 }.join()

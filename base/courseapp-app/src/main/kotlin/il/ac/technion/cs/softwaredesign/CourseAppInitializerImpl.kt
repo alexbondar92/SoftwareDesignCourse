@@ -18,6 +18,6 @@ class CourseAppInitializerImpl: CourseAppInitializer {
 
     override fun setup(): CompletableFuture<Unit> {
         // Empty
-        return CompletableFuture()
+        return CompletableFuture.completedFuture(Unit)
     }
 }
