@@ -2,11 +2,18 @@ package il.ac.technion.cs.softwaredesign
 
 import com.authzee.kotlinguice4.getInstance
 import com.google.inject.Guice
+import com.natpryce.hamkrest.assertion.assertThat
+import com.natpryce.hamkrest.equalTo
 import com.natpryce.hamkrest.startsWith
 import il.ac.technion.cs.softwaredesign.messages.MediaType
+import il.ac.technion.cs.softwaredesign.messages.Message
 import il.ac.technion.cs.softwaredesign.messages.MessageFactory
+import il.ac.technion.cs.softwaredesign.tests.containsElementsInOrder
+import il.ac.technion.cs.softwaredesign.tests.runWithTimeout
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import java.time.Duration
+import java.util.concurrent.CompletableFuture
 
 class CourseAppStatisticsTest {
 
@@ -183,25 +190,126 @@ class CourseAppStatisticsTest {
     }
 
     @Test
-    fun `get top10 channels by messages for system with zero messages and 10000 channels`() {
+    fun `get top10 channels by messages for system with zero messages and 128 channels`() {
         val adminToken = courseApp.login("admin", "pass").get()
-        for (i in 1..10000) {
-            if (i%1000 == 0)
-                println("channel login: $i")
+        for (i in 1..128) {
             courseApp.channelJoin(adminToken, "#channel$i").get()
         }
-        for (i in 1..5000) {
-//            if (i%1000 == 0)
-                println("channel part: $i")
+        for (i in 1..118) {
             courseApp.channelPart(adminToken, "#channel$i").get()
         }
 
-        val ret = listOf("#channel5001", "#channel5002", "#channel5003", "#channel5004", "#channel5005", "#channel5006", "#channel5007", "#channel5008", "#channel5009", "#channel5010")
+        val ret = listOf("#channel119", "#channel120", "#channel121", "#channel122", "#channel123", "#channel124", "#channel125", "#channel126", "#channel127", "#channel128")
         assertEquals(ret, appStatistics.top10ChannelsByMessages().get())
     }
 
     @Test
     fun `get top10 channels by messages for system with 1000 messaeges and 1000 channels`() {
 
+    }
+
+    @Test
+    fun `logged in user count is correct when no user is logged in`() {
+        assertThat(
+                runWithTimeout(Duration.ofSeconds(10)) { appStatistics.loggedInUsers().join() },
+                equalTo(0L))
+    }
+
+    @Test
+    fun `total user count is correct when no users exist`() {
+        assertThat(
+                runWithTimeout(Duration.ofSeconds(10)) { appStatistics.totalUsers().join() },
+                equalTo(0L))
+    }
+
+    @Test
+    fun `top 10 channel list does secondary sorting by creation`() {
+        courseApp.login("admin", "admin")
+                .thenCompose { adminToken -> courseApp.login("matan", "4321").thenApply { Pair(adminToken, it) } }
+                .thenCompose { (adminToken, otherToken) ->
+                    courseApp.makeAdministrator(adminToken, "matan")
+                            .thenCompose { courseApp.channelJoin(adminToken, "#test") }
+                            .thenCompose { courseApp.channelJoin(otherToken, "#other") }
+                }.join()
+
+        runWithTimeout(Duration.ofSeconds(10)) {
+            assertThat(appStatistics.top10ChannelsByUsers().join(),
+                    containsElementsInOrder("#test", "#other"))
+        }
+    }
+
+    @Test
+    fun `top 10 channel list counts only logged in users`() {
+        courseApp.login("admin", "admin")
+                .thenCompose { adminToken -> courseApp.login("matan", "4321").thenApply { Pair(adminToken, it) } }
+                .thenCompose { (adminToken, otherToken) ->
+                    courseApp.makeAdministrator(adminToken, "matan")
+                            .thenCompose { courseApp.channelJoin(adminToken, "#test") }
+                            .thenCompose { courseApp.channelJoin(otherToken, "#other") }
+                            .thenCompose { courseApp.logout(otherToken) }
+                }.join()
+
+        runWithTimeout(Duration.ofSeconds(10)) {
+            assertThat(appStatistics.top10ActiveChannelsByUsers().join(),
+                    containsElementsInOrder("#test", "#other"))
+        }
+    }
+
+    @Test
+    fun `top 10 user list does secondary sorting by creation`() {
+        courseApp.login("admin", "admin")
+                .thenCompose { adminToken ->
+                    courseApp.login("matan", "4321").thenApply { Pair(adminToken, it) }
+                }.thenCompose { (adminToken, otherToken) ->
+                    courseApp.makeAdministrator(adminToken, "matan")
+                            .thenCompose { courseApp.channelJoin(adminToken, "#test") }
+                            .thenCompose { courseApp.channelJoin(otherToken, "#other") }
+                }.join()
+
+        runWithTimeout(Duration.ofSeconds(10)) {
+            assertThat(appStatistics.top10UsersByChannels().join(),
+                    containsElementsInOrder("admin", "matan"))
+        }
+    }
+
+    @Test
+    fun `private message received successfully`() {
+        var sources = mutableListOf<String>()
+        var messages = mutableListOf<Message>()
+        val callback: ListenerCallback = { source, message ->
+            sources.add(source)
+            messages.add(message)
+            CompletableFuture.completedFuture(Unit)
+        }
+        val (token, message) = courseApp.login("admin", "admin")
+                .thenCompose { adminToken ->
+                    courseApp.login("gal", "hunter2").thenApply { Pair(adminToken, it) }
+                }.thenCompose { (adminToken, nonAdminToken) ->
+                    courseApp.addListener(nonAdminToken, callback)
+                            .thenCompose { messageFactory.create(MediaType.TEXT, "hello, world\n".toByteArray()) }
+                            .thenApply { message -> Pair(adminToken, message) }
+                }.join()
+
+        runWithTimeout(Duration.ofSeconds(10)) {
+            courseApp.privateSend(token, "gal", message).join()
+            assertEquals(0, appStatistics.pendingMessages().join())
+        }
+
+        assertEquals(1, sources.size)
+        assertEquals(1, messages.size)
+        assertEquals("@admin", sources[0])
+        assert("hello, world\n".toByteArray().contentEquals(messages[0].contents))
+    }
+
+    @Test
+    fun `there is 1 pending message after privateSend with no listener`() {
+        courseApp.login("admin", "admin")
+                .thenCompose { courseApp.login("gal", "hunter2") }
+                .thenCompose { userToken ->
+                    messageFactory.create(MediaType.TEXT, "how many programmers does it take to change a light-bulb?".toByteArray())
+                            .thenCompose { msg -> courseApp.privateSend(userToken, "admin", msg) }
+                }.join()
+
+        assertEquals(1, runWithTimeout(Duration.ofSeconds(10)) { appStatistics.pendingMessages().join() })
     }
 }

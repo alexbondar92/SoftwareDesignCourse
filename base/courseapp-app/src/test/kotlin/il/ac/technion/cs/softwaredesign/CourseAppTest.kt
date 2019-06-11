@@ -3,15 +3,13 @@ package il.ac.technion.cs.softwaredesign
 import com.authzee.kotlinguice4.getInstance
 import com.google.inject.Guice
 import com.natpryce.hamkrest.assertion.assertThat
+import com.natpryce.hamkrest.equalTo
 import com.natpryce.hamkrest.present
 import il.ac.technion.cs.softwaredesign.exceptions.*
 import il.ac.technion.cs.softwaredesign.messages.MediaType
 import il.ac.technion.cs.softwaredesign.messages.Message
 import il.ac.technion.cs.softwaredesign.messages.MessageFactory
-import il.ac.technion.cs.softwaredesign.tests.isFalse
-import il.ac.technion.cs.softwaredesign.tests.isTrue
-import il.ac.technion.cs.softwaredesign.tests.joinException
-import il.ac.technion.cs.softwaredesign.tests.runWithTimeout
+import il.ac.technion.cs.softwaredesign.tests.*
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.*
 import org.junit.jupiter.api.assertThrows
@@ -1383,7 +1381,7 @@ class CourseAppTest {
             sources.add(source)
             CompletableFuture.completedFuture(Unit)
         }
-        assertDoesNotThrow { courseApp.addListener(adminToken, callBack) }
+        assertDoesNotThrow { courseApp.addListener(adminToken, callBack).join() }
 
     }
 
@@ -1397,7 +1395,9 @@ class CourseAppTest {
             CompletableFuture.completedFuture(Unit)
         }
 
-        assertThrows<InvalidTokenException> { courseApp.addListener("not$adminToken", callBack) }
+        assertThrows<InvalidTokenException> {
+            courseApp.addListener("not$adminToken", callBack).joinException()
+        }
     }
 
     @Test
@@ -1410,9 +1410,9 @@ class CourseAppTest {
             CompletableFuture.completedFuture(Unit)
         }
 
-        courseApp.addListener(adminToken, callBack)
+        courseApp.addListener(adminToken, callBack).join()
 
-        assertDoesNotThrow { courseApp.removeListener(adminToken, callBack) }
+        assertDoesNotThrow { courseApp.removeListener(adminToken, callBack).joinException() }
     }
 
     @Test
@@ -1425,9 +1425,9 @@ class CourseAppTest {
             CompletableFuture.completedFuture(Unit)
         }
 
-        courseApp.addListener(adminToken, callBack)
+        courseApp.addListener(adminToken, callBack).join()
 
-        assertThrows<InvalidTokenException> { courseApp.removeListener("not$adminToken", callBack) }
+        assertThrows<InvalidTokenException> { courseApp.removeListener("not$adminToken", callBack).joinException() }
     }
 
     @Test
@@ -1447,7 +1447,9 @@ class CourseAppTest {
             CompletableFuture.completedFuture(Unit)
         }
 
-        assertThrows<NoSuchEntityException> { courseApp.removeListener(adminToken, otherCallBack) }
+        assertThrows<NoSuchEntityException> {
+            courseApp.removeListener(adminToken, otherCallBack).joinException()
+        }
     }
 
     @Test
@@ -1460,7 +1462,7 @@ class CourseAppTest {
             CompletableFuture.completedFuture(Unit)
         }
 
-        courseApp.addListener(adminToken, callBack)
+        courseApp.addListener(adminToken, callBack).join()
 
         assertDoesNotThrow {
             courseApp.broadcast(adminToken,
@@ -1480,8 +1482,8 @@ class CourseAppTest {
             CompletableFuture.completedFuture(Unit)
         }
         assertDoesNotThrow {
-            courseApp.addListener(adminToken, callBack)
-            courseApp.addListener(otherToken, callBack)
+            courseApp.addListener(adminToken, callBack).joinException()
+            courseApp.addListener(otherToken, callBack).joinException()
         }
 
     }
@@ -1501,11 +1503,11 @@ class CourseAppTest {
         val message2 = messageFactory.create(MediaType.PICTURE, "Some Message No.2".toByteArray()).get()
         courseApp.channelJoin(adminToken, "#MyChannel")
 
-        courseApp.privateSend(adminToken, "other", message1)
-        courseApp.broadcast(adminToken, message2)
+        courseApp.privateSend(adminToken, "other", message1).join()
+        courseApp.broadcast(adminToken, message2).join()
 
-        assertThrows<NoSuchEntityException> { courseApp.fetchMessage(adminToken, message1.id) }
-        assertThrows<NoSuchEntityException> { courseApp.fetchMessage(adminToken, message2.id) }
+        assertThrows<NoSuchEntityException> { courseApp.fetchMessage(adminToken, message1.id).joinException() }
+        assertThrows<NoSuchEntityException> { courseApp.fetchMessage(adminToken, message2.id).joinException() }
     }
 
     @Test
@@ -1527,14 +1529,14 @@ class CourseAppTest {
 
         val message1 = messageFactory.create(MediaType.PICTURE, "Some Message No. 1".toByteArray()).get()
         val message2 = messageFactory.create(MediaType.PICTURE, "Some Message No.2".toByteArray()).get()
-        courseApp.channelJoin(adminToken, "#MyChannel")
-        courseApp.channelJoin(otherToken, "#MyChannel")
+        courseApp.channelJoin(adminToken, "#MyChannel").join()
+        courseApp.channelJoin(otherToken, "#MyChannel").join()
 
-        courseApp.channelSend(adminToken, "#MyChannel", message1)
-        courseApp.channelSend(otherToken, "#MyChannel", message2)
+        courseApp.channelSend(adminToken, "#MyChannel", message1).join()
+        courseApp.channelSend(otherToken, "#MyChannel", message2).join()
 
-        courseApp.addListener(adminToken, callBack1)
-        courseApp.addListener(otherToken, callBack2)
+        courseApp.addListener(adminToken, callBack1).join()
+        courseApp.addListener(otherToken, callBack2).join()
 
         assertDoesNotThrow {
             val tmp1 = courseApp.fetchMessage(otherToken, message1.id).get()
@@ -1556,14 +1558,14 @@ class CourseAppTest {
         }
         val message1 = messageFactory.create(MediaType.PICTURE, "Some Message No. 1".toByteArray()).get()
 
-        courseApp.channelJoin(adminToken, "#MyChannel")
-        courseApp.channelSend(adminToken, "#MyChannel", message1)
-        courseApp.addListener(adminToken, callback1)
-        courseApp.removeListener(adminToken, callback1)
-        courseApp.channelPart(adminToken, "#MyChannel")
-        courseApp.channelJoin(adminToken, "#MyChannel")
+        courseApp.channelJoin(adminToken, "#MyChannel").join()
+        courseApp.channelSend(adminToken, "#MyChannel", message1).join()
+        courseApp.addListener(adminToken, callback1).join()
+        courseApp.removeListener(adminToken, callback1).join()
+        courseApp.channelPart(adminToken, "#MyChannel").join()
+        courseApp.channelJoin(adminToken, "#MyChannel").join()
 
-        assertDoesNotThrow { courseApp.fetchMessage(adminToken, message1.id) }
+        assertDoesNotThrow { courseApp.fetchMessage(adminToken, message1.id).joinException() }
     }
 
     @Test
@@ -1577,31 +1579,31 @@ class CourseAppTest {
         }
         val otherUser1 = courseApp.login("other1", "pass").get()
         val otherUser2 = courseApp.login("other2", "pass").get()
-        courseApp.channelJoin(adminToken, "#MyChannel")
-        courseApp.channelJoin(otherUser2, "#MyChannel")
+        courseApp.channelJoin(adminToken, "#MyChannel").join()
+        courseApp.channelJoin(otherUser2, "#MyChannel").join()
 
         val broadcastList = mutableListOf<Message>()
         for (i in 1..10) {
             val message = messageFactory.create(MediaType.PICTURE, "Some Message No. $i".toByteArray()).get()
-            courseApp.broadcast(adminToken, message)
+            courseApp.broadcast(adminToken, message).join()
             broadcastList.add(message)
         }
 
         val privateList = mutableListOf<Message>()
         for (i in 1..10) {
             val message = messageFactory.create(MediaType.PICTURE, "Some Private Message No. $i".toByteArray()).get()
-            courseApp.privateSend(otherUser1, "admin", message)
+            courseApp.privateSend(otherUser1, "admin", message).join()
             privateList.add(message)
         }
 
         val channelList = mutableListOf<Message>()
         for (i in 1..10) {
             val message = messageFactory.create(MediaType.PICTURE, "Some Channel Message No. $i".toByteArray()).get()
-            courseApp.channelSend(otherUser2, "#MyChannel", message)
+            courseApp.channelSend(otherUser2, "#MyChannel", message).join()
             channelList.add(message)
         }
 
-        courseApp.addListener(adminToken, callback)
+        courseApp.addListener(adminToken, callback).join()
 
         assert(messages.size == 30)
     }
@@ -1616,10 +1618,10 @@ class CourseAppTest {
             CompletableFuture.completedFuture(Unit)
         }
         val otherUser= courseApp.login("other", "pass").get()
-        courseApp.addListener(adminToken, callback)
+        courseApp.addListener(adminToken, callback).join()
 
         val message = messageFactory.create(MediaType.PICTURE, "Some Message No. 1".toByteArray()).get()
-        courseApp.privateSend(otherUser, "admin", message)
+        courseApp.privateSend(otherUser, "admin", message).join()
 
         assert(messages.size == 1)
     }
@@ -1636,8 +1638,8 @@ class CourseAppTest {
         val otherUser= courseApp.login("other", "pass").get()
 
         val message = messageFactory.create(MediaType.PICTURE, "Some Message No. 1".toByteArray()).get()
-        courseApp.privateSend(otherUser, "admin", message)
-        courseApp.addListener(adminToken, callback)
+        courseApp.privateSend(otherUser, "admin", message).join()
+        courseApp.addListener(adminToken, callback).join()
 
         assert(messages.size == 1)
     }
@@ -1656,7 +1658,7 @@ class CourseAppTest {
                 CompletableFuture.completedFuture(Unit)
             }
             val otherToken = courseApp.login("user$i", "justPassword$i").get()
-            assertDoesNotThrow { courseApp.addListener(otherToken, callBack)}
+            assertDoesNotThrow { courseApp.addListener(otherToken, callBack).joinException()}
         }
     }
 
@@ -1674,7 +1676,7 @@ class CourseAppTest {
                 CompletableFuture.completedFuture(Unit)
             }
 
-            assertDoesNotThrow { courseApp.addListener(adminToken, callBack)}
+            assertDoesNotThrow { courseApp.addListener(adminToken, callBack).joinException()}
         }
     }
 
@@ -1693,13 +1695,13 @@ class CourseAppTest {
                 CompletableFuture.completedFuture(Unit)
             }
             functions[i] = callBack
-            assertDoesNotThrow { courseApp.addListener(adminToken, callBack)}
+            assertDoesNotThrow { courseApp.addListener(adminToken, callBack).joinException()}
         }
 
         for(i in 1..amount){
             if(i%10000 == 0)
                 println("remove listener number: $i")
-            assertDoesNotThrow { courseApp.removeListener(adminToken, functions[i]!!)}
+            assertDoesNotThrow { courseApp.removeListener(adminToken, functions[i]!!).joinException()}
         }
 
     }
@@ -1714,15 +1716,15 @@ class CourseAppTest {
             CompletableFuture.completedFuture(Unit)
         }
         val otherUser= courseApp.login("other", "pass").get()
-        courseApp.addListener(adminToken, callback)
+        courseApp.addListener(adminToken, callback).join()
         callback = { _, message ->
             messages.add(message.contents.toString(Charset.defaultCharset()))
             CompletableFuture.completedFuture(Unit)
         }
-        courseApp.addListener(adminToken, callback)
+        courseApp.addListener(adminToken, callback).join()
 
         val message = messageFactory.create(MediaType.PICTURE, "Some Message No. 1".toByteArray()).get()
-        courseApp.broadcast(adminToken, message)
+        courseApp.broadcast(adminToken, message).join()
 
         assertEquals(2, messages.size)
     }
@@ -1737,15 +1739,15 @@ class CourseAppTest {
             CompletableFuture.completedFuture(Unit)
         }
         val otherUser= courseApp.login("other", "pass").get()
-        courseApp.addListener(adminToken, callback)
+        courseApp.addListener(adminToken, callback).join()
         callback = { _, message ->
             messages.add(message.contents.toString(Charset.defaultCharset()))
             CompletableFuture.completedFuture(Unit)
         }
-        courseApp.addListener(otherUser, callback)
+        courseApp.addListener(otherUser, callback).join()
 
         val message = messageFactory.create(MediaType.PICTURE, "Some Message No. 1".toByteArray()).get()
-        courseApp.broadcast(adminToken, message)
+        courseApp.broadcast(adminToken, message).join()
 
         assertEquals(2, messages.size)
     }
@@ -1764,10 +1766,10 @@ class CourseAppTest {
                 CompletableFuture.completedFuture(Unit)
             }
 
-            courseApp.addListener(adminToken, callBack)
+            courseApp.addListener(adminToken, callBack).join()
         }
         val message = messageFactory.create(MediaType.PICTURE, "Some Message No. 1".toByteArray()).get()
-        courseApp.broadcast(adminToken, message)
+        courseApp.broadcast(adminToken, message).join()
         assertEquals(amount, sources.size)
     }
 
@@ -1786,10 +1788,10 @@ class CourseAppTest {
                 CompletableFuture.completedFuture(Unit)
             }
             val otherToken = courseApp.login("user$i", "justPassword$i").get()
-            courseApp.addListener(otherToken, callBack)
+            courseApp.addListener(otherToken, callBack).join()
         }
         val message = messageFactory.create(MediaType.PICTURE, "Some Message No. 1".toByteArray()).get()
-        courseApp.broadcast(adminToken, message)
+        courseApp.broadcast(adminToken, message).join()
         assertEquals(amount, sources.size)
     }
 
@@ -1806,8 +1808,8 @@ class CourseAppTest {
         //val otherUser= courseApp.login("other", "pass").get()
 
         val message = messageFactory.create(MediaType.PICTURE, "Some Message No. 1".toByteArray()).get()
-        courseApp.broadcast(adminToken, message)
-        courseApp.addListener(adminToken, callback)
+        courseApp.broadcast(adminToken, message).join()
+        courseApp.addListener(adminToken, callback).join()
 
         assert(messages.size == 1)
     }
@@ -1821,13 +1823,13 @@ class CourseAppTest {
         val otherUser= courseApp.login("other", "pass").get()
         for (i in 1..1000 ) {
             val message = messageFactory.create(MediaType.PICTURE, "Some Message No. $i".toByteArray()).get()
-            courseApp.broadcast(adminToken, message)
+            courseApp.broadcast(adminToken, message).join()
         }
         val callback: ListenerCallback = { _, message ->
             messages.add(message.contents.toString(Charset.defaultCharset()))
             CompletableFuture.completedFuture(Unit)
         }
-        courseApp.addListener(otherUser, callback)
+        courseApp.addListener(otherUser, callback).join()
         assertEquals(1000, messages.size )
     }
 
@@ -1843,7 +1845,7 @@ class CourseAppTest {
         val otherUser= courseApp.login("other", "pass").get()
         for (i in 1..1000 ) {
             val message = messageFactory.create(MediaType.PICTURE, "Some Message No. $i".toByteArray()).get()
-            courseApp.broadcast(adminToken, message)
+            courseApp.broadcast(adminToken, message).join()
         }
 
         val callback2: ListenerCallback = { _, message ->
@@ -1851,8 +1853,8 @@ class CourseAppTest {
             CompletableFuture.completedFuture(Unit)
         }
 
-        courseApp.addListener(otherUser, callback)
-        courseApp.addListener(adminToken, callback2)
+        courseApp.addListener(otherUser, callback).join()
+        courseApp.addListener(adminToken, callback2).join()
         assertEquals(2000, messages.size )
     }
 
@@ -1868,7 +1870,7 @@ class CourseAppTest {
 
         for (i in 1..20 ) {
             val message = messageFactory.create(MediaType.PICTURE, "Some Message No. $i".toByteArray()).get()
-            courseApp.broadcast(adminToken, message)
+            courseApp.broadcast(adminToken, message).join()
         }
         val otherUser= courseApp.login("other", "pass").get()
 
@@ -1877,8 +1879,8 @@ class CourseAppTest {
             CompletableFuture.completedFuture(Unit)
         }
 
-        courseApp.addListener(otherUser, callback)
-        courseApp.addListener(adminToken, callback2)
+        courseApp.addListener(otherUser, callback).join()
+        courseApp.addListener(adminToken, callback2).join()
         assertEquals(20, messages.size )
     }
 
@@ -1893,13 +1895,13 @@ class CourseAppTest {
             CompletableFuture.completedFuture(Unit)
         }
         val message = messageFactory.create(MediaType.PICTURE, "Some Message No. 1".toByteArray()).get()
-        courseApp.broadcast(adminToken, message)
+        courseApp.broadcast(adminToken, message).join()
 
-        courseApp.addListener(adminToken, callback)
+        courseApp.addListener(adminToken, callback).join()
         assertEquals(1, messages.size)
 
-        courseApp.removeListener(adminToken, callback)
-        courseApp.addListener(adminToken, callback)
+        courseApp.removeListener(adminToken, callback).join()
+        courseApp.addListener(adminToken, callback).join()
         assertEquals(1, messages.size)
 
     }
@@ -1908,15 +1910,15 @@ class CourseAppTest {
     @Order(129)
     fun `channelSend activate lambda of a listener in the channel`(){
         val adminToken = courseApp.login("admin", "pass").get()
-        courseApp.channelJoin(adminToken, "#channel___")
+        courseApp.channelJoin(adminToken, "#channel___").join()
         var messages = mutableListOf<String>()
         val callback: ListenerCallback = { _, message ->
             messages.add(message.contents.toString(Charset.defaultCharset()))
             CompletableFuture.completedFuture(Unit)
         }
         val message = messageFactory.create(MediaType.PICTURE, "Some Message No. 1".toByteArray()).get()
-        courseApp.addListener(adminToken, callback)
-        courseApp.channelSend(adminToken, "#channel___", message)
+        courseApp.addListener(adminToken, callback).join()
+        courseApp.channelSend(adminToken, "#channel___", message).join()
 
         assertEquals(1, messages.size)
     }
@@ -1925,23 +1927,23 @@ class CourseAppTest {
     @Order(130)
     fun `channelSend activate lambda of a 100000 listeners in the channel`(){
         val adminToken = courseApp.login("admin", "pass").get()
-        courseApp.channelJoin(adminToken, "#channel___")
+        courseApp.channelJoin(adminToken, "#channel___").join()
         val amount = 100000
         var messages = mutableListOf<String>()
         for(i in 1..amount){
             if (i%10000 == 0)
                 println(i)
             val otherUser= courseApp.login("other$i", "pass$i").get()
-            courseApp.channelJoin(otherUser, "#channel___")
+            courseApp.channelJoin(otherUser, "#channel___").join()
             val callback: ListenerCallback = { _, message ->
                 messages.add(message.contents.toString(Charset.defaultCharset()))
                 CompletableFuture.completedFuture(Unit)
             }
-            courseApp.addListener(otherUser, callback)
+            courseApp.addListener(otherUser, callback).join()
         }
 
         val message = messageFactory.create(MediaType.PICTURE, "Some Message No. 1".toByteArray()).get()
-        courseApp.channelSend(adminToken, "#channel___", message)
+        courseApp.channelSend(adminToken, "#channel___", message).join()
 
         assertEquals(amount, messages.size)
     }
@@ -1950,28 +1952,164 @@ class CourseAppTest {
     @Order(131)
     fun `channelSend activate lambda of a 50000 listeners in the channel when only half of members are listeners`(){
         val adminToken = courseApp.login("admin", "pass").get()
-        courseApp.channelJoin(adminToken, "#channel___")
+        courseApp.channelJoin(adminToken, "#channel___").join()
         val amount = 100000
         var messages = mutableListOf<String>()
         for(i in 1..amount){
             if (i%10000 == 0)
                 println(i)
             val otherUser= courseApp.login("other$i", "pass$i").get()
-            courseApp.channelJoin(otherUser, "#channel___")
+            courseApp.channelJoin(otherUser, "#channel___").join()
             if(i%2 != 0) {
                 val callback: ListenerCallback = { _, message ->
                     messages.add(message.contents.toString(Charset.defaultCharset()))
                     CompletableFuture.completedFuture(Unit)
                 }
-                courseApp.addListener(otherUser, callback)
+                courseApp.addListener(otherUser, callback).join()
             }
         }
 
         val message = messageFactory.create(MediaType.PICTURE, "Some Message No. 1".toByteArray()).get()
-        courseApp.channelSend(adminToken, "#channel___", message)
+        courseApp.channelSend(adminToken, "#channel___", message).join()
 
         assertEquals(amount/2, messages.size)
     }
 
+    @Test
+    @Order(132)
+    fun `administrator can create channel and is a member of it`() {
+        val administratorToken = courseApp.login("admin", "admin")
+                .thenCompose { token -> courseApp.channelJoin(token, "#mychannel").thenApply { token } }
+                .join()
+
+        assertThat(runWithTimeout(ofSeconds(10)) {
+            courseApp.isUserInChannel(administratorToken, "#mychannel", "admin").join()
+        }, isTrue)
+    }
+
+    @Test
+    @Order(133)
+    fun `non-administrator can not make administrator`() {
+        val nonAdminToken = courseApp.login("admin", "admin")
+                .thenCompose { courseApp.login("matan", "1234") }
+                .thenCompose { token -> courseApp.login("gal", "hunter2").thenApply { token } }
+                .join()
+
+        assertThrows<UserNotAuthorizedException> {
+            runWithTimeout(ofSeconds(10)) {
+                courseApp.makeAdministrator(nonAdminToken, "gal").joinException()
+            }
+        }
+    }
+
+    @Test
+    @Order(134)
+    fun `non-administrator can join existing channel and be made operator`() {
+        val adminToken = courseApp.login("admin", "admin")
+                .thenCompose { adminToken ->
+                    courseApp.login("matan", "1234")
+                            .thenApply { Pair(adminToken, it) }
+                }
+                .thenCompose { (adminToken, otherToken) ->
+                    courseApp.channelJoin(adminToken, "#test")
+                            .thenCompose { courseApp.channelJoin(otherToken, "#test") }
+                            .thenCompose { courseApp.channelMakeOperator(adminToken, "#test", "matan") }
+                            .thenApply { adminToken }
+                }.join()
+
+        assertThat(runWithTimeout(ofSeconds(10)) {
+            courseApp.isUserInChannel(adminToken, "#test", "matan").join()
+        }, isTrue)
+    }
+
+    @Test
+    @Order(135)
+    fun `user is not in channel after parting from it`() {
+        val (adminToken, _) = courseApp.login("admin", "admin")
+                .thenCompose { adminToken ->
+                    courseApp.login("matan", "1234").thenApply { Pair(adminToken, it) }
+                }.thenCompose { pair ->
+                    val (adminToken, otherToken) = pair
+                    courseApp.channelJoin(adminToken, "#mychannel")
+                            .thenCompose { courseApp.channelJoin(otherToken, "#mychannel") }
+                            .thenCompose { courseApp.channelPart(otherToken, "#mychannel") }
+                            .thenApply { pair }
+                }.join()
+
+        assertThat(runWithTimeout(ofSeconds(10)) {
+            courseApp.isUserInChannel(adminToken, "#mychannel", "matan").join()
+        }, isFalse)
+    }
+
+    @Test
+    @Order(136)
+    fun `user is not in channel after being kicked`() {
+        val (adminToken, _) = courseApp.login("admin", "admin")
+                .thenCompose { adminToken ->
+                    courseApp.login("matan", "4321").thenApply { Pair(adminToken, it) }
+                }.thenCompose { pair ->
+                    val (adminToken, otherToken) = pair
+                    courseApp.channelJoin(adminToken, "#236700")
+                            .thenCompose { courseApp.channelJoin(otherToken, "#236700") }
+                            .thenCompose { courseApp.channelKick(adminToken, "#236700", "matan") }
+                            .thenApply { pair }
+                }.join()
+
+        assertThat(runWithTimeout(ofSeconds(10)) {
+            courseApp.isUserInChannel(adminToken, "#236700", "matan").join()
+        }, isFalse)
+    }
+
+    @Test
+    @Order(137)
+    fun `total user count in a channel is correct with a single user`() {
+        val adminToken = courseApp.login("admin", "admin")
+                .thenCompose { token -> courseApp.channelJoin(token, "#test").thenApply { token } }
+                .join()
+
+        assertThat(runWithTimeout(ofSeconds(10)) {
+            courseApp.numberOfTotalUsersInChannel(adminToken, "#test").join()
+        }, equalTo(1L))
+    }
+
+    @Test
+    @Order(138)
+    fun `active user count in a channel is correct with a single user`() {
+        val adminToken = courseApp.login("admin", "admin")
+                .thenCompose { token -> courseApp.channelJoin(token, "#test").thenApply { token } }
+                .join()
+
+        assertThat(runWithTimeout(ofSeconds(10)) {
+            courseApp.numberOfActiveUsersInChannel(adminToken, "#test").join()
+        }, equalTo(1L))
+    }
+
+    @Test
+    fun `channel message received successfully`() {
+        var sources = mutableListOf<String>()
+        var messages = mutableListOf<Message>()
+        val callback: ListenerCallback = { source, message ->
+            sources.add(source)
+            messages.add(message)
+            CompletableFuture.completedFuture(Unit)
+        }
+        val (token, message) = courseApp.login("admin", "admin")
+                .thenCompose { adminToken ->
+                    courseApp.login("gal", "hunter2").thenApply { Pair(adminToken, it) }
+                }.thenCompose { (adminToken, userToken) ->
+                    courseApp.addListener(userToken, callback)
+                            .thenCompose { courseApp.channelJoin(adminToken, "#jokes") }
+                            .thenCompose { courseApp.channelJoin(userToken, "#jokes") }
+                            .thenCompose { messageFactory.create(MediaType.TEXT, "why did the chicken cross the road?".toByteArray()) }
+                            .thenApply { message -> Pair(adminToken, message) }
+                }.join()
+
+        runWithTimeout(ofSeconds(10)) { courseApp.channelSend(token, "#jokes", message).join() }
+
+        assertEquals(1, sources.size)
+        assertEquals(1, messages.size)
+        assertEquals("#jokes@admin", sources[0])
+        assert("why did the chicken cross the road?".toByteArray().contentEquals(messages[0].contents))
+    }
 
 }

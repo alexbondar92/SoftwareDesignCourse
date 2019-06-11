@@ -227,22 +227,14 @@ class CourseAppStaffTest {
 
     @Test
     fun `private message received successfully`() {
-        var sources = mutableListOf<String>()
-        var messages = mutableListOf<Message>()
-        val callback: ListenerCallback = { source, message ->
-            sources.add(source)
-            messages.add(message)
-            CompletableFuture.completedFuture(Unit)
-        }
-//        val listener = mockk<ListenerCallback>()
-//        every { listener(any(), any()) }.returns(CompletableFuture.completedFuture(Unit))
+        val listener = mockk<ListenerCallback>()
+        every { listener(any(), any()) }.returns(CompletableFuture.completedFuture(Unit))
 
         val (token, message) = courseApp.login("admin", "admin")
                 .thenCompose { adminToken ->
                     courseApp.login("gal", "hunter2").thenApply { Pair(adminToken, it) }
                 }.thenCompose { (adminToken, nonAdminToken) ->
-//                            courseApp.addListener(nonAdminToken, listener)
-                            courseApp.addListener(nonAdminToken, callback)
+                            courseApp.addListener(nonAdminToken, listener)
                             .thenCompose { messageFactory.create(MediaType.TEXT, "hello, world\n".toByteArray()) }
                             .thenApply { message -> Pair(adminToken, message) }
                 }.join()
@@ -252,35 +244,24 @@ class CourseAppStaffTest {
             assertEquals(0, courseAppStatistics.pendingMessages().join())
         }
 
-        assertEquals(1, sources.size)
-        assertEquals(1, messages.size)
-        assertEquals("@admin", sources[0])
-        assertEquals( "hello, world\n", messages[0].contents.toString(Charset.defaultCharset()))
-//        verify {
-//            listener(match { it == "@admin" },
-//                    match { it.contents contentEquals "hello, world\n".toByteArray() })
-//        }
-//        confirmVerified(listener)
+        verify {
+            listener(match { it == "@admin" },
+                    match { it.contents contentEquals "hello, world\n".toByteArray() })
+        }
+        verify(atLeast = 0) { listener.hashCode() }
+        confirmVerified(listener)
     }
 
     @Test
     fun `channel message received successfully`() {
-        var sources = mutableListOf<String>()
-        var messages = mutableListOf<Message>()
-        val callback: ListenerCallback = { source, message ->
-            sources.add(source)
-            messages.add(message)
-            CompletableFuture.completedFuture(Unit)
-        }
-//        val listener = mockk<ListenerCallback>()
-//        every { listener(any(), any()) }.returns(CompletableFuture.completedFuture(Unit))
+        val listener = mockk<ListenerCallback>()
+        every { listener(any(), any()) }.returns(CompletableFuture.completedFuture(Unit))
 
         val (token, message) = courseApp.login("admin", "admin")
                 .thenCompose { adminToken ->
                     courseApp.login("gal", "hunter2").thenApply { Pair(adminToken, it) }
                 }.thenCompose { (adminToken, userToken) ->
-                    courseApp.addListener(userToken, callback)
-//                    courseApp.addListener(userToken, listener)
+                    courseApp.addListener(userToken, listener)
                             .thenCompose { courseApp.channelJoin(adminToken, "#jokes") }
                             .thenCompose { courseApp.channelJoin(userToken, "#jokes") }
                             .thenCompose { messageFactory.create(MediaType.TEXT, "why did the chicken cross the road?".toByteArray()) }
@@ -289,20 +270,12 @@ class CourseAppStaffTest {
 
         runWithTimeout(ofSeconds(10)) { courseApp.channelSend(token, "#jokes", message).join() }
 
-        assertEquals(1, sources.size)
-        assertEquals(1, messages.size)
-        assertEquals("#jokes@admin", sources[0])
-        println("why did the chicken cross the road?".toByteArray(Charset.defaultCharset()))
-        println("why did the chicken cross the road?".toByteArray())
-        println("why did the chicken cross the road?".toByteArray().toString(Charset.defaultCharset()))
-        println(messages[0].contents.toString(Charset.defaultCharset()))
-        assertEquals("why did the chicken cross the road?", messages[0].contents.toString(Charset.defaultCharset()))
-//        verify {
-//            listener(match { it == "#jokes@admin" },
-////                    match { it.contents contentEquals "why did the chicken cross the road?".toByteArray() })
-//                    match { it.contents.toString(Charset.defaultCharset()) == "why did the chicken cross the road?" })
-//        }
-//        confirmVerified(listener)
+        verify {
+            listener(match { it == "#jokes@admin" },
+                    match { it.contents contentEquals "why did the chicken cross the road?".toByteArray() })
+        }
+        verify(atLeast = 0) { listener.hashCode() }
+        confirmVerified(listener)
     }
 
     @Test

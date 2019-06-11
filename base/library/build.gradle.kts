@@ -15,4 +15,5 @@ dependencies {
     testCompile("com.natpryce", "hamkrest", hamkrestVersion)
 
     runtime("org.junit.jupiter", "junit-jupiter-engine", junitVersion)
+    testImplementation("io.mockk:mockk:1.9.3")
 }

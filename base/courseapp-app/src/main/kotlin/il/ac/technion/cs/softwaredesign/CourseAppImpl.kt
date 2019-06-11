@@ -36,6 +36,7 @@ class CourseAppImpl: CourseApp{
     private var callbackToToken: HashMap<ListenerCallback, String>
 
     private val timeFormatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME
+    private val charset: Charset = Charsets.UTF_8
 
     @Inject constructor(storage: DataStoreIo) {
         storageIo = storage
@@ -1414,7 +1415,7 @@ class CourseAppImpl: CourseApp{
 
         val message = MessageImpl(id = listOfFields[0].toLong(),
                 media = MediaType.valueOf(listOfFields[1]),
-                contents = listOfFields[2].toByteArray(Charset.defaultCharset()),
+                contents = listOfFields[2].toByteArray(charset),
                 created = LocalDateTime.parse(listOfFields[3], timeFormatter),
                 received = receivedTime)
 

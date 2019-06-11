@@ -20,4 +20,5 @@ dependencies {
     testCompile("org.junit.jupiter", "junit-jupiter-api", junitVersion)
     testCompile("org.junit.jupiter", "junit-jupiter-params", junitVersion)
     testCompile("com.natpryce", "hamkrest", hamkrestVersion)
+    testImplementation("io.mockk:mockk:1.9.3")
 }

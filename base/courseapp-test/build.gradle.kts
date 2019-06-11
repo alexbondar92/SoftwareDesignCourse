@@ -17,6 +17,6 @@ dependencies {
     testCompile("com.google.inject", "guice", guiceVersion)
     testCompile("com.authzee.kotlinguice4", "kotlin-guice", kotlinGuiceVersion)
 
-    testImplementation("io.mockk", "mockk", mockkVersion)
+    testImplementation("io.mockk:mockk:1.9.3")
 }
 
