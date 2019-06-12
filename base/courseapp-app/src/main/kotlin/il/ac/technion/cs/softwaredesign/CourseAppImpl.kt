@@ -127,6 +127,7 @@ class CourseAppImpl: CourseApp{
      * @return An authentication token to be used in other calls.
      */
     override fun login(username: String, password: String): CompletableFuture<String> {
+
         when (readUserStatus(usernameToToken(username))) {
             notRegistered -> {
                 val genToken = getNewUserIndex(username)
@@ -283,6 +284,12 @@ class CourseAppImpl: CourseApp{
 
         if (!isChannelExist(channel) && !isAdministrator(token))
             throw UserNotAuthorizedException()
+
+        // TODO ("have been added after test `top10ChannelsByUsers after join and part is empty` in OtherTests2")
+        // TODO ("this have not been covered in Matan's documentation.... need to recheck")
+        if (areUserAndChannelConnected(token, channel))
+            return CompletableFuture.completedFuture(Unit)
+
 
         val size = amountOfUsersInChannel(channel)
         if ( size != null && size > 0){         //channel empty but was not empty in the past, or not empty now
@@ -843,8 +850,9 @@ class CourseAppImpl: CourseApp{
     private fun decChannelAmountofUser(token: String) : Long {
         val number = readAmountOfChannelsForUser(token)
         assert(number > 0)
-        writeChannelsAmountOfUser(token, number-1)
-        return number-1
+        val newNumber = number - 1
+        writeChannelsAmountOfUser(token, newNumber)
+        return newNumber
     }
 
     private fun setAdministrator(token: String){
@@ -896,8 +904,9 @@ class CourseAppImpl: CourseApp{
     private fun decUsersInChannel(channel: String) : Long {
         val size = amountOfUsersInChannel(channel)!!
         assert(size > 0)
-        updateAmountOfUsersInChannel(channel, size-1)
-        return size - 1
+        val newSize = size - 1
+        updateAmountOfUsersInChannel(channel, newSize)
+        return newSize
     }
 
     private fun makeUserOperator(channel : String, token: String){
@@ -1112,6 +1121,8 @@ class CourseAppImpl: CourseApp{
     private fun getChannelsOf(token: String): MutableList<String>{
         // Assumption:: token is valid
         val str = readFromStorage(mutableListOf(token), KeyType.CHANNELS) ?: return mutableListOf()
+        if (str == "")
+            return mutableListOf()
         val delimiter = "%"
         return str.split(delimiter).toMutableList()
     }
@@ -1236,6 +1247,11 @@ class CourseAppImpl: CourseApp{
         deleteFromTotalChannelsTree(channel)
         deleteFromUsersTree(token)
 
+        if (readFromStorage(mutableListOf(token), KeyType.USER) == userLoggedIn) {
+            deleteFromActiveChannelsTree(channel)
+            decLoggedInChannel(channel)
+        }
+
         val updatedChannelsAmountOfUser = decChannelAmountofUser(token)
         val updatedUsersAmount = decUsersInChannel(channel)
 
@@ -1244,9 +1260,7 @@ class CourseAppImpl: CourseApp{
             insertUsersTree(token, updatedChannelsAmountOfUser)
 
             if (readFromStorage(mutableListOf(token), KeyType.USER) == userLoggedIn) {
-
-                deleteFromActiveChannelsTree(channel)
-                val updatedActiveAmount = decLoggedInChannel(channel)
+                val updatedActiveAmount = numberOfActiveUsersInChannel(channel)
                 insertToActiveChannelsTree(channel, updatedActiveAmount)
             }
         }

@@ -1,7 +1,9 @@
 package il.ac.technion.cs.softwaredesign.tests
 
 import com.natpryce.hamkrest.*
+import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.Assertions.assertTimeoutPreemptively
+import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.api.function.ThrowingSupplier
 import java.time.Duration
 import java.util.concurrent.CompletableFuture
@@ -42,3 +44,6 @@ fun <T> CompletableFuture<T>.joinException(): T {
         throw e.cause!!
     }
 }
+
+inline fun <T, reified E : Throwable> assertThrowsWithTimeout(noinline executable: () -> T, timeout: Duration = Duration.ofSeconds(10)) =
+        assertThrows<E> { runWithTimeout(timeout, executable) }
