@@ -16,6 +16,7 @@ allprojects {
         set("guiceVersion", "4.2.2")
         set("kotlinGuiceVersion", "1.3.0")
         set("mockkVersion", "1.9.3")
+        set("dokkaVersion", "0.9.18")
     }
 }
 
@@ -23,9 +24,10 @@ subprojects {
     apply(plugin = "kotlin")
     dependencies {
         val junitVersion: String? by extra
+        val dokkaVersion: String? by extra
         implementation(kotlin("stdlib-jdk8"))
         compile(kotlin("reflect"))
-
+        compile("org.jetbrains.dokka:dokka-android-gradle-plugin:$dokkaVersion")
         testRuntime("org.junit.jupiter", "junit-jupiter-engine", junitVersion)
     }
     tasks.withType<KotlinCompile> {

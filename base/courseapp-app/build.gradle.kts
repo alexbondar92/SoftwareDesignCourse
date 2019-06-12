@@ -1,9 +1,15 @@
 plugins {
     application
+    id("org.jetbrains.dokka") version "0.9.18"
 }
 
 application {
     mainClassName = "il.ac.technion.cs.softwaredesign.MainKt"
+
+    tasks.dokka {
+        outputFormat = "html"
+        outputDirectory = " build/javadoc"
+    }
 }
 
 val junitVersion: String? by extra
@@ -21,4 +27,6 @@ dependencies {
     testCompile("org.junit.jupiter", "junit-jupiter-params", junitVersion)
     testCompile("com.natpryce", "hamkrest", hamkrestVersion)
     testImplementation("io.mockk:mockk:1.9.3")
+    
 }
+

@@ -1,3 +1,15 @@
+plugins {
+    application
+    id("org.jetbrains.dokka") version "0.9.18"
+}
+
+application {
+    tasks.dokka {
+        outputFormat = "html"
+        outputDirectory = " build/javadoc"
+    }
+}
+
 val hamkrestVersion: String? by extra
 val junitVersion: String? by extra
 

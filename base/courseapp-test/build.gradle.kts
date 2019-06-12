@@ -1,6 +1,14 @@
 plugins {
+    application
+    id("org.jetbrains.dokka") version "0.9.18"
 }
 
+application {
+    tasks.dokka {
+        outputFormat = "html"
+        outputDirectory = " build/javadoc"
+    }
+}
 val junitVersion: String? by extra
 val hamkrestVersion: String? by extra
 val guiceVersion: String? by extra
@@ -19,4 +27,7 @@ dependencies {
 
     testImplementation("io.mockk:mockk:1.9.3")
 }
+
+
+
 
