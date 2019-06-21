@@ -241,5 +241,4 @@ interface CourseApp {
      * @return The message identified by [id] along with its source.
      */
     fun fetchMessage(token: String, id: Long): CompletableFuture<Pair<String, Message>>
-    //channel can be removed and back again to life, as long as the name is not changing we can fetch the message
 }

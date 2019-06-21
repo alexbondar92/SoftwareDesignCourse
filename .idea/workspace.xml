@@ -1,39 +1,458 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="17742d97-7439-4157-805f-0d85151f331b" name="Default Changelist" comment="" />
+    <list default="true" id="bc723325-72a1-4d7b-b4e4-3ce444925666" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/base/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBotImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBotsImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/base/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/base/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/.gradle/5.4.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/base/.gradle/5.4.1/fileContent/fileContent.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/base/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/base/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/base/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/.gradle/5.4.1/vcsMetadata-1/vcsMetadata-1.lock" beforeDir="false" afterPath="$PROJECT_DIR$/base/.gradle/5.4.1/vcsMetadata-1/vcsMetadata-1.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/.gradle/5.4.1/vcsMetadata-1/workingDirs.bin" beforeDir="false" afterPath="$PROJECT_DIR$/base/.gradle/5.4.1/vcsMetadata-1/workingDirs.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/base/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/base/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/base/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/.gradle/vcs-1/vcs-1.lock" beforeDir="false" afterPath="$PROJECT_DIR$/base/.gradle/vcs-1/vcs-1.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/.idea/kotlinScripting.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/base/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/base/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/base/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/base/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/base/courseapp-app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/META-INF/base.courseapp-app.main.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseApp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$KeyType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$OurObservableImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$TypeMessage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$UpdateLoggedStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$UpdateType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$UserStatusInChannel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$WhenMappings.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$fetchMessageAux$lamd$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10ChannelsByActiveUsers$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10ChannelsByMessagesNumber$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10ChannelsByTotalUsers$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10User$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$messageIsSameChannelAsUser$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppInitializer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppInitializerImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppModule$configure$$inlined$bind$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppModule$configure$$inlined$bind$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppModule$configure$$inlined$bind$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppModule$configure$$inlined$bind$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppModule$configure$$inlined$bind$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppModule$configure$$inlined$to$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppModule$configure$$inlined$to$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppModule$configure$$inlined$to$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppModule$configure$$inlined$to$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppModule.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppStatistics.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/MainKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/exceptions/InvalidTokenException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/exceptions/NameFormatException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/exceptions/NoSuchEntityException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/exceptions/UserAlreadyLoggedInException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/exceptions/UserNotAuthorizedException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/messages/MediaType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/messages/Message.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/messages/MessageFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/messages/MessageFactoryImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/messages/MessageImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/META-INF/base.courseapp-app.main.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest$$special$$inlined$getInstance$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest$$special$$inlined$getInstance$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest$$special$$inlined$getInstance$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$ channel does not contains operators$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$$special$$inlined$getInstance$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$$special$$inlined$getInstance$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$$special$$inlined$getInstance$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$$special$$inlined$getInstance$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$1,000,000 logged in users in system - stress test$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$1,000,000 logged in users in system - stress test$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$add up to 512 users to the channel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding 100000 listeners for 1 user and get messages in broadcast$callBack$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding 100000 listeners for 1 user successfully$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding 100000 listeners for 1 user successfully$callBack$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding 100000 listeners for different users and get messages in broadcast$callBack$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding 100000 listeners for different users successfully$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding 100000 listeners for different users successfully$callBack$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding 100000 listeners to one user and remove listeners successfully$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding 100000 listeners to one user and remove listeners successfully$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding 100000 listeners to one user and remove listeners successfully$callBack$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding few listeners successfully$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding few listeners successfully$callBack$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding listener and broadcast successfully with the right broadcast source string$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding listener and broadcast successfully with the right broadcast source string$callBack$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding listener and removes it successfully$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding listener and removes it successfully$callBack$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding listener and removes it with bad callback lambda throws NoSuchEntityException$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding listener and removes it with bad callback lambda throws NoSuchEntityException$callBack$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding listener and removes it with bad callback lambda throws NoSuchEntityException$otherCallBack$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding listener and removes it with invalid token throws InvalidTokenException$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding listener and removes it with invalid token throws InvalidTokenException$callBack$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding listener successfully$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding listener successfully$callBack$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding listener with bad token throws InvalidTokenException$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding listener with bad token throws InvalidTokenException$callBack$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$admin makes himself as operator in the channel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$administrator retain their status after relogging$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$administrator retain their status after system reboot$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$administrator that is not an operator of this channel leaves the channel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$after login, a user is logged in$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$an authentication token is invalidated after logout$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$an authentication token is invalidated after logout$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$an authentication token is invalidated after logout, stays that way after reboot$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$an authentication token is invalidated after logout, stays that way after reboot$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$channelSend activate lambda of a 100000 listeners in the channel$callback$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$channelSend activate lambda of a 50000 listeners in the channel when only half of members are listeners$callback$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$channelSend activate lambda of a listener in the channel$callback$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$corrupted(prefix &amp; suffix) token pass over$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$corrupted(prefix &amp; suffix) token pass over$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$create channel with illegal name$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$create channel with illegal name$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$create channel with illegal name$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$create channel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$edge case, every user should get a pending massage only once$callback$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$enable to login same user after reboot$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$fetch messages from history of channel messages$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$fetch messages from history of channel messages$callBack1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$fetch messages from history of channel messages$callBack2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$first user in the channel is a Operator$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$first user in the system becomes administrator automatically$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$get broadcast messages 2 listeners of different user $1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$get broadcast messages 2 listeners of different user $callback$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$get broadcast messages 2 listeners of same user$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$get broadcast messages 2 listeners of same user$callback$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$get pending broadcast messages as an admin that sent the message$callback$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$get pending broadcast messages, 1000 pending (all from broadcast)$callback$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$get pending private messages$callback$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$get private messages$callback$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$getting all the pending messages when addListener is being invoked$callback$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$inlined$sam$i$org_junit_jupiter_api_function_Executable$0.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$invalid token(not associated to no one) tries to join to channel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$invalid token(not of admin) tries to create new channel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel return false if user exists and not in channel $1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel return true if user exists and in channel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel returns true for one user in channel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel throws InvalidTokenException for non-existent token$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel throws NoSuchEntityException for non-existent channel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel throws UserNotAuthorizedException for non-member and non-administrator user$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$joining user to 128 channels$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$kick administrator from channel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$kick another operator from channel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$kick another operator that is admin(as well) from channel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$kick user from channel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$last user(administrator) leaves the channel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$last user(operator) leaves the channel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$last user(regular) leaves the channel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$leave channel with illegal token(existing channel)$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$leave channel with illegal token(not existing channel)$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$leave channel with valid token but the channel does not exist$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$log in user twice and other users log in between should throw exception$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$log in user twice and other users log in between should throw exception$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$log in user twice should throw exception$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$log in user twice should throw exception$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$log out a none exist user $3$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$log out a none exist user $3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$login very long username and password$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$make administrator of logged out user$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$make operator of user that is a member of the channel, but is logged out$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$make random number of administrator in the system$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$make random number of channels$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$makeAdministrator gets invalid token throws InvalidTokenException$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$makeAdministrator gets invalid user$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$makeAdministrator gets token that is not associated to administrator$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$makeAdministrator makes administrator, an admin again$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$operator kick himself from the channel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$operator kick himself from the channel, and he was the last one$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$operator leave the channel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$operator makes himself as an operator at the same channel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$operator title is removed after leaving the channel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$operator title is still valid after relogging$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$password is invalid$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$password is valid$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with another logged in user s password should throw exception$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with another logged in user s password should throw exception$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with another registered not logged in user s password should throw exception$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with another registered not logged in user s password should throw exception$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with wrong password should throw exception$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with wrong password should throw exception$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$regular member leaves channel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$selected amount of users are logged in at once - stress time test$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$selected amount of users are logged in at once - stress time test$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$stress test for 1,000,000 users and 100,000 channels in the system$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$stress test for 1,000,000 users and 100,000 channels in the system$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$system is persistent after reboot$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$system is persistent after reboot$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$system is persistent after reboot$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$token is illegal at is isUserLoggedin$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$token is illegal at logout$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$token is invalid after logout$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with channel that is not exits$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with channel that was deleted$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with illegal token$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with token that is not a member of the channel and not admin$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with channel that is not exits$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with channel that was deleted$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with illegal token$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with token that is not a member of the channel and not admin$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick from a channel that is not exists$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick from a deleted channel that is not exists$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick illegal user$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick non member user$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick user that was a member of the channel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick user with illegal token(admin)$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick user with illegal token(not operator)$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick user with illegal token(regular)$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator of admin that is not a member of this channel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator of user that is not a member of this channel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator of user that is not in the system$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with illegal token - is admin but not operator$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with illegal token(not of admin or operator)$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with illegal token(operator of other channel)$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with illegal token(regular)$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with with channel that not exits(never been)$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with with channel that not exits(was deleted)$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$trying to join to channel that was deleted$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$trying to leave channel with token that is not member of the channel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$trying to login with wrong pass$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$unable to fetch messages not from channel message type$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$unable to fetch messages not from channel message type$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$unable to fetch messages not from channel message type$callBack$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$unable to fetch messages that was after channel deleted and created again$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$unable to fetch messages that was after channel deleted and created again$callback1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$user log in then log out isUserLoggedIn returns False$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$user never been in the system isUserLoggedIn returns null$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$user stays logged in after reboot, assumes his token stays active$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$user that created after broadcast dont have pending messages$callback$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$user that created after broadcast dont have pending messages$callback2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt$containsElementsInOrder$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt$containsElementsInOrder$perElementMatcher$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt$sam$org_junit_jupiter_api_function_ThrowingSupplier$0.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt" beforeDir="false" afterPath="$PROJECT_DIR$/base/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppInitializerImpl.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/base/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/Message.kt" beforeDir="false" afterPath="$PROJECT_DIR$/base/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/Message.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/MessageFactoryImpl.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/MessageImpl.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/utils.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/base/courseapp-test/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/META-INF/base.courseapp-test.main.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$$special$$inlined$getInstance$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$$special$$inlined$getInstance$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$$special$$inlined$getInstance$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$$special$$inlined$getInstance$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$active user count in a channel is correct with a single user$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$active user count in a channel is correct with a single user$adminToken$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$active user count in a channel is correct with a single user$adminToken$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$administrator can create channel and is a member of it$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$administrator can create channel and is a member of it$administratorToken$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$administrator can create channel and is a member of it$administratorToken$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$after login, a user is logged in$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$after login, a user is logged in$token$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$after login, a user is logged in$token$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$an authentication token is invalidated after logout$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$an authentication token is invalidated after logout$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$an authentication token is invalidated after logout$token$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$an authentication token is invalidated after logout$token$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$3$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$3$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$3$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$3$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$5$$special$$inlined$match$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$5$$special$$inlined$match$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$5$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$5$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$inlined$sam$i$org_junit_jupiter_api_function_Executable$0.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$logged in user count is correct when no user is logged in$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$non-administrator can join existing channel and be made operator$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$non-administrator can join existing channel and be made operator$adminToken$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$non-administrator can join existing channel and be made operator$adminToken$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$non-administrator can join existing channel and be made operator$adminToken$2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$non-administrator can join existing channel and be made operator$adminToken$2$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$non-administrator can join existing channel and be made operator$adminToken$2$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$non-administrator can join existing channel and be made operator$adminToken$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$non-administrator can not make administrator$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$non-administrator can not make administrator$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$non-administrator can not make administrator$nonAdminToken$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$non-administrator can not make administrator$nonAdminToken$2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$non-administrator can not make administrator$nonAdminToken$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$private message received successfully$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$private message received successfully$2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$private message received successfully$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$private message received successfully$3$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$private message received successfully$3$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$private message received successfully$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$private message received successfully$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$private message received successfully$5$$special$$inlined$match$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$private message received successfully$5$$special$$inlined$match$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$private message received successfully$5$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$private message received successfully$5$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$private message received successfully$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$there is 1 pending message after privateSend with no listener$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$there is 1 pending message after privateSend with no listener$2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$there is 1 pending message after privateSend with no listener$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$there is 1 pending message after privateSend with no listener$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 channel list counts only logged in users$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 channel list counts only logged in users$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 channel list counts only logged in users$2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 channel list counts only logged in users$2$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 channel list counts only logged in users$2$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 channel list counts only logged in users$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 channel list counts only logged in users$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 channel list does secondary sorting by creation$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 channel list does secondary sorting by creation$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 channel list does secondary sorting by creation$2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 channel list does secondary sorting by creation$2$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 channel list does secondary sorting by creation$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 channel list does secondary sorting by creation$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 user list does secondary sorting by creation$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 user list does secondary sorting by creation$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 user list does secondary sorting by creation$2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 user list does secondary sorting by creation$2$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 user list does secondary sorting by creation$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 user list does secondary sorting by creation$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$total user count in a channel is correct with a single user$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$total user count in a channel is correct with a single user$adminToken$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$total user count in a channel is correct with a single user$adminToken$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$total user count is correct when no users exist$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after being kicked$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after being kicked$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after being kicked$2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after being kicked$2$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after being kicked$2$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after being kicked$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after being kicked$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after parting from it$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after parting from it$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after parting from it$2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after parting from it$2$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after parting from it$2$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after parting from it$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after parting from it$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt$containsElementsInOrder$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt$containsElementsInOrder$perElementMatcher$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt$sam$org_junit_jupiter_api_function_ThrowingSupplier$0.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/base/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/base/library/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/production/classes/META-INF/base.library.main.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/production/classes/il/ac/technion/cs/softwaredesign/DataStoreIo$read$1$tmpRet$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/production/classes/il/ac/technion/cs/softwaredesign/DataStoreIo$read$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/production/classes/il/ac/technion/cs/softwaredesign/DataStoreIo$write$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/production/classes/il/ac/technion/cs/softwaredesign/DataStoreIo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/production/classes/il/ac/technion/cs/softwaredesign/FakeSecureStorage$read$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/production/classes/il/ac/technion/cs/softwaredesign/FakeSecureStorage$write$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/production/classes/il/ac/technion/cs/softwaredesign/FakeSecureStorage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/production/classes/il/ac/technion/cs/softwaredesign/FakeSecureStorageFactory$open$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/production/classes/il/ac/technion/cs/softwaredesign/FakeSecureStorageFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/production/classes/il/ac/technion/cs/softwaredesign/FakeSecureStorageModule$configure$$inlined$bind$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/production/classes/il/ac/technion/cs/softwaredesign/FakeSecureStorageModule$configure$$inlined$to$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/production/classes/il/ac/technion/cs/softwaredesign/FakeSecureStorageModule.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/production/classes/il/ac/technion/cs/softwaredesign/OurObservable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/production/classes/il/ac/technion/cs/softwaredesign/RemoteAvlTree$toKeyList$adder$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/production/classes/il/ac/technion/cs/softwaredesign/RemoteAvlTree$top10$adder$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/production/classes/il/ac/technion/cs/softwaredesign/RemoteAvlTree$top10$cond$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/production/classes/il/ac/technion/cs/softwaredesign/RemoteAvlTree.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/production/classes/il/ac/technion/cs/softwaredesign/RemoteNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/test/classes/META-INF/base.library.main.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/test/classes/il/ac/technion/cs/softwaredesign/tests/DataStoreIoTest$read returns data for 1 ms per byte$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/test/classes/il/ac/technion/cs/softwaredesign/tests/DataStoreIoTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/test/classes/il/ac/technion/cs/softwaredesign/tests/RemoteAvlTreeTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/test/classes/il/ac/technion/cs/softwaredesign/tests/RemoteNodeTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt$containsElementsInOrder$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt$containsElementsInOrder$perElementMatcher$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt$sam$org_junit_jupiter_api_function_ThrowingSupplier$0.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIo.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/FakeSecureStorage.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/FakeSecureStorageModule.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/OurObservable.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteAvlTree.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteNode.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/DataStoreIoTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/RemoteNodeTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/remoteAvlTreeTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/utils.kt" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf />
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="134" />
-    <option name="y" value="34" />
-    <option name="width" value="1389" />
-    <option name="height" value="987" />
+    <option name="x" value="48" />
+    <option name="y" value="37" />
+    <option name="width" value="1632" />
+    <option name="height" value="942" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="CourseAppGit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourseAppGit" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="CourseAppGit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourseAppGit" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -52,33 +471,34 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="17742d97-7439-4157-805f-0d85151f331b" name="Default Changelist" comment="" />
-      <created>1558111355005</created>
+      <changelist id="bc723325-72a1-4d7b-b4e4-3ce444925666" name="Default Changelist" comment="" />
+      <created>1560871965237</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1558111355005</updated>
-      <workItem from="1558111356225" duration="23000" />
+      <updated>1560871965237</updated>
+      <workItem from="1560871966520" duration="31000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23000" />
+    <option name="totallyTimeSpent" value="31000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="134" y="34" width="1389" height="987" extended-state="0" />
+    <frame x="48" y="37" width="1632" height="942" extended-state="0" />
     <layout>
-      <window_info id="Image Layers" />
       <window_info id="Designer" />
-      <window_info id="UI Designer" />
+      <window_info id="Image Layers" />
       <window_info id="Capture Tool" />
+      <window_info id="UI Designer" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2494432" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24968554" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Build" weight="0.32941177" />
+      <window_info anchor="bottom" id="Terminal" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -86,12 +506,13 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
       <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Palette" />
       <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Gradle" />
       <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Theme Preview" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -99,5 +520,21 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>12</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
