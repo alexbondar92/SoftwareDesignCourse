@@ -2,6 +2,9 @@ package il.ac.technion.cs.softwaredesign.tests
 
 import com.authzee.kotlinguice4.getInstance
 import com.google.inject.Guice
+import com.natpryce.hamkrest.assertion.assertThat
+import com.natpryce.hamkrest.equalTo
+import com.natpryce.hamkrest.present
 
 import il.ac.technion.cs.softwaredesign.*
 import il.ac.technion.cs.softwaredesign.exceptions.NoSuchEntityException
@@ -9,6 +12,7 @@ import il.ac.technion.cs.softwaredesign.messages.MediaType
 import il.ac.technion.cs.softwaredesign.messages.MessageFactory
 import il.ac.technion.cs.softwaredesign.tests.old.courseapp.CourseAppModule
 import il.ac.technion.cs.softwaredesign.tests.old.courseapp.FakeSecureStorageModule
+import il.ac.technion.cs.softwaredesign.tests.runWithTimeout
 
 
 import org.junit.jupiter.api.*
@@ -17,6 +21,7 @@ import org.junit.jupiter.api.*
 import org.junit.jupiter.api.Order
 
 import org.junit.jupiter.api.Assertions.assertEquals
+import java.time.Duration.ofSeconds
 import java.util.concurrent.CompletableFuture
 
 
@@ -415,11 +420,72 @@ class CourseBotTests {
                             .thenCompose { token -> courseApp.channelSend(token, "#channel", messageFactory.create(MediaType.TEXT, "calculate 20 * 2 + 2".toByteArray(Charsets.UTF_8)).join()) }
                 }.join()
         assertEquals(2, messages.size)
-        assertEquals(42, messages[1])
+        assertEquals(42.0, messages[0].toDouble())
     }
 
+    @Test
+    @Order(22)
+    fun `A user in the channel can tip another user`() {
+        val adminToken = courseApp.login("gal", "hunter2").get()
+        courseApp.channelJoin(adminToken, "#channel").get()
+        val bot = bots.bot().get()
+        bot.join("#channel").get()
+        bot.setTipTrigger("tip").join()
+        val otherToken = courseApp.login("matan", "s3kr3t").join()
+        courseApp.channelJoin(otherToken, "#channel").join()
+        courseApp.channelSend(otherToken, "#channel", messageFactory.create(MediaType.TEXT, "tip 10 gal".toByteArray()).join())
 
+        val res = bot.richestUser("#channel").join()
 
+        assertEquals("gal", res)
+    }
 
+    @Test
+    @Order(23)
+    fun `The bot accurately tracks keywords`() {
+        val regex = ".*ello.*[wW]orl.*"
+        val channel = "#channel"
+        courseApp.login("gal", "hunter2")
+                .thenCompose { adminToken ->
+                    courseApp.channelJoin(adminToken, channel)
+                            .thenCompose {
+                                bots.bot()
+                                        .thenCompose { bot -> bot.join(channel).thenApply { bot } }
+                                        .thenCompose { bot -> bot.beginCount(regex = regex) }
+                            }
+                            .thenCompose { courseApp.login("matan", "s3kr3t") }
+                            .thenCompose { token -> courseApp.channelJoin(token, channel).thenApply { token } }
+                            .thenCompose { token -> courseApp.channelSend(token, channel, messageFactory.create(MediaType.TEXT, "hello, world!".toByteArray()).join()) }
+                }.join()
 
+        assertThat(runWithTimeout(ofSeconds(10)) {
+            bots.bot("Anna0").thenCompose { bot -> bot.count(regex =  regex) }.join()
+        }, equalTo(1L))
+    }
+
+    @Test
+    fun `A user in the channel can ask the bot to do a survey`() {
+        val adminToken = courseApp.login("gal", "hunter2")
+                .thenCompose { token -> courseApp.channelJoin(token, "#channel").thenApply { token } }
+                .join()
+        val regularUserToken = courseApp.login("matan", "s3kr3t")
+                .thenCompose { token -> courseApp.channelJoin(token, "#channel").thenApply { token } }
+                .join()
+        val bot = bots.bot()
+                .thenCompose { bot -> bot.join("#channel").thenApply { bot } }
+                .join()
+
+        val survey = bot.runSurvey("#channel", "What is your favorite flavour of ice-cream?",
+                    listOf("Cranberry",
+                            "Charcoal",
+                            "Chocolate-chip Mint")).join()
+        courseApp.channelSend(adminToken, "#channel", messageFactory.create(MediaType.TEXT, "Chocolate-chip Mint".toByteArray()).join())
+        courseApp.channelSend(regularUserToken, "#channel", messageFactory.create(MediaType.TEXT, "Chocolate-chip Mint".toByteArray()).join())
+        courseApp.channelSend(adminToken, "#channel", messageFactory.create(MediaType.TEXT, "Chocolate-chip Mint".toByteArray()).join())
+
+        val ret = bot.surveyResults(survey).join()
+        assertThat( runWithTimeout(ofSeconds(10)){
+            bot.surveyResults(survey).join()
+        }, containsElementsInOrder(0L, 0L, 2L))
+    }
 }

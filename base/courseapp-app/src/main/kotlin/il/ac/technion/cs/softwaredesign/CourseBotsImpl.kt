@@ -16,21 +16,24 @@ class CourseBotsImpl : CourseBots {
         cApp = courseApp
         messageFactory = messageFac
     }
+
+
     private var messageFactory: MessageFactory
     private var cApp : CourseApp
 
-    companion object {
-        private val botsMap: HashMap<String, Pair<String, LocalDateTime>> = HashMap()   // botName -> Pair(token, creation time)
-        private var id = 0.toLong()
-    }
-
-    // TODO ("does it need to be persistent at reboots?!?!? .... if yes what to do with all the listeners?? they need to be inserted again?")
-    // TODO ("add get() for all the API methods of CoureApp")
-    // TODO ("get all the data from the remote storage for CourseBots... - if was some...")
-    // TODO ("matan - after reboot, all the bots initialize here(heavy opp)")
-
+    private var botsCollection: HashMap<String, CourseBot> = HashMap()
 
     private val defaultNamePrefix = "Anna"
+
+    companion object {
+        private val botsMap: HashMap<String, Pair<String, LocalDateTime>> = HashMap()                                   //storage      // botName -> Pair(token, creation time)
+        private var id = 0.toLong()                                                                                     //storage
+    }
+
+    // TODO ("add get() for all the API methods of CourseApp")
+    // TODO ("get all the data from the remote storage for CourseBots... - if was some...")
+    // TODO ("Matan - after reboot, all the bots initialize here(heavy opp) - we will save all the bots in this object at init time...")
+    // TODO ("so we need map of all the bots in the system....  botName -> CourseAppBot!")
 
 
     /**
@@ -51,6 +54,8 @@ class CourseBotsImpl : CourseBots {
             addToBotsMap(botName, token)
         }
         val bot = CourseBotImpl(botName, token, cApp, messageFactory)
+
+        botsCollection[botName] = bot
 
         return CompletableFuture.completedFuture(bot)
     }
@@ -108,5 +113,16 @@ class CourseBotsImpl : CourseBots {
 
     private fun getFromBotsMap(botName: String): Pair<String, LocalDateTime>? {     // in case we need a getter from the map( + remote map/tree)....
         return botsMap[botName]
+    }
+
+
+    private fun loadBotsFromServer() {
+        val listOfBots = getAllBots().get()
+
+        for (botName in listOfBots) {
+            bot(botName)
+        }
+
+        // TODO ("use this function for init the bots that was before reboot...")
     }
 }

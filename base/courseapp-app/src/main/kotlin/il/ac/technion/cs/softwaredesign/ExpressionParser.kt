@@ -117,14 +117,15 @@ object ExpressionParser {
 
         return java.lang.Double.valueOf(stack.pop())
     }
-/*
+
     // Example:
     @JvmStatic
-    private fun main(args: Array<String>) {
+    public fun main(args: Array<String>) {
         println("( 1 + 2 ) * ( 3 / 4 ) - ( 5 + 6 )")
         println("( 1 + 2 ) * ( 3 / 4 ) - ( 5 + 6 )".replace(" ",""))
         println("( 1 + 2 ) * ( 3 / 4 ) - ( 5 + 6 )".replace(" ","").replace(Regex(".(?!$)"), "$0 "))
         val input = "( 1 + 2 ) * ( 3 / 4 ) - ( 5 + 6 )".replace(" ","").replace(Regex(".(?!$)"), "$0 ").split(" ").dropLastWhile { it.isEmpty() }.toTypedArray()
+//        val input = "20 * 2 + 2".split(" ".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
         val output = infixToRPN(input)
 
         // Build output RPN string minus the commas
@@ -137,5 +138,5 @@ object ExpressionParser {
         println()
         println("result: $result")
     }
-    */
+
 }

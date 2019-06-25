@@ -2,6 +2,7 @@ package il.ac.technion.cs.softwaredesign
 
 import il.ac.technion.cs.softwaredesign.exceptions.*
 import il.ac.technion.cs.softwaredesign.messages.MediaType
+import il.ac.technion.cs.softwaredesign.messages.Message
 import il.ac.technion.cs.softwaredesign.messages.MessageFactory
 import java.time.LocalDateTime
 import java.util.concurrent.CompletableFuture
@@ -11,11 +12,24 @@ import kotlin.collections.HashMap
 class CourseBotImpl : CourseBot {
 
 
-    constructor(name: String, token: String, courseApp : CourseApp, messageFac : MessageFactory) {
+    constructor(name: String, token: String, courseApp: CourseApp, messageFac: MessageFactory) {
+        // TODO ("does this bot in the storage? if yes load his data else create new empty bot")
+        // TODO ("sync with the library - to load or init one of them... depending if there was this bot before the reboot")
+
         cApp = courseApp
         messageFactory = messageFac
         botName = name
         botToken = token
+
+        // init maps for that bot - remote data structures
+        tippingService[botName] = HashMap()
+        seenLastTimeService[botName] = HashMap()
+        mostActiveService[botName] = HashMap()
+
+        // init maps for that bot - local data structures
+        lastSeenCallbacks = HashMap()
+        mostActiveCallbacks = HashMap()
+        surveysCallbacks = HashMap()
 
     }
 
@@ -25,43 +39,32 @@ class CourseBotImpl : CourseBot {
 
     private var botName: String
     private var botToken: String
-    /*
-        private var calculationCallback: ListenerCallback?
-        private var tipCallback: ListenerCallback?
-    */
 
+    private var cApp: CourseApp
+    private val messageFactory: MessageFactory
 
-    companion object{
+    private var tipCallback: ListenerCallback? = null
+    private var calculationCallback: ListenerCallback? = null
+    private var lastSeenCallbacks: HashMap<String, ListenerCallback?>                                                   //local     // channel -> ListenerCallback
+    private var mostActiveCallbacks: HashMap<String, ListenerCallback?>                                                 //local     // channel -> ListenerCallback
+    private val surveysCallbacks: HashMap<String, ListenerCallback>                                                     //local     // surveyID -> ListenerCallback
+    private val countersCallbacks: HashMap<Triple<String?, String?, MediaType?>, ListenerCallback> = HashMap()          //local     // Triple(channel, Regex, MediaType) -> ListenerCallback
+
+    companion object {
         //maps from name to list of channels:
-        private val channels: HashMap<String,MutableList<String>> = HashMap()                   //storage
-        private val counters: HashMap<String,HashMap<String, HashMap<Pair<String?, MediaType?>,Long>>> = HashMap()     //storage
-        private val triggerPhrase: HashMap<String, String> = HashMap()  //on storage
-        private val calculationCallbacks = HashMap<String,ListenerCallback>()   //local
-        /*
+        private val channels: HashMap<String, MutableList<String>> = HashMap()                                          //storage   // botName -> list of channels
+        private val counters: HashMap<String, HashMap<String, HashMap<Pair<String?, MediaType?>, Long>>> = HashMap()    //storage   // botName -> (channel -> (Pair(Regex, mediaType) -> Long))
+        private val triggerPhrase: HashMap<String, String?> = HashMap()                                                 //storage   // botName -> (Calculation Trigger)String
+        private var tipTriggerPhrase: HashMap<String, String?> = HashMap()                                              //storage   // botName -> (tip Trigger)String
+        private val tippingService: HashMap<String, HashMap<String, HashMap<String, Long>>> = HashMap()                 //storage   // botName -> (channel -> (user, current tip))
+        private val seenLastTimeService: HashMap<String, HashMap<String, HashMap<String, LocalDateTime?>>> = HashMap()  //storage   // botName -> (channel -> (user, time))
+        private val mostActiveService: HashMap<String, HashMap<String, HashMap<String, Long>>> = HashMap()              //storage   // botName -> (channel ->(user, number of messages sent by user))
+        private val surveys: HashMap<String, LongArray> = HashMap()                                                     //storage   // surveyID -> list of counters for answers
+        private val surveysHistory: HashMap<String, MutableSet<Pair<String,Int>>> = HashMap()                           //storage   // surveyID -> set of voters in this survey
+
         //global survey id counter:
-        private var surveyIdGen = 0.toLong()    //on storage.
-
-        //maps from name to phrases:
-
-        private var tipTriggerPhrase: HashMap<String,String> = HashMap()    //on storage
-
-
-
-        private val counterCallbacks: HashMap<Pair<String?, MediaType?>, ListenerCallback> =  HashMap() //local
-
-        //need to save the answers too because of comparing inside the lambda.
-        private val surveys: HashMap<String, Pair<ListenerCallback, List<Long>>> = HashMap()    //channel -> pair(callback, list of answers)
-
-        //maps for every bot and specific channel to the relevant information:
-        private val seenLastTimeService: HashMap<String,HashMap<String, HashMap<String, LocalDateTime?>>> = HashMap()   //botName -> (channel -> (user, time))
-        private val mostActiveService: HashMap<String,HashMap<String, HashMap<String, Long>>> = HashMap()       // botName -> (channel ->(user, number of messages sent by user))
-        private val tippingService: HashMap<String,HashMap<String, HashMap<String, Long>>> = HashMap()  // botName -> (channel -> (user, current tip))
-        private val surveyCallbacks: HashMap<String,HashMap<String, MutableList<ListenerCallback>>> = HashMap()   // botName -> (channel -> list of callbacks)
-        */
+        private var surveyIdGen = 0L                                                                                    //storage
     }
-
-    private var cApp : CourseApp
-    private val messageFactory : MessageFactory
 
     /**
      * Make the bot join the channel, courseBots is managing the login of bot.
@@ -70,33 +73,29 @@ class CourseBotImpl : CourseBot {
      */
     override fun join(channelName: String): CompletableFuture<Unit> {
         try {
-            cApp.channelJoin(botToken, channelName)
-        } catch (e : Exception) {
+            cApp.channelJoin(botToken, channelName).get()
+        } catch (e: Exception) {
             throw UserNotAuthorizedException()
         }
 
         addToChannelsList(channelName)
-        return CompletableFuture.completedFuture(Unit)
 
-
-
-        /*
-        // most active for new channel
-        mostActiveService[channelName] = HashMap()
-        val mostActiveCallback = getMostActiveUserCallback(channelName)
-        cApp.addListener(botToken!!, mostActiveCallback)
+        // tipping service for new channel
+        initTippingService(channelName)
 
         // last seen for new channel
-        seenLastTimeService[channelName] = HashMap()
+        initSeenLastTimeIn(channelName)
         val lastSeenCallback = getLastSeenCallback(channelName)
-        cApp.addListener(botToken!!, lastSeenCallback)
+        lastSeenCallbacks[channelName] = lastSeenCallback
+        cApp.addListener(botToken, lastSeenCallback).get()
 
-        // survey callback list
-        surveyCallbacks[channelName] = mutableListOf()
+        // most active for new channel
+        initMostActiveService(channelName)
+        val mostActiveCallback = getMostActiveUserCallback(channelName)
+        mostActiveCallbacks[channelName] = mostActiveCallback
+        cApp.addListener(botToken, mostActiveCallback).get()
 
         return CompletableFuture.completedFuture(Unit)
-        */
-
     }
 
     /**
@@ -108,14 +107,15 @@ class CourseBotImpl : CourseBot {
      */
     override fun part(channelName: String): CompletableFuture<Unit> {
         try {
-            cApp.channelPart(botToken, channelName)
-        } catch (e : Exception) {
+            cApp.channelPart(botToken, channelName).get()
+        } catch (e: Exception) {
             throw NoSuchEntityException()
         }
-        resetCounterForAllChannelsOfBot(channelToReset = channelName)   //TODO("check")
+        resetCounterForAllChannelsOfBot(channelToReset = channelName)           //TODO("check")
         removeFromChannelsList(channelName)
         return CompletableFuture.completedFuture(Unit)
 
+        // TODO ("need to remove all the callbacks from this channel before part - assumption for courseApp")
         /*
         resetBotIn(channelName)
         return CompletableFuture.completedFuture(Unit)
@@ -126,11 +126,7 @@ class CourseBotImpl : CourseBot {
      * Return a list of all the channels the bot is in, in order of joining.
      */
     override fun channels(): CompletableFuture<List<String>> {
-        return getChannels()
-    }
-
-    private fun getChannels(): CompletableFuture<List<String>> {
-        return CompletableFuture.completedFuture(channels[botName]?: mutableListOf())
+        return CompletableFuture.completedFuture(channelsList())
     }
 
     /**
@@ -147,71 +143,22 @@ class CourseBotImpl : CourseBot {
         if (regex == null && mediaType == null)
             throw IllegalArgumentException()
 
-        if(counters[botName] == null)
-            counters[botName] = hashMapOf()
+        if (getCounters() == null)
+            initCounters()
 
         val pair = Pair(regex, mediaType)
-        if(channel == null)
+        if (channel == null)
             initiateCounterForPair(p = pair)
-        else
-        {
+        else {
             initiateCounterForPair(p = pair, channelToReset = channel)
         }
-        val callback: ListenerCallback = getCounterCallback(pair,channel)
+        val callback: ListenerCallback = getCounterCallback(pair, channel)
 
-        cApp.addListener(botToken, callback)
+        countersCallbacks[Triple(channel, regex, mediaType)] = callback
+        cApp.addListener(botToken, callback).get()
 
         return CompletableFuture.completedFuture(Unit)
 
-    }
-
-    private fun initiateCounterForPair(p: Pair<String?,MediaType?>? = null, channelToReset : String? = null){
-        assert(p != null)
-        if(channelToReset == null){
-            val channelOfBot = channels().join()
-            for (channel in channelOfBot) {
-                initiateSinglePairInChannel(channel, p)
-            }
-        }else{
-            initiateSinglePairInChannel(channelToReset, p)
-        }
-    }
-
-    private fun initiateSinglePairInChannel(channelToReset: String, p: Pair<String?, MediaType?>?) {
-        if (counters[botName] == null) {
-            counters[botName] = hashMapOf()
-        }
-        if (counters[botName]!![channelToReset] == null)
-            counters[botName]!![channelToReset] = hashMapOf()
-        counters[botName]!![channelToReset]!![p!!] = 0.toLong()
-    }
-
-    /*
-        resets the counter for all the channels of bot with pair,
-        if pair is null: resets all channels and all pairs.
-     */
-    private fun resetCounterForAllChannelsOfBot(p: Pair<String?,MediaType?>? = null, channelToReset : String? = null) {
-        if(counters[botName] == null) return
-
-        val channelOfBot = channels().join()
-        if(p == null) {
-            if(channelToReset == null) {
-                for (channel in channelOfBot) {
-                    counters[botName]!![channel] = hashMapOf()
-                }
-            } else {
-                counters[botName]!![channelToReset] = hashMapOf()
-            }
-        }else{
-            if(channelToReset == null) {
-                for (channel in channelOfBot) {
-                    counters[botName]!![channel]?.remove(p)
-
-                }
-            }else{
-                counters[botName]!![channelToReset]?.remove(p)
-            }
-        }
     }
 
     /**
@@ -222,27 +169,27 @@ class CourseBotImpl : CourseBot {
      */
     override fun count(channel: String?, regex: String?, mediaType: MediaType?): CompletableFuture<Long> {
         val pair = Pair(regex, mediaType)
-        if(counters[botName] == null )
+        if (getCounters() == null)
             throw IllegalArgumentException()
-        if(channel != null){
-            if(counters[botName]!![channel]!![pair] == null)
+        if (channel != null) {
+            if (getCounterOf(channel, pair) == null)
                 throw IllegalArgumentException()
-            val res = counters[botName]!![channel]!![pair]!!
+            val res = getCounterOf(channel, pair)!!
             return CompletableFuture.completedFuture(res)
         }
         //channel is null, need to return the sum of all of calls in all channels
         val channelOfBot = channels().join()
         var sum = 0.toLong()
         var flagSeen = false
-        for (channel in  channelOfBot ) {
-            if(counters[botName]!![channel] == null) continue
-            val num = counters[botName]!![channel]!![pair]
-            if(num != null) {
+        for (currChannel in channelOfBot) {
+            if (!isCountersOfExists(currChannel)) continue
+            val num = getCounterOf(currChannel, pair)
+            if (num != null) {
                 sum += num
                 flagSeen = true
             }
         }
-        if(!flagSeen) throw IllegalArgumentException()
+        if (!flagSeen) throw IllegalArgumentException()
         return CompletableFuture.completedFuture(sum)
     }
 
@@ -257,18 +204,18 @@ class CourseBotImpl : CourseBot {
      * @return The previous phrase.
      */
     override fun setCalculationTrigger(trigger: String?): CompletableFuture<String?> {
-        val previousPhrase = triggerPhrase[botName]
-        if(trigger == null ){            //previously was activated, and need to be deactivated.
-            if(previousPhrase!= null)
-                cApp.removeListener(botToken, calculationCallbacks[botName]!!)
-            triggerPhrase.remove(botName)       //turn off by removing phrase for current bot.
+        val previousPhrase = getTriggerPhrase()
+        if (trigger == null) {            //previously was activated, and need to be deactivated.
+            if (previousPhrase != null)
+                cApp.removeListener(botToken, calculationCallback!!).get()
+            setTriggerPhrase(null)
             return CompletableFuture.completedFuture(previousPhrase)
         }
 
-        triggerPhrase[botName] = trigger
-        val calculationCallback = getCalculationCallback(trigger)
-        cApp.addListener(botToken, calculationCallback)
-        calculationCallbacks[botName] = calculationCallback
+        setTriggerPhrase(trigger)
+        val callback = getCalculationCallback(trigger)
+        cApp.addListener(botToken, callback).get()
+        calculationCallback = callback
 
         return CompletableFuture.completedFuture(previousPhrase)
     }
@@ -283,35 +230,28 @@ class CourseBotImpl : CourseBot {
      * @return The previous phrase.
      */
     override fun setTipTrigger(trigger: String?): CompletableFuture<String?> {
-        //TODO("implement me")
-        return CompletableFuture.completedFuture("hi")
-        /*
-        val previousPhrase = tipTriggerPhrase
-        tipTriggerPhrase = trigger
+        val previousPhrase = getTipTriggerPhrase()
+        setTipTriggerPhrase(trigger)
 
         if (tipCallback != null)
-            cApp.removeListener(botToken!!, tipCallback!!)
+            cApp.removeListener(botToken, tipCallback!!).get()
 
         if (trigger != null) {
             tipCallback = getTipCallback(trigger)
-            cApp.addListener(botToken!!, tipCallback!!)
+            cApp.addListener(botToken, tipCallback!!).get()
         }
 
         return CompletableFuture.completedFuture(previousPhrase)
-        */
     }
 
     /**
      * Return the creation time of the last message sent by [user] in all channels that the bot is in.
      */
     override fun seenTime(user: String): CompletableFuture<LocalDateTime?> {
-        //TODO("implement me")
-        return CompletableFuture.completedFuture(LocalDateTime.now())
-        /*
         var lastMessageTime: LocalDateTime? = null
-        for (channel in channels[user]?: mutableListOf()) {
+        for (channel in channelsList()) {
             if (cApp.isUserInChannel(botToken, channel, user).get() == true) {
-                val time = getTimeForLastMessageOf(user, channel)
+                val time = getSeenLastTimeFor(channel, user)
                 if (time!! > lastMessageTime) {
                     lastMessageTime = time
                 }
@@ -319,7 +259,6 @@ class CourseBotImpl : CourseBot {
         }
 
         return CompletableFuture.completedFuture(lastMessageTime)
-        */
     }
 
     /**
@@ -328,16 +267,12 @@ class CourseBotImpl : CourseBot {
      * @throws NoSuchEntityException If the bot is not in [channel].
      */
     override fun mostActiveUser(channel: String): CompletableFuture<String?> {
-        //TODO("implement me")
-        return CompletableFuture.completedFuture("hi")
-        /*
-        val checker = cApp.isUserInChannel(botToken!!, channel, botName!!).get()
+        val checker = cApp.isUserInChannel(botToken, channel, botName).get()
         if (checker == false || checker == null) {
             throw NoSuchEntityException()
         }
 
         return CompletableFuture.completedFuture(getMostActiveUser(channel))
-        */
     }
 
     /**
@@ -347,13 +282,10 @@ class CourseBotImpl : CourseBot {
      * @throws NoSuchEntityException If the bot is not in [channel].
      */
     override fun richestUser(channel: String): CompletableFuture<String?> {
-        //TODO("implement me")
-        return CompletableFuture.completedFuture("hi")
-        /*
-        var checker : Boolean?
+        val checker: Boolean?
         try {
             checker = cApp.isUserInChannel(botToken, channel, botName).get()
-        }catch (e : Exception) {
+        } catch (e: Exception) {
             throw NoSuchEntityException()
         }
         if (checker == false || checker == null) {
@@ -361,7 +293,6 @@ class CourseBotImpl : CourseBot {
         }
 
         return CompletableFuture.completedFuture(getRichestUser(channel))
-        */
     }
 
     /**
@@ -374,27 +305,20 @@ class CourseBotImpl : CourseBot {
      * @return A string identifying this survey.
      */
     override fun runSurvey(channel: String, question: String, answers: List<String>): CompletableFuture<String> {
-        //TODO("implement me")
-        return CompletableFuture.completedFuture("hi")
-        /*
-        val checker = cApp.isUserInChannel(botToken!!, channel, botName!!).get()
+        val checker = cApp.isUserInChannel(botToken, channel, botName).get()
         if (checker == false || checker == null) {
             throw NoSuchEntityException()
         }
 
-        val id = getSurveyId()
-        val resultsList = mutableListOf<Long>()
+        val surveyId = getSurveyId()
 
         sendSurveyQuestion(channel, question)
-        val callback = getSurveyCallback(channel, answers, resultsList)
+        val callback = getSurveyCallback(channel, answers, surveyId)
 
-        surveys[id] = Pair(callback, resultsList)
-        cApp.addListener(botToken!!, callback)
+        surveysCallbacks[surveyId] = callback
+        cApp.addListener(botToken, callback).get()
 
-        addMapSurvey(channel, callback)
-
-        return CompletableFuture.completedFuture(id)
-        */
+        return CompletableFuture.completedFuture(surveyId)
     }
 
     /**
@@ -405,29 +329,22 @@ class CourseBotImpl : CourseBot {
      * @return A list of counters, one for each possible survery answer, in the order the answers appeared in [runSurvey].
      */
     override fun surveyResults(identifier: String): CompletableFuture<List<Long>> {
-        //TODO("implement me")
-        return CompletableFuture.completedFuture(listOf())
-        /*
-        if (surveys[identifier] == null)
+        if (!isSurveysExists(identifier))
             throw NoSuchEntityException()
 
-        val (callback, results) = surveys[identifier]!!
-        cApp.removeListener(botToken!!, callback)
+        val results = getSurveys(identifier)!!.toList()
 
         return CompletableFuture.completedFuture(results)
-        */
     }
 
-    private fun getCounterCallback(p : Pair<String?, MediaType?>, targetChannel: String?): ListenerCallback {
+    private fun getCounterCallback(p: Pair<String?, MediaType?>, targetChannel: String?): ListenerCallback {
         return { source, message ->
             if ((p.second == null && p.first != null && Regex(p.first!!).containsMatchIn(message.contents.toString(charset))) ||
                     (p.second == message.media && p.first == null) ||
                     (p.second == message.media && p.first != null && Regex(p.first!!).containsMatchIn(message.contents.toString(charset)))) {
                 val channelName = source.split('@')[0]
-                if(counters[botName] != null && counters[botName]!![channelName] != null &&
-                        (targetChannel == null || targetChannel == channelName)) {
-                    val previousCounter= counters[botName]!![channelName]!![p] ?: 0.toLong()
-                    counters[botName]!![channelName]!![p] = previousCounter + 1
+                if (isCountersExists() && isCountersOfExists(channelName) && (targetChannel == null || targetChannel == channelName)) {
+                    incCounterOf(channelName, p)
                 }
             }
             CompletableFuture.completedFuture(Unit)
@@ -438,12 +355,12 @@ class CourseBotImpl : CourseBot {
         return { source, message ->
             val content = message.contents.toString(charset)
             val channelName = source.split("@")[0]
-            if (channels[botName]!!.contains(channelName) && content.startsWith(trigger)) {
-                val expression  = content.removePrefix("$trigger ")
+            if (channelsList().contains(channelName) && content.startsWith(trigger)) {
+                val expression = content.removePrefix("$trigger ")
                 val result = evaluateExpresion(expression).toString()
 
                 val retMessage = messageFactory.create(MediaType.TEXT, result.toByteArray(charset)).get()
-                cApp.channelSend(botToken, channelName, retMessage)
+                cApp.channelSend(botToken, channelName, retMessage).get()
 
                 CompletableFuture.completedFuture(Unit)
             } else {
@@ -453,17 +370,14 @@ class CourseBotImpl : CourseBot {
     }
 
     private fun getTipCallback(trigger: String): ListenerCallback {
-        //TODO("implement me")
-        return {_, _ -> CompletableFuture.completedFuture(Unit) }
-        /*
         return { source, message ->
             val content = message.contents.toString(charset)
             val channelName = source.split("@")[0]
             val fromUser = source.split("@")[1]
-            if (channels.contains(channelName) && content.startsWith(trigger)) {        // matan: assumption that the message for tipping only inside channels
+            if (channelsList().contains(channelName) && content.startsWith(trigger)) {        // matan: assumption that the message for tipping only inside channels
                 val number = content.split(" ")[1].toLong()
                 val toUser = content.split(" ")[2]
-                if (cApp.isUserInChannel(botToken!!, channelName, toUser).get() == true) {  // matan: assumption that the 'To' user need to be in the same channel
+                if (cApp.isUserInChannel(botToken, channelName, toUser).get() == true) {  // matan: assumption that the 'To' user need to be in the same channel
                     transferTip(channelName, fromUser, toUser, number)
                 }
 
@@ -472,155 +386,117 @@ class CourseBotImpl : CourseBot {
                 CompletableFuture.completedFuture(Unit)
             }
         }
-        */
     }
 
-    private fun getSurveyCallback(channel: String, answers: List<String>, resultsList: MutableList<Long>): ListenerCallback {
-        //TODO("implement me")
-        return {_, _ -> CompletableFuture.completedFuture(Unit) }
-        /*
-        return  { source, message ->
-            if (source.split('@')[0] == channel) {
+    private fun getSurveyCallback(channel: String, answers: List<String>, surveyId: String): ListenerCallback {
+        initSurveys(surveyId, answers.size)
+        initSurveysHistory(surveyId)
+
+        return { source, message ->
+            val inChannel = source.split('@')[0]
+            val voter = source.split('@')[1]
+
+            if (voter != botName && inChannel == channel) {
                 val i = getAnswerNumber(answers, message)
-                if (i != -1)
-                    resultsList[i]++
+                if (i != -1) {
+                    if (!isUserVoteFor(surveyId, voter)) {
+                        incSurveyVote(surveyId, i)
+                    }
+                    addToSurveysHistory(surveyId, Pair(voter, i))
+                }
+
                 CompletableFuture.completedFuture(Unit)
             } else {
                 CompletableFuture.completedFuture(Unit)
             }
         }
-        */
     }
 
     private fun getLastSeenCallback(channel: String): ListenerCallback {
-        //TODO("implement me")
-        return {_, _ -> CompletableFuture.completedFuture(Unit) }
-        /*
-        return  { source, _ ->
+        return { source, _ ->
             if (source.split("@")[0] == channel) {
                 val user = source.split("@")[1]
 
-                seenLastTimeService[channel]!![user] = LocalDateTime.now()
+                setSeenLastTimeFor(channel, user)
                 CompletableFuture.completedFuture(Unit)
             } else {
                 CompletableFuture.completedFuture(Unit)
             }
         }
-        */
     }
 
     private fun getMostActiveUserCallback(channel: String): ListenerCallback {
-        //TODO("implement me")
-        return {_, _ -> CompletableFuture.completedFuture(Unit) }
-        /*
-        return  { source, _ ->
+        return { source, _ ->
             if (source.split("@")[0] == channel) {
                 val user = source.split("@")[1]
 
-                val counter = mostActiveService[botName]!![channel]!![user]
+                val counter = getMostActiveServiceOf(channel, user)
                 if (counter == null)
-                    mostActiveService[botName][channel]!![user] = 1.toLong()
+                    setMostActiveServiceOf(channel, user, 1L)
                 else
-                    mostActiveService[botName][channel]!![user] = counter + 1.toLong()
+                    setMostActiveServiceOf(channel, user, counter + 1)
                 CompletableFuture.completedFuture(Unit)
             } else {
                 CompletableFuture.completedFuture(Unit)
             }
         }
-        */
     }
 
     private fun evaluateExpresion(expression: String): Double {
 
-        val newExpresion = expression.replace(" ","")
-                .replace(Regex(".(?!$)"), "$0 ")
-                .split(" ")
-                .dropLastWhile { it.isEmpty() }
-                .toTypedArray()                     // matan: can be spaces in the exp...
+//        val newExpresion = expression.replace(" ","")
+//                .replace(Regex(".(?!$)"), "$0 ")
+//                .split(" ")
+//                .dropLastWhile { it.isEmpty() }
+//                .toTypedArray()                     // matan: can be spaces in the exp...
+        val newExpresion = expression.split(" ".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
 
         val outputRPN = ExpressionParser.infixToRPN(newExpresion)
         return ExpressionParser.RPNtoDouble(outputRPN)
     }
-/*
+
     private fun getAnswerNumber(answers: List<String>, message: Message): Int {
-        for (answer in answers) {
-            if (message.contents.toString(charset) == answer)
-                return answers.indexOf(answer)
-        }
-        assert(false)
-        return -1
-
-    }
-*/
-    private fun getTimeForLastMessageOf(user: String, channel: String): LocalDateTime? {
-        return null
-        //TODO("implement me")
-        /*
-        return seenLastTimeService[channel]!![user]
-        */
-    }
-
-    private fun getSurveyId(): String {
-        //TODO("implement me")
-        return "hi"
-        /*
-        val retId = surveyIdGen.toString()
-        surveyIdGen ++
-        return retId
-        */
-    }
-
-    private fun addToChannelsList(channelName: String) {
-        if(channels[botName] == null)       //if list not exist yet, make a new list
-            channels[botName] = mutableListOf()
-        if(channels[botName]!!.contains(channelName))
-            return
-        channels[botName]!!.add(channelName)
-
-    }
-
-    private fun removeFromChannelsList(channelName: String) {
-        if(channels[botName] == null || !channels[botName]!!.contains(channelName))
-            throw Exception()
-        channels[botName]!!.remove(channelName)
+        val content = message.contents.toString(charset)
+        return answers.indexOf(content)
     }
 
     private fun transferTip(channel: String, fromUser: String, toUser: String, number: Long) {
-        //TODO("implement me")
-        /*
-        if (tippingService[channel]!![fromUser] == null)
-            tippingService[channel]!![fromUser] = getBaseTip()
+        if (getTippingServiceFor(channel, fromUser) == null)
+            setTippingService(channel, fromUser, getBaseTip())
 
-        if (tippingService[channel]!![toUser] == null)
-            tippingService[channel]!![toUser] = getBaseTip()
+        if (getTippingServiceFor(channel, toUser) == null)
+            setTippingService(channel, toUser, getBaseTip())
 
-        tippingService[channel]!![fromUser] = tippingService[channel]!![fromUser]!! - number
-        tippingService[channel]!![toUser] = tippingService[channel]!![toUser]!! + number
-        */
+        if (getTippingServiceFor(channel, fromUser)!! >= number) {
+            setTippingService(channel, fromUser, getTippingServiceFor(channel, fromUser)!! - number)
+            setTippingService(channel, toUser, getTippingServiceFor(channel, toUser)!! + number)
+        }
     }
 
     private fun sendSurveyQuestion(channel: String, question: String) {
-        //TODO("implement me")
-        /*
-        messageFactory.create(MediaType.TEXT, question.toByteArray(charset)).thenCompose { cApp.channelSend(botToken!!, channel, it) }.get()
-        */
+        messageFactory.create(MediaType.TEXT, question.toByteArray(charset)).thenCompose { cApp.channelSend(botToken, channel, it) }.get()
     }
 
     private fun getBaseTip(): Long {
-        //TODO("implement me")
-        return 10
-        /*
         return baseTip
-        */
+    }
+
+    private fun initiateCounterForPair(p: Pair<String?, MediaType?>? = null, channelToReset: String? = null) {
+        assert(p != null)
+        if (channelToReset == null) {
+            val channelOfBot = channels().join()
+            for (channel in channelOfBot) {
+                initiateSinglePairInChannel(channel, p)
+            }
+        } else {
+            initiateSinglePairInChannel(channelToReset, p)
+        }
     }
 
     private fun getMostActiveUser(channel: String): String? {
-        //TODO("implement me")
-        return null
-        /*
         var mostActiveUser: String? = null
         var mostActiveCounter: Long = 0
-        mostActiveService[channel]!!.asSequence().forEach {
+        getMostActiveService(channel)!!.asSequence().forEach {
             if (mostActiveUser == null || mostActiveCounter < it.value) {
                 mostActiveUser = it.key
                 mostActiveCounter = it.value
@@ -629,17 +505,50 @@ class CourseBotImpl : CourseBot {
             }
         }
         return mostActiveUser
-        */
+    }
+
+    /*
+    resets the counter for all the channels of bot with pair,
+    if pair is null: resets all channels and all pairs.
+ */
+    private fun resetCounterForAllChannelsOfBot(p: Pair<String?, MediaType?>? = null, channelToReset: String? = null) {
+        if (!isCountersExists()) return
+
+        val channelOfBot = channels().join()
+        if (p == null) {
+            if (channelToReset == null) {
+                for (channel in channelOfBot) {
+                    initCounters()
+                    initCountersOf(channel)
+                }
+            } else {
+                initCountersOf(channelToReset)
+            }
+        } else {
+            if (channelToReset == null) {
+                for (channel in channelOfBot) {
+                    removeCounterFrom(channel, p)
+                }
+            } else {
+                removeCounterFrom(channelToReset, p)
+            }
+        }
+    }
+
+    private fun initiateSinglePairInChannel(channelToReset: String, p: Pair<String?, MediaType?>?) {
+        if (!isCountersExists()) {
+            initCounters()
+        }
+        if (!isCountersOfExists(channelToReset))
+            initCountersOf(channelToReset)
+        resetCounter(channelToReset, p!!)
     }
 
     private fun getRichestUser(channel: String): String? {
-        //TODO("implement me")
-        return null
-        /*
         var richestUser: String? = null
         var richestAmount: Long = 0
-        if(null == tippingService[channel]) return null
-        tippingService[channel]!!.asSequence().forEach {
+        if (getTippingService(channel) == null) return null
+        getTippingService(channel)!!.asSequence().forEach {
             if (richestUser == null || richestAmount < it.value) {
                 richestUser = it.key
                 richestAmount = it.value
@@ -648,20 +557,9 @@ class CourseBotImpl : CourseBot {
             }
         }
         return richestUser
-        */
-
-        // TODO ("what if there is some user that didn't transfer money")
-    }
-
-    private fun addMapSurvey(channel: String, callback: ListenerCallback) {
-        //TODO("implement me")
-        /*
-        surveyCallbacks[channel]!!.add(callback)
-        */
     }
 
     private fun resetBotIn(channel: String) {
-        //TODO("implement me")
         /*
         // reset surveys
         surveys.asSequence().filter {
@@ -671,4 +569,171 @@ class CourseBotImpl : CourseBot {
         //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         */
     }
+
+    // ========================== getters, setters & inits for storage structures ======================================
+    private fun channelsList(): MutableList<String> {
+        if (channels[botName] == null)
+            channels[botName] = mutableListOf()
+        return channels[botName]!!
+    }
+
+    private fun addToChannelsList(channelName: String) {
+        if (channels[botName] == null)       //if list not exist yet, make a new list
+            channels[botName] = mutableListOf()
+        if (channels[botName]!!.contains(channelName))
+            return
+        channels[botName]!!.add(channelName)
+
+    }
+
+    private fun removeFromChannelsList(channelName: String) {
+        if (channels[botName] == null || !channels[botName]!!.contains(channelName))
+            throw Exception()
+        channels[botName]!!.remove(channelName)
+    }
+
+    private fun getTriggerPhrase(): String? {
+        return triggerPhrase[botName]
+    }
+
+    private fun setTriggerPhrase(trigger: String?) {
+        triggerPhrase[botName] = trigger
+    }
+
+    private fun getTipTriggerPhrase(): String? {
+        return tipTriggerPhrase[botName]
+    }
+
+    private fun setTipTriggerPhrase(trigger: String?) {
+        tipTriggerPhrase[botName] = trigger
+    }
+
+    private fun getSurveys(id: String): LongArray? {
+        return surveys[id]
+    }
+
+    private fun isSurveysExists(id: String): Boolean {
+        return surveys[id] != null
+    }
+
+    private fun initSurveys(id: String, size: Int) {
+        val resultsList = LongArray(size) { 0 }
+
+        surveys[id] = resultsList
+    }
+
+    private fun incSurveyVote(surveyId: String, answerId: Int) {
+        surveys[surveyId]!![answerId]++
+    }
+
+    private fun initSurveysHistory(id: String) {
+        surveysHistory[id] = mutableSetOf()
+    }
+
+    private fun addToSurveysHistory(id: String, p: Pair<String, Int>) {
+        surveysHistory[id]!!.removeIf { it.first == p.first }
+        surveysHistory[id]!!.add(p)
+    }
+
+    private fun isUserVoteFor(id: String, voter: String): Boolean {
+        surveysHistory[id]!!.asSequence().forEach {
+            if (it.first == voter)
+                return true
+        }
+        return false
+    }
+
+    private fun getSurveyId(): String {
+        val retId = surveyIdGen.toString()
+        surveyIdGen++
+        return retId
+    }
+
+    private fun initSeenLastTimeIn(channel: String) {
+        seenLastTimeService[botName]!![channel] = HashMap()
+    }
+
+    private fun setSeenLastTimeFor(channel: String, user: String) {
+        seenLastTimeService[botName]!![channel]!![user] = LocalDateTime.now()
+    }
+
+    private fun getSeenLastTimeFor(channel: String, user: String): LocalDateTime? {
+        return seenLastTimeService[botName]!![channel]!![user]
+    }
+
+    private fun initCounters() {
+        counters[botName] = hashMapOf()
+    }
+
+    private fun initCountersOf(channel: String) {
+        counters[botName]!![channel] = hashMapOf()
+    }
+
+    private fun isCountersExists(): Boolean {
+        return counters[botName] != null
+    }
+
+    private fun getCounters(): HashMap<String, HashMap<Pair<String?, MediaType?>, Long>>? {
+        return counters[botName]
+    }
+
+    private fun getCounterOf(channel: String, p: Pair<String?, MediaType?>): Long? {
+        return counters[botName]!![channel]!![p]
+    }
+
+    private fun incCounterOf(channel: String, p: Pair<String?, MediaType?>) {
+        val previousCounter = counters[botName]!![channel]!![p] ?: 0.toLong()
+        counters[botName]!![channel]!![p] = previousCounter + 1
+    }
+
+    private fun isCountersOfExists(channel: String): Boolean {
+        return counters[botName]!![channel] != null
+    }
+
+    private fun removeCounterFrom(channel: String, p: Pair<String?, MediaType?>) {
+        counters[botName]!![channel]?.remove(p)
+    }
+
+    private fun resetCounter(channel: String, p: Pair<String?, MediaType?>) {
+        counters[botName]!![channel]!![p] = 0.toLong()
+    }
+
+    private fun initMostActiveService(channel: String) {
+        mostActiveService[botName]!![channel] = HashMap()
+    }
+
+    private fun getMostActiveServiceOf(channel: String, user: String): Long? {
+        return mostActiveService[botName]!![channel]!![user]
+    }
+
+    private fun setMostActiveServiceOf(channel: String, user: String, value: Long) {
+        mostActiveService[botName]!![channel]!![user] = value
+    }
+
+    private fun getMostActiveService(channel: String): HashMap<String, Long>? {
+        return mostActiveService[botName]!![channel]
+    }
+
+    private fun initTippingService(channel: String) {
+        tippingService[botName]!![channel] = HashMap()
+    }
+
+    private fun getTippingServiceFor(channel: String, user: String): Long? {
+        return tippingService[botName]!![channel]!![user]
+    }
+
+    private fun setTippingService(channel: String, user: String, value: Long) {
+        tippingService[botName]!![channel]!![user] = value
+    }
+
+    private fun getTippingService(channel: String): HashMap<String, Long>? {
+        return tippingService[botName]!![channel]
+    }
+
+    // TODO ("counter with triplet issue...")
+    // TODO ("issue with zeroing counters and all the stats for channels after parting the channel")
+    // TODO ("choose library")
+    // TODO ("move data structures library")
+    // TODO ("pass to tests")
+    // TODO ("excretions eval - need to correct it... examples: (20) +2 ; (2 + 4) ; (2 + -2) ; 2*20 + 5 : -2 + -2 : (2+3)*5 : (2 +     6 ) *     7")
 }
