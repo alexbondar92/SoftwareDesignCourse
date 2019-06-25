@@ -10,6 +10,7 @@ val junitVersion: String? by extra
 val hamkrestVersion: String? by extra
 val guiceVersion: String? by extra
 val kotlinGuiceVersion: String? by extra
+val mockkVersion: String? by extra
 
 dependencies {
     compile(project(":library"))
@@ -19,4 +20,5 @@ dependencies {
     testCompile("org.junit.jupiter", "junit-jupiter-api", junitVersion)
     testCompile("org.junit.jupiter", "junit-jupiter-params", junitVersion)
     testCompile("com.natpryce", "hamkrest", hamkrestVersion)
+    testImplementation("io.mockk:mockk:1.9.3")
 }

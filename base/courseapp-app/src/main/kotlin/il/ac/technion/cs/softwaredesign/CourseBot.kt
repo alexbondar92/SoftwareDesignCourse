@@ -18,7 +18,7 @@ interface CourseBot {
   /**
    * Make the bot leave the channel.
    *
-   * Leaving the channel resets all statistics for that channel.
+   * Leaving the channel resets all channel-specific statistics for that particular channel.
    *
    * @throws NoSuchEntityException If the channel can't be parted.
    */
@@ -30,21 +30,25 @@ interface CourseBot {
   fun channels(): CompletableFuture<List<String>>
 
   /**
-   * Start counting messages that match the regular-expression [regex] (see [kotlin.text.Regex]) and [mediaType].
+   * Start counting messages that match [channel], the regular-expression [regex] (see [kotlin.text.Regex]) and
+   * [mediaType].
    *
-   * If [regex] and [mediaType] are already registered, restart the count from 0.
+   * If [channel], [regex] and [mediaType] are already registered, restart the count from 0.
+   *
+   * If [channel], [regex], or [mediaType] are null, they are treated as wildcards.
    *
    * @throws IllegalArgumentException If [regex] and [mediaType] are both null.
    */
-  fun beginCount(regex: String? = null, mediaType: MediaType? = null): CompletableFuture<Unit>
+  fun beginCount(channel: String? = null, regex: String? = null, mediaType: MediaType? = null): CompletableFuture<Unit>
 
   /**
    * Return the number of times that a message that matches [regex] and [mediaType] has been seen by this bot in
    * [channel], or in all channels if [channel] is null.
    *
-   * @throws IllegalArgumentException if [regex] and [mediaType] have never been registered (passed to [beginCount]).
+   * @throws IllegalArgumentException if [channel], [regex] and [mediaType] have never been registered (passed to
+   * [beginCount]).
    */
-  fun count(channel: String?, regex: String? = null, mediaType: MediaType? = null): CompletableFuture<Long>
+  fun count(channel: String? = null, regex: String? = null, mediaType: MediaType? = null): CompletableFuture<Long>
 
   /**
    * Set the phrase to trigger calculations.
@@ -62,7 +66,8 @@ interface CourseBot {
    * Set the phrase to trigger tipping.
    *
    * If this is set to a non-null value, then after seeing messages in the format "$trigger $number $user" in a
-   * channel, the bot will transfer $number bits from the user who sent the message to $user.
+   * channel, the bot will transfer $number bits from the user who sent the message to $user. If $user does not exist
+   * or does not have at least $number bits, nothing happens (the ledger remains the same.)
    *
    * @param trigger The phrase, or null to disable tipping mode.
    * @return The previous phrase.
@@ -71,6 +76,8 @@ interface CourseBot {
 
   /**
    * Return the creation time of the last message sent by [user] in all channels that the bot is in.
+   *
+   * @return The time of the last message sent, or null if a message by [user] has never been seen.
    */
   fun seenTime(user: String): CompletableFuture<LocalDateTime?>
 

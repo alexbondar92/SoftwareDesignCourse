@@ -1,60 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBotImpl.kt" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="3078e906-f4ea-42e8-a364-e8ec716816be" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBotImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBotsImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/ExpressionParser.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileChanges/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileChanges/last-build.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/gc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/gc.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/vcsMetadata-1/vcsMetadata-1.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/vcsMetadata-1/vcsMetadata-1.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/vcsMetadata-1/workingDirs.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/vcsMetadata-1/workingDirs.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/vcs-1/vcs-1.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/vcs-1/vcs-1.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/base.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/base.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kotlinScripting.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/META-INF/base.courseapp-app.main.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/META-INF/base.courseapp-app.main.kotlin_module" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$KeyType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$OurObservableImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$TypeMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$UpdateLoggedStatus.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$UpdateType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$UserStatusInChannel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$WhenMappings.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$fetchMessageAux$lamd$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10ChannelsByActiveUsers$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10ChannelsByMessagesNumber$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10ChannelsByTotalUsers$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$getTop10User$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl$messageIsSameChannelAsUser$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppImpl.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppInitializer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppInitializerImpl.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppModule$configure$$inlined$bind$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppModule$configure$$inlined$bind$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppModule$configure$$inlined$bind$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppModule$configure$$inlined$bind$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppModule$configure$$inlined$bind$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppModule$configure$$inlined$to$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppModule$configure$$inlined$to$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppModule$configure$$inlined$to$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppModule$configure$$inlined$to$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppModule.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppModule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppStatistics.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppStatistics.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppModule.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseAppStatistics.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBot$DefaultImpls.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBot$DefaultImpls.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBot.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotImpl$$special$$inlined$getInstance$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotImpl$$special$$inlined$getInstance$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotImpl$$special$$inlined$getInstance$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotImpl$getCalculationCallback$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotImpl$getCalculationCallback$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotImpl$getCounterCallback$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotImpl$getCounterCallback$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotImpl$getLastSeenCallback$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotImpl$getLastSeenCallback$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotImpl$getSurveyCallback$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotImpl$getSurveyCallback$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotImpl$getTipCallback$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotImpl$getTipCallback$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotImpl$sendSurveyQuestion$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotModule.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotModule.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBots$DefaultImpls.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBots$DefaultImpls.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBots.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBots.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotsImpl$$special$$inlined$getInstance$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotsImpl$$special$$inlined$getInstance$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotsImpl$getAllBots$$inlined$sortedBy$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotsImpl$getAllBots$$inlined$sortedBy$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotsImpl$getAllBots$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotsImpl$getAllBots$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotsImpl$getBotsOfChannel$$inlined$sortedBy$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotsImpl$getBotsOfChannel$$inlined$sortedBy$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotsImpl$getBotsOfChannel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotsImpl$getBotsOfChannel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotsImpl$getBotsOfChannel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotsImpl$getBotsOfChannel$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotsImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/CourseBotsImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/ExpressionParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/ExpressionParser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/MainKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/MainKt.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/exceptions/InvalidTokenException.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/exceptions/InvalidTokenException.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/exceptions/NameFormatException.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/exceptions/NameFormatException.class" afterDir="false" />
@@ -64,334 +67,92 @@
       <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/messages/MediaType.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/messages/MediaType.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/messages/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/messages/Message.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/messages/MessageFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/messages/MessageFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/messages/MessageFactoryImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/production/classes/il/ac/technion/cs/softwaredesign/messages/MessageImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/META-INF/base.courseapp-app.main.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest$$special$$inlined$getInstance$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest$$special$$inlined$getInstance$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest$$special$$inlined$getInstance$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$ channel does not contains operators$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$$special$$inlined$getInstance$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$$special$$inlined$getInstance$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$$special$$inlined$getInstance$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$$special$$inlined$getInstance$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$1,000,000 logged in users in system - stress test$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$1,000,000 logged in users in system - stress test$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$add up to 512 users to the channel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding 100000 listeners for 1 user and get messages in broadcast$callBack$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding 100000 listeners for 1 user successfully$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding 100000 listeners for 1 user successfully$callBack$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding 100000 listeners for different users and get messages in broadcast$callBack$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding 100000 listeners for different users successfully$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding 100000 listeners for different users successfully$callBack$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding 100000 listeners to one user and remove listeners successfully$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding 100000 listeners to one user and remove listeners successfully$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding 100000 listeners to one user and remove listeners successfully$callBack$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding few listeners successfully$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding few listeners successfully$callBack$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding listener and broadcast successfully with the right broadcast source string$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding listener and broadcast successfully with the right broadcast source string$callBack$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding listener and removes it successfully$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding listener and removes it successfully$callBack$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding listener and removes it with bad callback lambda throws NoSuchEntityException$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding listener and removes it with bad callback lambda throws NoSuchEntityException$callBack$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding listener and removes it with bad callback lambda throws NoSuchEntityException$otherCallBack$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding listener and removes it with invalid token throws InvalidTokenException$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding listener and removes it with invalid token throws InvalidTokenException$callBack$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding listener successfully$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding listener successfully$callBack$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding listener with bad token throws InvalidTokenException$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$adding listener with bad token throws InvalidTokenException$callBack$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$admin makes himself as operator in the channel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$administrator retain their status after relogging$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$administrator retain their status after system reboot$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$administrator that is not an operator of this channel leaves the channel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$after login, a user is logged in$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$an authentication token is invalidated after logout$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$an authentication token is invalidated after logout$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$an authentication token is invalidated after logout, stays that way after reboot$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$an authentication token is invalidated after logout, stays that way after reboot$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$channelSend activate lambda of a 100000 listeners in the channel$callback$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$channelSend activate lambda of a 50000 listeners in the channel when only half of members are listeners$callback$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$channelSend activate lambda of a listener in the channel$callback$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$corrupted(prefix &amp; suffix) token pass over$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$corrupted(prefix &amp; suffix) token pass over$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$create channel with illegal name$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$create channel with illegal name$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$create channel with illegal name$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$create channel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$edge case, every user should get a pending massage only once$callback$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$enable to login same user after reboot$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$fetch messages from history of channel messages$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$fetch messages from history of channel messages$callBack1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$fetch messages from history of channel messages$callBack2$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$first user in the channel is a Operator$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$first user in the system becomes administrator automatically$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$get broadcast messages 2 listeners of different user $1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$get broadcast messages 2 listeners of different user $callback$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$get broadcast messages 2 listeners of same user$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$get broadcast messages 2 listeners of same user$callback$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$get pending broadcast messages as an admin that sent the message$callback$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$get pending broadcast messages, 1000 pending (all from broadcast)$callback$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$get pending private messages$callback$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$get private messages$callback$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$getting all the pending messages when addListener is being invoked$callback$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$inlined$sam$i$org_junit_jupiter_api_function_Executable$0.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$invalid token(not associated to no one) tries to join to channel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$invalid token(not of admin) tries to create new channel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel return false if user exists and not in channel $1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel return true if user exists and in channel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel returns true for one user in channel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel throws InvalidTokenException for non-existent token$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel throws NoSuchEntityException for non-existent channel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$isUserInChannel throws UserNotAuthorizedException for non-member and non-administrator user$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$joining user to 128 channels$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$kick administrator from channel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$kick another operator from channel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$kick another operator that is admin(as well) from channel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$kick user from channel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$last user(administrator) leaves the channel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$last user(operator) leaves the channel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$last user(regular) leaves the channel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$leave channel with illegal token(existing channel)$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$leave channel with illegal token(not existing channel)$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$leave channel with valid token but the channel does not exist$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$log in user twice and other users log in between should throw exception$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$log in user twice and other users log in between should throw exception$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$log in user twice should throw exception$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$log in user twice should throw exception$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$log out a none exist user $3$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$log out a none exist user $3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$login very long username and password$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$make administrator of logged out user$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$make operator of user that is a member of the channel, but is logged out$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$make random number of administrator in the system$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$make random number of channels$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$makeAdministrator gets invalid token throws InvalidTokenException$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$makeAdministrator gets invalid user$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$makeAdministrator gets token that is not associated to administrator$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$makeAdministrator makes administrator, an admin again$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$operator kick himself from the channel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$operator kick himself from the channel, and he was the last one$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$operator leave the channel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$operator makes himself as an operator at the same channel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$operator title is removed after leaving the channel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$operator title is still valid after relogging$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$password is invalid$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$password is valid$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with another logged in user s password should throw exception$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with another logged in user s password should throw exception$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with another registered not logged in user s password should throw exception$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with another registered not logged in user s password should throw exception$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with wrong password should throw exception$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$registered user log in with wrong password should throw exception$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$regular member leaves channel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$selected amount of users are logged in at once - stress time test$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$selected amount of users are logged in at once - stress time test$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$stress test for 1,000,000 users and 100,000 channels in the system$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$stress test for 1,000,000 users and 100,000 channels in the system$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$system is persistent after reboot$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$system is persistent after reboot$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$system is persistent after reboot$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$token is illegal at is isUserLoggedin$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$token is illegal at logout$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$token is invalid after logout$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with channel that is not exits$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with channel that was deleted$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with illegal token$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get number of active users with token that is not a member of the channel and not admin$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with channel that is not exits$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with channel that was deleted$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with illegal token$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to get total of active users with token that is not a member of the channel and not admin$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick from a channel that is not exists$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick from a deleted channel that is not exists$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick illegal user$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick non member user$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick user that was a member of the channel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick user with illegal token(admin)$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick user with illegal token(not operator)$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to kick user with illegal token(regular)$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator of admin that is not a member of this channel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator of user that is not a member of this channel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator of user that is not in the system$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with illegal token - is admin but not operator$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with illegal token(not of admin or operator)$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with illegal token(operator of other channel)$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with illegal token(regular)$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with with channel that not exits(never been)$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$try to make operator with with channel that not exits(was deleted)$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$trying to join to channel that was deleted$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$trying to leave channel with token that is not member of the channel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$trying to login with wrong pass$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$unable to fetch messages not from channel message type$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$unable to fetch messages not from channel message type$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$unable to fetch messages not from channel message type$callBack$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$unable to fetch messages that was after channel deleted and created again$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$unable to fetch messages that was after channel deleted and created again$callback1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$user log in then log out isUserLoggedIn returns False$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$user never been in the system isUserLoggedIn returns null$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$user stays logged in after reboot, assumes his token stays active$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$user that created after broadcast dont have pending messages$callback$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest$user that created after broadcast dont have pending messages$callback2$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/CourseAppTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt$containsElementsInOrder$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt$containsElementsInOrder$perElementMatcher$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt$sam$org_junit_jupiter_api_function_ThrowingSupplier$0.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppInitializerImpl.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppModule.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppInitializer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppInitializer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppModule.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatistics.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBot.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBot.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBotImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBotImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBotModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBotModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBots.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBots.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBotsImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBotsImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/ExpressionParser.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/ExpressionParser.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/exceptions/InvalidTokenException.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/exceptions/InvalidTokenException.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/exceptions/NameFormatException.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/exceptions/NameFormatException.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/exceptions/NoSuchEntityException.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/exceptions/NoSuchEntityException.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/exceptions/UserAlreadyLoggedInException.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/exceptions/UserAlreadyLoggedInException.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/exceptions/UserNotAuthorizedException.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/exceptions/UserNotAuthorizedException.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/MediaType.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/MediaType.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/Message.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/Message.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/MessageFactoryImpl.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/MessageImpl.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/utils.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/MessageFactory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/MessageFactory.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseapp-test/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$$special$$inlined$getInstance$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$$special$$inlined$getInstance$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$$special$$inlined$getInstance$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$$special$$inlined$getInstance$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$active user count in a channel is correct with a single user$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$active user count in a channel is correct with a single user$adminToken$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$active user count in a channel is correct with a single user$adminToken$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$administrator can create channel and is a member of it$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$administrator can create channel and is a member of it$administratorToken$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$administrator can create channel and is a member of it$administratorToken$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$after login, a user is logged in$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$after login, a user is logged in$token$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$after login, a user is logged in$token$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$an authentication token is invalidated after logout$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$an authentication token is invalidated after logout$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$an authentication token is invalidated after logout$token$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$an authentication token is invalidated after logout$token$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$2$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$3$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$3$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$3$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$3$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$5$$special$$inlined$match$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$5$$special$$inlined$match$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$5$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$5$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$channel message received successfully$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$inlined$sam$i$org_junit_jupiter_api_function_Executable$0.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$logged in user count is correct when no user is logged in$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$non-administrator can join existing channel and be made operator$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$non-administrator can join existing channel and be made operator$adminToken$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$non-administrator can join existing channel and be made operator$adminToken$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$non-administrator can join existing channel and be made operator$adminToken$2$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$non-administrator can join existing channel and be made operator$adminToken$2$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$non-administrator can join existing channel and be made operator$adminToken$2$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$non-administrator can join existing channel and be made operator$adminToken$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$non-administrator can not make administrator$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$non-administrator can not make administrator$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$non-administrator can not make administrator$nonAdminToken$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$non-administrator can not make administrator$nonAdminToken$2$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$non-administrator can not make administrator$nonAdminToken$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$private message received successfully$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$private message received successfully$2$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$private message received successfully$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$private message received successfully$3$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$private message received successfully$3$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$private message received successfully$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$private message received successfully$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$private message received successfully$5$$special$$inlined$match$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$private message received successfully$5$$special$$inlined$match$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$private message received successfully$5$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$private message received successfully$5$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$private message received successfully$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$there is 1 pending message after privateSend with no listener$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$there is 1 pending message after privateSend with no listener$2$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$there is 1 pending message after privateSend with no listener$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$there is 1 pending message after privateSend with no listener$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 channel list counts only logged in users$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 channel list counts only logged in users$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 channel list counts only logged in users$2$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 channel list counts only logged in users$2$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 channel list counts only logged in users$2$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 channel list counts only logged in users$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 channel list counts only logged in users$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 channel list does secondary sorting by creation$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 channel list does secondary sorting by creation$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 channel list does secondary sorting by creation$2$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 channel list does secondary sorting by creation$2$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 channel list does secondary sorting by creation$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 channel list does secondary sorting by creation$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 user list does secondary sorting by creation$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 user list does secondary sorting by creation$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 user list does secondary sorting by creation$2$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 user list does secondary sorting by creation$2$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 user list does secondary sorting by creation$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$top 10 user list does secondary sorting by creation$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$total user count in a channel is correct with a single user$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$total user count in a channel is correct with a single user$adminToken$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$total user count in a channel is correct with a single user$adminToken$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$total user count is correct when no users exist$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after being kicked$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after being kicked$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after being kicked$2$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after being kicked$2$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after being kicked$2$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after being kicked$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after being kicked$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after parting from it$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after parting from it$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after parting from it$2$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after parting from it$2$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after parting from it$2$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after parting from it$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest$user is not in channel after parting from it$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/META-INF/base.courseapp-test.main.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/META-INF/base.courseapp-test.main.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$$special$$inlined$getInstance$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$$special$$inlined$getInstance$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$$special$$inlined$getInstance$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$$special$$inlined$getInstance$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$$special$$inlined$getInstance$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$$special$$inlined$getInstance$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$$special$$inlined$getInstance$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$$special$$inlined$getInstance$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do a survey$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do a survey$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do a survey$adminToken$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do a survey$adminToken$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do a survey$adminToken$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do a survey$adminToken$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do a survey$bot$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do a survey$bot$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do a survey$bot$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do a survey$bot$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do a survey$regularUserToken$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do a survey$regularUserToken$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do a survey$regularUserToken$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do a survey$regularUserToken$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do calculation$1$1$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do calculation$1$1$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do calculation$1$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do calculation$1$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do calculation$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do calculation$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do calculation$1$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do calculation$1$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do calculation$1$3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do calculation$1$3$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do calculation$1$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do calculation$1$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do calculation$1$4$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do calculation$1$4$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do calculation$1$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do calculation$1$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do calculation$1$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do calculation$1$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do calculation$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do calculation$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do calculation$2$$special$$inlined$match$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do calculation$2$$special$$inlined$match$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do calculation$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do calculation$2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do calculation$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can ask the bot to do calculation$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can tip another user$1$1$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can tip another user$1$1$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can tip another user$1$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can tip another user$1$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can tip another user$1$1$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can tip another user$1$1$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can tip another user$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can tip another user$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can tip another user$1$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can tip another user$1$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can tip another user$1$3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can tip another user$1$3$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can tip another user$1$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can tip another user$1$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can tip another user$1$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can tip another user$1$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can tip another user$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can tip another user$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can tip another user$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can tip another user$2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can tip another user$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$A user in the channel can tip another user$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$Can create a bot and add make it join channels$1$bot$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$Can create a bot and add make it join channels$1$bot$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$Can create a bot and add make it join channels$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$Can create a bot and add make it join channels$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$Can list bots in a channel$1$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$Can list bots in a channel$1$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$Can list bots in a channel$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$Can list bots in a channel$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$Can list bots in a channel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$Can list bots in a channel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$Can list bots in a channel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$Can list bots in a channel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$The bot accurately tracks keywords$1$1$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$The bot accurately tracks keywords$1$1$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$The bot accurately tracks keywords$1$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$The bot accurately tracks keywords$1$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$The bot accurately tracks keywords$1$1$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$The bot accurately tracks keywords$1$1$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$The bot accurately tracks keywords$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$The bot accurately tracks keywords$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$The bot accurately tracks keywords$1$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$The bot accurately tracks keywords$1$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$The bot accurately tracks keywords$1$3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$The bot accurately tracks keywords$1$3$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$The bot accurately tracks keywords$1$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$The bot accurately tracks keywords$1$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$The bot accurately tracks keywords$1$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$The bot accurately tracks keywords$1$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$The bot accurately tracks keywords$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$The bot accurately tracks keywords$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$The bot accurately tracks keywords$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$The bot accurately tracks keywords$2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$The bot accurately tracks keywords$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest$The bot accurately tracks keywords$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt$containsElementsInOrder$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt$containsElementsInOrder$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt$containsElementsInOrder$perElementMatcher$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt$containsElementsInOrder$perElementMatcher$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt$sam$org_junit_jupiter_api_function_ThrowingSupplier$0.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt$sam$org_junit_jupiter_api_function_ThrowingSupplier$0.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/utils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/utils.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/library/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/library/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/production/classes/META-INF/base.library.main.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/DataStoreIo$read$1$tmpRet$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/DataStoreIo$read$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/DataStoreIo$write$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/DataStoreIo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/FakeSecureStorage$read$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/FakeSecureStorage$write$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/FakeSecureStorage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/FakeSecureStorageFactory$open$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/FakeSecureStorageFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/FakeSecureStorageModule$configure$$inlined$bind$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/FakeSecureStorageModule$configure$$inlined$to$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/FakeSecureStorageModule.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/OurObservable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/RemoteAvlTree$toKeyList$adder$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/RemoteAvlTree$top10$adder$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/RemoteAvlTree$top10$cond$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/RemoteAvlTree.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/production/classes/il/ac/technion/cs/softwaredesign/RemoteNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/test/classes/META-INF/base.library.main.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/test/classes/il/ac/technion/cs/softwaredesign/tests/DataStoreIoTest$read returns data for 1 ms per byte$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/test/classes/il/ac/technion/cs/softwaredesign/tests/DataStoreIoTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/test/classes/il/ac/technion/cs/softwaredesign/tests/RemoteAvlTreeTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/test/classes/il/ac/technion/cs/softwaredesign/tests/RemoteNodeTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt$containsElementsInOrder$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt$containsElementsInOrder$perElementMatcher$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt$sam$org_junit_jupiter_api_function_ThrowingSupplier$0.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/out/test/classes/il/ac/technion/cs/softwaredesign/tests/UtilsKt.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIo.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/FakeSecureStorage.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/FakeSecureStorageModule.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/OurObservable.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteAvlTree.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteNode.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/DataStoreIoTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/RemoteNodeTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/remoteAvlTreeTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/utils.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -493,41 +254,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBotsImpl.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBotImpl.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="65">
-              <caret line="488" lean-forward="true" selection-start-line="488" selection-end-line="488" />
-              <folding>
-                <element signature="e#42#560#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="803">
+              <caret line="483" column="57" selection-start-line="483" selection-start-column="57" selection-end-line="483" selection-end-column="57" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt">
+        <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/ExpressionParser.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBotModule.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+            <state relative-caret-position="1785">
+              <caret line="119" selection-start-line="119" selection-end-line="119" />
             </state>
           </provider>
         </entry>
@@ -545,24 +285,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mo</find>
-      <find>mock</find>
-      <find>de</find>
-      <find>1280</find>
-      <find>listeners for different</find>
-      <find>confirmVerified</find>
-      <find>test number of</find>
-      <find>rege</find>
-      <find>CHANNELS</find>
-      <find>top10Ac</find>
-      <find>channelpa</find>
-      <find>throws in</find>
-      <find>login exc</find>
-      <find>throws invali</find>
-      <find>TODO</find>
-      <find>toString</find>
-      <find>callback</find>
-      <find>bot</find>
       <find>callb</find>
       <find>isU</find>
       <find>utf</find>
@@ -575,6 +297,24 @@
       <find>mess</find>
       <find>charse</find>
       <find>charset</find>
+      <find>messageFactory</find>
+      <find>assertE</find>
+      <find>ri</find>
+      <find>veri</find>
+      <find>botName</find>
+      <find>verify</find>
+      <find>setTipTrigger</find>
+      <find>calculationCallback</find>
+      <find>addToChannelsList</find>
+      <find>channels</find>
+      <find>regex</find>
+      <find>bots</find>
+      <find>counters</find>
+      <find>beginCount</find>
+      <find>channelSend</find>
+      <find>triggerPhrase</find>
+      <find>listen</find>
+      <find>part</find>
     </findStrings>
     <replaceStrings>
       <replace>storage</replace>
@@ -593,27 +333,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/Node.kt" />
-        <option value="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/AvlTree.kt" />
-        <option value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/RemoteNodeTest.kt" />
-        <option value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/FakeSecureStorage.kt" />
-        <option value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIoTest.kt" />
-        <option value="$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/utils.kt" />
-        <option value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/FakeSecureStorage.kt" />
-        <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatistics.kt" />
-        <option value="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteAvlTree.kt.rej" />
-        <option value="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/FakeSecureStorageModule.kt" />
-        <option value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/DataStoreIoTest.kt" />
-        <option value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/utils.kt" />
-        <option value="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteNode.kt" />
-        <option value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/RemoteNodeTest.kt" />
-        <option value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/remoteAvlTreeTest.kt" />
-        <option value="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/OurObserver.kt" />
-        <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/Message.kt" />
-        <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt" />
-        <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppModule.kt" />
-        <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/MessageImpl.kt" />
-        <option value="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/OurObservable.kt" />
         <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/MessageFactoryImpl.kt" />
         <option value="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteAvlTree.kt" />
         <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt" />
@@ -632,13 +351,39 @@
         <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/build.gradle.kts" />
-        <option value="$PROJECT_DIR$/courseapp-app/build.gradle.kts" />
         <option value="$PROJECT_DIR$/courseapp-test/build.gradle.kts" />
         <option value="$PROJECT_DIR$/library/build.gradle.kts" />
         <option value="$PROJECT_DIR$/settings.gradle.kts" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBots.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/OurObservable.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/FakeSecureStorage.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/DataStoreIo.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/messages/MessageFactory.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/messages/Message.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/messages/MediaType.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseAppInitializerImpl.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseApp.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseAppInitializer.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseAppImpl.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/RemoteNode.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/RemoteAvlTree.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/FakeSecureStorageModule.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseAppModule.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/old/courseapp/CourseAppInitializerImpl.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/messages/MessageFactoryImpl.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/messages/MessageImpl.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBotModule.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseBotTestModule.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppModule.kt" />
         <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBotsImpl.kt" />
-        <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/ExpressionParser.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBot.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/old/courseapp/CourseAppImpl.kt" />
+        <option value="$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/old/courseapp/CourseAppModule.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/build.gradle.kts" />
         <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBotImpl.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/ExpressionParser.kt" />
+        <option value="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseBotTests.kt" />
       </list>
     </option>
   </component>
@@ -648,11 +393,11 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="38" />
-    <option name="y" value="31" />
-    <option name="width" value="1632" />
-    <option name="height" value="942" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="34" />
+    <option name="y" value="30" />
+    <option name="width" value="1636" />
+    <option name="height" value="946" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -660,7 +405,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -668,81 +412,12 @@
               <item name="base" type="b2602c69:ProjectViewProjectNode" />
               <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="courseapp-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="courseapp-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="courseapp-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="courseapp-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="courseapp-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="softwaredesign" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="courseapp-test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="courseapp-test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="courseapp-test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="courseapp-test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="base" type="b2602c69:ProjectViewProjectNode" />
-              <item name="base" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="courseapp-test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -753,7 +428,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560367829402" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561401481702" />
     <property name="last.edited.regexp" value="(1+2)*(3/4)-(5+6)" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -761,13 +436,23 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\RonHome\IdeaProjects\GitCourseApp\base\courseapp-app\src\test\kotlin\il\ac\technion\cs\softwaredesign\tests\old\courseapp" />
+      <recent name="C:\Users\RonHome\IdeaProjects\GitCourseApp\base\courseapp-app\src\test\kotlin\il\ac\technion\cs\softwaredesign\tests" />
+      <recent name="C:\Users\RonHome\IdeaProjects\GitCourseApp\base" />
+      <recent name="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign" />
+      <recent name="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests" />
+    </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="il.ac.technion.cs.softwaredesign.tests" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="il.ac.technion.cs.softwaredesign" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign" />
@@ -776,22 +461,14 @@
       <recent name="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign" />
       <recent name="$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign" />
     </key>
-    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
-      <recent name="il.ac.technion.cs.softwaredesign" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\RonHome\IdeaProjects\GitCourseApp\base" />
-      <recent name="$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign" />
-      <recent name="$PROJECT_DIR$/library/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests" />
-    </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="gradle zip" />
       <command value="gradle submission" />
       <command value="gradle test" />
-      <command value="gradle run" />
       <command value="gradle clean" />
+      <command value="gradle run" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -826,55 +503,49 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="base [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="run" />
-          </list>
-        </option>
-        <option name="vmOptions" value="" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="base [submission]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="submission" />
-          </list>
-        </option>
-        <option name="vmOptions" value="" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="CourseAppTest.channel message received successfully" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CourseBotTests.2 bots track a message from the same channel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="base.courseapp-app.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.*" />
+          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign" />
-      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.CourseAppTest" />
-      <option name="METHOD_NAME" value="channel message received successfully" />
+      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign.tests" />
+      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.tests.CourseBotTests" />
+      <option name="METHOD_NAME" value="2 bots track a message from the same channel" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CourseBotTests.A user in the channel can ask the bot to do calculation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="base.courseapp-app.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign.tests" />
+      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.tests.CourseBotTests" />
+      <option name="METHOD_NAME" value="A user in the channel can ask the bot to do calculation" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CourseBotTests.bot ignores messages that are not matching by regular expression" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="base.courseapp-app.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="il.ac.technion.cs.softwaredesign.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="il.ac.technion.cs.softwaredesign.tests" />
+      <option name="MAIN_CLASS_NAME" value="il.ac.technion.cs.softwaredesign.tests.CourseBotTests" />
+      <option name="METHOD_NAME" value="bot ignores messages that are not matching by regular expression" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -895,11 +566,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.il.ac.technion.cs.softwaredesign.ExpressionParser" />
-        <item itemvalue="Gradle.base [run]" />
         <item itemvalue="Gradle.base [clean]" />
-        <item itemvalue="Gradle.base [submission]" />
-        <item itemvalue="JUnit.CourseAppTest.channel message received successfully" />
+        <item itemvalue="JUnit.CourseBotTests.A user in the channel can ask the bot to do calculation" />
+        <item itemvalue="Kotlin.il.ac.technion.cs.softwaredesign.ExpressionParser" />
+        <item itemvalue="JUnit.CourseBotTests.2 bots track a message from the same channel" />
+        <item itemvalue="JUnit.CourseBotTests.bot ignores messages that are not matching by regular expression" />
       </list>
     </recent_temporary>
   </component>
@@ -933,6 +604,7 @@
       <workItem from="1560178713868" duration="20111000" />
       <workItem from="1560871829959" duration="85000" />
       <workItem from="1560872021662" duration="10888000" />
+      <workItem from="1561443762678" duration="100000" />
     </task>
     <task id="LOCAL-00001" summary="added some top to down implementation, trying to activate observer pattern...">
       <created>1559916616634</created>
@@ -952,39 +624,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="OtherTests1 - 2019.06.12 at 15h 17m 25s.xml">
-      <configuration name="OtherTests1" configurationId="JUnit" />
+    <history-entry file="CourseBotTests_A_user_in_the_channel_can_ask_the_bot_to_do_calculation - 2019.06.24 at 20h 13m 52s.xml">
+      <configuration name="CourseBotTests.A user in the channel can ask the bot to do calculation" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OtherTests3 - 2019.06.12 at 15h 17m 33s.xml">
-      <configuration name="OtherTests3" configurationId="JUnit" />
+    <history-entry file="CourseBotTests_A_user_in_the_channel_can_ask_the_bot_to_do_calculation - 2019.06.24 at 20h 16m 31s.xml">
+      <configuration name="CourseBotTests.A user in the channel can ask the bot to do calculation" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OtherTests2 - 2019.06.12 at 15h 17m 43s.xml">
-      <configuration name="OtherTests2" configurationId="JUnit" />
+    <history-entry file="CourseBotTests_A_user_in_the_channel_can_ask_the_bot_to_do_calculation - 2019.06.24 at 20h 20m 20s.xml">
+      <configuration name="CourseBotTests.A user in the channel can ask the bot to do calculation" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OtherTests3 - 2019.06.12 at 15h 18m 24s.xml">
-      <configuration name="OtherTests3" configurationId="JUnit" />
+    <history-entry file="CourseBotTests_A_user_in_the_channel_can_ask_the_bot_to_do_calculation - 2019.06.24 at 20h 20m 27s.xml">
+      <configuration name="CourseBotTests.A user in the channel can ask the bot to do calculation" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OtherTests3_login_exceptions - 2019.06.12 at 15h 26m 26s.xml">
-      <configuration name="OtherTests3.login exceptions" configurationId="JUnit" />
+    <history-entry file="CourseBotTests_A_user_in_the_channel_can_ask_the_bot_to_do_calculation - 2019.06.24 at 20h 20m 38s.xml">
+      <configuration name="CourseBotTests.A user in the channel can ask the bot to do calculation" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OtherTests3_login_exceptions - 2019.06.12 at 15h 27m 13s.xml">
-      <configuration name="OtherTests3.login exceptions" configurationId="JUnit" />
+    <history-entry file="CourseBotTests_A_user_in_the_channel_can_ask_the_bot_to_do_calculation - 2019.06.24 at 20h 24m 00s.xml">
+      <configuration name="CourseBotTests.A user in the channel can ask the bot to do calculation" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OtherTests3_login_exceptions - 2019.06.12 at 15h 30m 51s.xml">
-      <configuration name="OtherTests3.login exceptions" configurationId="JUnit" />
+    <history-entry file="CourseBotTests_A_user_in_the_channel_can_ask_the_bot_to_do_calculation - 2019.06.24 at 20h 26m 09s.xml">
+      <configuration name="CourseBotTests.A user in the channel can ask the bot to do calculation" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="base_[test] - 2019.06.12 at 21h 26m 55s.xml">
-      <configuration name="base [test]" configurationId="GradleRunConfiguration" />
+    <history-entry file="CourseBotTests_A_user_in_the_channel_can_ask_the_bot_to_do_calculation - 2019.06.24 at 20h 26m 50s.xml">
+      <configuration name="CourseBotTests.A user in the channel can ask the bot to do calculation" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseAppTest_channel_message_received_successfully - 2019.06.12 at 21h 27m 28s.xml">
-      <configuration name="CourseAppTest.channel message received successfully" configurationId="JUnit" />
+    <history-entry file="CourseBotTests_A_user_in_the_channel_can_ask_the_bot_to_do_calculation - 2019.06.24 at 20h 32m 14s.xml">
+      <configuration name="CourseBotTests.A user in the channel can ask the bot to do calculation" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="base_[test] - 2019.06.12 at 21h 29m 24s.xml">
-      <configuration name="base [test]" configurationId="GradleRunConfiguration" />
+    <history-entry file="CourseBotTests_A_user_in_the_channel_can_ask_the_bot_to_do_calculation - 2019.06.24 at 20h 33m 54s.xml">
+      <configuration name="CourseBotTests.A user in the channel can ask the bot to do calculation" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="281541000" />
+    <option name="totallyTimeSpent" value="281641000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -996,9 +668,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="38" y="31" width="1632" height="942" extended-state="0" />
+    <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2591195" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24725275" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1007,16 +680,16 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.19217877" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.28588235" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.33058822" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" weight="0.31586403" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932885" weight="0.28895184" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32867134" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.31058824" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32867134" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067115" side_tool="true" weight="0.28328612" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.24588235" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067115" side_tool="true" weight="0.33002833" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.24504249" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.32750583" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1031,6 +704,40 @@
       <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.32951653" />
       <window_info anchor="right" id="Maven" order="10" weight="0.3295302" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27449664" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.19217877" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" weight="0.40934843" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.33058822" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32867134" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.31058824" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32867134" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067115" side_tool="true" weight="0.28328612" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.24504249" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.32750583" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Gradle" order="5" />
+      <window_info anchor="right" id="Database" order="6" weight="0.32951653" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.32951653" />
+      <window_info anchor="right" id="Maven" order="10" weight="0.3295302" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -1055,6 +762,24 @@
     <MESSAGE value="added some top to down implementation, trying to activate observer pattern..." />
     <MESSAGE value="added more tests, stress for add listener / remove listener, &#10;tests for message sending for listeners and pending messages,&#10;&#10;missing: tests for exception handling for private/broadcast/channel&#10;and channel send tests mostly missing." />
     <option name="LAST_COMMIT_MESSAGE" value="added more tests, stress for add listener / remove listener, &#10;tests for message sending for listeners and pending messages,&#10;&#10;missing: tests for exception handling for private/broadcast/channel&#10;and channel send tests mostly missing." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBotImpl.kt</url>
+          <line>542</line>
+          <properties />
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBotImpl.kt</url>
+          <line>560</line>
+          <properties />
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1088,202 +813,123 @@ import java.util.LinkedHashMap</custom-info>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/FakeSecureStorage.kt" />
-    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/FakeSecureStorageModule.kt" />
-    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteNode.kt" />
-    <entry file="file://$USER_HOME$/Downloads/RCourseAppTest.kt" />
-    <entry file="file://$USER_HOME$/Downloads/tests/CourseAppTestModule.kt" />
-    <entry file="file://$USER_HOME$/Downloads/tests/VoldyCourseAppStatisticsTest.kt" />
-    <entry file="file://$USER_HOME$/Downloads/tests/VoldyCourseAppTest.kt" />
-    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/DataStoreIo.kt" />
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt" />
-    <entry file="file://$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest.kt" />
-    <entry file="file://$USER_HOME$/Downloads/tests/CourseAppTestHw2.kt" />
-    <entry file="file://$USER_HOME$/Downloads/tests/ourUtils.kt" />
-    <entry file="file://$USER_HOME$/Downloads/tests/CourseAppTest.kt" />
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.4.2/a9df56f0d77553e469fbcc0b5cb2e3b01d3b24fe/junit-jupiter-api-5.4.2-sources.jar!/org/junit/jupiter/api/Assertions.kt" />
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsImpl.kt" />
-    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/RemoteAvlTree.kt" />
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/OtherTests2.kt" />
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/OtherTests1.kt" />
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.4.2/2e434692947b66671a53b7ec887d50688dc61baf/junit-platform-commons-1.4.2-sources.jar!/org/junit/platform/commons/util/BlacklistedExceptions.java" />
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.4.2/a9df56f0d77553e469fbcc0b5cb2e3b01d3b24fe/junit-jupiter-api-5.4.2-sources.jar!/org/junit/jupiter/api/AssertThrows.java" />
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/utils.kt" />
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/OtherTests3.kt" />
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/MessageFactoryImpl.kt" />
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/messages/Message.kt" />
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/messages/MediaType.kt" />
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/old/courseapp/CourseApp.kt" />
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/old/courseapp/CourseAppInitializer.kt" />
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/old/courseapp/RemoteNode.kt" />
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/old/courseapp/FakeSecureStorageModule.kt" />
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/old/courseapp/FakeSecureStorage.kt" />
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/old/courseapp/CourseAppInitializerImpl.kt" />
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/old/courseapp/RemoteAvlTree.kt" />
+    <entry file="jar://C:/Gradle/gradle-5.4.1/caches/modules-2/files-2.1/com.authzee.kotlinguice4/kotlin-guice/1.3.0/154574bc5fd62c1b7b60030fe98c11e95f3baebf/kotlin-guice-1.3.0-sources.jar!/com/authzee/kotlinguice4/InjectorExtensions.kt" />
+    <entry file="file://$USER_HOME$/Desktop/softwareDesignHomework2OUR/base/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt" />
+    <entry file="file://$USER_HOME$/Desktop/softwareDesignHomework2OUR/base/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" />
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBotModule.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="102">
+          <caret line="6" column="45" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppImpl.kt" />
-    <entry file="file://$PROJECT_DIR$/library/src/main/kotlin/il/ac/technion/cs/softwaredesign/OurObservable.kt" />
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/Message.kt">
+    <entry file="file://$USER_HOME$/Desktop/softwareDesignHomework2OUR/base/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseAppStaffTest.kt" />
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppModule.kt" />
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatistics.kt" />
+    <entry file="jar://C:/Gradle/gradle-5.4.1/caches/modules-2/files-2.1/org.junit.platform/junit-platform-engine/1.4.2/877d768e61adbafa5760c7d5bba5e43510784a0c/junit-platform-engine-1.4.2-sources.jar!/org/junit/platform/engine/support/hierarchical/Node.java" />
+    <entry file="jar://C:/Gradle/gradle-5.4.1/caches/modules-2/files-2.1/org.junit.platform/junit-platform-engine/1.4.2/877d768e61adbafa5760c7d5bba5e43510784a0c/junit-platform-engine-1.4.2-sources.jar!/org/junit/platform/engine/support/hierarchical/SameThreadHierarchicalTestExecutorService.java" />
+    <entry file="jar://C:/Gradle/gradle-5.4.1/caches/modules-2/files-2.1/org.junit.platform/junit-platform-engine/1.4.2/877d768e61adbafa5760c7d5bba5e43510784a0c/junit-platform-engine-1.4.2-sources.jar!/org/junit/platform/engine/support/hierarchical/NodeTestTask.java" />
+    <entry file="jar://C:/Gradle/gradle-5.4.1/caches/modules-2/files-2.1/org.junit.platform/junit-platform-engine/1.4.2/877d768e61adbafa5760c7d5bba5e43510784a0c/junit-platform-engine-1.4.2-sources.jar!/org/junit/platform/engine/support/hierarchical/ThrowableCollector.java" />
+    <entry file="jar://C:/Gradle/gradle-5.4.1/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-engine/5.4.2/f108e9dae10699cebc1e0dcf3323ff3a749a49ed/junit-jupiter-engine-5.4.2-sources.jar!/org/junit/jupiter/engine/descriptor/TestMethodTestDescriptor.java" />
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/MediaType.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/MessageImpl.kt" />
-    <entry file="file://$PROJECT_DIR$/library/build.gradle.kts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-test/build.gradle.kts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" />
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppModule.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBots.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatistics.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="15" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="55" column="42" selection-start-line="55" selection-start-column="37" selection-end-line="55" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-12.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/nio/charset/Charset.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="602" column="26" selection-start-line="602" selection-start-column="26" selection-end-line="602" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.31/d16c788b755be19bf8a7eace113755519a1d7182/kotlin-stdlib-1.3.31-sources.jar!/kotlin/Collections.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="196" column="17" selection-start-line="196" selection-start-column="17" selection-end-line="196" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle.kts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="16" lean-forward="true" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#80#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/build.gradle.kts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="60" selection-start-line="20" selection-start-column="60" selection-end-line="20" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle.kts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBot.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="95" column="57" selection-start-line="95" selection-start-column="57" selection-end-line="95" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/MessageFactory.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseAppInitializer.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        <state relative-caret-position="102">
+          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseApp.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        <state relative-caret-position="217">
+          <caret line="98" column="36" selection-start-line="98" selection-start-column="15" selection-end-line="98" selection-end-column="36" />
+          <folding>
+            <element signature="e#42#197#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.31/d16c788b755be19bf8a7eace113755519a1d7182/kotlin-stdlib-1.3.31-sources.jar!/kotlin/text/StringsJVM.kt">
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_skeleton_assignment3 (1).zip/base/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBot.kt" />
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/messages/Message.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="71" column="25" selection-start-line="71" selection-start-column="25" selection-end-line="71" selection-end-column="25" />
+        <state relative-caret-position="68">
+          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.31/958c401b129f64de74af4b11a0894693edfa168d/kotlin-stdlib-common-1.3.31-sources.jar!/kotlin/text/Strings.kt">
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_skeleton_assignment3 (1).zip/base/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest.kt" />
+    <entry file="jar://C:/Gradle/gradle-5.4.1/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.4.2/a9df56f0d77553e469fbcc0b5cb2e3b01d3b24fe/junit-jupiter-api-5.4.2-sources.jar!/org/junit/jupiter/api/MethodOrderer.java" />
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseBotTestModule.kt" />
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/old/courseapp/CourseAppModule.kt" />
+    <entry file="jar://C:/Program Files/Java/jdk-12/lib/src.zip!/java.base/java/util/concurrent/CompletableFuture.java" />
+    <entry file="jar://C:/Gradle/gradle-5.4.1/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.31/d16c788b755be19bf8a7eace113755519a1d7182/kotlin-stdlib-1.3.31-sources.jar!/kotlin/text/StringsJVM.kt" />
+    <entry file="file://$PROJECT_DIR$/courseapp-app/build.gradle.kts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="691" column="31" selection-start-line="691" selection-start-column="31" selection-end-line="691" selection-end-column="31" />
+        <state relative-caret-position="204">
+          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_308284371-311822258.zip/base/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppStatisticsTest.kt" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_308284371-311822258.zip/base/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/CourseAppTest.kt" />
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBotsImpl.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBots.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseBotStaffTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="79" column="89" selection-start-line="79" selection-start-column="89" selection-end-line="79" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Gradle/gradle-5.4.1/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.4.2/2e434692947b66671a53b7ec887d50688dc61baf/junit-platform-commons-1.4.2-sources.jar!/org/junit/platform/commons/util/ReflectionUtils.java" />
+    <entry file="jar://C:/Gradle/gradle-5.4.1/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.4.2/a9df56f0d77553e469fbcc0b5cb2e3b01d3b24fe/junit-jupiter-api-5.4.2-sources.jar!/org/junit/jupiter/api/Assertions.java" />
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/messages/MessageImpl.kt" />
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBot.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="62" column="27" selection-start-line="62" selection-start-column="6" selection-end-line="62" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/old/courseapp/CourseAppImpl.kt" />
+    <entry file="jar://C:/Gradle/gradle-5.4.1/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.31/d16c788b755be19bf8a7eace113755519a1d7182/kotlin-stdlib-1.3.31-sources.jar!/kotlin/jvm/internal/Intrinsics.java" />
+    <entry file="jar://C:/Program Files/Java/jdk-12/lib/src.zip!/java.base/java/lang/String.java" />
+    <entry file="jar://C:/Program Files/Java/jdk-12/lib/src.zip!/java.base/java/util/HashMap.java" />
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/old/courseapp/DataStoreIo.kt" />
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/messages/MessageFactoryImpl.kt" />
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/old/courseapp/OurObservable.kt" />
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/CourseBotTests.kt" />
+    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBotImpl.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="803">
+          <caret line="483" column="57" selection-start-line="483" selection-start-column="57" selection-end-line="483" selection-end-column="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/ExpressionParser.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="126" column="16" selection-start-line="126" selection-start-column="16" selection-end-line="126" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-test/src/test/kotlin/il/ac/technion/cs/softwaredesign/tests/utils.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-100" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBotModule.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBotsImpl.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseapp-app/src/main/kotlin/il/ac/technion/cs/softwaredesign/CourseBotImpl.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="488" lean-forward="true" selection-start-line="488" selection-end-line="488" />
-          <folding>
-            <element signature="e#42#560#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1785">
+          <caret line="119" selection-start-line="119" selection-end-line="119" />
         </state>
       </provider>
     </entry>
@@ -1304,6 +950,7 @@ import java.util.LinkedHashMap</custom-info>
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
+          <last-edited>Kotlin</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1326,6 +973,7 @@ import java.util.LinkedHashMap</custom-info>
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
+          <last-edited>12</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1337,7 +985,7 @@ import java.util.LinkedHashMap</custom-info>
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>main|courseapp-app|base</last-edited>
+          <last-edited>test|courseapp-app|base</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1361,6 +1009,7 @@ import java.util.LinkedHashMap</custom-info>
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>Gradle: aopalliance:aopalliance:1.0</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

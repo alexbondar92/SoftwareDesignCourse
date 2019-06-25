@@ -25,6 +25,11 @@ class CourseBotStaffTest {
     private val bots = injector.getInstance<CourseBots>()
     private val messageFactory = injector.getInstance<MessageFactory>()
 
+    init {
+        bots.prepare().join()
+        bots.start().join()
+    }
+
     @Test
     fun `Can create a bot and add make it join channels`() {
         val token = courseApp.login("gal", "hunter2").join()
@@ -100,21 +105,23 @@ class CourseBotStaffTest {
 
     @Test
     fun `The bot accurately tracks keywords`() {
+        val regex = ".*ello.*[wW]orl.*"
+        val channel = "#channel"
         courseApp.login("gal", "hunter2")
                 .thenCompose { adminToken ->
-                    courseApp.channelJoin(adminToken, "#channel")
+                    courseApp.channelJoin(adminToken, channel)
                             .thenCompose {
                                 bots.bot()
-                                        .thenCompose { bot -> bot.join("#channel").thenApply { bot } }
-                                        .thenCompose { bot -> bot.beginCount(".*ello.*[wW]orl.*") }
+                                        .thenCompose { bot -> bot.join(channel).thenApply { bot } }
+                                        .thenCompose { bot -> bot.beginCount(regex = regex) }
                             }
                             .thenCompose { courseApp.login("matan", "s3kr3t") }
-                            .thenCompose { token -> courseApp.channelJoin(token, "#channel").thenApply { token } }
-                            .thenCompose { token -> courseApp.channelSend(token, "#channel", messageFactory.create(MediaType.TEXT, "hello, world!".toByteArray()).join()) }
+                            .thenCompose { token -> courseApp.channelJoin(token, channel).thenApply { token } }
+                            .thenCompose { token -> courseApp.channelSend(token, channel, messageFactory.create(MediaType.TEXT, "hello, world!".toByteArray()).join()) }
                 }.join()
 
         assertThat(runWithTimeout(ofSeconds(10)) {
-            bots.bot("Anna0").thenCompose { bot -> bot.count(".*hell.*worl.*") }.join()
+            bots.bot("Anna0").thenCompose { bot -> bot.count(regex =  regex) }.join()
         }, equalTo(1L))
     }
 

@@ -2,29 +2,36 @@ package il.ac.technion.cs.softwaredesign
 
 import com.authzee.kotlinguice4.getInstance
 import com.google.inject.Guice
+import com.google.inject.Inject
+import il.ac.technion.cs.softwaredesign.messages.MessageFactory
 import il.ac.technion.cs.softwaredesign.storage.SecureStorageModule
+import java.lang.Exception
 import java.time.LocalDateTime
 import java.util.concurrent.CompletableFuture
 
 class CourseBotsImpl : CourseBots {
 
+    @Inject
+    constructor(courseApp : CourseApp, messageFac : MessageFactory) {
+        cApp = courseApp
+        messageFactory = messageFac
+    }
+    private var messageFactory: MessageFactory
+    private var cApp : CourseApp
 
-    private val botsMap: HashMap<String, Pair<String, LocalDateTime>> = HashMap()   // Name to Pair(token, creation time)
+    companion object {
+        private val botsMap: HashMap<String, Pair<String, LocalDateTime>> = HashMap()   // botName -> Pair(token, creation time)
+        private var id = 0.toLong()
+    }
 
     // TODO ("does it need to be persistent at reboots?!?!? .... if yes what to do with all the listeners?? they need to be inserted again?")
     // TODO ("add get() for all the API methods of CoureApp")
     // TODO ("get all the data from the remote storage for CourseBots... - if was some...")
     // TODO ("matan - after reboot, all the bots initialize here(heavy opp)")
 
-    private val injector = Guice.createInjector(CourseAppModule(), CourseBotModule(), SecureStorageModule())
 
-    init {
-        injector.getInstance<CourseAppInitializer>().setup().join()
-    }
-
-    private val cApp = injector.getInstance<CourseApp>()
     private val defaultNamePrefix = "Anna"
-    private var id = 0.toLong()
+
 
     /**
      * Get an instance of CourseBot for a bot named [name].
@@ -38,9 +45,12 @@ class CourseBotsImpl : CourseBots {
         val botName = name ?: getDefaultName()
         val password = "pass%$botName%ssap"
 
-        val token = cApp.login(botName, password).get()
-        val bot = CourseBotImpl(botName, token)
-        addToBotsMap(botName, token)
+        var token = botsMap[botName]?.first
+        if(token == null){
+            token = cApp.login(botName, password).get()!!
+            addToBotsMap(botName, token)
+        }
+        val bot = CourseBotImpl(botName, token, cApp, messageFactory)
 
         return CompletableFuture.completedFuture(bot)
     }
@@ -80,16 +90,16 @@ class CourseBotsImpl : CourseBots {
     private fun getBotsOfChannel(channel: String): CompletableFuture<List<String>> {
         return CompletableFuture.completedFuture(
                 botsMap.asSequence().filter {
-                    val result = cApp.isUserInChannel(it.key, channel, it.value.first).get()
-                    if (result != null) {
-                        result == true
-                    } else {
-                        false
-                    }
+                    try {
+                        val result = cApp.isUserInChannel(it.value.first, channel, it.key).get()
+                        if (result != null) {
+                            result == true
+                        } else {
+                            false
+                        }
+                    } catch (e: Exception){false}
                 }.sortedBy { it.value.second }.map { it.key }.toList()
         )
-        // TODO ("I looks like a heavy method... need to rethink about it")
-        // TODO ("maybe create some map/tree for bots in every channel... or use channels() from CourseBot...")
     }
 
     private fun addToBotsMap(botName: String, token: String) {

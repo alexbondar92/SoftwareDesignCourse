@@ -4,6 +4,6 @@ import com.authzee.kotlinguice4.KotlinModule
 
 class CourseBotModule : KotlinModule() {
     override fun configure() {
-        TODO("Implement me!")
+        bind<CourseBot>().to<CourseBotImpl>()
     }
 }

@@ -117,7 +117,7 @@ object ExpressionParser {
 
         return java.lang.Double.valueOf(stack.pop())
     }
-
+/*
     // Example:
     @JvmStatic
     private fun main(args: Array<String>) {
@@ -137,4 +137,5 @@ object ExpressionParser {
         println()
         println("result: $result")
     }
+    */
 }
