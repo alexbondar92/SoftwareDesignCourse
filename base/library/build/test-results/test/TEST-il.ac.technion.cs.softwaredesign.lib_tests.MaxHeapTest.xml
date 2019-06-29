@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="il.ac.technion.cs.softwaredesign.lib_tests.MaxHeapTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2019-06-26T17:30:49" hostname="DESKTOP-C0DN9PE" time="14.097">
+  <properties/>
+  <testcase name="restoring list()" classname="il.ac.technion.cs.softwaredesign.lib_tests.MaxHeapTest" time="0.447"/>
+  <testcase name="add a lot()" classname="il.ac.technion.cs.softwaredesign.lib_tests.MaxHeapTest" time="4.829"/>
+  <testcase name="increase score()" classname="il.ac.technion.cs.softwaredesign.lib_tests.MaxHeapTest" time="0.687"/>
+  <testcase name="decrease score()" classname="il.ac.technion.cs.softwaredesign.lib_tests.MaxHeapTest" time="0.845"/>
+  <testcase name="remove and add 2()" classname="il.ac.technion.cs.softwaredesign.lib_tests.MaxHeapTest" time="0.887"/>
+  <testcase name="no change()" classname="il.ac.technion.cs.softwaredesign.lib_tests.MaxHeapTest" time="0.577"/>
+  <testcase name="removing 2()" classname="il.ac.technion.cs.softwaredesign.lib_tests.MaxHeapTest" time="0.768"/>
+  <testcase name="remove a lot()" classname="il.ac.technion.cs.softwaredesign.lib_tests.MaxHeapTest" time="1.53"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
