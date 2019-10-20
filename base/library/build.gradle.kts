@@ -1,11 +1,11 @@
 
 plugins {
-    application
+//    application
 }
 
-application {
-    mainClassName = "il.ac.technion.cs.softwaredesign.MainKt"
-}
+//application {
+//    mainClassName = "il.ac.technion.cs.softwaredesign.MainKt"
+//}
 
 val junitVersion: String? by extra
 val hamkrestVersion: String? by extra

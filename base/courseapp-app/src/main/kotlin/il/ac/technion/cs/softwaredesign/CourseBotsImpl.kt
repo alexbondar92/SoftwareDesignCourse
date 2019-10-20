@@ -4,7 +4,6 @@ import com.google.inject.Inject
 import il.ac.technion.cs.softwaredesign.exceptions.InvalidTokenException
 import il.ac.technion.cs.softwaredesign.messages.MediaType
 import il.ac.technion.cs.softwaredesign.messages.MessageFactory
-import il.ac.technion.cs.softwaredesign.storage.SecureStorage
 import il.ac.technion.cs.softwaredesign.storage.SecureStorageFactory
 import java.lang.Exception
 import java.time.LocalDateTime
@@ -27,7 +26,7 @@ class CourseBotsImpl : CourseBots {
         idOverKillMap = dicFactory.get()
 
         //bot maps area:
-        dicFactoryForBotMapings = DictionaryFactory(secStorageFac, "botMaps") //factory
+        diceFactoryForBotMappings = DictionaryFactory(secStorageFac, "botMaps") //factory
 
         //dictionaries for courseBot:
         /* Explanation: (help with understanding what the hell is happening here) */
@@ -38,19 +37,21 @@ class CourseBotsImpl : CourseBots {
         // with the value of counter the factory decides on the identifier of the collection (in this case dictionary)
         // two collections which saved on the same storage with the same identifier are the same (library promise that),
         // therefor all courseBots share the same collection which they pass to courseBot when asked to supply a new instance.
-        channels = dicFactoryForBotMapings.get()
-        counters = dicFactoryForBotMapings.get()
-        countersChannelListOfPairs = dicFactoryForBotMapings.get()
-        triggerPhraseIn = dicFactoryForBotMapings.get()
-        tipTriggerPhraseIn = dicFactoryForBotMapings.get()
-        tippingServiceIn = dicFactoryForBotMapings.get()
-        channelToUsersListsIn = dicFactoryForBotMapings.get()
-        seenLastTimeServiceIn = dicFactoryForBotMapings.get()
-        mostActiveServiceIn = dicFactoryForBotMapings.get()
-        surveysIn = dicFactoryForBotMapings.get()
-        surveysHistoryIn = dicFactoryForBotMapings.get()
-        idGeneratorIn = dicFactoryForBotMapings.get()
-        surveyIdList = dicFactoryForBotMapings.get()
+        channels = diceFactoryForBotMappings.get()
+        counters = diceFactoryForBotMappings.get()
+        countersChannelListOfPairs = diceFactoryForBotMappings.get()
+        triggerPhraseIn = diceFactoryForBotMappings.get()
+        tipTriggerPhraseIn = diceFactoryForBotMappings.get()
+        tippingServiceIn = diceFactoryForBotMappings.get()
+        channelToUsersListsIn = diceFactoryForBotMappings.get()
+        seenLastTimeServiceIn = diceFactoryForBotMappings.get()
+        mostActiveServiceIn = diceFactoryForBotMappings.get()
+        surveysIn = diceFactoryForBotMappings.get()
+        surveysHistoryIn = diceFactoryForBotMappings.get()
+        idGeneratorIn = diceFactoryForBotMappings.get()
+        surveyIdList = diceFactoryForBotMappings.get()
+        surveysChannels = diceFactoryForBotMappings.get()
+        surveysAnswers = diceFactoryForBotMappings.get()
 
 
         // initialise maps here because compiler is stupid
@@ -61,15 +62,14 @@ class CourseBotsImpl : CourseBots {
         surveysCallbacksIn = hashMapOf()
         countersCallbacksIn = hashMapOf()
         //
-        rebootProcedure()
 
     }
 
 
-
+    private val charset = Charsets.UTF_8
     private var secStorageFac: SecureStorageFactory
     //bot maps area:
-    private var dicFactoryForBotMapings : DictionaryFactory
+    private var diceFactoryForBotMappings : DictionaryFactory
     private var channels : Dictionary
     private var counters : Dictionary
     private var countersChannelListOfPairs : Dictionary
@@ -83,12 +83,14 @@ class CourseBotsImpl : CourseBots {
     private var surveysHistoryIn:Dictionary
     private var idGeneratorIn: Dictionary
     private var surveyIdList : Dictionary
+    private var surveysChannels: Dictionary
+    private var surveysAnswers: Dictionary
     //end
 
     private var messageFactory: MessageFactory
     private var cApp : CourseApp
 
-    private var botsCollection: HashMap<String, CourseBot> = HashMap()
+    private var botsCollection: HashMap<String, CourseBotImpl> = HashMap()
 
     private val defaultNamePrefix = "Anna"
 
@@ -107,12 +109,6 @@ class CourseBotsImpl : CourseBots {
     private val surveysCallbacksIn: HashMap<String,HashMap<String, ListenerCallback>>
     private val countersCallbacksIn: HashMap<String,HashMap<Triple<String?, String?, MediaType?>, ListenerCallback>>
 
-    // TODO ("add get() for all the API methods of CourseApp")
-    // TODO ("get all the data from the remote storage for CourseBots... - if was some...")
-    // TODO ("Matan - after reboot, all the bots initialize here(heavy opp) - we will save all the bots in this object at init time...")
-    // TODO ("so we need map of all the bots in the system....  botName -> CourseAppBot!")
-
-
     private fun rebootProcedure(){
         recreateBots()
         recreateInsideBotSystem()
@@ -124,7 +120,7 @@ class CourseBotsImpl : CourseBots {
         //if not logged in, log in the bot and update the token on storage.
         //check if logged in through courseApp, token is in storage, time should not be changed
         for(botName in listOfBotNames){
-            var token = botsMapToToken.read(botName)!!  //assert not null because of consistent information between listOfBotNames and botsMapToToken
+            val token = botsMapToToken.read(botName)!!  //assert not null because of consistent information between listOfBotNames and botsMapToToken
             val flag : Boolean? = try {
                  cApp.isUserLoggedIn(token, botName).get()
             }catch(e : InvalidTokenException){
@@ -138,56 +134,59 @@ class CourseBotsImpl : CourseBots {
         }
     }
 
+    override fun start(): CompletableFuture<Unit> {
+        rebootProcedure()
+        return  CompletableFuture.completedFuture(Unit)
+    }
+
+    override fun prepare(): CompletableFuture<Unit> {
+        return  CompletableFuture.completedFuture(Unit)
+    }
+
     private fun recreateInsideBotSystem(){
         for(botName in listOfBotNames) {
             if(botsCollection.contains(botName))
                 continue
             val token = botsMapToToken.read(botName)!!
-            val bot = CourseBotImpl(botName, token, cApp, messageFactory, secStorageFac, dicFactoryForBotMapings, listFactory,
+            val bot = CourseBotImpl(botName, token, cApp, messageFactory, secStorageFac, diceFactoryForBotMappings, listFactory,
                     channels, counters, countersChannelListOfPairs, triggerPhraseIn, tipTriggerPhraseIn, tippingServiceIn,
                     channelToUsersListsIn, seenLastTimeServiceIn, mostActiveServiceIn, surveysIn, surveysHistoryIn,idGeneratorIn,
-                    surveyIdList,
+                    surveyIdList, surveysChannels, surveysAnswers,
                     tipCallbackIn, calculationCallbackIn, lastSeenCallbacksIn, mostActiveCallbacksIn, surveysCallbacksIn, countersCallbacksIn)
             botsCollection[botName] = bot
 
-            //restoreTipLiseners(bot)
-            //restoreCalculationsLiseners(bot)
-            //restoreLastSeenLiseners(bot)
-            //restoreActiveLiseners(bot)
-            //restoreSurveysLiseners(bot, botName)
-            //restoreCounterLiseners(bot)
+            restoreLastSeenListeners(bot)
+            restoreActiveListeners(bot)
+            restoreCalculationsListeners(bot)
+            restoreTipListeners(bot)
+            restoreSurveysListeners(bot)
+            restoreCounterListeners(bot)
 
         }
     }
 
-    private fun restoreCounterLiseners(bot: CourseBot) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-        //need to add for each bot list of triples and go over it with beginCount but without initialisation of statistics
-        //maybe change the way statistics work here to : botName -> (triple) -> Long (need to do it anyway so...)
+    private fun restoreCounterListeners(bot: CourseBotImpl) {
+        bot.restoreCounterListeners()
     }
 
-    private fun restoreSurveysLiseners(bot: CourseBot, botName:String) {
-        var listId = surveyIdList.read(botName)?: return
-        val list = listFactory.restoreLinkedList(listId)
-        for(surveyId in list){
-
-        }
+    private fun restoreSurveysListeners(bot: CourseBotImpl) {
+        bot.restoreSurveysListeners()
     }
 
-    private fun restoreActiveLiseners(bot: CourseBot) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    private fun restoreActiveListeners(bot: CourseBotImpl) {
+        bot.restoreActiveListeners()
     }
 
-    private fun restoreLastSeenLiseners(bot: CourseBot) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    private fun restoreLastSeenListeners(bot: CourseBotImpl) {
+        bot.restoreLastSeenListeners()
     }
 
-    private fun restoreCalculationsLiseners(bot: CourseBot) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    private fun restoreCalculationsListeners(bot: CourseBotImpl) {
+        bot.restoreCalculationsListeners()
     }
 
-    private fun restoreTipLiseners(bot: CourseBot) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    private fun restoreTipListeners(bot: CourseBotImpl) {
+        bot.restoreTipListeners()
     }
 
     /**
@@ -211,10 +210,10 @@ class CourseBotsImpl : CourseBots {
             listOfBotNames.add(botName)
         }
 
-        val bot = CourseBotImpl(botName, token, cApp, messageFactory, secStorageFac, dicFactoryForBotMapings, listFactory,
+        val bot = CourseBotImpl(botName, token, cApp, messageFactory, secStorageFac, diceFactoryForBotMappings, listFactory,
                     channels, counters, countersChannelListOfPairs, triggerPhraseIn, tipTriggerPhraseIn, tippingServiceIn,
                 channelToUsersListsIn, seenLastTimeServiceIn, mostActiveServiceIn, surveysIn, surveysHistoryIn,idGeneratorIn,
-                surveyIdList,
+                surveyIdList, surveysChannels, surveysAnswers,
                 tipCallbackIn, calculationCallbackIn, lastSeenCallbacksIn, mostActiveCallbacksIn, surveysCallbacksIn, countersCallbacksIn)
 
         botsCollection[botName] = bot

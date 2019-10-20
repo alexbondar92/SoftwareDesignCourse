@@ -1,30 +1,33 @@
 # CourseApp: Assignment 3
 
 ## Authors
-* Firstname McLastname, ID number
-* Firstnamey Lastnameson, ID number
+* Alex Bondar, 311822258
+* Ron Efimov, 308284371
 
 ### Previous assignment
-This assignment uses the code from the submission by: <ID1\>-<ID2\>
+This assignment uses the code from the submission by: 311822258-308284371
 
 (This is important for people who switched partners, but everyone needs to fill it out)
 
 ## Library selection
-This submission uses the library identified by the number: <library number\>
+This submission uses the library identified by the number: 5
 
 ## Notes
 
 ### Implementation Summary
-Short summary of your implementation, including data structures used, design choices made, and
-a short tour of the class hierarchy you created.
+We have used the data structures from the library for that assignment.
+In addition we used the courseApp listeners system for the data that 
+the bots are getting as user that is inside the channels and listen 
+for all the messages inside. for every "statistics" of the bot we 
+create listener for that purpose.
 
 ### Testing Summary
-Short summary describing the ways you chose to test your code.
+We decided to use the implementation of courseApp from the previous assignment 
+for testing the new bot API. 
 
 ### Difficulties
-Please list any technological difficulties you had while working on this assignment, especially
-with the tools used: Kotlin, JUnit, MockK, Gradle, and Guice.
+It was interesting to understand, read, use and refactor the libraries of someone else.
+
 
 ### Feedback
-Put any feedback you may have for this assignment here. This **will** be read by the course staff,
-and may influence future assignments!
+great idea to do this represent of the library between the groups

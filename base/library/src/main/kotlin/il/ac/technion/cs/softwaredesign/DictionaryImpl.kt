@@ -2,6 +2,7 @@ package il.ac.technion.cs.softwaredesign
 
 import il.ac.technion.cs.softwaredesign.storage.SecureStorage
 import java.nio.charset.Charset
+import java.util.concurrent.CompletableFuture
 
 /**
  * Implements [Dictionary] using [SecureStorage].
@@ -21,16 +22,29 @@ import java.nio.charset.Charset
  */
 class DictionaryImpl(private val storage: SecureStorage, private val dictionaryId: ByteArray) : Dictionary {
     private var counter = storage.read(dictionaryId + 2.toByte()).join()?.toString(Charset.defaultCharset())?.toInt()?: 0
+    private val cache : HashMap<String, String?> = HashMap()
+
 
     override fun read(key: String): String? {
-        return storage.read(dictionaryId + 0.toByte() + key.toByteArray()).join()?.toString(Charset.defaultCharset())
+        if (this.cache[key] != null) {
+            return this.cache[key]!!                              // Got a hit at the cache
+        }
+
+        val ret = storage.read(dictionaryId + 0.toByte() + key.toByteArray()).join()?.toString(Charset.defaultCharset())
+        this.cache[key] = ret
+        return ret
     }
 
     override fun write(key: String, value: String) {
+        this.cache[key] = value
+
         storage.write(dictionaryId + 0.toByte() + key.toByteArray(), value.toByteArray()).join()
     }
 
     override fun contains(key: String): Boolean {
+        if (this.cache[key] != null)
+            return true
+
         read(key)?: return false
         return true
     }

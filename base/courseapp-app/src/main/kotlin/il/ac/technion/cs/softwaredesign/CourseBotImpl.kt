@@ -13,29 +13,28 @@ import kotlin.collections.HashMap
 
 class CourseBotImpl : CourseBot {
 
-
     constructor(name: String, token: String, courseApp: CourseApp, messageFac: MessageFactory,
-                secStorageFac: SecureStorageFactory, dicFactoryForBotMapings: DictionaryFactory, listFactoryIn: LinkedListFactory ,channelsIn : Dictionary, countersIn: Dictionary,
+                secStorageFac: SecureStorageFactory, dicFactoryForBotMappings: DictionaryFactory, listFactoryIn: LinkedListFactory, channelsIn : Dictionary, countersIn: Dictionary,
                 countersChannelListOfPairsIn: Dictionary, triggerPhraseIn : Dictionary, tipTriggerPhraseIn: Dictionary,
                 tippingServiceIn:Dictionary, channelToUsersListsIn: Dictionary, seenLastTimeServiceIn: Dictionary,
                 mostActiveServiceIn: Dictionary, surveysIn:Dictionary, surveysHistoryIn:Dictionary, idGeneratorIn: Dictionary,
                 surveyIdListIn: Dictionary,
+                surveysChannelsIn: Dictionary,
+                surveysAnswersIn: Dictionary,
                 tipCallbackIn: HashMap<String,ListenerCallback?>, calculationCallbackIn: HashMap<String,ListenerCallback?>,
                 lastSeenCallbacksIn: HashMap<String,HashMap<String, ListenerCallback>>,
                 mostActiveCallbacksIn: HashMap<String,HashMap<String, ListenerCallback>>,
                 surveysCallbacksIn: HashMap<String,HashMap<String, ListenerCallback>>,
                 countersCallbacksIn: HashMap<String,HashMap<Triple<String?, String?, MediaType?>, ListenerCallback>>
                 ) {
-        // TODO ("does this bot in the storage? if yes load his data else create new empty bot")
-        // TODO ("sync with the library - to load or init one of them... depending if there was this bot before the reboot")
 
         cApp = courseApp
         messageFactory = messageFac
         botName = name
         botToken = token
 
-        dicFactory = dicFactoryForBotMapings    //given by courseBots, so no more secure storags will open
-        listFactory = listFactoryIn             //given by courseBots, so no more secure storags will open
+        dicFactory = dicFactoryForBotMappings    //given by courseBots, so no more secure storage will open
+        listFactory = listFactoryIn             //given by courseBots, so no more secure storage will open
         heapFactory = MaxHeapFactory(secStorageFac, "botHeapFac")
 
         // init maps for that bot - local data structures
@@ -57,6 +56,9 @@ class CourseBotImpl : CourseBot {
         surveysHistory = surveysHistoryIn
         idGenerator = idGeneratorIn
         surveyIdList = surveyIdListIn
+        surveysChannels = surveysChannelsIn
+        surveysAnswers = surveysAnswersIn
+
 
         //local From courseBots
         tipCallback = tipCallbackIn
@@ -90,18 +92,20 @@ class CourseBotImpl : CourseBot {
     private var countersCallbacks: HashMap<String,HashMap<Triple<String?, String?, MediaType?>, ListenerCallback>> = HashMap()          //local     // Triple(channel, Regex, MediaType) -> ListenerCallback
 
     //storage:
-    private var channels : Dictionary                       //HashMap<String, MutableList<String>>
-    private val counters: Dictionary                        //HashMap<String, HashMap<String, HashMap<Pair<String?, MediaType?>, Long>>>
+    private var channels : Dictionary                       // HashMap<String, MutableList<String>>
+    private val counters: Dictionary                        // HashMap<String, HashMap<String, HashMap<Pair<String?, MediaType?>, Long>>>
     private val countersChannelListOfPairs : Dictionary     // botName -> channel -> list of pairs //TODO("change to triple")
     private val triggerPhrase: Dictionary                   // botName -> (Calculation Trigger)String
-    private var tipTriggerPhrase: Dictionary                //HashMap<String, String?>
-    private val tippingService: Dictionary                  //HashMap<String, HashMap<String, HashMap<String, Long>>>
+    private var tipTriggerPhrase: Dictionary                // HashMap<String, String?>
+    private val tippingService: Dictionary                  // HashMap<String, HashMap<String, HashMap<String, Long>>>
     private val channelToUsersLists: Dictionary             // channelName -> users List    //not specific to botName
-    private val seenLastTimeService: Dictionary             //HashMap<String, HashMap<String, HashMap<String, LocalDateTime?>>>
+    private val seenLastTimeService: Dictionary             // HashMap<String, HashMap<String, HashMap<String, LocalDateTime?>>>
     private val mostActiveService: Dictionary               // botName -> (channel ->(user, number of messages sent by user))
     private val surveys: Dictionary                         // surveyID -> (heap of idAnswer -> counter)
     private val surveysHistory: Dictionary                  // surveyID -> heap of voter(userName) to answerID
     private val surveyIdList: Dictionary                    // botName -> list of survey ids
+    private val surveysChannels: Dictionary                 // surveyID -> channel of this survey
+    private val surveysAnswers: Dictionary                  // surveyID ->  list of answers
     //global survey id counter:
     private var idGenerator:Dictionary      //for key : "num" have the number as a data, if not created just return null when reading for that key.
     //end storage
@@ -171,12 +175,6 @@ class CourseBotImpl : CourseBot {
         resetCounterForAllChannelsOfBot(channelToReset = channelName)
         removeFromChannelsList(channelName)
         return CompletableFuture.completedFuture(Unit)
-
-        // TODO ("need to remove all the callbacks from this channel before part - assumption for courseApp")
-        /*
-        resetBotIn(channelName)
-        return CompletableFuture.completedFuture(Unit)
-        */
     }
 
     /**
@@ -382,8 +380,10 @@ class CourseBotImpl : CourseBot {
         addToSurveyList(surveyId)
 
         sendSurveyQuestion(channel, question)
+
         val callback = getSurveyCallback(channel, answers, surveyId)
 
+        setSurveyRawData(surveyId, channel, answers)
         surveysCallbacks[botName]!![surveyId] = callback
         cApp.addListener(botToken, callback).get()
 
@@ -518,17 +518,35 @@ class CourseBotImpl : CourseBot {
         }
     }
 
-    private fun evaluateExpresion(expression: String): Double {
+    private fun evaluateExpresion(expression: String): Float {
 
 //        val newExpresion = expression.replace(" ","")
 //                .replace(Regex(".(?!$)"), "$0 ")
 //                .split(" ")
 //                .dropLastWhile { it.isEmpty() }
 //                .toTypedArray()                     // matan: can be spaces in the exp...
-        val newExpresion = expression.split(" ".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+//        val newExpresion = expression.split(" ".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+//
+//        val outputRPN = ExpressionParser.infixToRPN(newExpresion)
+//        return ExpressionParser.RPNtoDouble(outputRPN)
+        val expr = Expression(expression)
+//        val match = expr.isLegallyMatched
+//        println("Expression legally matched: $match")
+//        if (!match) {
+//            continue
+//        }
+        expr.buildSymbols()
 
-        val outputRPN = ExpressionParser.infixToRPN(newExpresion)
-        return ExpressionParser.RPNtoDouble(outputRPN)
+//        print("Enter symbol values file name, or hit return if no symbols => ")
+//        line = scstdin.nextLine()
+//        if (line.isNotEmpty()) {
+//            val scfile = Scanner(File(line))
+//            expr.loadSymbolValues(scfile)
+//            expr.printScalars()
+//            expr.printArrays()
+//        }
+//        println("Value of expression = " + expr.evaluate())
+        return expr.evaluate()
     }
 
     private fun getAnswerNumber(answers: List<String>, message: Message): Int {
@@ -613,17 +631,6 @@ class CourseBotImpl : CourseBot {
             }
         }
         return richestUser
-    }
-
-    private fun resetBotIn(channel: String) {
-        /*
-        // reset surveys
-        surveys.asSequence().filter {
-            !surveyCallbacks[channel]!!.contains(it.value.first)
-        }.toList()          // TODO ("fix it")
-
-        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-        */
     }
 
     // ========================== getters, setters & inits for storage structures ======================================
@@ -720,7 +727,6 @@ class CourseBotImpl : CourseBot {
     private fun incSurveyVote(surveyId: String, answerId: Int) {
         val heapOfAnswerCountersId = surveys.read(surveyId)!!
         val heapOfAnswerCounters = heapFactory.restoreMaxHeap(heapOfAnswerCountersId)
-        val oldCounter = heapOfAnswerCounters.getScore(answerId.toString())
         heapOfAnswerCounters.changeScore(answerId.toString() ,  1)
     }
 
@@ -840,9 +846,10 @@ class CourseBotImpl : CourseBot {
     private fun isCountersExists(): Boolean {
         return counters.read(botName) != null
     }
+
     //type counters: HashMap<String, HashMap<String, HashMap<Pair<String?, MediaType?>, Long>>>
     private fun getCounterOf(channel: String, p: Pair<String?, MediaType?>): Long? {
-        val id = counters.read(botName)!!
+        val id = counters.read(botName) ?: return null
         val mapChannel = dicFactory.restoreDictionary(id)
         val channelMapId  = mapChannel.read(channel)!!
         val mapPairToLong = dicFactory.restoreDictionary(channelMapId)
@@ -852,6 +859,23 @@ class CourseBotImpl : CourseBot {
 
     private fun pairToString(p: Pair<String?, MediaType?>) : String{
         return p.first + "%" + p.second?.ordinal.toString()
+    }
+
+    private fun stringToPair(s: String) : Pair<String?, MediaType?>{
+        val regex = s.split("%")[0]
+        val tmpType = s.split("%")[1]
+        var type: MediaType? = null
+        when (tmpType) {
+            MediaType.TEXT.toString() -> type = MediaType.TEXT
+            MediaType.PICTURE.toString() -> type = MediaType.PICTURE
+            MediaType.AUDIO.toString() -> type = MediaType.AUDIO
+            MediaType.FILE.toString() -> type = MediaType.FILE
+            MediaType.LOCATION.toString() -> type = MediaType.LOCATION
+            MediaType.REFERENCE.toString() -> type = MediaType.REFERENCE
+            MediaType.STICKER.toString() -> type = MediaType.STICKER
+        }
+
+        return Pair(regex, type)
     }
 
     private fun incCounterOf(channel: String, p: Pair<String?, MediaType?>) {
@@ -1000,10 +1024,83 @@ class CourseBotImpl : CourseBot {
         }
     }
 
-    // TODO ("counter with triplet issue...")
-    // TODO ("issue with zeroing counters and all the stats for channels after parting the channel")
-    // TODO ("choose library")
-    // TODO ("move data structures library")
-    // TODO ("pass to tests")
-    // TODO ("excretions eval - need to correct it... examples: (20) +2 ; (2 + 4) ; (2 + -2) ; 2*20 + 5 : -2 + -2 : (2+3)*5 : (2 +     6 ) *     7")
+    fun restoreCounterListeners() {
+        val channelToListPairsId = countersChannelListOfPairs.read(botName)!!
+        val channelToListPairMap = dicFactory.restoreDictionary(channelToListPairsId)
+        for (channel in channelsList()) {
+            val listId: String? = channelToListPairMap.read(channel) ?: continue
+            val listPairs = listFactory.restoreLinkedList(listId!!)
+            for(pair in listPairs){
+                val (regex, mediaType) = stringToPair(pair)
+                val callback = getCounterCallback(Pair(regex, mediaType), channel)
+                cApp.addListener(botToken, callback)
+            }
+        }
+    }
+
+    fun restoreLastSeenListeners() {
+        for (channel in channelsList()) {
+            val callback = getLastSeenCallback(channel)
+            cApp.addListener(botToken, callback)
+        }
+    }
+
+    fun restoreActiveListeners() {
+        for (channel in channelsList()) {
+            val callback = getMostActiveUserCallback(channel)
+            cApp.addListener(botToken, callback)
+        }
+    }
+
+    fun restoreCalculationsListeners() {
+        val calculationTrigger = getTriggerPhrase()
+        if (calculationTrigger != null) {
+            val callback = getCalculationCallback(calculationTrigger)
+            cApp.addListener(botToken, callback)
+        }
+    }
+
+    fun restoreTipListeners() {
+        val tipTrigger = getTipTriggerPhrase()
+        if (tipTrigger != null) {
+            val callback = getTipCallback(tipTrigger)
+            cApp.addListener(botToken, callback)
+        }
+    }
+
+    fun restoreSurveysListeners() {
+        val listId = surveyIdList.read(botName)?: return
+        val list = listFactory.restoreLinkedList(listId)
+        for(surveyId in list){
+            val (channel, answers) = getSurveyRawData(surveyId)
+            val callback = getSurveyCallback(channel, answers, surveyId)
+            cApp.addListener(botToken, callback)
+        }
+    }
+
+    private fun setSurveyRawData(id: String, channel: String, answers: List<String>) {
+        surveysChannels.write(id, channel)
+
+        var listId = surveysAnswers.read(botName)
+        if(listId == null){
+            listId = listFactory.get().getId()
+            surveysAnswers.write(botName, listId)
+        }
+        val list = listFactory.restoreLinkedList(listId)
+        for (answer in answers) {
+            list.add(answer)
+        }
+    }
+
+    private fun getSurveyRawData(id: String): Pair<String, List<String>> {
+        val channel = surveysChannels.read(id)!!
+        val listId = surveysAnswers.read(id)!!
+        val list = listFactory.restoreLinkedList(listId)
+        val answers = mutableListOf<String>()
+        for (answer in list) {
+            answers.add(answer)
+        }
+        return Pair(channel, answers)
+    }
+
 }

@@ -4,6 +4,21 @@ import java.util.concurrent.CompletableFuture
 
 interface CourseBots {
   /**
+   * Prepare the storage. This method will be called only once on system initialization.
+   */
+  fun prepare() : CompletableFuture<Unit>
+
+  /**
+   * Start all the CourseBots that have been ever created. This method will be called every time the system is started
+   * (i.e., after a restart).
+   *
+   * This method requires loading configuration from storage.
+   *
+   * @return Future that completes once all the bots have been fully created.
+   */
+  fun start() : CompletableFuture<Unit>
+
+  /**
    * Get an instance of CourseBot for a bot named [name].
    *
    * If the bot did not previously exist, it will be created. The default name for a bot is "Anna$n", where n is the
